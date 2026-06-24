@@ -56,4 +56,6 @@ In Claude, go to `Customize > Skills`, choose `+ Create skill`, upload the folde
 
 Every public skill in this repo must be listed in the root README, its category README, `.claude-plugin/plugin.json`, and `skills.sh.json`.
 
+Every public skill README must include the exact install command and a bottom section named `What This Skill Does And How To Use It`.
+
 Local plans, tests, announcements, and unpublished skills live outside this public repo in the surrounding `skills-to-publish` workspace.

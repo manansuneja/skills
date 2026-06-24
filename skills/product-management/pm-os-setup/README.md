@@ -151,3 +151,21 @@ matches, your agent applies them without being reminded.
 A good habit: any time you find yourself explaining *how* you want something done for the second or
 third time, ask the Chief PM to capture it as a skill. That repeated instruction becomes reusable, and
 you stop re-teaching it.
+
+## What This Skill Does And How To Use It
+
+PM OS Setup scaffolds a Markdown Product Management operating system with a Chief PM coordinator, specialist agents, reusable skills, product docs, and workspace memory.
+
+Install it with:
+
+```bash
+npx skills@latest add manansuneja/skills --skill pm-os-setup -g
+```
+
+Run it by asking your agent to create a PM OS for a product:
+
+```text
+/pm-os-setup Set up a PM OS for Acme.
+```
+
+After scaffolding, the skill points you to `_setup/AGENTS.md` so your own agent can personalize the workspace around the product, your PM standards, and the way you like decisions and PRDs handled.

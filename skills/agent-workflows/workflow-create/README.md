@@ -168,3 +168,21 @@ Five families built and validated to show the range — from a one-skill job to 
 ## Learn more
 
 - Check a generated workflow's structure: `python scripts/validate_workflow_family.py <your-workflow-folder>`
+
+## What This Skill Does And How To Use It
+
+Workflow Creator turns a repeatable process into a reusable agent workflow: one coordinator skill, focused child skills, a linkage ledger, and run tracking.
+
+Install it with:
+
+```bash
+npx skills@latest add manansuneja/skills --skill workflow-create -g
+```
+
+Run it by describing the workflow you want:
+
+```text
+/workflow-create "Build me a reusable workflow for launching niche content sites."
+```
+
+Use `plan-only` when you want the architecture before files are written, `compose` when you want to wire existing skills together, `update` to change an existing workflow, and `delete` to remove one safely.
