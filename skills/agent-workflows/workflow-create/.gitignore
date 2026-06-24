@@ -1,0 +1,6 @@
+# Local development sandbox — generated example families and simulation runs.
+# Kept out of the published repo; see references/examples.md for the documented results.
+testing/
+
+# Announcement drafts — kept with the skill, never shipped.
+announcements/

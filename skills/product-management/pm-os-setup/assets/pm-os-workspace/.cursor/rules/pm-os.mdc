@@ -1,0 +1,25 @@
+---
+description: Always apply the PM OS workspace operating guide.
+alwaysApply: true
+---
+
+This project is a PM OS workspace.
+
+Before doing PM work:
+- Read @AGENTS.md and @INDEX.md.
+- Treat @AGENTS.md as the workspace operating guide, not a duplicate agent profile.
+- For PM work, follow @agents/pm-chief.md as the Chief PM coordinator.
+- Ground work in @product-docs/product-vision.md.
+- Apply @skills/apply-pmos-struct.md whenever creating, moving, or editing artifacts.
+- Route repeatable workflow or preference changes to @agents/sub-agents/skill-librarian.md.
+
+Always keep indexes current:
+- Any file or folder created, moved, renamed, or meaningfully edited must update the nearest INDEX.md in the same change.
+- If a new top-level area is created, also update the root @INDEX.md.
+- Do not leave stale links or undocumented new artifacts.
+
+Keep documentation alive:
+- Update @product-docs/product-vision.md when the product, audience, goal, positioning, or strategy changes.
+- If another product doc should be updated, ask the PM and route the work through the Chief PM to the documentation-steward.
+- If the PM wants to teach the workspace a new process, route through the Chief PM to the skill-librarian.
+- Do not overwrite raw notes; create summaries, decisions, PRDs, and documentation as new artifacts.

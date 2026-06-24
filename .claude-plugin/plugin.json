@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "manan-product-builder-skills",
+  "displayName": "Skills for Product Builders",
+  "version": "1.0.0",
+  "description": "Skills for PMs, designers, and product-minded builders using agents to shape, decide, create, and ship.",
+  "author": {
+    "name": "Manan Suneja",
+    "url": "https://github.com/manansuneja"
+  },
+  "repository": "https://github.com/manansuneja/skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/agent-workflows/workflow-create",
+    "./skills/product-management/pm-os-setup"
+  ]
+}

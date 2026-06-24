@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "workflow-create",
+  "displayName": "Workflow Creator",
+  "version": "1.0.0",
+  "description": "Turn a repeatable process into a reusable family of skills: a coordinator command plus focused step-skills, wired together with run tracking and validation. Creates, composes, updates, and deletes workflow families.",
+  "author": {
+    "name": "Manan Suneja",
+    "url": "https://github.com/manansuneja"
+  },
+  "repository": "https://github.com/manansuneja/skills",
+  "license": "MIT",
+  "skills": [
+    "./"
+  ]
+}

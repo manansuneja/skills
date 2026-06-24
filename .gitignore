@@ -1,0 +1,19 @@
+# Local development sandboxes and run artifacts
+**/testing/
+**/announcements/
+**/visualize-this-outputs/
+.workflow-runs/
+*-workflow-run/
+
+# Build, package, and cache output
+dist/
+node_modules/
+.cache/
+.turbo/
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo

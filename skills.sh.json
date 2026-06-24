@@ -1,0 +1,16 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Agent Workflows",
+      "description": "Skills for turning repeatable work into reusable agent workflows.",
+      "skills": ["workflow-create"]
+    },
+    {
+      "title": "Product Management",
+      "description": "Skills for PM operating systems, product memory, and product-builder workflows.",
+      "skills": ["pm-os-setup"]
+    }
+  ]
+}
