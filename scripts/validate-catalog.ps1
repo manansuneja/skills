@@ -12,17 +12,60 @@ function Read-Text([string]$path) {
   return [System.IO.File]::ReadAllText($path)
 }
 
-function Get-FrontmatterName([string]$skillPath) {
+function Get-Frontmatter([string]$skillPath) {
   $content = Read-Text $skillPath
   $match = [regex]::Match($content, "(?s)\A---\s*(.*?)\s*---")
   if (-not $match.Success) {
     return $null
   }
-  $nameMatch = [regex]::Match($match.Groups[1].Value, "(?m)^name:\s*([a-z0-9][a-z0-9-]*[a-z0-9]|[a-z0-9])\s*$")
+  return $match.Groups[1].Value
+}
+
+function Get-FrontmatterName([string]$skillPath) {
+  $frontmatter = Get-Frontmatter $skillPath
+  if ($null -eq $frontmatter) {
+    return $null
+  }
+  $nameMatch = [regex]::Match($frontmatter, "(?m)^name:\s*([a-z0-9][a-z0-9-]*[a-z0-9]|[a-z0-9])\s*$")
   if (-not $nameMatch.Success) {
     return $null
   }
   return $nameMatch.Groups[1].Value
+}
+
+function Get-FrontmatterDescription([string]$skillPath) {
+  $frontmatter = Get-Frontmatter $skillPath
+  if ($null -eq $frontmatter) {
+    return $null
+  }
+
+  $lines = $frontmatter -split "\r?\n"
+  for ($index = 0; $index -lt $lines.Count; $index++) {
+    if ($lines[$index] -notmatch "^description:\s*(.*)$") {
+      continue
+    }
+
+    $value = $Matches[1].Trim()
+    if ($value -notmatch "^[>|][+-]?$") {
+      return $value.Trim('"').Trim("'")
+    }
+
+    $separator = if ($value.StartsWith("|")) { "`n" } else { " " }
+    $parts = New-Object System.Collections.Generic.List[string]
+    for ($lineIndex = $index + 1; $lineIndex -lt $lines.Count; $lineIndex++) {
+      $line = $lines[$lineIndex]
+      if ($line -match "^\s+(.*)$") {
+        $parts.Add($Matches[1].Trim()) | Out-Null
+      } elseif ([string]::IsNullOrWhiteSpace($line)) {
+        $parts.Add("") | Out-Null
+      } else {
+        break
+      }
+    }
+    return [string]::Join($separator, $parts).Trim()
+  }
+
+  return $null
 }
 
 function Add-Error([string]$message) {
@@ -72,6 +115,13 @@ foreach ($skillFile in $skillFiles) {
   $frontmatterName = Get-FrontmatterName $skillFile.FullName
   if ($frontmatterName -ne $skillName) {
     Add-Error "$relativeSkillDir/SKILL.md frontmatter name must be '$skillName'."
+  }
+
+  $frontmatterDescription = Get-FrontmatterDescription $skillFile.FullName
+  if ([string]::IsNullOrWhiteSpace($frontmatterDescription)) {
+    Add-Error "$relativeSkillDir/SKILL.md frontmatter description must be non-empty."
+  } elseif ($frontmatterDescription.Length -gt 1024) {
+    Add-Error "$relativeSkillDir/SKILL.md frontmatter description exceeds 1,024 characters ($($frontmatterDescription.Length))."
   }
 
   if ($rootManifestSkills -notcontains $manifestPath) {

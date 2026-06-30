@@ -6,6 +6,8 @@ This repo is the public `manansuneja/skills` catalog.
 
 - Public skills live under `skills/<category>/<skill-name>/`.
 - Every public skill must have a `SKILL.md` whose frontmatter `name` exactly matches the folder name.
+- Every public skill's frontmatter `description` must be non-empty, explain what the skill does and
+  when to use it, and contain no more than 1,024 characters (the Agent Skills specification limit).
 - Every public skill must be listed in:
   - the root `README.md`
   - its category `README.md`
@@ -31,6 +33,9 @@ npx skills@latest add ./ --list
 powershell -ExecutionPolicy Bypass -File scripts/list-skills.ps1
 powershell -ExecutionPolicy Bypass -File scripts/validate-catalog.ps1
 ```
+
+`scripts/validate-catalog.ps1` is the required metadata gate and must pass before publishing. CI
+runs it for every pull request and push that changes catalog files.
 
 The public catalog should currently expose `workflow-create`, `pm-os-setup`, and
 `workspace-os-setup`.

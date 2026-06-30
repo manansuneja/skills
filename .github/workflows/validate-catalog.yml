@@ -1,0 +1,33 @@
+name: Validate skills catalog
+
+on:
+  pull_request:
+    paths:
+      - ".claude-plugin/**"
+      - "skills/**"
+      - "scripts/validate-catalog.ps1"
+      - "skills.sh.json"
+      - "README.md"
+      - "AGENTS.md"
+      - ".github/workflows/validate-catalog.yml"
+  push:
+    paths:
+      - ".claude-plugin/**"
+      - "skills/**"
+      - "scripts/validate-catalog.ps1"
+      - "skills.sh.json"
+      - "README.md"
+      - "AGENTS.md"
+      - ".github/workflows/validate-catalog.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate catalog metadata and listings
+        shell: pwsh
+        run: ./scripts/validate-catalog.ps1
