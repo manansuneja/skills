@@ -51,12 +51,18 @@ Every Workspace OS content folder also gets an `INDEX.md`.
 ## Setup Workflow
 
 1. **Ask one short intake.** Collect the workspace name, hub or project shape, category/context,
-   objective, primary uses, and whether to use the current folder or create a new one.
+   objective, primary uses, and whether the current folder should become the workspace (the default)
+   or a new folder should be created instead.
 
-2. **Choose the workspace root.** Prefer the current directory when it is intentionally chosen:
-   empty, nearly empty, or already named for the workspace. Create `<workspace-slug>-workspace/`
-   when the current directory is broad or unsafe, such as a home folder, Downloads, Desktop, or a
-   collection of repositories.
+2. **Choose the workspace root.** Default to the current directory and rename it in place later (step
+   9) rather than nesting a new folder inside it. This matters most when an editor (Cursor, Claude
+   Code, VS Code, or similar) already has the current directory open as its project root: a nested
+   `<workspace-slug>-workspace/` subfolder sits outside what the editor is showing, so the user has to
+   manually close and reopen the new folder before anything looks right. A folder that is merely not
+   perfectly empty—containing a `.git/`, a `README.md`, or a couple of starter files—is still safe to
+   use directly. Only create `<workspace-slug>-workspace/` when the current directory is genuinely
+   unsafe to use directly: a home folder, Downloads, Desktop, a collection of unrelated repositories,
+   or a folder that already holds unrelated project files that should not mix with the workspace.
 
 3. **Guard against clobbering.** Never overwrite an existing workspace or unrelated project files.
    Treat `AGENTS.md`, `INDEX.md`, `agents/`, `_workspace_setup_docs/`,
