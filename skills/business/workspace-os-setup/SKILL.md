@@ -127,11 +127,12 @@ Every Workspace OS content folder also gets an `INDEX.md`.
    structure, not merely add to it. It may remove clearly irrelevant generated-empty folders; it
    must ask once before deleting or relocating any folder containing user-authored content.
 
-9. **Handle root-folder renaming safely.** During personalization, ask whether the root folder should
-   match the chosen workspace name. If authorized, perform one same-parent directory rename as the
-   final filesystem operation after all content edits and checks. Do not create a destination folder
-   and move files into it. Refuse if the destination exists or the root contains unrelated material;
-   report the old and new paths and note that the editor may need to reopen the folder.
+9. **Handle root-folder renaming safely.** During personalization, rename the root folder to match the
+   chosen workspace name by default—this does not need a separate yes/no question. Perform one
+   same-parent directory rename as the final filesystem operation after all content edits and checks.
+   Do not create a destination folder and move files into it. Skip the rename and ask first only if
+   the destination already exists or the root contains unrelated material. Report the old and new
+   paths and note that the editor may need to reopen the folder.
 
 ## Conventions To Preserve
 

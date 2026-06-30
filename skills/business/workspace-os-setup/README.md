@@ -78,9 +78,10 @@ scope or repeated work needs them.
 For example, an interior-design studio focused on knowledge capture, brainstorming, marketing, and
 writing does not automatically keep a vendors area simply because vendors are common in the field.
 
-Customization can also rename the root folder. The user opts in during intake; the agent completes
-all content changes first, then renames the directory itself as one final move and reports the new
-path. It does not create a second folder and shuffle the contents into it.
+Customization also renames the root folder to match the workspace name by default—no opt-in question
+needed unless the destination already exists or the folder holds unrelated material. The agent
+completes all content changes first, then renames the directory itself as one final move and reports
+the new path. It does not create a second folder and shuffle the contents into it.
 
 Users can ask the Workspace Chief to add any folder, subfolder, tracker, or workflow later. If they
 add content manually, the next agent session performs a lightweight structural reconciliation:
@@ -109,4 +110,4 @@ skills/business/workspace-os-setup
 Workspace OS Setup scaffolds and personalizes a focused Markdown workspace with durable memory,
 agent coordination, reusable workflows, shared templates/references, and indexed content. Invoke
 `$workspace-os-setup`, answer the short setup intake, then say `Customize my workspace` to reconcile
-the structure and optionally rename the root folder.
+the structure; the root folder is renamed to match as part of that step.

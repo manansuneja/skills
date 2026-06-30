@@ -6,6 +6,7 @@ Profiles are suggestion pools, not folder bundles. Select the smallest useful co
 ## Contents
 
 - [Selection Rules](#selection-rules)
+- [Hub-Docs vs. Best-Practices Placement](#hub-docs-vs-best-practices-placement)
 - [Fit the Workspace to the Domain](#fit-the-workspace-to-the-domain)
 - [Reconcile During Personalization](#reconcile-during-personalization)
 - [Context Cues](#context-cues)
@@ -33,6 +34,23 @@ Profiles are suggestion pools, not folder bundles. Select the smallest useful co
    workflow likely to repeat. Add a specialist only when its route remains distinct and useful.
 6. Update the root and docs-root indexes, `workspace-best-practices/skills/INDEX.md`,
    `agents/sub-agents/INDEX.md`, and `agents/workspace-chief.md` when their contents or routes change.
+
+## Hub-Docs vs. Best-Practices Placement
+
+Before placing any folder, file, or candidate from a profile below, decide which layer it belongs in:
+
+- **`{{DOCS_ROOT}}/` (hub-docs or project-docs):** the work itself—notes, planning, research, and the
+  current state of campaigns, projects, clients, or knowledge.
+- **`workspace-best-practices/`:** anything reusable that the agent will apply across many future
+  pieces of work—a recurring workflow (`skills/`), an exact output format (`templates/`), or a
+  standing reference such as a voice/tone guide, brand examples, or source material (`references/`).
+
+Ask: will future work *reuse* this as a standing pattern or reference, or is it itself the knowledge,
+plan, or output of the moment? A voice/tone guide, brand examples, and "how we write a brief" all get
+reused on many pieces of content—they belong under `workspace-best-practices/`, not in the hub-docs
+content tree, even when a candidate-folder list below names something similar. A profile naming a
+folder is a suggestion for `{{DOCS_ROOT}}/`'s shape, not a guarantee that everything with that label
+belongs there.
 
 ## Fit the Workspace to the Domain
 
@@ -154,11 +172,13 @@ Candidate folders:
 - `marketing/`
 - `editorial-calendar/`
 - `campaigns/`
-- `voice-and-style/`
 - `research/`
 
-Emphasize content ideation, writing/editing, repurposing, campaign planning, and voice/style
-references. Do not add sales, vendors, or client-delivery areas unless the user also named them.
+Emphasize content ideation, writing/editing, repurposing, and campaign planning. A voice/tone guide
+and brand examples are a reusable reference, not hub-docs content—put them in
+`workspace-best-practices/references/voice-and-style.md` per
+[Hub-Docs vs. Best-Practices Placement](#hub-docs-vs-best-practices-placement). Do not add sales,
+vendors, or client-delivery areas unless the user also named them.
 
 ### Operations
 

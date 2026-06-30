@@ -12,8 +12,9 @@ tracking needs. Customization is not only additive: the agent will keep useful a
 folders, subfolders, and trackers, and remove clearly irrelevant empty starter folders. It will ask
 before deleting or relocating anything that contains your content.
 
-If you want the root folder renamed too, say yes during the intake. The agent will rename the folder
-itself as the final step and tell you the new path; your editor may need to reopen it.
+The agent will also rename the root folder to match the workspace name as the final step, and tell you
+the new path; your editor may need to reopen it. Mention it during the intake if you'd rather keep the
+current folder name.
 
 After setup, spend most of your time in `{{DOCS_ROOT}}/`. Use `workspace-best-practices/` when you
 want to shape workflows, output structure, format, voice, or style. Point the agent there and describe

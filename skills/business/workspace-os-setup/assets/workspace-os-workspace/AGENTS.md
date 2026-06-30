@@ -17,10 +17,12 @@ When asked, follow `_workspace_setup_docs/personalization/AGENTS.md`. Personaliz
 the structure—keep, add, remove, and ask—not merely add more folders. It may remove clearly irrelevant
 generated-empty folders. It must ask once before deleting or relocating user-authored content.
 
-After applying and validating the answers, delete `_workspace_setup_docs/personalization/`. If the
-user approved a root-folder rename, rename the root directory itself as the final filesystem
-operation; never create a new root and move the contents into it. Report the old and new paths and
-note that the editor may need to reopen the folder.
+After applying and validating the answers, delete `_workspace_setup_docs/personalization/`. Then
+rename the root directory itself to match the workspace name as the final filesystem operation—do
+this by default, with no separate approval question, unless the owner asked to keep the current name,
+the destination already exists, or the root holds unrelated material. Never create a new root and move
+the contents into it. Report the old and new paths and note that the editor may need to reopen the
+folder.
 
 The absence of the personalization folder means setup is complete. Do not recreate it.
 
@@ -61,6 +63,12 @@ or announce that they created a folder.
 
 Do not describe Workspace OS machinery as the user's actual work unless that is explicitly what they
 are building.
+
+When deciding where new content belongs, ask whether it will be *reused* across many future pieces of
+work (a voice/tone guide, a format, a recurring checklist) or whether it *is* the work, knowledge, or
+plan itself. The former belongs in `workspace-best-practices/`; the latter belongs in
+`{{DOCS_ROOT}}/`—even when it surfaces during a request that is mostly about hub-docs content, such as
+a brand voice guide that comes up while setting up content/marketing folders.
 
 ## Always do these
 

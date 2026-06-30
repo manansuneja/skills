@@ -8,6 +8,10 @@ changed, merged, or removed.
 
 ## Decision rule
 
+- Decide the layer first: will this be reused across many future pieces of work
+  (→ `workspace-best-practices/`), or is it the work/knowledge itself (→ `{{DOCS_ROOT}}/`)? A
+  voice/tone guide, brand examples, and exact output formats are reused references, not hub-docs
+  content, even if they came up while discussing a content or marketing area.
 - Keep the four common skills only while useful: summarize notes, brainstorm, synthesize outcomes,
   and document context.
 - Create or update a skill immediately for an explicit reusable preference.

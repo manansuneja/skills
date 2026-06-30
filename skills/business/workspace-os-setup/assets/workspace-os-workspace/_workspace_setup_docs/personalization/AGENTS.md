@@ -29,7 +29,7 @@ By the end, the workspace should have:
 - A minimal `workspace-best-practices/` library whose skills and templates match the kept content
   areas, recurring workflows, and stated output preferences.
 - Current `INDEX.md` files and healthy links.
-- An authorized root-folder rename completed safely, if requested.
+- A root-folder rename to match the workspace name, completed safely by default.
 - No unnecessary tool-adapter clutter.
 
 ## Step 1 — Ask one lightweight intake
@@ -37,9 +37,10 @@ By the end, the workspace should have:
 Ask these four questions in one friendly message. Rough notes, links, file paths, or “skip for now”
 are all fine.
 
-1. What should this workspace be called? Should I also rename the root folder to match at the very
-   end? If yes, the owner may give an exact folder name; otherwise use `<workspace-slug>-workspace`.
-   Mention that the editor may need to reopen the renamed folder.
+1. What should this workspace be called? I'll rename the root folder to match at the very end (give
+   an exact folder name if you want one; otherwise I'll use `<workspace-slug>-workspace`)—say so now
+   if you'd rather keep the current folder name. Mention that the editor may need to reopen the
+   renamed folder.
 2. What category or kind of work is this, who is it for, and what should the workspace keep in mind?
 3. What three to five kinds of work should be easiest right now? What core things, stages, or status
    should it track—for example clients, projects, rooms, sources, campaigns, drafts, approvals,
@@ -63,8 +64,14 @@ under `{{DOCS_ROOT}}/`. First build a compact domain model:
 - The owner's natural terminology.
 
 Translate that model into folders, subfolders, structured trackers, templates, skills, and agent
-routes. Build three synchronized plans: content structure, best practices, and agents. For each use
-the same four sets:
+routes. Before placing anything, decide which layer it belongs in: `{{DOCS_ROOT}}/` holds the work
+itself—notes, planning, research, and current state; `workspace-best-practices/` holds anything
+reusable across many future pieces of work, such as a voice/tone guide, brand examples, or a recurring
+format. A folder name that shows up in a profile's candidate list (for example a voice-and-style
+folder for a content/marketing workspace) does not automatically belong in `{{DOCS_ROOT}}/`—if it will
+be referenced repeatedly rather than updated as new work happens, it belongs in
+`workspace-best-practices/references/` instead. Build three synchronized plans: content structure,
+best practices, and agents. For each use the same four sets:
 
 - **Keep:** supports an explicit current/near-term use, contains user-authored material, or is a
   necessary cross-cutting area.
@@ -139,9 +146,11 @@ If personalization is complete, delete `_workspace_setup_docs/personalization/` 
 from `_workspace_setup_docs/INDEX.md`. Keep the root `START_HERE.md`. If required context is missing,
 leave personalization in place and ask only the smallest necessary follow-up.
 
-## Step 5 — Rename the root last, when authorized
+## Step 5 — Rename the root last
 
-Do this only if the owner approved it in the intake or explicitly requested it later.
+Do this by default as the final step of personalization—no separate confirmation question is needed.
+Skip it only if the owner said during intake (or later) that they want to keep the current folder
+name.
 
 1. Compute the exact sibling destination. Use the owner's exact folder name when supplied; otherwise
    use `<workspace-slug>-workspace` in `lower-kebab-case`.

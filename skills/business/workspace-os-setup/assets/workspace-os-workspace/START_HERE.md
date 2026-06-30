@@ -66,8 +66,9 @@ The agent will ask one short intake, model how your category of work operates, t
 add fitting folders, subfolders, and trackers, and remove irrelevant empty starter folders. It will
 ask before deleting or relocating anything that contains your content.
 
-You can also approve a root-folder rename during the intake. The agent will do that last and tell you
-the new path; your editor may need to reopen the folder.
+It will also rename the root folder to match the workspace name as the last step, and tell you the new
+path; your editor may need to reopen the folder. Say so during the intake if you'd rather it stayed as
+is.
 
 ## How the workspace learns
 
