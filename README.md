@@ -1,7 +1,6 @@
-# Skills for Product Builders and Business Owners
+# Skills for Builders
 
-Skills for PMs, designers, business owners, and product-minded builders using agents to shape,
-decide, create, operate, and ship.
+Skills for PMs, designers, small business owners, and product-minded builders using agents to shape, decide, create, operate, and ship.
 
 This repo is a public catalog of agent skills. It is not just for developers: the skills here are
 built for product work, business operations, design, planning, writing, decision-making, and
@@ -38,7 +37,11 @@ To install every published skill in this catalog into Claude Code:
 npx skills@latest add manansuneja/skills --skill '*' -g -a claude-code
 ```
 
+
+
 ## Skills
+
+
 
 ### Agent Workflows
 
@@ -50,6 +53,8 @@ Install:
 npx skills@latest add manansuneja/skills --skill workflow-create -g
 ```
 
+
+
 ### Product Management
 
 - [PM OS Setup](skills/product-management/pm-os-setup) scaffolds a Product Management operating system with a Chief PM coordinator, specialist agents, product-skills, product-practices, protected workspace setup docs, product docs, outcomes, design notes, data insights, roadmaps, stakeholder comms, and workspace memory.
@@ -60,17 +65,21 @@ Install:
 npx skills@latest add manansuneja/skills --skill pm-os-setup -g
 ```
 
+
+
 ### Business
 
 - [Workspace OS Setup](skills/business/workspace-os-setup) scaffolds a focused Markdown operating
-  system for a studio, business, team, knowledge base, personal practice, or client project, with
-  agent coordination, reusable workflows, indexed memory, and subtractive personalization.
+system for a studio, business, team, knowledge base, personal practice, or client project, with
+agent coordination, reusable workflows, indexed memory, and subtractive personalization.
 
 Install:
 
 ```bash
 npx skills@latest add manansuneja/skills --skill workspace-os-setup -g
 ```
+
+
 
 ## No Terminal
 

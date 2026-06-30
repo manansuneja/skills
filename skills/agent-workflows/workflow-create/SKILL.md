@@ -124,6 +124,8 @@ Resolve the standards via [`references/skill-standards.md`](references/skill-sta
 
 Whichever path, generation must satisfy `skill-creator`'s standards and the local frontmatter rules, the Phase 5 requirements (including the watermark) still apply, and the family is checked with `scripts/validate_workflow_family.py` before finishing (it hard-fails on invalid YAML frontmatter and merge-conflict markers — the breakage that silently de-registers a skill).
 
+Before that validation, run the optional **pruning pass** described in `references/skill-standards.md` (resolved the same way as `skill-creator`, but never blocking): it catches what structural checks don't — description duplication, sprawl past the line budget, vague completion criteria, and dead prose.
+
 ## Phase 1: Understand Goal And Name
 
 Capture:

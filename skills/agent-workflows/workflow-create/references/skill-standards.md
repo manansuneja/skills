@@ -52,7 +52,7 @@ description: >-
 ```
 
 - **`name`** — must satisfy the Agent Skills spec: 1–64 characters; lowercase letters, digits, and hyphens only; no leading/trailing hyphen; no consecutive hyphens (`--`); matches the folder name exactly; never contains `claude` or `anthropic`.
-- **`description`** — the single most important field; it (with the name) is the only thing the agent reads when deciding whether to invoke the skill. Write it in the third person, state **what** the skill does *and* **when** to use it, and embed the literal trigger phrases a user would say. Put *all* "when to use" info here, not in the body. Be slightly **pushy** to fight underuse: e.g. "use this whenever the user mentions <keywords>, even if they don't ask for it by name." Add negative triggers ("not for X") when routing collisions are likely.
+- **`description`** — the single most important field; it (with the name) is the only thing the agent reads when deciding whether to invoke the skill. Write it in the third person, state **what** the skill does *and* **when** to use it, and embed the literal trigger phrases a user would say. Put *all* "when to use" info here, not in the body. Be slightly **pushy** to fight underuse: e.g. "use this whenever the user mentions <keywords>, even if they don't ask for it by name." Add negative triggers ("not for X") when routing collisions are likely. Pushy means naming every genuinely distinct case the skill should catch, not restating one case as several synonyms — three phrasings of the same trigger is duplication, not coverage; see the Pruning Pass section below.
 
 ### Progressive disclosure (keep it lean)
 
@@ -77,6 +77,23 @@ Push deep detail, long examples, and rubrics into `references/*.md` and link the
 ### Lack of surprise
 
 A skill must not contain malware or exploits, and its behavior must match what its `description` leads the user to expect — no hidden side effects.
+
+## Pruning pass (optional — writing-great-skills)
+
+`skill-creator`'s standards above are necessary but not sufficient: a skill can satisfy every structural rule and still be bloated, duplicated, or vague. [Matt Pocock's `writing-great-skills`](https://github.com/mattpocock/skills/tree/main/skills/productivity/writing-great-skills) (MIT) is a vocabulary for that second pass — Predictability as the root virtue, with terms for the specific ways a skill degrades: **Duplication** (the same trigger or meaning restated), **Sprawl** (too long, independent of staleness), **Sediment** (stale layers nobody prunes), **No-Op** (an instruction the model already follows by default), and a **Completion Criterion** sharp enough to resist **Premature Completion**.
+
+Resolution order — same pattern as `skill-creator`, but this pass is optional and must never block generation:
+
+1. If a `writing-great-skills` skill is already installed (check `${SKILLS_ROOT}/writing-great-skills` on whichever skills root is active), use it.
+2. If not present, optionally retrieve it from the canonical source (`npx skills add mattpocock/skills --skill writing-great-skills`, or fetch the files into `${SKILLS_ROOT}/writing-great-skills`).
+3. If retrieval is impossible or skipped, proceed without it — unlike the non-negotiable rules below, this is a quality lens, not a gate.
+
+When available, apply it to every generated `SKILL.md` before Phase 7 validation:
+
+- **Description duplication** — each trigger phrase should name a genuinely distinct branch. Reword a synonym restating the same branch into one stronger phrase (a *leading word*) instead of listing both.
+- **Sprawl** — `SKILL.md` past ~500 lines gets the disclosure treatment (push detail into `references/`) before it gets trimmed for content; see Progressive Disclosure above.
+- **Completion criteria** — every step in a generated child should end on a condition the agent can check as done/not-done; "every X accounted for" beats "produce an X".
+- **No-ops** — a line that restates default model behavior (e.g. "be thorough") earns its place only if it changes behavior versus the default — otherwise cut it or replace it with a sharper word.
 
 ## Non-negotiable frontmatter rules (must never break)
 
