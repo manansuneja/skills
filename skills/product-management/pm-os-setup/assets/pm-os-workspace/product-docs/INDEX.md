@@ -15,4 +15,4 @@ The actual product work. Capture lives here; agents read it to build on context 
 | [stakeholder-comms/](stakeholder-comms/INDEX.md) | Updates, briefs, launch notes, client summaries, and alignment messages | Communicating product work |
 
 New type of artifact (research, prototypes, comms)? Make a folder here, give it an `INDEX.md`, and
-add it to the root [INDEX.md](../INDEX.md). See [apply-pmos-struct](../skills/apply-pmos-struct.md).
+add it to the root [INDEX.md](../INDEX.md). See [apply-pmos-struct](../_workspace_setup_docs/skills/apply-pmos-struct.md).

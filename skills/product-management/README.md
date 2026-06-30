@@ -4,7 +4,7 @@ Skills for PM operating systems, product memory, and product-builder workflows.
 
 ## Skills
 
-- [PM OS Setup](pm-os-setup) scaffolds a Markdown Product Management operating system with a Chief PM coordinator, specialist agents, reusable skills, shared templates/references, product docs, outcomes, design notes, data insights, roadmaps, stakeholder comms, and workspace memory.
+- [PM OS Setup](pm-os-setup) scaffolds a Markdown Product Management operating system with a Chief PM coordinator, specialist agents, product-skills, product-practices, protected workspace setup docs, product docs, outcomes, design notes, data insights, roadmaps, stakeholder comms, and workspace memory.
 
 Install:
 

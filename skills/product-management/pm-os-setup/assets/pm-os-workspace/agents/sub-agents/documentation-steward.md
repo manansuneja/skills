@@ -9,13 +9,13 @@ documentation, indexes, or cross-links need to be updated.
 
 1. Read [../../INDEX.md](../../INDEX.md), [../../AGENTS.md](../../AGENTS.md), and
    [../../product-docs/product-vision.md](../../product-docs/product-vision.md) before editing.
-2. Apply [document-product-context](../../skills/document-product-context.md) to decide what should
+2. Apply [document-product-context](../../product-skills/document-product-context.md) to decide what should
    be captured, updated, or left alone.
 3. Keep the product vision current when the product, audience, problem, goal, positioning, or
    strategy changes.
 4. If a different product doc should change and the source makes the update clear, make it and update
    the index. Ask the PM only before a broader documentation sweep or when the source is ambiguous.
-5. Apply [apply-pmos-struct](../../skills/apply-pmos-struct.md): every new or changed artifact needs
+5. Apply [apply-pmos-struct](../../_workspace_setup_docs/skills/apply-pmos-struct.md): every new or changed artifact needs
    the right folder, a good name, and an updated nearest `INDEX.md`.
 
 ## Hand back

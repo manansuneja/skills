@@ -19,7 +19,7 @@ It reads your request and delegates to the right sub-agent. See [agents/INDEX.md
 
 Working agents should also read [AGENTS.md](AGENTS.md) - the operating guide for this workspace.
 [CLAUDE.md](CLAUDE.md) is a compatibility pointer to the same guide for tools that expect that name.
-Setting it up for the first time? See [_setup/README.md](_setup/README.md).
+Setting it up for the first time? See [_workspace_setup_docs/personalization/README.md](_workspace_setup_docs/personalization/README.md).
 New here? See [START_HERE.md](START_HERE.md) for the plain-language user guide.
 
 ## Map
@@ -27,7 +27,9 @@ New here? See [START_HERE.md](START_HERE.md) for the plain-language user guide.
 | Folder | What lives here | Open when |
 |---|---|---|
 | [agents/](agents/INDEX.md) | The Chief PM and its sub-agents (who does what) | Deciding who should handle a request |
-| [skills/](skills/INDEX.md) | Repeatable judgment - how this PM wants work done | An agent needs the "how" for a task |
+| [_workspace_setup_docs/](_workspace_setup_docs/INDEX.md) | Workspace setup rules, structural playbooks, and one-time personalization docs | A change affects the PM OS structure itself |
+| [product-skills/](product-skills/INDEX.md) | Repeatable product judgment - how this PM wants work done | An agent needs the "how" for a product task |
+| [product-practices/](product-practices/INDEX.md) | Templates, examples, and style references that shape product skills | A skill needs a reusable format or example |
 | [product-docs/](product-docs/INDEX.md) | The actual work: vision, meetings, outcomes, PRDs, decisions, design, data, roadmaps, comms | Looking for or producing real artifacts |
 
 ## Tool config
@@ -39,9 +41,9 @@ New here? See [START_HERE.md](START_HERE.md) for the plain-language user guide.
 ## Quick links
 
 - **Product vision** -> [product-docs/product-vision.md](product-docs/product-vision.md)
-- **Skills guide** -> [skills/START_HERE.md](skills/START_HERE.md)
-- **Skill templates** -> [skills/templates/INDEX.md](skills/templates/INDEX.md)
-- **Skill references** -> [skills/references/INDEX.md](skills/references/INDEX.md)
+- **Skills guide** -> [product-skills/START_HERE.md](product-skills/START_HERE.md)
+- **Skill templates** -> [product-practices/templates/INDEX.md](product-practices/templates/INDEX.md)
+- **Skill references** -> [product-practices/references/INDEX.md](product-practices/references/INDEX.md)
 - **Meetings** (summaries + raw source archives) -> [product-docs/meetings/INDEX.md](product-docs/meetings/INDEX.md)
 - **Outcomes** (insights, recommendations, prioritization) -> [product-docs/outcomes/INDEX.md](product-docs/outcomes/INDEX.md)
 - **PRDs** -> [product-docs/prds/INDEX.md](product-docs/prds/INDEX.md)
@@ -59,4 +61,4 @@ subfolder if it deserves one), name it in `lower-kebab-case.md` (no spaces, no c
 line to the nearest `INDEX.md`. If product direction changes, update
 [product-docs/product-vision.md](product-docs/product-vision.md). Capture is not memory. Connection is.
 
-See [skills/apply-pmos-struct.md](skills/apply-pmos-struct.md) for the full naming and structure rules.
+See [_workspace_setup_docs/skills/apply-pmos-struct.md](_workspace_setup_docs/skills/apply-pmos-struct.md) for the full naming and structure rules.

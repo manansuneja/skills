@@ -7,9 +7,9 @@ status briefs, alignment messages, and decision summaries.
 
 Before using the default structure, check:
 
-- [templates/stakeholder-communication.md](templates/stakeholder-communication.md) for the current
+- [product-practices/templates/stakeholder-communication.md](../product-practices/templates/stakeholder-communication.md) for the current
   stakeholder communication template.
-- [references/](references/INDEX.md) for PM-provided examples of updates, briefs, launch notes,
+- [product-practices/references/](../product-practices/references/INDEX.md) for PM-provided examples of updates, briefs, launch notes,
   client summaries, or voice/tone samples.
 
 If the PM adds a better communication template or reference example, follow that and keep this skill's
@@ -26,4 +26,4 @@ audience and source-grounding rules.
 
 Write to `product-docs/stakeholder-comms/<MMM-DD-YYYY>-<topic>.md`, update
 [the stakeholder-comms index](../product-docs/stakeholder-comms/INDEX.md), and apply
-[apply-pmos-struct](apply-pmos-struct.md).
+[apply-pmos-struct](../_workspace_setup_docs/skills/apply-pmos-struct.md).

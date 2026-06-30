@@ -5,23 +5,23 @@ This is a PM operating system: a workspace with memory, where context compounds 
 
 ## First: is this workspace personalized yet?
 
-**If the `_setup/` folder still exists, this workspace has not been personalized.** It is still the
+**If the `_workspace_setup_docs/personalization/` folder still exists, this workspace has not been personalized.** It is still the
 generic scaffold. Before doing substantial PM work, offer to run setup:
 
 > Customize my workspace.
 
-When the user asks to customize the workspace, read `_setup/AGENTS.md` and run that intake - product
+When the user asks to customize the workspace, read `_workspace_setup_docs/personalization/AGENTS.md` and run that intake - product
 context, Chief PM style, key preferences. When the intake has enough context and the personalization
 edits are applied:
 
 1. Apply the answers across `AGENTS.md`, `product-docs/product-vision.md`, `agents/pm-chief.md`, and any
-   skills the user gave preferences for (full steps in `_setup/AGENTS.md`).
+   skills the user gave preferences for (full steps in `_workspace_setup_docs/personalization/AGENTS.md`).
 2. Check the core context is answered: workspace name, product/users, problem/opportunity, stage or
    near-term goal, and any existing files or examples the PM wanted used.
-3. Delete the entire `_setup/` folder as the final cleanup step. Keep everything else, including
+3. Delete the entire `_workspace_setup_docs/personalization/` folder as the final cleanup step. Keep everything else, including
    this workspace's `START_HERE.md` (the user's guide).
 
-The presence of `_setup/` is the "not personalized yet" flag; its absence means setup is done - do not
+The presence of `_workspace_setup_docs/personalization/` is the "not personalized yet" flag; its absence means setup is done - do not
 recreate it. If the user wants to start work immediately, you may proceed, but personalize at the first
 natural opportunity so the Chief PM and product docs stop sounding generic.
 
@@ -34,6 +34,18 @@ coordinates the work and delegates to specialists. In Claude Code, Cursor, and C
 just talks in the workspace and this guide points the chat to the Chief. In GitHub Copilot they can
 also select the Chief or a specialist from the agent picker.
 
+## Updating the installed PM OS skill
+
+If the PM asks how to update the installed `pm-os-setup` skill after new changes land in GitHub, give
+them this command:
+
+```bash
+npx skills@latest update pm-os-setup -g
+```
+
+This updates the globally installed skill. Do not run it silently unless the PM explicitly asks you
+to update the installed skill.
+
 ## Operating layer vs product layer
 
 This is the global boundary rule for the workspace. Individual agents and skills may add a short
@@ -41,9 +53,13 @@ reminder, but this section is the source of truth.
 
 Keep these separate:
 
-- **Operating layer:** this PM OS itself - `AGENTS.md`, `agents/`, `skills/`, indexes, and structure
-  automation. The Chief PM and specialists live here.
-- **Product layer:** the actual product or project the PM is building - `product-docs/`, PRDs,
+- **Workspace setup layer:** this PM OS itself - `AGENTS.md`, `agents/`, `_workspace_setup_docs/`,
+  indexes, and structure automation. The Chief PM, specialists, and protected setup playbooks live
+  here.
+- **Product practice layer:** user-shaped PM preferences in `product-skills/` and
+  `product-practices/`. This is where PRD style, templates, examples, and reusable PM judgment
+  evolve.
+- **Product docs layer:** the actual product or project the PM is building - `product-docs/`, PRDs,
   decisions, meetings, customer context, roadmap, design, data, stakeholder communication, and
   strategy.
 
@@ -72,8 +88,8 @@ agent system.
   the file path.
 - **Ground in the vision.** [product-docs/product-vision.md](product-docs/product-vision.md) is the
   source of truth for what {{PROJECT_NAME}} is and why. Tie work back to it.
-- **Keep the layers separate.** Use workspace agents and skills to do the work; write product docs
-  about the user's actual product.
+- **Keep the layers separate.** Use workspace agents and product skills to do the work; write product
+  docs about the user's actual product.
 - **Enforce structure.** Whatever gets produced follows the conventions below.
 - **Keep documentation alive.** If product context changes, update
   [product-docs/product-vision.md](product-docs/product-vision.md) when the change is clear or when
@@ -84,7 +100,7 @@ agent system.
   vision, recent product docs, and the nature of this project. When those change, update the relevant
   agent or skill file instead of relying on memory.
 
-## Conventions (full version: [skills/apply-pmos-struct.md](skills/apply-pmos-struct.md))
+## Conventions (full version: [_workspace_setup_docs/skills/apply-pmos-struct.md](_workspace_setup_docs/skills/apply-pmos-struct.md))
 
 - `lower-kebab-case` names, no spaces. Markdown for text; a table/JSON/sheet when it becomes data.
 - An `INDEX.md` in **every** PM OS content folder, kept current - every new artifact or meaningful
@@ -103,14 +119,15 @@ agent system.
 ```
 START_HERE.md       the human welcome guide: just talk to the agent
 agents/             Chief PM + sub-agents for meetings, outcomes, PRDs, design, data, roadmaps, comms, docs, skills
-skills/             how work gets done and how the PM's style is captured
-skills/templates/   reusable blank formats for skills to follow
-skills/references/  PM-provided examples, style samples, and context references
+_workspace_setup_docs/          setup docs, structure rules, and protected workspace playbooks
+product-skills/                 how product work gets done and how the PM's style is captured
+product-practices/templates/    reusable blank formats for product skills to follow
+product-practices/references/   PM-provided examples, style samples, and context references
 product-docs/       the work: vision, meetings, outcomes, decisions, PRDs, design, data, roadmaps, comms
 ```
 
 ## Extending this OS
 
 Want to tailor it - your PRD format, meeting style, writing voice, extra sub-agents? See
-[_setup/README.md](_setup/README.md). (It's the one-time setup helper; the whole
-`_setup/` folder is safe to delete once you're set up.)
+[_workspace_setup_docs/personalization/README.md](_workspace_setup_docs/personalization/README.md). (It's the one-time setup helper; the whole
+`_workspace_setup_docs/personalization/` folder is safe to delete once you're set up.)

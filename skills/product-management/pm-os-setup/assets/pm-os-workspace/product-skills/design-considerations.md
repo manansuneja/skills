@@ -7,8 +7,8 @@ accessibility notes, content/design questions, and review feedback.
 
 Before using the default structure, check:
 
-- [templates/design-note.md](templates/design-note.md) for the current design note template.
-- [references/](references/INDEX.md) for PM-provided design review, UX flow, or usability examples.
+- [product-practices/templates/design-note.md](../product-practices/templates/design-note.md) for the current design note template.
+- [product-practices/references/](../product-practices/references/INDEX.md) for PM-provided design review, UX flow, or usability examples.
 
 If the PM adds a better design template or reference example, follow that and keep this skill's
 judgment rules.
@@ -24,4 +24,4 @@ judgment rules.
 
 Write to `product-docs/design/<MMM-DD-YYYY>-<topic>.md`, update
 [the design index](../product-docs/design/INDEX.md), and apply
-[apply-pmos-struct](apply-pmos-struct.md).
+[apply-pmos-struct](../_workspace_setup_docs/skills/apply-pmos-struct.md).

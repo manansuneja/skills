@@ -10,7 +10,7 @@ Before doing PM work:
 - Treat @AGENTS.md as the workspace operating guide, not a duplicate agent profile.
 - For PM work, follow @agents/pm-chief.md as the Chief PM coordinator.
 - Ground work in @product-docs/product-vision.md.
-- Apply @skills/apply-pmos-struct.md whenever creating, moving, or editing artifacts.
+- Apply @_workspace_setup_docs/skills/apply-pmos-struct.md whenever creating, moving, or editing artifacts.
 - Route repeatable workflow or preference changes to @agents/sub-agents/skill-librarian.md.
 - When the user provides raw notes or points to a loose notes file, process it automatically:
   create the standard folder, preserve raw input under a `raw/` archive subfolder, write the summary
@@ -33,10 +33,10 @@ Keep documentation alive:
 - Update @product-docs/product-vision.md when the product, audience, goal, positioning, or strategy changes.
 - If another product doc should be updated and the source is clear, route the work through the Chief PM to the right specialist.
 - If the PM wants to teach the workspace a new process, route through the Chief PM to the skill-librarian.
-- When adding, updating, merging, or removing a skill, also update `skills/START_HERE.md`,
-  `skills/INDEX.md`, `agents/sub-agents/INDEX.md`, the matching sub-agent file, and Chief PM routing.
+- When adding, updating, merging, or removing a skill, also update `product-skills/START_HERE.md`,
+  `product-skills/INDEX.md`, `agents/sub-agents/INDEX.md`, the matching sub-agent file, and Chief PM routing.
   Remove orphaned sub-agents or stale skill links in the same change.
 - When the PM provides reusable templates or examples for a workflow, put blank formats under
-  `skills/templates/`, examples/style samples under `skills/references/`, update the relevant index,
+  `product-practices/templates/`, examples/style samples under `product-practices/references/`, update the relevant index,
   and connect the relevant skill to those files.
 - Do not overwrite raw notes; create summaries, decisions, PRDs, and documentation as new artifacts.

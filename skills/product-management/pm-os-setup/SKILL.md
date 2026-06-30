@@ -1,6 +1,6 @@
 ---
 name: pm-os-setup
-description: Scaffold a Product Management operating system - a Markdown workspace with memory that compounds over time. Creates or fills a workspace root with a Chief PM coordinator agent, specialized sub-agents for meetings, outcomes, brainstorming, PRDs, design, data insights, roadmaps, stakeholder communication, documentation, and skills, starter workflow skills for those PM jobs, shared skill templates/references folders, an INDEX.md map in every PM OS content folder, a product-docs tree (vision, meetings, outcomes, prds, decisions, design, data-insights, roadmaps, stakeholder-comms), plus START_HERE.md, AGENTS.md, CLAUDE.md, a Cursor rule, and a _setup/ subfolder for onboarding/personalization. Use when a PM or anyone wants to set up a PM OS, "PM operating system", PM workspace, agent workspace with memory, or asks to run pm-os-setup / PM-OS-Setup. After scaffolding, offers a "Customize my workspace" handoff so the user's own agent can personalize it. Not for building application code or generic unrelated file scaffolds.
+description: Scaffold a Product Management operating system - a Markdown workspace with memory that compounds over time. Creates or fills a workspace root with a Chief PM coordinator agent, specialized sub-agents for meetings, outcomes, brainstorming, PRDs, design, data insights, roadmaps, stakeholder communication, documentation, and skills, product-skills for user-shaped PM workflows, product-practices for templates/references, protected _workspace_setup_docs for structure rules and onboarding, an INDEX.md map in every PM OS content folder, a product-docs tree (vision, meetings, outcomes, prds, decisions, design, data-insights, roadmaps, stakeholder-comms), plus START_HERE.md, AGENTS.md, CLAUDE.md, and a Cursor rule. Use when a PM or anyone wants to set up a PM OS, "PM operating system", PM workspace, agent workspace with memory, or asks to run pm-os-setup / PM-OS-Setup. After scaffolding, offers a "Customize my workspace" handoff so the user's own agent can personalize it. Not for building application code or generic unrelated file scaffolds.
 ---
 
 # PM OS Setup
@@ -12,8 +12,9 @@ context compounds instead of leaking. The PM talks to one **Chief PM** agent tha
 specialized sub-agents, every PM OS content folder has an `INDEX.md` map, and conventions keep the workspace
 findable for both the human and future agents.
 
-The base is intentionally **generic**. This skill scaffolds it; the workspace's own `_setup/`
-guide then drives the deeper, conversational personalization (real vision, the PM's PRD format, extra agents).
+The base is intentionally **generic**. This skill scaffolds it; the workspace's own
+`_workspace_setup_docs/personalization/` guide then drives the deeper, conversational
+personalization (real vision, the PM's PRD format, extra agents).
 
 The durable root files are **the user's own** - don't put setup instructions in them:
 - `START_HERE.md` - the **human welcome guide** for how to start talking to the agent.
@@ -21,8 +22,9 @@ The durable root files are **the user's own** - don't put setup instructions in 
 - `CLAUDE.md` - a tiny compatibility pointer to `AGENTS.md` for Claude Code and any tool that
   expects that filename.
 
-All setup/personalization material lives in the **`_setup/` subfolder** (its own `README.md` for
-the human, `AGENTS.md` for the agent). It's transient - the user deletes the whole folder once set up.
+Workspace setup material lives under **`_workspace_setup_docs/`**. The structure rules and
+skill-maintenance playbooks stay there; the **`_workspace_setup_docs/personalization/`** subfolder is
+transient and can be deleted once setup is complete.
 
 ## What gets created
 
@@ -30,17 +32,17 @@ A PM OS workspace root. Usually this is the current folder. If the user is in a 
 create a new `{projectName}-workspace/` folder there instead.
 
 ```
-INDEX.md            agents/pm-chief.md          skills/summarize-notes.md
-START_HERE.md       agents/sub-agents/...       skills/START_HERE.md
-AGENTS.md           CLAUDE.md                   skills/brainstorm.md
-.cursor/rules/      skills/synthesize-outcomes.md skills/to-prd.md
-_setup/             skills/data-insights.md     skills/roadmap-planning.md
-                    skills/stakeholder-comms.md skills/document-product-context.md
-                    skills/manage-workspace-skills.md   skills/apply-pmos-struct.md
-                    skills/templates/           skills/references/
-                    product-docs/product-vision.md
-  README.md         product-docs/meetings/ , outcomes/ , prds/ , decisions/
-  AGENTS.md         product-docs/design/ , data-insights/ , roadmaps/ , stakeholder-comms/
+INDEX.md                         agents/pm-chief.md
+START_HERE.md                    agents/sub-agents/...
+AGENTS.md                        _workspace_setup_docs/skills/apply-pmos-struct.md
+CLAUDE.md                        _workspace_setup_docs/skills/manage-workspace-skills.md
+.cursor/rules/                   _workspace_setup_docs/personalization/...
+product-skills/START_HERE.md     product-skills/summarize-notes.md
+product-skills/brainstorm.md     product-skills/to-prd.md
+product-skills/data-insights.md  product-skills/roadmap-planning.md
+product-practices/templates/     product-practices/references/
+product-docs/product-vision.md   product-docs/meetings/ , outcomes/ , prds/ , decisions/
+product-docs/design/             product-docs/data-insights/ , roadmaps/ , stakeholder-comms/
 ```
 
 Plus an `INDEX.md` in every PM OS content folder and a tiny Cursor project rule.
@@ -57,7 +59,7 @@ Think of this like starting a new Next.js or other dev project:
   `<project-slug>-workspace/` folder there.
 
 1. **Ask two quick things** (one short message, don't over-interview - deeper questions come later
-   via the `_setup/` guide):
+   via the `_workspace_setup_docs/personalization/` guide):
    - What's the product/project name? (Used to fill `{{PROJECT_NAME}}` and to name the workspace
      folder if one needs to be created. If they skip it, use `pm-os-workspace` for a new folder and
      leave placeholders.)
@@ -75,15 +77,16 @@ Think of this like starting a new Next.js or other dev project:
 3. **Guard against clobbering.** Never overwrite an existing workspace or unrelated project files.
    If the chosen workspace root is non-empty, inspect only the top-level names and decide:
 
-   - If it already contains PM OS files (`AGENTS.md`, `INDEX.md`, `agents/`, `skills/`, or
-     `product-docs/`), stop and ask whether to update the existing PM OS instead of scaffolding.
+   - If it already contains PM OS files (`AGENTS.md`, `INDEX.md`, `agents/`,
+     `_workspace_setup_docs/`, `product-skills/`, or `product-docs/`), stop and ask whether to update
+     the existing PM OS instead of scaffolding.
    - If it is a normal project folder with a few existing files, explain the PM OS files that will be
      added and ask before writing.
    - If it is broad/root-like or cluttered, create `<project-slug>-workspace/` inside it instead.
 
    The final workspace root must be the folder the user opens. It should contain `INDEX.md`,
-   `START_HERE.md`, `AGENTS.md`, `CLAUDE.md`, `.cursor/`, `_setup/`, `agents/`, `skills/`, and
-   `product-docs/` directly.
+   `START_HERE.md`, `AGENTS.md`, `CLAUDE.md`, `.cursor/`, `_workspace_setup_docs/`, `agents/`,
+   `product-skills/`, `product-practices/`, and `product-docs/` directly.
 
 4. **Run the scaffold helper for the active OS/shell.** Prefer the bundled script over manually
    writing files. This keeps Claude Code, Cursor, and other agents from spending minutes emitting
@@ -117,7 +120,7 @@ Think of this like starting a new Next.js or other dev project:
    - `<project-slug>-workspace/pm-os-setup/...`
    - `pm-os-setup-workspace/...`
 
-6. **Fill placeholders** across the copied files - **except the `_setup/` folder**, which
+6. **Fill placeholders** across the copied files - **except the `_workspace_setup_docs/personalization/` folder**, which
    intentionally keeps the literal tokens so its guide stays usable later:
    - `{{PROJECT_NAME}}` -> the name from step 1 (or leave as-is everywhere if they skipped it).
    - `{{DATE}}` -> today's date in `MMM-DD-YYYY` (only appears in templates that need it).
@@ -130,16 +133,16 @@ Think of this like starting a new Next.js or other dev project:
      outcomes, PRDs, design, data, roadmaps, comms, or skill updates.
    - `AGENTS.md` - the durable operating guide agents read to work in this workspace.
    - `CLAUDE.md` - a compatibility pointer to `AGENTS.md`; keep it small.
-   - `_setup/` - the one-time guide to personalize further (deletable once done).
+   - `_workspace_setup_docs/personalization/` - the one-time guide to personalize further (deletable once done).
 
 8. **Offer the handoff.** Tell them the base is generic and ask if they'd like to personalize it now.
-   If yes, read the newly created `_setup/AGENTS.md` in the workspace and follow its quick-start
+   If yes, read the newly created `_workspace_setup_docs/personalization/AGENTS.md` in the workspace and follow its quick-start
    + apply steps. If not, they can do it anytime by telling their agent: *"Customize my workspace."*
 
 ## Conventions to preserve
 
 When copying and (optionally) personalizing, keep what makes the system work - the canonical rules
-live in the workspace's `skills/apply-pmos-struct.md`:
+live in the workspace's `_workspace_setup_docs/skills/apply-pmos-struct.md`:
 
 - One front door (talk to the Chief PM; it delegates).
 - An `INDEX.md` in every PM OS content folder, kept current - every artifact or meaningful change
@@ -149,10 +152,10 @@ live in the workspace's `skills/apply-pmos-struct.md`:
   `product-docs/outcomes/`, not just chat.
 - Design considerations, data insights, roadmaps, and stakeholder communications have their own
   first-class folders under `product-docs/`.
-- Skill changes keep the whole operating layer synchronized: `skills/START_HERE.md`,
-  `skills/INDEX.md`, the matching sub-agent, `agents/sub-agents/INDEX.md`, and Chief PM routing.
-- Reusable output formats live in `skills/templates/`; PM-provided examples and style/context
-  samples live in `skills/references/`. Individual skills should link there instead of carrying every
+- Skill changes keep the whole operating layer synchronized: `product-skills/START_HERE.md`,
+  `product-skills/INDEX.md`, the matching sub-agent, `agents/sub-agents/INDEX.md`, and Chief PM routing.
+- Reusable output formats live in `product-practices/templates/`; PM-provided examples and style/context
+  samples live in `product-practices/references/`. Individual skills should link there instead of carrying every
   possible template inline.
 - Never overwrite raw input - keep it under an artifact-local `raw/` archive folder; summaries and
   artifacts are always new files in the main artifact folder.
@@ -161,12 +164,14 @@ live in the workspace's `skills/apply-pmos-struct.md`:
 
 - This skill only **scaffolds and optionally personalizes** a workspace. It does not build
   application code.
-- The `agents/` and `skills/` files are plain Markdown instructions; the user talks naturally and the
-  generated `START_HERE.md` explains the simple workflow.
+- The `agents/`, `_workspace_setup_docs/`, `product-skills/`, and `product-practices/` files are
+  plain Markdown instructions; the user talks naturally and the generated `START_HERE.md` explains
+  the simple workflow.
 - **The Chief PM is the workspace's default persona, not a selectable app.** In Claude Code, Cursor,
   and Codex the user just talks and `AGENTS.md` makes the chat the Chief; only GitHub Copilot has an
   agent picker. Sub-agents are personas that point to skills.
-- **Tool wiring is minimal by default.** The canonical `agents/`/`skills/` are tool-agnostic;
+- **Tool wiring is minimal by default.** The canonical `agents/`, `_workspace_setup_docs/`,
+  `product-skills/`, and `product-practices/` files are tool-agnostic;
   `CLAUDE.md` is pre-shipped only as a pointer to `AGENTS.md`, and `.cursor/rules/pm-os.mdc` is
   pre-shipped as an always-on Cursor bridge. During personalization, only generate `.claude/agents/`
   specialists or flat `.github/agents/*.agent.md` files if the PM explicitly asks to wire that tool.

@@ -5,14 +5,14 @@ Use this when the PM wants to create, update, improve, merge, or remove a worksp
 Skills are the PM OS's reusable judgment. They should be specific enough to guide future agents, but
 small enough that a human can scan them quickly.
 
-Shared templates live in `skills/templates/`. Shared examples, samples, and style references live in
-`skills/references/`. Prefer putting reusable artifact shapes there instead of bloating individual
+Shared templates live in `product-practices/templates/`. Shared examples, samples, and style references live in
+`product-practices/references/`. Prefer putting reusable artifact shapes there instead of bloating individual
 skills.
 
 ## Before editing
 
-1. Check `skills/START_HERE.md` and `skills/INDEX.md` to see what already exists.
-2. Check `skills/templates/INDEX.md` and `skills/references/INDEX.md` for reusable formats or
+1. Check `product-skills/START_HERE.md` and `product-skills/INDEX.md` to see what already exists.
+2. Check `product-practices/templates/INDEX.md` and `product-practices/references/INDEX.md` for reusable formats or
    examples the skill should use.
 3. Check `agents/pm-chief.md` and `agents/sub-agents/INDEX.md` to see which agents should use the skill.
 4. If available, use the local or installed `skill-creator` skill as the authoring guide.
@@ -25,11 +25,11 @@ skills.
 ## Create a skill
 
 - Name it `lower-kebab-case.md`.
-- Put it under `skills/`.
+- Put it under `product-skills/`.
 - Start with a short purpose statement: when to use it and what outcome it should produce.
 - Include only the workflow, standards, and examples needed to make the skill usable.
-- If the skill needs a reusable output shape, put that shape in `skills/templates/` and link to it.
-- If the skill needs examples or voice/context samples, put those in `skills/references/` and link to
+- If the skill needs a reusable output shape, put that shape in `product-practices/templates/` and link to it.
+- If the skill needs examples or voice/context samples, put those in `product-practices/references/` and link to
   them.
 - Avoid repeating broad workspace rules already covered by `apply-pmos-struct.md`.
 - Decide whether it needs a matching sub-agent persona under `agents/sub-agents/`. If it does, create
@@ -49,7 +49,7 @@ skills.
 
 - Remove the skill file only after checking where it is referenced.
 - Remove or rewrite the matching sub-agent if it no longer has a skill to apply.
-- Remove the row from `skills/INDEX.md`.
+- Remove the row from `product-skills/INDEX.md`.
 - Remove or update the row from `agents/sub-agents/INDEX.md`.
 - Remove or update routing in `agents/pm-chief.md`.
 - Update any tool-facing copies if they exist, such as `.github/agents/` for GitHub Copilot or
@@ -58,9 +58,9 @@ skills.
 
 ## After editing
 
-- Update `skills/START_HERE.md` if the base skill list or instructions changed.
-- Update `skills/INDEX.md`.
-- Update `skills/templates/INDEX.md` or `skills/references/INDEX.md` if templates or references
+- Update `product-skills/START_HERE.md` if the base skill list or instructions changed.
+- Update `product-skills/INDEX.md`.
+- Update `product-practices/templates/INDEX.md` or `product-practices/references/INDEX.md` if templates or references
   changed.
 - Update `agents/sub-agents/INDEX.md`.
 - Update `agents/pm-chief.md` and the relevant sub-agent if routing changed.

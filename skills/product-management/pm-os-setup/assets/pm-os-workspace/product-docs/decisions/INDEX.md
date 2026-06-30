@@ -8,7 +8,7 @@ is the point - future-you (and the agent) will ask "why did we do it this way?"
 | _none yet_ | Log one when you commit to a direction | - |
 
 A good decision file is short: **what** was decided, **why**, **alternatives considered**, and the
-**date**. Apply [apply-pmos-struct](../../skills/apply-pmos-struct.md) and add a row here.
+**date**. Apply [apply-pmos-struct](../../_workspace_setup_docs/skills/apply-pmos-struct.md) and add a row here.
 
 
 

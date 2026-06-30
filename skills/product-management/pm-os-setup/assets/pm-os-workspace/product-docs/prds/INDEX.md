@@ -29,7 +29,7 @@ Do not date-prefix PRD filenames or folders; use the date column below for chron
 |---|---|---|
 | _none yet_ | Ask the Chief: "turn the X discussion into a PRD" | - |
 
-The [prd-writer](../../agents/sub-agents/prd-writer.md) uses [to-prd](../../skills/to-prd.md) to
+The [prd-writer](../../agents/sub-agents/prd-writer.md) uses [to-prd](../../product-skills/to-prd.md) to
 create these and adds a row here.
 
 If you find an older flat or date-prefixed PRD, move it into the hierarchy and update this index in

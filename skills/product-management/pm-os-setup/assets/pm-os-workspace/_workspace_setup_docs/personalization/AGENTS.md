@@ -5,15 +5,16 @@ You are helping a PM turn this generic PM OS into a workspace shaped around thei
 This setup is a product-context intake, not a filesystem tour. Do not start by explaining folders.
 Ask for the product context that will make the Chief PM and specialists useful.
 
-Use the operating-layer vs product-layer boundary in [../AGENTS.md](../AGENTS.md) as the source of
+Use the operating-layer vs product-layer boundary in [../../AGENTS.md](../../AGENTS.md) as the source of
 truth. The PM OS maintains the workspace in the background; it is not the user's product unless the
 PM explicitly says they are building a PM OS.
 Keep that boundary in your own reasoning during intake. Do not explain it to the PM unless their
 answers suggest they are mixing the workspace with the product.
 
-When setup is done, delete `_setup/` yourself as the final cleanup step - its absence is how future
+When setup is done, delete `_workspace_setup_docs/personalization/` yourself as the final cleanup step - its absence is how future
 sessions know this workspace is personalized. Do not ask the PM for a separate cleanup command.
-Durable behavior belongs in `AGENTS.md`, `agents/`, `skills/`, and `product-docs/`.
+Durable behavior belongs in `AGENTS.md`, `agents/`, `_workspace_setup_docs/`, `product-skills/`,
+`product-practices/`, and `product-docs/`.
 
 ## Setup goals
 
@@ -23,7 +24,7 @@ By the end, the workspace should have:
 - A clear separation between workspace operations and the user's actual product/project.
 - A customized Chief PM in `agents/pm-chief.md`.
 - Specialist agents that reflect the product's stage, audience, and PM style.
-- Skills that match the PM's preferred workflows.
+- Product skills that match the PM's preferred workflows.
 - Current `INDEX.md` files.
 - No unnecessary generated tool-adapter clutter.
 
@@ -53,7 +54,7 @@ near-term goal, and context files over PM-process preferences.
 
 Work from the workspace root.
 
-1. Replace `{{PROJECT_NAME}}` outside `_setup/`.
+1. Replace `{{PROJECT_NAME}}` outside `_workspace_setup_docs/personalization/`.
 2. Update `START_HERE.md` with a short product-specific introduction if useful.
 3. Update `product-docs/product-vision.md` with the product, users, problem, goal, current bet, and
    known constraints. Do not describe the Chief PM or PM OS as the product unless the PM explicitly
@@ -62,14 +63,14 @@ Work from the workspace root.
    rules, and context-gathering behavior around the product and PM's style.
 5. Update specialist agents only where the product context changes how they should behave.
 6. Update skills only where the PM gave a clear preference.
-7. Apply `skills/apply-pmos-struct.md`: update indexes, links, names, and product docs.
+7. Apply `_workspace_setup_docs/skills/apply-pmos-struct.md`: update indexes, links, names, and product docs.
 
 Do not create `.claude/agents/` or `.github/agents/` during basic setup unless the PM explicitly asks
 to wire that tool now. Cursor is already wired through `.cursor/rules/pm-os.mdc`.
 
 ## Step 3 - Skill library setup
 
-This workspace includes a skill-librarian agent and `skills/manage-workspace-skills.md`. The PM can
+This workspace includes a skill-librarian agent and `_workspace_setup_docs/skills/manage-workspace-skills.md`. The PM can
 ask the Chief PM to create or update skills over time.
 
 If a local or installed `skill-creator` skill exists, use it when creating or heavily revising skills.
@@ -93,10 +94,10 @@ Prepare a short completion summary with:
 
 Check the core context is answered: workspace name, product/users, problem/opportunity, stage or
 near-term goal, and any existing files or examples the PM wanted used. If setup is complete, **delete
-the entire `_setup/` folder before reporting back** - it has done its job, and its absence is how
+the entire `_workspace_setup_docs/personalization/` folder before reporting back** - it has done its job, and its absence is how
 future sessions know this workspace is personalized. Keep the root `START_HERE.md` as the user's guide.
-Do not recreate `_setup/` later. Then send the completion summary.
+Do not recreate `_workspace_setup_docs/personalization/` later. Then send the completion summary.
 
-If required context is missing and you cannot personalize responsibly, leave `_setup/` in place and
+If required context is missing and you cannot personalize responsibly, leave `_workspace_setup_docs/personalization/` in place and
 ask the smallest follow-up question needed. Do not present deletion as a separate user decision once
 the personalization work is complete.

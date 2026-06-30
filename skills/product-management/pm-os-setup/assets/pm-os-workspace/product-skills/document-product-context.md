@@ -22,9 +22,9 @@ Do not file every tangent. Capture durable context, not noise.
 
 ## Templates and references
 
-Before creating a durable artifact, check [templates/](templates/INDEX.md) for the matching template
-and [references/](references/INDEX.md) for PM-provided examples. In particular,
-[templates/decision.md](templates/decision.md) is the default structure for decision records.
+Before creating a durable artifact, check [product-practices/templates/](../product-practices/templates/INDEX.md) for the matching template
+and [product-practices/references/](../product-practices/references/INDEX.md) for PM-provided examples. In particular,
+[product-practices/templates/decision.md](../product-practices/templates/decision.md) is the default structure for decision records.
 
 ## Where it goes
 

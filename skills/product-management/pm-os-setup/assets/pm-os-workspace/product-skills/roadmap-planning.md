@@ -7,8 +7,8 @@ view.
 
 Before using the default structure, check:
 
-- [templates/roadmap.md](templates/roadmap.md) for the current roadmap template.
-- [references/](references/INDEX.md) for PM-provided roadmap, release plan, sequencing, or planning
+- [product-practices/templates/roadmap.md](../product-practices/templates/roadmap.md) for the current roadmap template.
+- [product-practices/references/](../product-practices/references/INDEX.md) for PM-provided roadmap, release plan, sequencing, or planning
   examples.
 
 If the PM adds a better roadmap template or reference example, follow that and keep this skill's
@@ -25,4 +25,4 @@ sequencing rules.
 
 Write to `product-docs/roadmaps/<MMM-DD-YYYY>-<topic>.md`, update
 [the roadmaps index](../product-docs/roadmaps/INDEX.md), and apply
-[apply-pmos-struct](apply-pmos-struct.md).
+[apply-pmos-struct](../_workspace_setup_docs/skills/apply-pmos-struct.md).

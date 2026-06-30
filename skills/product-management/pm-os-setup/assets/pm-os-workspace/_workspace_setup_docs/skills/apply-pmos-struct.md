@@ -42,20 +42,20 @@ and future agents. This is the skill that makes the memory compound instead of p
 | Vision | `product-docs/product-vision.md` (single source of truth) |
 
 If a new *type* of artifact appears (research, prototypes, support docs...), create a new top-level folder
-under `product-docs/`, give it an `INDEX.md`, and add it to the root [INDEX.md](../INDEX.md).
+under `product-docs/`, give it an `INDEX.md`, and add it to the root [INDEX.md](../../INDEX.md).
 
 ## INDEX.md - the rule that makes everything work
 
-- **Every PM OS content folder has an `INDEX.md`.** Tool config folders like `.cursor/`, archival
-  `raw/` subfolders, and the transient `_setup/` folder do not need one.
+- **Every PM OS content folder has an `INDEX.md`.** Tool config folders like `.cursor/` and archival
+  `raw/` subfolders do not need one.
 - **Every new artifact or meaningful content change updates the nearest `INDEX.md`.** No silent files
   and no stale links.
 - **New top-level area -> also update the root `INDEX.md`.**
 - **Skill changes update their maps.** Adding, updating, merging, or removing a skill must update
-  `skills/INDEX.md`, `skills/START_HERE.md` when the guide changes, the owning sub-agent, and the
+  `product-skills/INDEX.md`, `product-skills/START_HERE.md` when the guide changes, the owning sub-agent, and the
   Chief PM route if routing changed.
 - **Template/reference changes update their maps.** Adding, updating, renaming, or removing files in
-  `skills/templates/` or `skills/references/` must update that folder's `INDEX.md`.
+  `product-practices/templates/` or `product-practices/references/` must update that folder's `INDEX.md`.
 - A stale index is worse than none - it sends agents to the wrong place. Update it in the same step
   you create or change the file, not "later."
 
@@ -67,7 +67,7 @@ under `product-docs/`, give it an `INDEX.md`, and add it to the root [INDEX.md](
 - If another product doc should change and the needed update is clear, route through the
   documentation-steward or make the update. Ask only when you are unsure what should be captured.
 - Keep documentation connected: every durable artifact should be findable from an `INDEX.md`.
-- Check the boundary in [AGENTS.md](../AGENTS.md): product docs describe the user's product, while
+- Check the boundary in [AGENTS.md](../../AGENTS.md): product docs describe the user's product, while
   Chief PM, sub-agents, skills, and indexes are workspace machinery. If a product artifact mentions
   workspace machinery as if it is the product, fix it or ask the PM if that was intentional.
 

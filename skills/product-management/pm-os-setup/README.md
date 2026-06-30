@@ -60,6 +60,14 @@ The agent asks whether to use the current folder or create a new one, then scaff
 offers to personalize it. If your tool doesn't show slash commands, just say it plainly:  
 `Use pm-os-setup to set up a PM OS for Acme.`
 
+## Updating The Skill
+
+If you already installed `pm-os-setup` and want the latest changes from GitHub, run:
+
+```bash
+npx skills@latest update pm-os-setup -g
+```
+
 ## Other Ways To Install
 
 The Quickstart works in any tool with a terminal (Claude Code, Cursor, Codex, Copilot). If you don't
@@ -98,9 +106,8 @@ acme-workspace/
 |   |-- data-insights/...
 |   |-- roadmaps/...
 |   `-- stakeholder-comms/...
-|-- skills/
+|-- product-skills/
 |   |-- START_HERE.md
-|   |-- apply-pmos-struct.md
 |   |-- summarize-notes.md
 |   |-- synthesize-outcomes.md
 |   |-- brainstorm.md
@@ -109,20 +116,25 @@ acme-workspace/
 |   |-- data-insights.md
 |   |-- roadmap-planning.md
 |   |-- stakeholder-comms.md
-|   |-- templates/...
-|   |-- references/...
 |   `-- ...
-`-- _setup/
-    |-- README.md
-    `-- AGENTS.md
+|-- product-practices/
+|   |-- templates/...
+|   `-- references/...
+`-- _workspace_setup_docs/
+    |-- skills/
+    |   |-- apply-pmos-struct.md
+    |   `-- manage-workspace-skills.md
+    `-- personalization/
+        |-- README.md
+        `-- AGENTS.md
 ```
 
 Every PM OS content folder also includes an `INDEX.md` so agents can find the right context without  
 loading the whole workspace.
 
 After the scaffold is created, the agent offers to personalize the workspace around your product:
-product vision, Chief PM behavior, specialist agents, docs, and skills. You can start that anytime
-by saying `Customize my workspace.`
+product vision, Chief PM behavior, specialist agents, docs, and product skills. You can start that
+anytime by saying `Customize my workspace.`
 
 That personalization keeps the workspace machinery separate from the product. For example, if your
 product is an AI agent or robot, the product docs should describe that product's agents or robots -
@@ -172,11 +184,11 @@ Create a skill for weekly exec updates in my voice.
 ```
 
 The Chief PM routes this through the **skill-librarian**, which writes or revises the skill, updates
-`skills/START_HERE.md`, `skills/INDEX.md`, the matching sub-agent, sub-agent index, and Chief PM
+`product-skills/START_HERE.md`, `product-skills/INDEX.md`, the matching sub-agent, sub-agent index, and Chief PM
 routing, then checks for stale links. New skills are picked up automatically — the next time the work
 matches, your agent applies them without being reminded.
 
-You can also teach the workspace by dropping files into `skills/templates/` and `skills/references/`.
+You can also teach the workspace by dropping files into `product-practices/templates/` and `product-practices/references/`.
 Use templates for blank reusable structures, like story, feature, epic, PRD, meeting minute, roadmap,
 or stakeholder update formats. Use references for examples and style samples, like how you write
 meeting minutes or what a good exec update sounds like. Tell the Chief PM what the file should

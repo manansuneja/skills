@@ -14,7 +14,8 @@ workspace folder, setup happens here. If you have not created a folder yet, ask 
 new PM OS workspace using the project name.
 
 The goal is not to explain the folder structure. The goal is to give the workspace enough context
-that the Chief PM, sub-agents, product docs, and skills start behaving like they belong to your work.
+that the Chief PM, sub-agents, product docs, and product skills start behaving like they belong to
+your work.
 
 ## What setup should capture
 

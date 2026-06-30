@@ -48,7 +48,7 @@ npx skills@latest add manansuneja/skills --skill workflow-create -g
 
 ### Product Management
 
-- [PM OS Setup](skills/product-management/pm-os-setup) scaffolds a Product Management operating system with a Chief PM coordinator, specialist agents, reusable skills, shared templates/references, product docs, outcomes, design notes, data insights, roadmaps, stakeholder comms, and workspace memory.
+- [PM OS Setup](skills/product-management/pm-os-setup) scaffolds a Product Management operating system with a Chief PM coordinator, specialist agents, product-skills, product-practices, protected workspace setup docs, product docs, outcomes, design notes, data insights, roadmaps, stakeholder comms, and workspace memory.
 
 Install:
 

@@ -7,8 +7,8 @@ durable product insight.
 
 Before using the default structure, check:
 
-- [templates/data-insight.md](templates/data-insight.md) for the current data insight template.
-- [references/](references/INDEX.md) for PM-provided metric readouts, dashboard notes, experiment
+- [product-practices/templates/data-insight.md](../product-practices/templates/data-insight.md) for the current data insight template.
+- [product-practices/references/](../product-practices/references/INDEX.md) for PM-provided metric readouts, dashboard notes, experiment
   examples, or data storytelling preferences.
 
 If the PM adds a better data template or reference example, follow that and keep this skill's
@@ -25,4 +25,4 @@ evidence and caveat rules.
 
 Write to `product-docs/data-insights/<MMM-DD-YYYY>-<topic>.md`, update
 [the data-insights index](../product-docs/data-insights/INDEX.md), and apply
-[apply-pmos-struct](apply-pmos-struct.md).
+[apply-pmos-struct](../_workspace_setup_docs/skills/apply-pmos-struct.md).

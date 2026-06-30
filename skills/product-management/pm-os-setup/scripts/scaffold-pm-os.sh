@@ -149,7 +149,7 @@ assert_no_existing_pm_os() {
     return
   fi
 
-  for marker in AGENTS.md INDEX.md agents skills product-docs; do
+  for marker in AGENTS.md INDEX.md agents _workspace_setup_docs product-skills product-docs; do
     if [ -e "$workspace_root/$marker" ]; then
       echo "The target already looks like a PM OS workspace: $workspace_root" >&2
       exit 1
@@ -183,7 +183,7 @@ copy_template_contents() {
     cp "$file" "$destination"
 
     case "$relative" in
-      _setup/*)
+      _workspace_setup_docs/personalization/*)
         continue
         ;;
     esac
@@ -213,5 +213,5 @@ assert_no_existing_pm_os "$workspace_root"
 copy_template_contents "$template_root" "$workspace_root" "$project_name"
 
 echo "PM OS workspace created: $workspace_root"
-echo "Open INDEX.md first, then START_HERE.md, AGENTS.md, and _setup/README.md."
+echo "Open INDEX.md first, then START_HERE.md, AGENTS.md, and _workspace_setup_docs/personalization/README.md."
 echo "To personalize later, tell your agent: Customize my workspace."

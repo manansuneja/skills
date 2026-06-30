@@ -8,8 +8,8 @@ next?" questions.
 
 Before using the default structure, check:
 
-- [templates/outcome.md](templates/outcome.md) for the current outcome template.
-- [references/](references/INDEX.md) for PM-provided examples of prioritization notes,
+- [product-practices/templates/outcome.md](../product-practices/templates/outcome.md) for the current outcome template.
+- [product-practices/references/](../product-practices/references/INDEX.md) for PM-provided examples of prioritization notes,
   recommendation docs, or strategic readouts.
 
 If the PM adds a better outcome template or reference example, follow that and keep this skill's
@@ -31,5 +31,5 @@ judgment rules.
 
 Write to `product-docs/outcomes/<MMM-DD-YYYY>-<topic>.md`, update
 [the outcomes index](../product-docs/outcomes/INDEX.md), and apply
-[apply-pmos-struct](apply-pmos-struct.md). In chat, report only the file path, the top
+[apply-pmos-struct](../_workspace_setup_docs/skills/apply-pmos-struct.md). In chat, report only the file path, the top
 recommendation, and any follow-up artifact path.
