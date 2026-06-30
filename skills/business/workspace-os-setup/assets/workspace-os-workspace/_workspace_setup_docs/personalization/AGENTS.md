@@ -1,104 +1,160 @@
-# Setup Agent Guide - Personalize This Workspace OS
+# Setup Agent Guide — Personalize This Workspace OS
 
-You are helping a business owner turn this generic Workspace OS into a workspace shaped around their business.
+> **Agent-facing:** This is the one-time apply guide for the agent. The user should answer the intake,
+> then stay focused on `{{DOCS_ROOT}}/` rather than editing this file.
 
-This setup is a business-context intake, not a filesystem tour. Do not start by explaining folders.
-Ask for the business context that will make the Workspace Chief and specialists useful.
+Turn this generic Workspace OS into a focused workspace that feels native to the owner's category and
+requirements. The operating machinery remains reusable; the content structure, terminology,
+trackers, skills, and routes should fit the actual work. This is a context intake and structure
+reconciliation, not a filesystem tour.
 
-Use the operating-layer vs business-layer boundary in [../../AGENTS.md](../../AGENTS.md) as the source of
-truth. The Workspace OS maintains the workspace in the background; it is not the user's business unless the
-owner explicitly says they are building a Workspace OS.
-Keep that boundary in your own reasoning during intake. Do not explain it to the owner unless their
-answers suggest they are mixing the workspace with the business.
+Use the machinery vs content-layer boundary in [../../AGENTS.md](../../AGENTS.md). Workspace OS
+machinery stays in the background; content files describe the user's real business, studio, project,
+research, knowledge, or other work.
 
-When setup is done, delete `_workspace_setup_docs/personalization/` yourself as the final cleanup step - its absence is how future
-sessions know this workspace is personalized. Do not ask the owner for a separate cleanup command.
-Durable behavior belongs in `AGENTS.md`, `agents/`, `_workspace_setup_docs/`, `business-skills/`,
-`business-practices/`, and `{{DOCS_ROOT}}/`.
+When setup is complete, delete `_workspace_setup_docs/personalization/` as the final content cleanup.
+Its absence tells future sessions that personalization is complete. Durable behavior belongs in
+`AGENTS.md`, `agents/`, `_workspace_setup_docs/`, `workspace-best-practices/`, and `{{DOCS_ROOT}}/`.
 
 ## Setup goals
 
 By the end, the workspace should have:
 
-- A clear business profile in `{{DOCS_ROOT}}/business-profile.md`.
-- A clear separation between workspace operations and the user's actual business/project.
-- A customized Workspace Chief in `agents/workspace-chief.md`.
-- Specialist agents that reflect the business's stage, audience, and owner style.
-- Business skills that match the owner's preferred workflows.
-- Current `INDEX.md` files.
-- No unnecessary generated tool-adapter clutter.
+- A concise `{{DOCS_ROOT}}/workspace-profile.md` grounded in the user's real work.
+- A category-appropriate information architecture using the owner's vocabulary.
+- A small, relevant set of top-level folders plus useful subfolders and trackers under
+  `{{DOCS_ROOT}}/`.
+- No clearly irrelevant generated-empty content folders.
+- A customized Workspace Chief and only useful specialist routes.
+- A minimal `workspace-best-practices/` library whose skills and templates match the kept content
+  areas, recurring workflows, and stated output preferences.
+- Current `INDEX.md` files and healthy links.
+- An authorized root-folder rename completed safely, if requested.
+- No unnecessary tool-adapter clutter.
 
-## Step 1 - Ask for business context
+## Step 1 — Ask one lightweight intake
 
-Ask four lightweight questions in one friendly message. Tell the owner rough notes, links, file paths,
-or "skip for now" are all fine.
+Ask these four questions in one friendly message. Rough notes, links, file paths, or “skip for now”
+are all fine.
 
-1. What should this workspace be called?
-2. What are you building, who is it for, and what problem or opportunity should the workspace keep
-   in mind?
-3. Where are things today, and what is the next useful outcome? Include stage, current bet,
-   near-term goal, or active decision only if known.
-4. Is there existing context I should use, such as files in this workspace, folders elsewhere,
-   pasted notes, docs, links, decisions, examples, or constraints? Also mention any format or style
-   you already want me to follow. If not, I will start with the default Workspace OS formats and we can
-   customize them into skills later.
+1. What should this workspace be called? Should I also rename the root folder to match at the very
+   end? If yes, the owner may give an exact folder name; otherwise use `<workspace-slug>-workspace`.
+   Mention that the editor may need to reopen the renamed folder.
+2. What category or kind of work is this, who is it for, and what should the workspace keep in mind?
+3. What three to five kinds of work should be easiest right now? What core things, stages, or status
+   should it track—for example clients, projects, rooms, sources, campaigns, drafts, approvals,
+   budgets, or deliverables? Is there anything the owner explicitly does not want represented?
+4. What is the next useful outcome, and what existing files, links, decisions, examples, constraints,
+   formats, or writing style should be used?
 
-Do not ask separately about every artifact type. Offer brief, meeting, decision, brainstorm, and follow-up
-preferences can emerge from examples and get captured as skills over time. Detect the main tool from
-the host environment when possible; ask only if tool-specific wiring is requested or unclear.
+Do not ask separately about every artifact type. Preferences can emerge from real examples and become
+skills over time. Detect the host tool when possible; ask only if tool-specific wiring is requested.
+If the answers are thin, ask at most one follow-up round.
 
-If the answers are thin, ask at most one follow-up round. Prioritize missing business context,
-near-term goal, and context files over business-process preferences.
+## Step 2 — Build a reconciliation plan
 
-## Step 2 - Apply the context
+Work from the workspace root. Read the root and docs-root indexes, then inspect the actual folders
+under `{{DOCS_ROOT}}/`. First build a compact domain model:
 
-Work from the workspace root.
+- Core entities and relationships.
+- Lifecycle stages or recurring sequences.
+- Repeated artifacts and decisions.
+- Status, dates, owners, costs, evidence, dependencies, or next actions worth tracking.
+- The owner's natural terminology.
 
-1. Replace `{{BUSINESS_NAME}}`, `{{BUSINESS_CATEGORY}}`, `{{OBJECTIVE}}`, and `{{PRIMARY_USE}}` outside
-   `_workspace_setup_docs/personalization/` when the answers are known.
-2. Update `START_HERE.md` with a short business-specific introduction if useful.
-3. Update `{{DOCS_ROOT}}/business-profile.md` with the business, users, problem, goal, current bet, and
-   known constraints. Do not describe the Workspace Chief or Workspace OS as the business unless the owner explicitly
-   said that is what they are building.
-4. Customize `agents/workspace-chief.md`. This is required. Adjust its persona, routing emphasis, standing
-   rules, and context-gathering behavior around the business and owner's style.
-5. Update specialist agents only where the business context changes how they should behave.
-6. Update skills only where the owner gave a clear preference.
-7. Apply `_workspace_setup_docs/skills/apply-workspace-struct.md`: update indexes, links, names, and business docs.
+Translate that model into folders, subfolders, structured trackers, templates, skills, and agent
+routes. Build three synchronized plans: content structure, best practices, and agents. For each use
+the same four sets:
 
-Do not create `.claude/agents/` or `.github/agents/` during basic setup unless the owner explicitly asks
-to wire that tool now. Cursor is already wired through `.cursor/rules/workspace-os.mdc`.
+- **Keep:** supports an explicit current/near-term use, contains user-authored material, or is a
+  necessary cross-cutting area.
+- **Add:** needed now or soon and has a purpose distinct from existing folders.
+- **Remove:** clearly irrelevant generated folders containing no artifact beyond their unchanged
+  starter `INDEX.md`.
+- **Ask:** relevance is uncertain, or the folder contains user-authored files, raw input, custom
+  links/index content, or nested artifacts.
 
-## Step 3 - Skill library setup
+Use the installed `workspace-os-setup/references/workspace-profiles.md` reference when the host makes
+it available. Requirements decide immediate scope; category knowledge supplies appropriate domain
+structure, terminology, and high-confidence missing pieces. Aim for a close fit, not a generic
+lowest-common-denominator tree, but do not union every industry suggestion. An interior-design studio
+focused on knowledge, brainstorming, and writing does not need `vendors/` merely because vendors are
+common in interior design.
 
-This workspace includes a skill-librarian agent and `_workspace_setup_docs/skills/manage-workspace-skills.md`. The owner can
-ask the Workspace Chief to create or update skills over time.
+Remove clearly irrelevant generated-empty folders without a second question and report them later.
+For all **Ask** items, send one consolidated confirmation listing the exact proposed action. Never
+delete or relocate user-authored content from inference alone. If the owner does not answer, keep it.
 
-If a local or installed `skill-creator` skill exists, use it when creating or heavily revising skills.
-If it is missing and the owner wants that support, offer this command:
+If a removed content area has generated skills, specialists, routes, templates, or index rows that
+serve only that area, include those in the same reconciliation. Do not leave orphaned routes.
 
-```text
-npx skills add https://github.com/anthropics/skills --skill skill-creator
-```
+Begin with the common skill core: summarize notes, brainstorm, synthesize outcomes, and document
+context. Remove even a common skill/sub-agent when it clearly does not fit the scope. Add a
+category-specific skill only for an explicit reusable preference or recurring workflow; add a
+specialist only when a distinct recurring route is valuable.
 
-Do not run external install commands silently.
+## Step 3 — Apply the context and structure
 
-## Step 4 - Handoff and cleanup
+1. If this is a legacy scaffold, normalize in place: rename `business-hub-docs/` to
+   `workspace-hub-docs/` and `business-practices/` to `workspace-best-practices/`; then move a legacy
+   `business-skills/` or top-level `workspace-skills/` directory to
+   `workspace-best-practices/skills/`. Rename `business-profile.md` to `workspace-profile.md`.
+   Preserve contents, update links, and never create a replacement root and copy files into it.
+2. Replace any unresolved workspace-name, workspace-category, objective, and primary-use template
+   tokens outside this personalization folder when answers are known.
+3. Apply the keep/add/remove/confirmed-ask plan. Use category language and useful nested structure.
+   Give each new content folder an `INDEX.md` with a clear purpose. Use a table, CSV, JSON, or sheet
+   when the user needs to track repeated fields or status. Remove stale index rows and links.
+4. Update `START_HERE.md` with a short workspace-specific introduction if useful.
+5. Update `{{DOCS_ROOT}}/workspace-profile.md` with the purpose, category, audience, focus, domain
+   model, things to track, current outcome, and known constraints. Do not describe the Workspace
+   Chief as the user's work.
+6. Customize `agents/workspace-chief.md`. Adjust its persona, routing emphasis, standing rules, and
+   context-gathering behavior around the owner and the kept content areas.
+7. Apply the best-practice and agent plans with the content plan. Create or update skills/templates
+   when outputs need repeatable judgment, structure, or format. Remove unused generic skills and
+   specialists. Add a specialist only for a distinct recurring role. Keep routes, indexes, and files
+   synchronized.
+8. Apply `_workspace_setup_docs/skills/apply-workspace-struct.md`: verify folder names, audience
+   labels, indexes, links, and profile references.
 
-Prepare a short completion summary with:
+Do not create `.claude/agents/` or `.github/agents/` during basic setup unless the owner explicitly
+asks. Cursor is already wired through `.cursor/rules/workspace-os.mdc`.
 
-- The updated business profile.
-- The customized Workspace Chief summary.
-- Any skills or agents changed.
-- The key rule: after meaningful changes, the Workspace Chief applies `apply-workspace-struct.md` so indexes,
-  business docs, filenames, and links stay current.
+## Step 4 — Validate, summarize, and clean up
 
-Check the core context is answered: workspace name, business/users, problem/opportunity, stage or
-near-term goal, and any existing files or examples the owner wanted used. If setup is complete, **delete
-the entire `_workspace_setup_docs/personalization/` folder before reporting back** - it has done its job, and its absence is how
-future sessions know this workspace is personalized. Keep the root `START_HERE.md` as the user's guide.
-Do not recreate `_workspace_setup_docs/personalization/` later. Then send the completion summary.
+Check that the workspace name, purpose/audience, active focus areas, next outcome, and requested source
+material are captured. Search for stale paths, missing targets, orphaned routes, and unresolved
+template tokens.
 
-If required context is missing and you cannot personalize responsibly, leave `_workspace_setup_docs/personalization/` in place and
-ask the smallest follow-up question needed. Do not present deletion as a separate user decision once
-the personalization work is complete.
+Prepare a concise handoff covering:
+
+- The updated workspace profile and focus areas.
+- How the folder/subfolder structure and trackers fit the category and requirements.
+- Folders kept, added, removed, or deliberately retained.
+- Skills, templates, references, or agents changed—and which outputs they now control.
+- The final root path, or why it stayed unchanged.
+
+If personalization is complete, delete `_workspace_setup_docs/personalization/` and remove its row
+from `_workspace_setup_docs/INDEX.md`. Keep the root `START_HERE.md`. If required context is missing,
+leave personalization in place and ask only the smallest necessary follow-up.
+
+## Step 5 — Rename the root last, when authorized
+
+Do this only if the owner approved it in the intake or explicitly requested it later.
+
+1. Compute the exact sibling destination. Use the owner's exact folder name when supplied; otherwise
+   use `<workspace-slug>-workspace` in `lower-kebab-case`.
+2. Confirm the destination does not exist, the parent is writable, and this root is the intended
+   Workspace OS root rather than a broad folder containing unrelated projects. If unrelated material
+   exists, ask before renaming the root.
+3. Finish every content edit, validation, personalization-folder deletion, and summary preparation
+   before the rename.
+4. Rename the directory itself from its parent as one move (`mv -- old new` on macOS/Linux or
+   `Move-Item -LiteralPath old -Destination new` on PowerShell). **Do not** `mkdir` a new root and move
+   or copy the contents into it.
+5. Make the rename the final filesystem operation. Report both old and new absolute paths and tell
+   the owner their editor may need to reopen the new folder.
+
+If any safety check fails, leave the root unchanged and report the exact blocker. Content
+personalization may still be complete.

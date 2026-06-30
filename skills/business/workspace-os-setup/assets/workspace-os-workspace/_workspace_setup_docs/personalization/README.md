@@ -1,29 +1,23 @@
-# Workspace OS Setup
+# Customize This Workspace
 
-This folder is the onboarding helper. It is temporary. Your agent removes it automatically once setup
-is done.
+> **For you:** This is the one-time onboarding page. Your agent handles the files and removes this
+> folder after customization.
 
-## Begin
-
-Tell your AI agent:
+Tell your agent:
 
 > Customize my workspace.
 
-This is like the onboarding step after creating a new dev project. If you already created/opened this
-workspace folder, setup happens here. If you have not created a folder yet, ask the agent to create a
-new Workspace OS workspace using the project name.
+It will ask one short intake, then make the workspace fit your category, terminology, workflows, and
+tracking needs. Customization is not only additive: the agent will keep useful areas, add fitting
+folders, subfolders, and trackers, and remove clearly irrelevant empty starter folders. It will ask
+before deleting or relocating anything that contains your content.
 
-The goal is not to explain the folder structure. The goal is to give the workspace enough context
-that the Workspace Chief, sub-agents, business docs, and business skills start behaving like they belong to
-your work.
+If you want the root folder renamed too, say yes during the intake. The agent will rename the folder
+itself as the final step and tell you the new path; your editor may need to reopen it.
 
-## What setup should capture
+After setup, spend most of your time in `{{DOCS_ROOT}}/`. Use `workspace-best-practices/` when you
+want to shape workflows, output structure, format, voice, or style. Point the agent there and describe
+your intention; it manages skills, templates, references, specialists, and routing for you.
 
-- What the business or project is, who it is for, and what matters right now.
-- The current stage, bet, goal, or active decision if you know it.
-- Existing files, folders, pasted notes, docs, links, examples, decisions, or constraints to use.
-- Any format or style you already want followed.
-
-After setup, start using the Workspace Chief. The workspace should get richer from real notes, outcomes,
-decisions, offer briefs, brand and delivery considerations, metrics, plans, client communications, and skill
-updates over time.
+Later, ask the agent to add any folder, subfolder, tracker, or workflow you need. You may also add
+them manually; the next agent session will index and integrate clear additions automatically.

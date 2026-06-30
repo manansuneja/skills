@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-business_name=""
+workspace_name=""
 target_path="."
-workspace_kind="business"
-business_category=""
+workspace_kind="hub"
+workspace_category=""
 objective=""
 primary_use=""
 use_current_folder=false
@@ -13,13 +13,16 @@ create_folder=false
 usage() {
   cat <<'EOF'
 Usage:
-  scaffold-workspace-os.sh --business-name "Business Name" --target-path "." --use-current-folder
-  scaffold-workspace-os.sh --business-name "Client Project" --workspace-kind project --target-path "." --create-folder
+  scaffold-workspace-os.sh --workspace-name "Studio Name" --target-path "." --use-current-folder
+  scaffold-workspace-os.sh --workspace-name "Client Project" --workspace-kind project --target-path "." --create-folder
 
 Options:
-  --business-name      Required business, client, or project name. --project-name is accepted as an alias.
-  --workspace-kind     business or project. business creates business-hub-docs; project creates project-docs.
-  --business-category  Short category such as interior design, agency, consulting, ecommerce, or local service.
+  --workspace-name     Required workspace, business, client, or project name.
+                       --business-name and --project-name remain accepted as aliases.
+  --workspace-kind     hub or project. hub creates workspace-hub-docs; project creates project-docs.
+                       workspace, business, and business-hub remain accepted as hub aliases.
+  --workspace-category Short category such as interior design, knowledge base, agency, or personal research.
+                       --business-category remains accepted as an alias.
   --objective          Main objective for the workspace.
   --primary-use        Main use, such as client-management, brainstorming, knowledge, operations, projects, or general.
 EOF
@@ -27,16 +30,16 @@ EOF
 
 while [ "$#" -gt 0 ]; do
   case "$1" in
-    --business-name|--project-name)
-      business_name="${2:-}"
+    --workspace-name|--business-name|--project-name)
+      workspace_name="${2:-}"
       shift 2
       ;;
     --workspace-kind)
       workspace_kind="${2:-}"
       shift 2
       ;;
-    --business-category)
-      business_category="${2:-}"
+    --workspace-category|--business-category)
+      workspace_category="${2:-}"
       shift 2
       ;;
     --objective)
@@ -71,8 +74,8 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 
-if [ -z "${business_name//[[:space:]]/}" ]; then
-  echo "--business-name is required (or use --project-name)." >&2
+if [ -z "${workspace_name//[[:space:]]/}" ]; then
+  echo "--workspace-name is required (--business-name and --project-name are aliases)." >&2
   usage >&2
   exit 1
 fi
@@ -110,11 +113,11 @@ normalize_workspace_kind() {
     project|client-project|client|client-workspace)
       printf '%s\n' "project"
       ;;
-    business|business-hub|hub|"")
-      printf '%s\n' "business"
+    hub|workspace|workspace-hub|business|business-hub|"")
+      printf '%s\n' "hub"
       ;;
     *)
-      echo "Unknown workspace kind: $1. Use business or project." >&2
+      echo "Unknown workspace kind: $1. Use hub or project." >&2
       exit 1
       ;;
   esac
@@ -126,7 +129,7 @@ docs_root_for_kind() {
       printf '%s\n' "project-docs"
       ;;
     *)
-      printf '%s\n' "business-hub-docs"
+      printf '%s\n' "workspace-hub-docs"
       ;;
   esac
 }
@@ -211,7 +214,7 @@ assert_no_existing_workspace_os() {
     return
   fi
 
-  for marker in AGENTS.md INDEX.md agents _workspace_setup_docs business-skills business-hub-docs project-docs; do
+  for marker in AGENTS.md INDEX.md agents _workspace_setup_docs workspace-best-practices workspace-hub-docs project-docs workspace-skills business-skills business-practices business-hub-docs; do
     if [ -e "$workspace_root/$marker" ]; then
       echo "The target already looks like a Workspace OS workspace: $workspace_root" >&2
       exit 1
@@ -255,8 +258,8 @@ copy_template_contents() {
     local destination
     relative="${file#$template_root/}"
     case "$relative" in
-      business-hub-docs/*)
-        relative="$docs_root/${relative#business-hub-docs/}"
+      workspace-hub-docs/*)
+        relative="$docs_root/${relative#workspace-hub-docs/}"
         ;;
     esac
     destination="$workspace_root/$relative"
@@ -275,8 +278,8 @@ copy_template_contents() {
     local destination_dir
     relative="${file#$template_root/}"
     case "$relative" in
-      business-hub-docs/*)
-        relative="$docs_root/${relative#business-hub-docs/}"
+      workspace-hub-docs/*)
+        relative="$docs_root/${relative#workspace-hub-docs/}"
         ;;
     esac
     destination="$workspace_root/$relative"
@@ -293,10 +296,10 @@ copy_template_contents() {
     case "$file" in
       *.md|*.mdc|*.txt|*.json)
         if [ -n "${name//[[:space:]]/}" ]; then
-          BUSINESS_NAME_VALUE="$name" perl -0pi -e 's/\{\{BUSINESS_NAME\}\}/$ENV{BUSINESS_NAME_VALUE}/g; s/\{\{PROJECT_NAME\}\}/$ENV{BUSINESS_NAME_VALUE}/g' "$destination"
+          WORKSPACE_NAME_VALUE="$name" perl -0pi -e 's/\{\{WORKSPACE_NAME\}\}/$ENV{WORKSPACE_NAME_VALUE}/g; s/\{\{BUSINESS_NAME\}\}/$ENV{WORKSPACE_NAME_VALUE}/g; s/\{\{PROJECT_NAME\}\}/$ENV{WORKSPACE_NAME_VALUE}/g' "$destination"
         fi
         if [ -n "${category//[[:space:]]/}" ]; then
-          BUSINESS_CATEGORY_VALUE="$category" perl -0pi -e 's/\{\{BUSINESS_CATEGORY\}\}/$ENV{BUSINESS_CATEGORY_VALUE}/g' "$destination"
+          WORKSPACE_CATEGORY_VALUE="$category" perl -0pi -e 's/\{\{WORKSPACE_CATEGORY\}\}/$ENV{WORKSPACE_CATEGORY_VALUE}/g; s/\{\{BUSINESS_CATEGORY\}\}/$ENV{WORKSPACE_CATEGORY_VALUE}/g' "$destination"
         fi
         if [ -n "${goal//[[:space:]]/}" ]; then
           OBJECTIVE_VALUE="$goal" perl -0pi -e 's/\{\{OBJECTIVE\}\}/$ENV{OBJECTIVE_VALUE}/g' "$destination"
@@ -320,11 +323,13 @@ if [ ! -d "$template_root" ]; then
 fi
 
 workspace_kind="$(normalize_workspace_kind "$workspace_kind")"
-workspace_root="$(resolve_workspace_root "$target_path" "$business_name")"
+workspace_root="$(resolve_workspace_root "$target_path" "$workspace_name")"
 base_root="$(absolute_dir "$target_path")"
 assert_safe_workspace_root "$workspace_root" "$base_root"
-copy_template_contents "$template_root" "$workspace_root" "$business_name" "$workspace_kind" "$business_category" "$objective" "$primary_use"
+copy_template_contents "$template_root" "$workspace_root" "$workspace_name" "$workspace_kind" "$workspace_category" "$objective" "$primary_use"
 
 echo "Workspace OS workspace created: $workspace_root"
-echo "Open INDEX.md first, then START_HERE.md, AGENTS.md, and _workspace_setup_docs/personalization/README.md."
+echo "Open START_HERE.md first. Your primary workspace is $workspace_root/$(docs_root_for_kind "$workspace_kind")."
+echo "Use workspace-best-practices/ to customize skills, templates, and examples by asking your agent."
+echo "Agents manage AGENTS.md, agents/, and _workspace_setup_docs/ in the background."
 echo "To personalize later, tell your agent: Customize my workspace."

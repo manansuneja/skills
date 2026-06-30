@@ -2,25 +2,11 @@
 
 [![skills.sh](https://skills.sh/b/manansuneja/skills)](https://skills.sh/manansuneja/skills)
 
-Workspace OS Setup creates a structured Markdown workspace for a small business, solo practice,
-studio, agency, or client project. It gives the workspace a **Workspace Chief** coordinator,
-specialist agents, reusable business skills, shared templates/references, durable business memory,
-automatic indexes, and a setup flow that can bias the workspace toward client management,
-brainstorming, knowledge, operations, or project delivery.
+Workspace OS Setup creates a focused Markdown workspace for a studio, business, team, knowledge base,
+personal practice, or client project. It includes a Workspace Chief, a minimal common specialist
+core, an evolving best-practices library, durable memory, and automatic indexes.
 
-It is not just a notes folder. It is a business workspace your agents can navigate.
-
-## What This Helps Business Owners Do
-
-- Build a business hub or client-project workspace instead of another folder of loose notes.
-- Work through one Workspace Chief that routes to the right specialist automatically.
-- Capture working style, standards, templates, and examples as reusable skills.
-- Turn meetings, brainstorms, decisions, offers, plans, metrics, and client updates into durable files.
-- Keep every folder indexed so future agents can find context without rereading everything.
-
-## Quickstart
-
-**1. Install the skill:**
+## Install
 
 ```bash
 npx skills@latest add manansuneja/skills --skill workspace-os-setup -g
@@ -32,116 +18,95 @@ Using Claude Code on the same machine too?
 npx skills@latest add manansuneja/skills --skill workspace-os-setup -g -a claude-code
 ```
 
-**2. Run it:**
+Then ask:
 
 ```text
-/workspace-os-setup Set up a Workspace OS for my interior design business.
+/workspace-os-setup Set up a Workspace OS for my interior design studio.
 ```
 
-For a bounded client project:
+Or for a bounded project:
 
 ```text
 /workspace-os-setup Set up a client-project Workspace OS for the Lake House redesign.
 ```
 
-The agent asks a short intake, chooses the current folder or a new workspace folder, scaffolds the
-workspace, and offers to personalize it.
+## What It Creates
 
-## Updating The Skill
+```text
+studio-name-workspace/
+|-- START_HERE.md                 # user guide
+|-- INDEX.md                      # shared map
+|-- workspace-hub-docs/          # primary user workspace (or project-docs/)
+|   |-- workspace-profile.md
+|   `-- focused content areas...
+|-- workspace-best-practices/    # user + agent customization center
+|   |-- skills/                   # workflows, output structure, and format
+|   |-- templates/                # exact reusable formats
+|   `-- references/               # examples, sources, voice, and style
+|-- agents/                       # agent-facing
+|-- _workspace_setup_docs/        # agent-facing setup and structure rules
+|-- AGENTS.md                      # agent-facing operating guide
+|-- CLAUDE.md                      # tool compatibility
+`-- .cursor/                       # tool compatibility
+```
+
+The user should spend most of their time in `workspace-hub-docs/` or `project-docs/` and use
+`workspace-best-practices/` when they want to shape outputs. They describe intention and examples;
+the agent handles configuration and synchronization.
+
+## Customization Is Subtractive
+
+After scaffolding, say:
+
+```text
+Customize my workspace.
+```
+
+The agent asks one short intake, then reconciles the structure:
+
+- models the category's entities, lifecycle, terminology, recurring work, and tracking needs;
+- keeps areas that support current or near-term work;
+- adds fitting folders, subfolders, trackers, templates, skills, and routes;
+- removes clearly irrelevant generated-empty folders;
+- asks once before deleting or relocating anything containing user-authored content;
+- synchronizes skills, specialists, routes, links, and indexes.
+
+The default library contains only common skills for summarizing notes, brainstorming, synthesizing
+outcomes, and documenting context. Category-specific skills and sub-agents are added only when the
+scope or repeated work needs them.
+
+For example, an interior-design studio focused on knowledge capture, brainstorming, marketing, and
+writing does not automatically keep a vendors area simply because vendors are common in the field.
+
+Customization can also rename the root folder. The user opts in during intake; the agent completes
+all content changes first, then renames the directory itself as one final move and reports the new
+path. It does not create a second folder and shuffle the contents into it.
+
+Users can ask the Workspace Chief to add any folder, subfolder, tracker, or workflow later. If they
+add content manually, the next agent session performs a lightweight structural reconciliation:
+missing indexes and maps are created, and clear additions are integrated automatically.
+
+Users can also open `workspace-best-practices/` and ask the agent to modify a skill, create a
+business-specific template, learn from an example, or simplify the library. No manual configuration
+is required.
+
+## Updating
 
 ```bash
 npx skills@latest update workspace-os-setup -g
 ```
 
-## No Terminal
+## Manual Installation
 
-Download this repo as a ZIP from GitHub, unzip it, then open Claude's `Customize > Skills` and upload
-only this folder:
+Download the repository, then install or upload only:
 
 ```text
 skills/business/workspace-os-setup
 ```
 
-Turn the skill on, then ask: `Use workspace-os-setup to set up a Workspace OS for my business.`
-
-## What It Creates
-
-```text
-acme-workspace/
-|-- AGENTS.md
-|-- CLAUDE.md
-|-- INDEX.md
-|-- START_HERE.md
-|-- agents/
-|   |-- workspace-chief.md
-|   `-- sub-agents/...
-|-- business-hub-docs/        # or project-docs/
-|   |-- business-profile.md
-|   |-- meetings/...
-|   |-- outcomes/...
-|   |-- offers/...
-|   |-- decisions/...
-|   |-- brand-and-delivery/...
-|   |-- metrics/...
-|   |-- plans/...
-|   `-- client-comms/...
-|-- business-skills/
-|   |-- START_HERE.md
-|   |-- summarize-notes.md
-|   |-- brainstorm.md
-|   |-- offer-brief.md
-|   |-- metrics-review.md
-|   |-- business-planning.md
-|   `-- ...
-|-- business-practices/
-|   |-- templates/...
-|   `-- references/...
-`-- _workspace_setup_docs/
-    |-- skills/
-    |   |-- apply-workspace-struct.md
-    |   `-- manage-workspace-skills.md
-    `-- personalization/
-        |-- README.md
-        `-- AGENTS.md
-```
-
-Every content folder includes an `INDEX.md` so agents can find the right context quickly.
-
-## After Setup
-
-Talk to the Workspace Chief in plain language:
-
-```text
-Summarize these client meeting notes and save them.
-Help me shape a new service package.
-Turn this project idea into an offer brief.
-Draft a client update from this plan change.
-Update the business profile based on this strategy note.
-Create a skill for how I like project proposals written.
-```
-
-The base starter skills cover notes, outcomes, brainstorming, offer briefs, brand/delivery notes,
-metrics, planning, client communications, documentation, and workspace skill updates. The
-`_workspace_setup_docs/personalization/` handoff helps make the generic scaffold specific to the
-business, then removes itself when setup is complete.
-
 ## What This Skill Does And How To Use It
 
-Workspace OS Setup scaffolds a Markdown business or client-project workspace with a Workspace Chief,
-specialist agents, reusable business skills, business docs, templates/references, automatic indexes,
-and workspace memory.
-
-Install it with:
-
-```bash
-npx skills@latest add manansuneja/skills --skill workspace-os-setup -g
-```
-
-Run it by asking your agent to create a Workspace OS:
-
-```text
-/workspace-os-setup Set up a Workspace OS for my interior design business.
-```
-
-After scaffolding, tell your agent `Customize my workspace` to personalize the business profile,
-Workspace Chief, specialist agents, and reusable business skills.
+Workspace OS Setup scaffolds and personalizes a focused Markdown workspace with durable memory,
+agent coordination, reusable workflows, shared templates/references, and indexed content. Invoke
+`$workspace-os-setup`, answer the short setup intake, then say `Customize my workspace` to reconcile
+the structure and optionally rename the root folder.

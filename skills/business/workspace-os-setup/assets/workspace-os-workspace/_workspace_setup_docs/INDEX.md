@@ -1,13 +1,12 @@
-# _workspace_setup_docs/ - Index
+# _workspace_setup_docs/ — Index
 
-Workspace setup docs are the stable operating layer for this Workspace OS. They describe how the workspace
-stays organized, how personalization works, and which rules should remain separate from
-business-specific preferences.
+> **Agent-facing:** Protected Workspace OS setup and maintenance rules. The user normally does not
+> need to work in this folder.
 
-| Folder | What lives here | Open when |
-|---|---|---|
-| [skills/](skills/INDEX.md) | Protected workspace rules and skill-maintenance playbooks | A change affects structure, indexes, or the business-skill catalog |
-| [personalization/](personalization/INDEX.md) | One-time setup guide for tailoring the generic scaffold | The workspace has not been personalized yet |
+| Folder | What lives here |
+|---|---|
+| [skills/](skills/INDEX.md) | Structure and workspace-skill maintenance playbooks |
+| [personalization/](personalization/INDEX.md) | Temporary one-time customization flow, when present |
 
-Business-specific working style belongs in [../business-skills/](../business-skills/INDEX.md) and
-[../business-practices/](../business-practices/INDEX.md).
+Reusable skills, templates, examples, voice, and style belong together in the shared
+[workspace-best-practices/](../workspace-best-practices/INDEX.md) customization center.

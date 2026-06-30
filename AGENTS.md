@@ -21,8 +21,8 @@ This repo is the public `manansuneja/skills` catalog.
 
 - `skills/agent-workflows/` for workflow and meta-skill tooling.
 - `skills/product-management/` for PM operating systems, product memory, and product-builder workflows.
-- `skills/business/` for small-business workspaces, client-project memory, operations, and
-  business-owner workflows.
+- `skills/business/` for focused workspaces, studios, small businesses, knowledge systems,
+  client-project memory, operations, and reusable owner workflows.
 
 ## Verification
 

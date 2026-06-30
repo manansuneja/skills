@@ -1,5 +1,5 @@
-# {{BUSINESS_NAME}} Workspace
+# {{WORKSPACE_NAME}} Workspace
 
-This workspace follows the AGENTS.md standard. Read and follow [AGENTS.md](AGENTS.md).
+> **Agent-facing compatibility file:** The user normally does not need to edit this.
 
-AGENTS.md makes the default chat act as the Workspace Chief.
+Read and follow [AGENTS.md](AGENTS.md). It makes the default chat act as the Workspace Chief.

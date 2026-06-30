@@ -1,100 +1,123 @@
-# Skill: apply-workspace-struct
+# Skill: Apply Workspace Structure
 
-The structural glue of the Workspace OS. The Workspace Chief applies this after any task that creates, moves,
-renames, meaningfully edits, or documents anything. It keeps the workspace findable by both the owner
-and future agents. This is the skill that makes the memory compound instead of pile up.
+> **Agent-facing:** Protected Workspace OS playbook. The user normally does not need to edit this file.
+
+Apply this after any task that creates, moves, renames, removes, or meaningfully edits workspace
+content. It keeps the workspace focused and findable instead of letting memory become a pile.
 
 ## Naming
 
-- **`lower-kebab-case` for descriptive names.** No spaces, no capitals, no `&` or other punctuation
-  outside the date prefix. Use hyphens. (`raw-notes.md`, `q3-onboarding-brief.md` - not
-  `Raw Notes.md` or `Q3 offer brief.md`.) Agents and Markdown links read these reliably; spaces and capitals
-  cause broken links and ambiguity.
-- **Date-prefix time-ordered things** with `MMM-DD-YYYY`: meetings, outcomes, decisions.
-  Example: `Jan-15-2026-pricing-sync`. Use a three-letter English month abbreviation with title
-  case, a two-digit day, and a four-digit year.
-- **Use topic-first folders for offer briefs.** Offer brief work should mirror how a business owner thinks about scope:
-  broader area/package -> offer -> client story. Use stable folders like `landing-page/header/`, not
-  date-prefixed files like `Jan-15-2026-header.md`. Put dates in the offer brief body and index instead.
-- **Markdown (`.md`) for all text.** It's the standard agents read best.
+- Use `lower-kebab-case` for descriptive files and folders. Avoid spaces, capitals, and punctuation.
+- Prefix genuinely time-ordered artifacts with `MMM-DD-YYYY`, such as
+  `Jan-15-2026-pricing-decision.md`.
+- Use stable topic-first folders for ongoing bodies of work. Put dates inside the artifact when the
+  topic should remain stable.
+- Use Markdown for narrative text.
 
-## Folders
+## Focused folder lifecycle
 
-- **A thing that has more than one file deserves a folder.** A meeting has a summary plus archived
-  raw notes -> it gets its own folder. A standalone decision can be a single file.
-- **Create the subfolder when you create the artifact** - don't dump files at the top level.
-- **Mirror the existing shape.** Look at how similar artifacts are already organized and match it.
+- A top-level content area must support active or near-term work and have a distinct purpose grounded
+  in the workspace category or requirements.
+- Use category-specific subfolders for real entities or lifecycle stages; use structured trackers for
+  repeated fields and status rather than flattening domain detail into generic buckets.
+- Reuse an existing area when its purpose overlaps; do not create a new folder for every artifact.
+- When personalization or later cleanup shows an area is irrelevant:
+  - remove it directly only when it is generated-empty (no content beyond an unchanged starter
+    `INDEX.md`);
+  - ask once before deleting or relocating user-authored files, raw input, custom index content,
+    links, or nested artifacts;
+  - keep it if relevance is uncertain and the user does not answer.
+- Removing an area also removes or revises stale index rows, links, specialist routes, skills, and
+  templates that served only that area.
+- Adding or materially changing an area also reviews whether its recurring outputs need a skill,
+  template, reference, or distinct specialist. Keep all layers synchronized and minimal.
+- Do not recreate a removed starter area merely because the generic scaffold once contained it.
 
-### Conventions in this workspace
+## Automatic structural reconciliation
 
-| Artifact | Lives at |
+Run this lightweight pass whenever `AGENTS.md` is read at the start of a session:
+
+1. List the actual tree under `{{DOCS_ROOT}}/` and `workspace-best-practices/`, plus immediate root
+   entries. Compare paths with the nearest indexes. Inspect names and index presence first; read file
+   contents only when needed to infer purpose.
+2. Ignore `raw/`, hidden/tool folders, workspace machinery, dependency/build outputs, and archives
+   unless the current task specifically involves them.
+3. For a user-created folder or subfolder missing an index:
+   - preserve its contents and location;
+   - infer a concise purpose from its name and nearby material;
+   - create `INDEX.md` with the appropriate audience label;
+   - link it from the parent index and docs-root/root map when applicable.
+4. For an unindexed user-created file, add it to the nearest index and connect it to an existing
+   area, tracker, template, skill, or route when the relationship is clear.
+5. If a root-level user folder clearly belongs under `{{DOCS_ROOT}}/`, integrate it into the maps
+   immediately. Move or rename it only when placement is unambiguous and references will remain safe;
+   otherwise leave it in place, index it, and ask one concise question.
+6. Do not ask permission merely to create indexes, update maps, or connect clear routing. Do not
+   delete, overwrite, or silently rename user-created content.
+
+Report reconciled additions briefly. This is background maintenance, not a task the user must manage.
+
+## Artifact placement
+
+- A thing with multiple files earns its own folder—for example, a meeting with a clean summary and a
+  `raw/` archive.
+- Mirror the shape of similar existing artifacts.
+- These are starter patterns, not mandatory areas; use them only when the folder survived
+  personalization or the user has now approved it.
+
+| Artifact | Typical location |
 |---|---|
-| Meeting | `{{DOCS_ROOT}}/meetings/<MMM-DD-YYYY>-<title>/` -> `summary.md` + `raw/raw-notes.md` |
+| Meeting | `{{DOCS_ROOT}}/meetings/<MMM-DD-YYYY>-<title>/summary.md` + `raw/raw-notes.md` |
 | Outcome | `{{DOCS_ROOT}}/outcomes/<MMM-DD-YYYY>-<topic>.md` |
-| Offer brief area / package | `{{DOCS_ROOT}}/offers/<area-or-package-slug>/overview.md` + `INDEX.md` |
-| Offer brief | `{{DOCS_ROOT}}/offers/<area-or-package-slug>/<offer-or-deliverable-slug>/brief.md` + optional `client-story.md` |
-| Standalone offer brief | `{{DOCS_ROOT}}/offers/<offer-or-deliverable-slug>/brief.md` only when no parent area is useful |
 | Decision | `{{DOCS_ROOT}}/decisions/<MMM-DD-YYYY>-<decision>.md` |
-| Brand and delivery note | `{{DOCS_ROOT}}/brand-and-delivery/<MMM-DD-YYYY>-<topic>.md` |
-| Metric insight | `{{DOCS_ROOT}}/metrics/<MMM-DD-YYYY>-<topic>.md` |
-| Plan | `{{DOCS_ROOT}}/plans/<MMM-DD-YYYY>-<topic>.md` |
-| Client communication | `{{DOCS_ROOT}}/client-comms/<MMM-DD-YYYY>-<topic>.md` |
-| Business profile | `{{DOCS_ROOT}}/business-profile.md` (single source of truth) |
+| Workspace profile | `{{DOCS_ROOT}}/workspace-profile.md` |
+| Category-specific artifact | The customized area and format defined by its best-practice skill/template |
 
-If a new *type* of artifact appears (research, prototypes, support docs...), create a new top-level folder
-under `{{DOCS_ROOT}}/`, give it an `INDEX.md`, and add it to the root [INDEX.md](../../INDEX.md).
+If a new artifact type repeatedly appears, create a focused area with an `INDEX.md` and update the
+docs-root and root indexes.
 
-## INDEX.md - the rule that makes everything work
+## INDEX.md rules
 
-- **Every Workspace OS content folder has an `INDEX.md`.** Tool config folders like `.cursor/` and archival
-  `raw/` subfolders do not need one.
-- **Every new artifact or meaningful content change updates the nearest `INDEX.md`.** No silent files
-  and no stale links.
-- **New top-level area -> also update the root `INDEX.md`.**
-- **Skill changes update their maps.** Adding, updating, merging, or removing a skill must update
-  `business-skills/INDEX.md`, `business-skills/START_HERE.md` when the guide changes, the owning sub-agent, and the
-  Workspace Chief route if routing changed.
-- **Template/reference changes update their maps.** Adding, updating, renaming, or removing files in
-  `business-practices/templates/` or `business-practices/references/` must update that folder's `INDEX.md`.
-- A stale index is worse than none - it sends agents to the wrong place. Update it in the same step
-  you create or change the file, not "later."
+- Every Workspace OS content folder has an `INDEX.md`. Tool config and `raw/` archives do not need one.
+- Every meaningful change updates the nearest index in the same change.
+- A top-level add, rename, or removal also updates the docs-root and root indexes.
+- Skill changes update `workspace-best-practices/skills/INDEX.md`, the owning specialist, and Workspace Chief route.
+- Template/reference changes update the relevant `workspace-best-practices/*/INDEX.md`.
+- Search for stale links after moves, renames, or removals.
 
-## Business docs
+## Audience labels
 
-- If business direction, audience, positioning, goal, or strategy changes and the source is clear,
-  update `{{DOCS_ROOT}}/business-profile.md`. Ask first only when the change conflicts with an
-  established direction or needs judgment the source material does not answer.
-- If another business doc should change and the needed update is clear, route through the
-  documentation-steward or make the update. Ask only when you are unsure what should be captured.
-- Keep documentation connected: every durable artifact should be findable from an `INDEX.md`.
-- Check the boundary in [AGENTS.md](../../AGENTS.md): business docs describe the user's business, while
-  Workspace Chief, sub-agents, skills, and indexes are workspace machinery. If a business artifact mentions
-  workspace machinery as if it is the business, fix it or ask the owner if that was intentional.
+Keep the intended surface obvious near the top of files and folder indexes:
 
-## Capture vs. data
+- `{{DOCS_ROOT}}/`: **Your primary workspace** or **Your workspace content**.
+- `workspace-best-practices/`: **For you and your agents**—the shared customization center.
+- `agents/`, `_workspace_setup_docs/`, `AGENTS.md`, `CLAUDE.md`, and tool rules: **Agent-facing**.
 
-- **Capture** (notes, summaries, discussion) -> Markdown prose.
-- **Data** (comparisons, scoring, structured lists, anything you'd filter or sort) -> a Markdown
-  table, or a `.json` / sheet. Give the note coordinates instead of leaving it as a floating sentence.
+Do not make the user learn or manually maintain agent-facing machinery.
+
+## Profile and layer boundary
+
+- Update `{{DOCS_ROOT}}/workspace-profile.md` when durable purpose, audience, focus, objective, or
+  constraints change and the source is clear.
+- Ask before overwriting an established direction or making a judgment the source does not support.
+- Content files describe the user's real work. Workspace Chief, sub-agents, skills, and indexes are
+  machinery; do not present them as the user's subject matter unless explicitly intended.
 
 ## Never overwrite raw input
 
-Raw notes, transcripts, and pasted material stay exactly as captured. Summaries and artifacts are
-always **new** files. Store the raw layer under an artifact-local `raw/` folder so it remains
-available as source evidence without becoming the main context surface.
+Preserve notes, transcripts, pasted material, and source files exactly under an artifact-local
+`raw/` folder. Create summaries and synthesized artifacts separately. A loose source is an inbox item:
+archive it, create the clean artifact, update the index, then remove the duplicate inbox copy only
+after the archive exists.
 
-Loose raw notes are inbox items, not final organization. If a notes file lands directly under
-`{{DOCS_ROOT}}/meetings/`, create the dated meeting folder, move the raw source into `raw/`
-(`raw/raw-notes.md` for text notes), write `summary.md`, and update `{{DOCS_ROOT}}/meetings/INDEX.md`.
-After the raw archive exists, remove the loose inbox file. If a meeting folder still has an old
-top-level `raw_notes.md`, move it to `raw/raw-notes.md` and remove the top-level file.
+## Checklist
 
-## Checklist before you finish any task that changed the workspace
-
-1. Right folder? (Created a subfolder if it earned one.)
-2. Descriptive slug in `lower-kebab-case`, date-prefixed as `MMM-DD-YYYY` only if time-ordered,
-   `.md` for text?
-3. Raw input left untouched?
-4. Nearest `INDEX.md` updated? (And root index, if a new area.)
-5. Operating-layer concepts kept out of business artifacts unless explicitly intended?
-6. Business docs updated or explicitly left unchanged?
+1. Does every kept or new area support active/near-term work?
+2. Is the artifact in the right folder with a clear `lower-kebab-case` name?
+3. Is raw input preserved?
+4. Are the nearest, docs-root, and root indexes current as applicable?
+5. Are links, routes, skills, and specialists free of orphans?
+6. Is the audience label clear?
+7. Is the workspace profile current without mixing machinery into user content?
+8. Are all user-created folders, subfolders, and files accounted for in the nearest indexes?
+9. Do the relevant skills, templates, and sub-agents still match the current content structure?

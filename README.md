@@ -62,9 +62,9 @@ npx skills@latest add manansuneja/skills --skill pm-os-setup -g
 
 ### Business
 
-- [Workspace OS Setup](skills/business/workspace-os-setup) scaffolds a durable Markdown operating
-  system for a small business or client project, with a coordinator, specialist agents, reusable
-  workflows, and indexed workspace memory.
+- [Workspace OS Setup](skills/business/workspace-os-setup) scaffolds a focused Markdown operating
+  system for a studio, business, team, knowledge base, personal practice, or client project, with
+  agent coordination, reusable workflows, indexed memory, and subtractive personalization.
 
 Install:
 

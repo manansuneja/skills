@@ -1,11 +1,11 @@
-# agents/ - Index
+# agents/ — Index
 
-The agents that run this Workspace OS. You only ever talk to the **Workspace Chief**; it delegates to sub-agents.
+> **Agent-facing:** The user talks to the Workspace Chief and normally does not edit this folder.
 
 | File | Role |
 |---|---|
-| [workspace-chief.md](workspace-chief.md) | Workspace Chief - the single entry point. Reads the request, picks the sub-agent, enforces structure. |
-| [sub-agents/](sub-agents/INDEX.md) | Specialists the Chief delegates to for meetings, outcomes, brainstorming, offer briefs, brand and delivery, metrics, plans, client comms, docs, and skills. |
+| [workspace-chief.md](workspace-chief.md) | Single entry point: routes work and evolves the workspace |
+| [sub-agents/](sub-agents/INDEX.md) | Small common core plus category-specific specialists added as needed |
 
-**Adding an agent?** Create it under `sub-agents/`, add it to [sub-agents/INDEX.md](sub-agents/INDEX.md),
-and register it in the routing table inside [workspace-chief.md](workspace-chief.md).
+Keep the agent set minimal. Adding or removing a specialist must also update its best-practice skill,
+Workspace Chief route, and indexes.

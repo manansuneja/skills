@@ -1,10 +1,11 @@
 param(
-    [Alias("ProjectName")]
-    [string] $BusinessName = "",
+    [Alias("BusinessName", "ProjectName")]
+    [string] $WorkspaceName = "",
     [string] $TargetPath = ".",
-    [ValidateSet("business", "project", "client-project", "client-workspace", "client", "business-hub", "hub")]
-    [string] $WorkspaceKind = "business",
-    [string] $BusinessCategory = "",
+    [ValidateSet("hub", "workspace", "workspace-hub", "business", "business-hub", "project", "client-project", "client-workspace", "client")]
+    [string] $WorkspaceKind = "hub",
+    [Alias("BusinessCategory")]
+    [string] $WorkspaceCategory = "",
     [string] $Objective = "",
     [string] $PrimaryUse = "",
     [switch] $UseCurrentFolder,
@@ -36,8 +37,8 @@ function Normalize-WorkspaceKind {
     $normalized = ($Value.ToLowerInvariant() -replace "[^a-z0-9]+", "-").Trim("-")
     switch ($normalized) {
         { $_ -in @("project", "client-project", "client", "client-workspace") } { return "project" }
-        { $_ -in @("business", "business-hub", "hub", "") } { return "business" }
-        default { throw "Unknown workspace kind: $Value. Use business or project." }
+        { $_ -in @("hub", "workspace", "workspace-hub", "business", "business-hub", "") } { return "hub" }
+        default { throw "Unknown workspace kind: $Value. Use hub or project." }
     }
 }
 
@@ -48,7 +49,7 @@ function Get-DocsRoot {
         return "project-docs"
     }
 
-    return "business-hub-docs"
+    return "workspace-hub-docs"
 }
 
 function Get-RelativePath {
@@ -149,7 +150,7 @@ function Assert-NoExistingWorkspaceOs {
         return
     }
 
-    $workspaceOsMarkers = @("AGENTS.md", "INDEX.md", "agents", "_workspace_setup_docs", "business-skills", "business-hub-docs", "project-docs")
+    $workspaceOsMarkers = @("AGENTS.md", "INDEX.md", "agents", "_workspace_setup_docs", "workspace-best-practices", "workspace-hub-docs", "project-docs", "workspace-skills", "business-skills", "business-practices", "business-hub-docs")
     foreach ($marker in $workspaceOsMarkers) {
         if (Test-Path -LiteralPath (Join-Path $WorkspaceRoot $marker)) {
             throw "The target already looks like a Workspace OS workspace: $WorkspaceRoot"
@@ -193,8 +194,8 @@ function Copy-TemplateContents {
     $copyPlan = @()
     foreach ($file in $templateFiles) {
         $relative = Get-RelativePath $TemplateRoot $file.FullName
-        if ($relative.StartsWith("business-hub-docs/")) {
-            $relative = "$docsRoot/" + $relative.Substring("business-hub-docs/".Length)
+        if ($relative.StartsWith("workspace-hub-docs/")) {
+            $relative = "$docsRoot/" + $relative.Substring("workspace-hub-docs/".Length)
         }
         $destination = Join-Path $WorkspaceRoot ($relative.Replace("/", "\"))
 
@@ -223,10 +224,12 @@ function Copy-TemplateContents {
         if ($isTemplateText) {
             $content = Get-Content -LiteralPath $destination -Raw
             if (-not [string]::IsNullOrWhiteSpace($Name)) {
+                $content = $content.Replace("{{WORKSPACE_NAME}}", $Name)
                 $content = $content.Replace("{{BUSINESS_NAME}}", $Name)
                 $content = $content.Replace("{{PROJECT_NAME}}", $Name)
             }
             if (-not [string]::IsNullOrWhiteSpace($Category)) {
+                $content = $content.Replace("{{WORKSPACE_CATEGORY}}", $Category)
                 $content = $content.Replace("{{BUSINESS_CATEGORY}}", $Category)
             }
             if (-not [string]::IsNullOrWhiteSpace($Goal)) {
@@ -253,16 +256,18 @@ if ($UseCurrentFolder -and $CreateFolder) {
     throw "Choose either -UseCurrentFolder or -CreateFolder, not both."
 }
 
-if ([string]::IsNullOrWhiteSpace($BusinessName)) {
-    throw "-BusinessName is required (or use its -ProjectName alias)."
+if ([string]::IsNullOrWhiteSpace($WorkspaceName)) {
+    throw "-WorkspaceName is required (-BusinessName and -ProjectName are aliases)."
 }
 
 $WorkspaceKind = Normalize-WorkspaceKind $WorkspaceKind
-$workspaceRoot = Resolve-WorkspaceRoot -BasePath $TargetPath -Name $BusinessName -UseCurrent:$UseCurrentFolder -CreateNew:$CreateFolder
+$workspaceRoot = Resolve-WorkspaceRoot -BasePath $TargetPath -Name $WorkspaceName -UseCurrent:$UseCurrentFolder -CreateNew:$CreateFolder
 $baseRoot = (Resolve-Path -LiteralPath $TargetPath).Path
 Assert-SafeWorkspaceRoot -WorkspaceRoot $workspaceRoot -BaseRoot $baseRoot
-Copy-TemplateContents -TemplateRoot $templateRoot -WorkspaceRoot $workspaceRoot -Name $BusinessName -Kind $WorkspaceKind -Category $BusinessCategory -Goal $Objective -UseCase $PrimaryUse
+Copy-TemplateContents -TemplateRoot $templateRoot -WorkspaceRoot $workspaceRoot -Name $WorkspaceName -Kind $WorkspaceKind -Category $WorkspaceCategory -Goal $Objective -UseCase $PrimaryUse
 
 Write-Output "Workspace OS workspace created: $workspaceRoot"
-Write-Output "Open INDEX.md first, then START_HERE.md, AGENTS.md, and _workspace_setup_docs/personalization/README.md."
+Write-Output "Open START_HERE.md first. Your primary workspace is $(Join-Path $workspaceRoot (Get-DocsRoot $WorkspaceKind))."
+Write-Output "Use workspace-best-practices/ to customize skills, templates, and examples by asking your agent."
+Write-Output "Agents manage AGENTS.md, agents/, and _workspace_setup_docs/ in the background."
 Write-Output "To personalize later, tell your agent: Customize my workspace."

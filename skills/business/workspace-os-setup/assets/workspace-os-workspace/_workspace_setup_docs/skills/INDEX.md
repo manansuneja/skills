@@ -1,9 +1,9 @@
-# _workspace_setup_docs/skills/ - Index
+# _workspace_setup_docs/skills/ — Index
 
-These are protected workspace-level playbooks. They keep the Workspace OS organized and should change only
-when the workspace structure or skill-maintenance process changes.
+> **Agent-facing:** Protected workspace-level playbooks. The user normally does not need to edit
+> these files.
 
 | Skill | Use it to | Applied by |
 |---|---|---|
-| [apply-workspace-struct.md](apply-workspace-struct.md) | Name files, place folders, keep indexes current, and preserve business-doc structure | Everyone |
-| [manage-workspace-skills.md](manage-workspace-skills.md) | Create, update, merge, or remove business skills without breaking routes and indexes | skill-librarian |
+| [apply-workspace-struct.md](apply-workspace-struct.md) | Keep folders focused, names and links healthy, indexes current, and raw input preserved | Everyone |
+| [manage-workspace-skills.md](manage-workspace-skills.md) | Evolve skills, templates, references, specialists, and routes together | skill-librarian |
