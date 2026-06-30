@@ -1,8 +1,11 @@
-# Skills for Product Builders
+# Skills for Product Builders and Business Owners
 
-Skills for PMs, designers, and product-minded builders using agents to shape, decide, create, and ship.
+Skills for PMs, designers, business owners, and product-minded builders using agents to shape,
+decide, create, operate, and ship.
 
-This repo is a public catalog of agent skills. It is not just for developers: the skills here are built for product work, design work, planning, writing, decision-making, and vibe-coding as a product builder.
+This repo is a public catalog of agent skills. It is not just for developers: the skills here are
+built for product work, business operations, design, planning, writing, decision-making, and
+vibe-coding.
 
 ## Install
 
@@ -11,6 +14,7 @@ Install one skill globally so it is available in every project:
 ```bash
 npx skills@latest add manansuneja/skills --skill workflow-create -g
 npx skills@latest add manansuneja/skills --skill pm-os-setup -g
+npx skills@latest add manansuneja/skills --skill workspace-os-setup -g
 ```
 
 Or list everything available:
@@ -56,12 +60,25 @@ Install:
 npx skills@latest add manansuneja/skills --skill pm-os-setup -g
 ```
 
+### Business
+
+- [Workspace OS Setup](skills/business/workspace-os-setup) scaffolds a durable Markdown operating
+  system for a small business or client project, with a coordinator, specialist agents, reusable
+  workflows, and indexed workspace memory.
+
+Install:
+
+```bash
+npx skills@latest add manansuneja/skills --skill workspace-os-setup -g
+```
+
 ## No Terminal
 
 For Claude desktop or web, download this repo as a ZIP from GitHub. Upload only the specific nested skill folder you want:
 
 - `skills/agent-workflows/workflow-create`
 - `skills/product-management/pm-os-setup`
+- `skills/business/workspace-os-setup`
 
 In Claude, go to `Customize > Skills`, choose `+ Create skill`, upload the folder, and turn the skill on.
 

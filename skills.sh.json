@@ -11,6 +11,11 @@
       "title": "Product Management",
       "description": "Skills for PM operating systems, product memory, and product-builder workflows.",
       "skills": ["pm-os-setup"]
+    },
+    {
+      "title": "Business",
+      "description": "Skills for small-business workspaces, client-project memory, and business operations.",
+      "skills": ["workspace-os-setup"]
     }
   ]
 }

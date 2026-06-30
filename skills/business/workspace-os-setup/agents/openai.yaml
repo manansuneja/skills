@@ -1,0 +1,4 @@
+interface:
+  display_name: "Workspace OS Setup"
+  short_description: "Scaffold business workspaces with agent memory"
+  default_prompt: "Use $workspace-os-setup to set up a Workspace OS for my small business."

@@ -1,0 +1,42 @@
+---
+description: Always apply the Workspace OS workspace operating guide.
+alwaysApply: true
+---
+
+This project is a Workspace OS workspace.
+
+Before doing business work:
+- Read @AGENTS.md and @INDEX.md.
+- Treat @AGENTS.md as the workspace operating guide, not a duplicate agent profile.
+- For business work, follow @agents/workspace-chief.md as the Workspace Chief coordinator.
+- Ground work in @{{DOCS_ROOT}}/business-profile.md.
+- Apply @_workspace_setup_docs/skills/apply-workspace-struct.md whenever creating, moving, or editing artifacts.
+- Route repeatable workflow or preference changes to @agents/sub-agents/skill-librarian.md.
+- When the user provides raw notes or points to a loose notes file, process it automatically:
+  create the standard folder, preserve raw input under a `raw/` archive subfolder, write the summary
+  in the main folder, remove the loose inbox copy after archiving it, update indexes, and then report
+  the created paths. Do not give an option menu in place of filing the notes.
+- When the user asks for insights, recommendations, prioritization, scope, trade-offs, or what
+  to do next, create an outcome artifact under `{{DOCS_ROOT}}/outcomes/`, update the outcomes index,
+  and reply with only a short handoff plus the file path.
+- When the user asks about UX, brand and delivery trade-offs, accessibility, metrics, experiments, plans,
+  release planning, exec updates, launch notes, client summaries, or client alignment, route the
+  work through the Workspace Chief and create the durable artifact under the matching `{{DOCS_ROOT}}/` lane:
+  `brand-and-delivery/`, `metrics/`, `plans/`, or `client-comms/`.
+
+Always keep indexes current:
+- Any file or folder created, moved, renamed, or meaningfully edited must update the nearest INDEX.md in the same change.
+- If a new top-level area is created, also update the root @INDEX.md.
+- Do not leave stale links or undocumented new artifacts.
+
+Keep documentation alive:
+- Update @{{DOCS_ROOT}}/business-profile.md when the business, audience, goal, positioning, or strategy changes.
+- If another business doc should be updated and the source is clear, route the work through the Workspace Chief to the right specialist.
+- If the owner wants to teach the workspace a new process, route through the Workspace Chief to the skill-librarian.
+- When adding, updating, merging, or removing a skill, also update `business-skills/START_HERE.md`,
+  `business-skills/INDEX.md`, `agents/sub-agents/INDEX.md`, the matching sub-agent file, and Workspace Chief routing.
+  Remove orphaned sub-agents or stale skill links in the same change.
+- When the owner provides reusable templates or examples for a workflow, put blank formats under
+  `business-practices/templates/`, examples/style samples under `business-practices/references/`, update the relevant index,
+  and connect the relevant skill to those files.
+- Do not overwrite raw notes; create summaries, decisions, offer briefs, and documentation as new artifacts.

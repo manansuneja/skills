@@ -19,6 +19,8 @@ This repo is the public `manansuneja/skills` catalog.
 
 - `skills/agent-workflows/` for workflow and meta-skill tooling.
 - `skills/product-management/` for PM operating systems, product memory, and product-builder workflows.
+- `skills/business/` for small-business workspaces, client-project memory, operations, and
+  business-owner workflows.
 
 ## Verification
 
@@ -30,4 +32,5 @@ powershell -ExecutionPolicy Bypass -File scripts/list-skills.ps1
 powershell -ExecutionPolicy Bypass -File scripts/validate-catalog.ps1
 ```
 
-The public catalog should currently expose only `workflow-create` and `pm-os-setup`.
+The public catalog should currently expose `workflow-create`, `pm-os-setup`, and
+`workspace-os-setup`.

@@ -1,0 +1,11 @@
+# Local development sandboxes and run artifacts
+testing/
+drafts/
+announcements/
+.workflow-runs/
+*-workflow-run/
+visualize-this-outputs/
+
+# OS noise
+.DS_Store
+Thumbs.db
