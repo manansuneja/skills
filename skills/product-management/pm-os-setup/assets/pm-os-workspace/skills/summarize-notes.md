@@ -1,32 +1,19 @@
 ﻿# Skill: summarize-notes
 
 Turn raw, messy notes into a summary a busy person can act on in 30 seconds - and that an agent can
-reuse months later. Default to the structure below; adapt the headings to the meeting if needed.
+reuse months later.
 
-## Default summary structure
+## Templates and references
 
-```markdown
-# <Meeting title> - <YYYY-MM-DD>
+Before using the default structure, check:
 
-**Attendees:** ...
-**Purpose:** one line - why this meeting happened.
+- [templates/meeting-summary.md](templates/meeting-summary.md) for the current meeting summary
+  template.
+- [references/](references/INDEX.md) for PM-provided meeting minute examples, style samples, or
+  notes formats.
 
-## TL;DR
-2-4 sentences. What a reader needs if they read nothing else.
-
-## Decisions
-- <decision> - and the reasoning, if it was given.
-
-## Action items
-- [ ] <action> - owner - due (if mentioned)
-
-## Open questions
-- <question that wasn't resolved>
-
-## Notes & context
-The discussion worth keeping - points, quotes, and the "small thing someone said" that might matter
-later. Preserve a striking user/stakeholder quote verbatim; that's often the gold.
-```
+If the PM adds a better meeting template or reference example, follow that and keep this skill's
+workflow guidance.
 
 ## How to do it well
 
@@ -42,8 +29,9 @@ later. Preserve a striking user/stakeholder quote verbatim; that's often the gol
 
 ## Filing
 
-Write to `summary.md` next to the `raw_notes.md`. Never edit the raw notes. Then apply
-[apply-pmos-struct](apply-pmos-struct.md) and update [the meetings index](../product-docs/meetings/INDEX.md).
-
-
-
+If the notes are loose, first file them under
+`product-docs/meetings/<MMM-DD-YYYY>-<short-title>/raw/raw-notes.md` and remove the loose inbox copy
+after the archive exists. Then write `summary.md` in the meeting folder. Never edit raw notes. Treat
+`summary.md` as the main context surface; open `raw/` only when you need to verify source details.
+Then apply [apply-pmos-struct](apply-pmos-struct.md) and update
+[the meetings index](../product-docs/meetings/INDEX.md).

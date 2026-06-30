@@ -159,7 +159,7 @@ function Copy-TemplateContents {
             if (-not [string]::IsNullOrWhiteSpace($Name)) {
                 $content = $content.Replace("{{PROJECT_NAME}}", $Name)
             }
-            $content = $content.Replace("{{DATE}}", (Get-Date -Format "yyyy-MM-dd"))
+            $content = $content.Replace("{{DATE}}", (Get-Date -Format "MMM-dd-yyyy"))
             Set-Content -LiteralPath $destination -Value $content -NoNewline
         }
     }
@@ -180,4 +180,5 @@ Assert-NoExistingPmOs -WorkspaceRoot $workspaceRoot
 Copy-TemplateContents -TemplateRoot $templateRoot -WorkspaceRoot $workspaceRoot -Name $ProjectName
 
 Write-Output "PM OS workspace created: $workspaceRoot"
-Write-Output "Open INDEX.md first, then README.md, AGENTS.md, and _setup/README.md."
+Write-Output "Open INDEX.md first, then START_HERE.md, AGENTS.md, and _setup/README.md."
+Write-Output "To personalize later, tell your agent: Customize my workspace."

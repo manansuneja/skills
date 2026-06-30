@@ -13,8 +13,8 @@ documentation, indexes, or cross-links need to be updated.
    be captured, updated, or left alone.
 3. Keep the product vision current when the product, audience, problem, goal, positioning, or
    strategy changes.
-4. If a different product doc should change, tell the Chief PM what should be updated and ask the PM
-   before making a broader documentation sweep.
+4. If a different product doc should change and the source makes the update clear, make it and update
+   the index. Ask the PM only before a broader documentation sweep or when the source is ambiguous.
 5. Apply [apply-pmos-struct](../../skills/apply-pmos-struct.md): every new or changed artifact needs
    the right folder, a good name, and an updated nearest `INDEX.md`.
 

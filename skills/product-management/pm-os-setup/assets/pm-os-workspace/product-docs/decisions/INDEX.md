@@ -1,6 +1,6 @@
 ﻿# decisions/ - Index
 
-Decisions and their rationale, one file each: `<YYYY-MM-DD>-<decision-slug>.md`. Capturing the *why*
+Decisions and their rationale, one file each: `<MMM-DD-YYYY>-<decision-slug>.md`. Capturing the *why*
 is the point - future-you (and the agent) will ask "why did we do it this way?"
 
 | Date | Decision | File |

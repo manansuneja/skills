@@ -1,7 +1,7 @@
 ﻿# meetings/ - Index
 
-One folder per meeting, named `<YYYY-MM-DD>-<short-title>`. Each holds `raw_notes.md` (what you
-captured, untouched) and `summary.md` (the meeting-summarizer's clean version).
+One folder per meeting, named `<MMM-DD-YYYY>-<short-title>`. Each holds `summary.md` as the main
+context surface and a `raw/` archive for untouched source notes.
 
 | Date | Meeting | Folder |
 |---|---|---|
@@ -9,9 +9,12 @@ captured, untouched) and `summary.md` (the meeting-summarizer's clean version).
 
 ## How to add a meeting
 
-1. Create `product-docs/meetings/<YYYY-MM-DD>-<short-title>/`.
-2. Put your notes in `raw_notes.md` (type or paste - messy is fine).
-3. Tell the Chief PM: *"Summarize my latest meeting."* It writes `summary.md` and adds a row here.
+Fast path: paste, drag, or save notes anywhere under `product-docs/meetings/`, then tell the Chief
+PM to process the notes. It will create the dated meeting folder, preserve the raw notes as
+`raw/raw-notes.md`, remove the loose inbox copy, write `summary.md`, and add a row here.
 
+Manual shape, if you prefer:
 
-
+1. Create `product-docs/meetings/<MMM-DD-YYYY>-<short-title>/`.
+2. Put your notes in `raw/raw-notes.md` (type or paste - messy is fine).
+3. Tell the Chief PM: *"Process these meeting notes."* It writes `summary.md` and adds a row here.

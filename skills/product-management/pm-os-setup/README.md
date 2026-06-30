@@ -3,7 +3,8 @@
 [![skills.sh](https://skills.sh/b/manansuneja/skills)](https://skills.sh/manansuneja/skills)
 
 PM OS Setup creates a Product Management operating system: a structured workspace with a Chief PM
-coordinator, specialist agents, reusable skills, product memory, and automatic indexes.
+coordinator, specialist agents, reusable skills, shared templates/references, product memory,
+outcomes, design notes, data insights, roadmaps, stakeholder communications, and automatic indexes.
 
 It is not just a PRD generator. It is a product mindspace your agents can actually navigate.
 
@@ -22,7 +23,10 @@ workspace is mostly Markdown. Tool-specific wiring stays minimal by default.
 - Work through one Chief coordinator that routes to the right specialist automatically.
 - Capture your PM taste, standards, and ways of working as reusable skills.
 - Turn brainstorms, decisions, meetings, and feature ideas into durable artifacts.
-- Create PRDs and decision docs without manually rebuilding context every time.
+- Save insights, recommendations, prioritization, and MVP cuts as outcome artifacts instead of
+  leaving them buried in chat.
+- Create PRDs, design notes, roadmaps, stakeholder updates, and decision docs without manually
+  rebuilding context every time.
 
 ## Quickstart
 
@@ -35,6 +39,13 @@ you can skip the terminal entirely — see [Other ways to install](#other-ways-t
 
 ```bash
 npx skills@latest add manansuneja/skills --skill pm-os-setup -g
+```
+
+Using Claude Code on the same machine too? Target it explicitly so the skill is installed or linked
+under Claude Code's `.claude/skills` location:
+
+```bash
+npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a claude-code
 ```
 
 If `npx` isn't recognized, install [Node.js](https://nodejs.org/en/download) and try again.
@@ -73,20 +84,33 @@ acme-workspace/
 |-- AGENTS.md
 |-- CLAUDE.md
 |-- INDEX.md
-|-- README.md
+|-- START_HERE.md
 |-- agents/
 |   |-- pm-chief.md
 |   `-- sub-agents/...
 |-- product-docs/
 |   |-- product-vision.md
 |   |-- meetings/...
+|   |-- outcomes/...
 |   |-- prds/...
-|   `-- decisions/...
+|   |-- decisions/...
+|   |-- design/...
+|   |-- data-insights/...
+|   |-- roadmaps/...
+|   `-- stakeholder-comms/...
 |-- skills/
+|   |-- START_HERE.md
 |   |-- apply-pmos-struct.md
 |   |-- summarize-notes.md
+|   |-- synthesize-outcomes.md
 |   |-- brainstorm.md
 |   |-- to-prd.md
+|   |-- design-considerations.md
+|   |-- data-insights.md
+|   |-- roadmap-planning.md
+|   |-- stakeholder-comms.md
+|   |-- templates/...
+|   |-- references/...
 |   `-- ...
 `-- _setup/
     |-- README.md
@@ -96,8 +120,9 @@ acme-workspace/
 Every PM OS content folder also includes an `INDEX.md` so agents can find the right context without  
 loading the whole workspace.
 
-After the scaffold is created, the agent reads `_setup/AGENTS.md` and personalizes the workspace
-around your product: product vision, Chief PM behavior, specialist agents, docs, and skills.
+After the scaffold is created, the agent offers to personalize the workspace around your product:
+product vision, Chief PM behavior, specialist agents, docs, and skills. You can start that anytime
+by saying `Customize my workspace.`
 
 That personalization keeps the workspace machinery separate from the product. For example, if your
 product is an AI agent or robot, the product docs should describe that product's agents or robots -
@@ -122,11 +147,13 @@ of the way. From there you just talk to the **Chief PM** in plain language and i
 Summarize these meeting notes and save them in the right place.
 Help me brainstorm onboarding improvements and capture the best direction.
 Turn this feature idea into a PRD using our product vision as context.
+Draft a stakeholder update from this roadmap change.
 Update the product vision based on this new strategy note.
 ```
 
-It comes with a handful of starter skills — `summarize-notes`, `brainstorm`, `to-prd`,
-`document-product-context` — that grow with you over time (see [Growing Your Skills](#growing-your-skills)).
+It comes with starter skills for notes, outcomes, brainstorming, PRDs, design, data insights,
+roadmaps, stakeholder comms, documentation, and workspace skill updates. They grow with you over time
+(see [Growing Your Skills](#growing-your-skills)).
 
 ## Growing Your Skills
 
@@ -144,9 +171,16 @@ Create a new skill for how I like launch plans written.
 Create a skill for weekly exec updates in my voice.
 ```
 
-The Chief PM routes this through the **skill-librarian**, which writes or revises the skill, then keeps
-the workspace tidy around the change. New skills are picked up automatically — the next time the work
+The Chief PM routes this through the **skill-librarian**, which writes or revises the skill, updates
+`skills/START_HERE.md`, `skills/INDEX.md`, the matching sub-agent, sub-agent index, and Chief PM
+routing, then checks for stale links. New skills are picked up automatically — the next time the work
 matches, your agent applies them without being reminded.
+
+You can also teach the workspace by dropping files into `skills/templates/` and `skills/references/`.
+Use templates for blank reusable structures, like story, feature, epic, PRD, meeting minute, roadmap,
+or stakeholder update formats. Use references for examples and style samples, like how you write
+meeting minutes or what a good exec update sounds like. Tell the Chief PM what the file should
+influence, and it updates the relevant skill and indexes.
 
 A good habit: any time you find yourself explaining *how* you want something done for the second or
 third time, ask the Chief PM to capture it as a skill. That repeated instruction becomes reusable, and
@@ -154,7 +188,7 @@ you stop re-teaching it.
 
 ## What This Skill Does And How To Use It
 
-PM OS Setup scaffolds a Markdown Product Management operating system with a Chief PM coordinator, specialist agents, reusable skills, product docs, and workspace memory.
+PM OS Setup scaffolds a Markdown Product Management operating system with a Chief PM coordinator, specialist agents, reusable skills, product docs, outcomes, design, data insights, roadmaps, stakeholder comms, and workspace memory.
 
 Install it with:
 
@@ -168,4 +202,4 @@ Run it by asking your agent to create a PM OS for a product:
 /pm-os-setup Set up a PM OS for Acme.
 ```
 
-After scaffolding, the skill points you to `_setup/AGENTS.md` so your own agent can personalize the workspace around the product, your PM standards, and the way you like decisions and PRDs handled.
+After scaffolding, tell your agent `Customize my workspace` so it can personalize the workspace around the product, your PM standards, and the way you like decisions and PRDs handled.

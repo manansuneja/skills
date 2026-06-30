@@ -1,46 +1,26 @@
 ﻿# Skill: to-prd
 
-Turn a discussion, notes, or a feature idea into a PRD that's clear enough to build from. This
-template is a sensible default - **if the PM has defined their own PRD format, replace the template
-below with theirs and keep the rest of this guidance.**
+Turn a discussion, notes, or a feature idea into a PRD that's clear enough to build from.
+
+## Templates and references
+
+Before using the default structures, check:
+
+- [templates/prd-overview.md](templates/prd-overview.md) for area, MVP, initiative, or feature-set
+  overviews.
+- [templates/feature-prd.md](templates/feature-prd.md) for feature or sub-feature PRDs.
+- [templates/stories.md](templates/stories.md) for stories and acceptance criteria.
+- [references/](references/INDEX.md) for PM-provided PRD, feature, epic, story, or product spec
+  examples.
+
+If the PM adds a better template or reference example, follow that and keep this skill's filing and
+product-boundary guidance.
 
 ## Product boundary
 
 Follow the operating-layer vs product-layer rule in [AGENTS.md](../AGENTS.md). The PRD is for the
 user's actual product or project, not for this PM OS workspace. If the product includes AI agents,
 robots, copilots, or automation, describe those as product-specific actors from the product context.
-
-## Default PRD template
-
-```markdown
-# <Feature name> - PRD
-**Status:** draft | in review | approved   **Author:** ...   **Date:** <YYYY-MM-DD>
-
-## Problem
-What's broken or missing, and for whom. Anchor it to a real user and, where possible, a real quote
-or signal from the meetings/research.
-
-## Goal & non-goals
-- **Goal:** the outcome this should achieve (and how we'd know).
-- **Non-goals:** what this explicitly does *not* try to do.
-
-## Users & context
-Who this is for and the situation they're in when they hit this problem.
-
-## Proposed solution
-The approach, in plain language. Enough for design and eng to picture it. Link prototypes if any.
-
-## Requirements
-- Must: ...
-- Should: ...
-- Could (later): ...
-
-## Success metrics
-How we'll know it worked.
-
-## Open questions
-- ... (be honest - unknowns belong here, not hidden as assumptions)
-```
 
 ## How to do it well
 
@@ -54,9 +34,19 @@ How we'll know it worked.
 
 ## Filing
 
-Write to `product-docs/prds/<YYYY-MM-DD>-<feature-slug>.md`, apply
-[apply-pmos-struct](apply-pmos-struct.md), and add a line to
-[the PRDs index](../product-docs/prds/INDEX.md).
+Prefer a hierarchy:
 
+```text
+product-docs/prds/<area-or-mvp-slug>/
+  INDEX.md
+  overview.md
+  <feature-slug>/
+    INDEX.md
+    prd.md
+    stories.md
+```
 
-
+Use `product-docs/prds/<feature-slug>/prd.md` only for a genuinely standalone feature where no
+parent area, MVP, or initiative is useful. Do not date-prefix PRD filenames or folders; put dates in
+the PRD body and index. Apply [apply-pmos-struct](apply-pmos-struct.md) and update
+[the PRDs index](../product-docs/prds/INDEX.md) plus any nested `INDEX.md` files.

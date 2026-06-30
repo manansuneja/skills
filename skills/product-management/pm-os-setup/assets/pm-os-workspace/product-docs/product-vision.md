@@ -27,7 +27,6 @@ The outcome - ideally something observable, not just "ship the feature."
 
 ---
 *Replace the prompts above with your real vision. If you'd rather be interviewed through it, ask your
-agent to "read _setup/AGENTS.md and help me write the vision."*
-
+agent to "Customize my workspace."*
 
 

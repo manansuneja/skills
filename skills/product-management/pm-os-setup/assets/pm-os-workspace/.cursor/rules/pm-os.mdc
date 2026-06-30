@@ -12,6 +12,17 @@ Before doing PM work:
 - Ground work in @product-docs/product-vision.md.
 - Apply @skills/apply-pmos-struct.md whenever creating, moving, or editing artifacts.
 - Route repeatable workflow or preference changes to @agents/sub-agents/skill-librarian.md.
+- When the user provides raw notes or points to a loose notes file, process it automatically:
+  create the standard folder, preserve raw input under a `raw/` archive subfolder, write the summary
+  in the main folder, remove the loose inbox copy after archiving it, update indexes, and then report
+  the created paths. Do not give an option menu in place of filing the notes.
+- When the user asks for insights, recommendations, prioritization, MVP scope, trade-offs, or what
+  to do next, create an outcome artifact under `product-docs/outcomes/`, update the outcomes index,
+  and reply with only a short handoff plus the file path.
+- When the user asks about UX, design trade-offs, accessibility, metrics, experiments, roadmaps,
+  release planning, exec updates, launch notes, client summaries, or stakeholder alignment, route the
+  work through the Chief PM and create the durable artifact under the matching `product-docs/` lane:
+  `design/`, `data-insights/`, `roadmaps/`, or `stakeholder-comms/`.
 
 Always keep indexes current:
 - Any file or folder created, moved, renamed, or meaningfully edited must update the nearest INDEX.md in the same change.
@@ -20,6 +31,12 @@ Always keep indexes current:
 
 Keep documentation alive:
 - Update @product-docs/product-vision.md when the product, audience, goal, positioning, or strategy changes.
-- If another product doc should be updated, ask the PM and route the work through the Chief PM to the documentation-steward.
+- If another product doc should be updated and the source is clear, route the work through the Chief PM to the right specialist.
 - If the PM wants to teach the workspace a new process, route through the Chief PM to the skill-librarian.
+- When adding, updating, merging, or removing a skill, also update `skills/START_HERE.md`,
+  `skills/INDEX.md`, `agents/sub-agents/INDEX.md`, the matching sub-agent file, and Chief PM routing.
+  Remove orphaned sub-agents or stale skill links in the same change.
+- When the PM provides reusable templates or examples for a workflow, put blank formats under
+  `skills/templates/`, examples/style samples under `skills/references/`, update the relevant index,
+  and connect the relevant skill to those files.
 - Do not overwrite raw notes; create summaries, decisions, PRDs, and documentation as new artifacts.

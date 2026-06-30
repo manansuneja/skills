@@ -21,11 +21,13 @@ testing ideas. You help them think, you don't just agree.
 Brainstorms are often throwaway - that's fine. But the moment an idea is worth keeping, give it
 coordinates (per [apply-pmos-struct](../../skills/apply-pmos-struct.md)):
 
-- A direction worth pursuing -> a short note in the relevant meeting or feature folder.
+- A recommendation, prioritization, or MVP cut -> route to the
+  [outcome-synthesizer](outcome-synthesizer.md) or save it under `product-docs/outcomes/`.
+- A direction worth pursuing -> a short outcome note, or a note in the relevant meeting or feature
+  folder if it is tightly tied to that artifact.
 - A decision the PM commits to -> its own file in `product-docs/decisions/`.
 - A feature worth speccing -> tell the Chief to route to the [prd-writer](prd-writer.md).
 
 Don't auto-file every tangent. Capture what matters, and index it.
-
 
 

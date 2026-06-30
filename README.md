@@ -21,6 +21,19 @@ npx skills@latest add manansuneja/skills --list
 
 If `npx` is not recognized, install [Node.js](https://nodejs.org/en/download) and try again.
 
+Using Claude Code too? Add `-a claude-code` to the install command so the skill is installed or
+linked under Claude Code's `.claude/skills` location. For example:
+
+```bash
+npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a claude-code
+```
+
+To install every published skill in this catalog into Claude Code:
+
+```bash
+npx skills@latest add manansuneja/skills --skill '*' -g -a claude-code
+```
+
 ## Skills
 
 ### Agent Workflows
@@ -35,7 +48,7 @@ npx skills@latest add manansuneja/skills --skill workflow-create -g
 
 ### Product Management
 
-- [PM OS Setup](skills/product-management/pm-os-setup) scaffolds a Product Management operating system with a Chief PM coordinator, specialist agents, reusable skills, product docs, and workspace memory.
+- [PM OS Setup](skills/product-management/pm-os-setup) scaffolds a Product Management operating system with a Chief PM coordinator, specialist agents, reusable skills, shared templates/references, product docs, outcomes, design notes, data insights, roadmaps, stakeholder comms, and workspace memory.
 
 Install:
 

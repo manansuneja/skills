@@ -20,6 +20,7 @@ It reads your request and delegates to the right sub-agent. See [agents/INDEX.md
 Working agents should also read [AGENTS.md](AGENTS.md) - the operating guide for this workspace.
 [CLAUDE.md](CLAUDE.md) is a compatibility pointer to the same guide for tools that expect that name.
 Setting it up for the first time? See [_setup/README.md](_setup/README.md).
+New here? See [START_HERE.md](START_HERE.md) for the plain-language user guide.
 
 ## Map
 
@@ -27,7 +28,7 @@ Setting it up for the first time? See [_setup/README.md](_setup/README.md).
 |---|---|---|
 | [agents/](agents/INDEX.md) | The Chief PM and its sub-agents (who does what) | Deciding who should handle a request |
 | [skills/](skills/INDEX.md) | Repeatable judgment - how this PM wants work done | An agent needs the "how" for a task |
-| [product-docs/](product-docs/INDEX.md) | The actual work: vision, meetings, PRDs, decisions | Looking for or producing real artifacts |
+| [product-docs/](product-docs/INDEX.md) | The actual work: vision, meetings, outcomes, PRDs, decisions, design, data, roadmaps, comms | Looking for or producing real artifacts |
 
 ## Tool config
 
@@ -38,9 +39,17 @@ Setting it up for the first time? See [_setup/README.md](_setup/README.md).
 ## Quick links
 
 - **Product vision** -> [product-docs/product-vision.md](product-docs/product-vision.md)
-- **Meetings** (raw notes + summaries) -> [product-docs/meetings/INDEX.md](product-docs/meetings/INDEX.md)
+- **Skills guide** -> [skills/START_HERE.md](skills/START_HERE.md)
+- **Skill templates** -> [skills/templates/INDEX.md](skills/templates/INDEX.md)
+- **Skill references** -> [skills/references/INDEX.md](skills/references/INDEX.md)
+- **Meetings** (summaries + raw source archives) -> [product-docs/meetings/INDEX.md](product-docs/meetings/INDEX.md)
+- **Outcomes** (insights, recommendations, prioritization) -> [product-docs/outcomes/INDEX.md](product-docs/outcomes/INDEX.md)
 - **PRDs** -> [product-docs/prds/INDEX.md](product-docs/prds/INDEX.md)
 - **Decisions log** -> [product-docs/decisions/INDEX.md](product-docs/decisions/INDEX.md)
+- **Design** -> [product-docs/design/INDEX.md](product-docs/design/INDEX.md)
+- **Data insights** -> [product-docs/data-insights/INDEX.md](product-docs/data-insights/INDEX.md)
+- **Roadmaps** -> [product-docs/roadmaps/INDEX.md](product-docs/roadmaps/INDEX.md)
+- **Stakeholder comms** -> [product-docs/stakeholder-comms/INDEX.md](product-docs/stakeholder-comms/INDEX.md)
 - **Cursor rule** -> [.cursor/rules/pm-os.mdc](.cursor/rules/pm-os.mdc)
 
 ## The one rule that makes this work
@@ -51,6 +60,3 @@ line to the nearest `INDEX.md`. If product direction changes, update
 [product-docs/product-vision.md](product-docs/product-vision.md). Capture is not memory. Connection is.
 
 See [skills/apply-pmos-struct.md](skills/apply-pmos-struct.md) for the full naming and structure rules.
-
-
-

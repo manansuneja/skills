@@ -35,6 +35,13 @@ Install globally so it's available in every project (recommended):
 npx skills@latest add manansuneja/skills --skill workflow-create -g
 ```
 
+Using Claude Code on the same machine too? Target it explicitly so the skill is installed or linked
+under Claude Code's `.claude/skills` location:
+
+```bash
+npx skills@latest add manansuneja/skills --skill workflow-create -g -a claude-code
+```
+
 Or install into a single project only:
 
 ```bash
