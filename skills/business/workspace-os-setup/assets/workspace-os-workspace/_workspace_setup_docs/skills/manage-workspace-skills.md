@@ -14,8 +14,14 @@ changed, merged, or removed.
   content, even if they came up while discussing a content or marketing area.
 - Keep the four common skills only while useful: summarize notes, brainstorm, synthesize outcomes,
   and document context.
-- Create or update a skill immediately for an explicit reusable preference.
-- Create a skill for a recurring workflow or output shape; keep one-off work one-off.
+- Determine durability semantically from intent and scope. Consider whether the guidance is presented
+  as an organizational standard, broadly applicable method, canonical example, recurring workflow,
+  or correction to the normal approach. Do not require a direct request to remember or reuse it.
+- When confidence is high, update the relevant existing skill/template/reference immediately. When
+  the same request also asks for an artifact, do both in the same task.
+- Ask one concise question only when persistence is genuinely ambiguous and would materially affect
+  future outputs. Otherwise keep truly task-local guidance local.
+- Create a new skill only when no existing skill owns the reusable judgment or output shape.
 - Add a specialist only when a distinct recurring role improves routing. The Workspace Chief can
   apply many skills directly.
 - When content folders/subfolders change, review related skills, templates, references, and agents in
@@ -29,8 +35,9 @@ changed, merged, or removed.
    `workspace-best-practices/skills/<lower-kebab-case>.md`.
 3. Put exact output shapes in `workspace-best-practices/templates/` and examples, source material,
    voice, or style samples in `workspace-best-practices/references/`.
-4. State what triggers the skill, what it produces, which template/reference it uses, and where the
-   output belongs. Skills are authoritative for output structure and format.
+4. State the semantic conditions that make the skill relevant, what it produces, which
+   template/reference it uses, and where the output belongs. Avoid brittle keyword lists. Skills are
+   authoritative for output structure and format.
 5. Add, revise, merge, or remove the matching specialist and Workspace Chief route only as needed.
 6. Update every affected index and search for stale links or orphaned routes.
 7. Apply [apply-workspace-struct.md](apply-workspace-struct.md).

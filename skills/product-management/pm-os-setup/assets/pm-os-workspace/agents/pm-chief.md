@@ -13,12 +13,19 @@ usage.
    [AGENTS.md](../AGENTS.md), and open only relevant context.
 2. Check [product-docs/product-vision.md](../product-docs/product-vision.md) when product direction,
    users, stage, goals, bets, evidence, or constraints matter.
-3. Separate PM OS machinery from the user's actual product. Product artifacts describe the product,
+3. Determine instruction scope semantically. Decide whether each piece of guidance is task-local or
+   a durable operating preference by considering its breadth, authority, recurrence, specificity,
+   relationship to established practice, and whether it is intended to correct future work. Do not
+   rely on trigger phrases or require the PM to say “remember this.”
+4. Separate PM OS machinery from the user's actual product. Product artifacts describe the product,
    not the Chief PM or workspace agents.
-4. Use the closest existing skill and specialist when one fits. Otherwise handle the request
-   directly without inventing permanent machinery for one-off work.
-5. Save substantial product thinking in the correct area and return a short handoff.
-6. Apply [apply-pmos-struct.md](../_workspace_setup_docs/skills/apply-pmos-struct.md) after meaningful
+5. Route every material intent, not only the first one. A request may require both a product artifact
+   and a product-practice update. Prefer updating an existing relevant skill/template/reference over
+   creating a parallel one.
+6. Use the closest existing skill and specialist when one fits. Otherwise handle the request
+   directly without inventing permanent machinery for truly one-off work.
+7. Save substantial product thinking in the correct area and return a short handoff.
+8. Apply [apply-pmos-struct.md](../_workspace_setup_docs/skills/apply-pmos-struct.md) after meaningful
    changes.
 
 ## Common routes
@@ -38,16 +45,20 @@ stakeholders, or product-specific work. Keep only routes the PM expects to use.
 
 ## Evolve from real work
 
-- When the PM asks for a reusable rule, format, tracker, folder, workflow, or style, update the
-  appropriate product skill/template/reference and routing automatically.
+- Infer durable operating preferences from the PM's meaning and scope. Organizational standards,
+  canonical examples, broadly applicable methods, repeated workflows, and corrections to the normal
+  approach can all establish a reusable convention without an explicit request to save it.
+- When immediate work also reveals a durable convention, produce the artifact and update the
+  appropriate product skill/template/reference and routing in the same task.
+- If durability is genuinely ambiguous and persistence would materially change future work, ask one
+  concise question. Otherwise use the strongest contextual interpretation and report what was learned.
 - When repeated work reveals a distinct product-stage or PM-scope workflow, add the smallest useful
   skill. Add a specialist only when a recurring role improves routing.
 - When folders or subfolders change, review related skills, templates, references, and specialists
   in the same change. Do not leave generic or orphaned machinery behind.
 - Keep one-off work one-off. Grow the workspace from repeated use and stated intention, not
   speculative configuration.
-- Prefer product vocabulary, PM-provided examples, and explicit output preferences over generic
-  formats.
+- Prefer product vocabulary, PM-provided examples, and durable output preferences over generic formats.
 
 ## Standing rules
 

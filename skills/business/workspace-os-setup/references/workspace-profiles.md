@@ -30,8 +30,9 @@ Profiles are suggestion pools, not folder bundles. Select the smallest useful co
 4. Keep `workspace-profile.md`; keep or add other areas only when they support current or near-term
    work. An `INDEX.md` does not justify a folder by itself.
 5. Start with the common skills: summarize notes, brainstorm, synthesize outcomes, and document
-   context. Add or adapt a category-specific skill only for an explicit reusable preference or a
-   workflow likely to repeat. Add a specialist only when its route remains distinct and useful.
+   context. Determine semantically whether new guidance is durable, then add or adapt a
+   category-specific skill for a reusable preference or workflow likely to repeat. Add a specialist
+   only when its route remains distinct and useful.
 6. Update the root and docs-root indexes, `workspace-best-practices/skills/INDEX.md`,
    `agents/sub-agents/INDEX.md`, and `agents/workspace-chief.md` when their contents or routes change.
 

@@ -18,6 +18,15 @@ Before using the default structures, check:
 If the PM adds a better template or reference example, follow that and keep this skill's filing and
 product-boundary guidance.
 
+## Learn durable PRD practice
+
+During PRD work, determine from meaning and scope whether new guidance applies only to the current
+artifact or establishes a durable PRD convention. Organizational structures, canonical methods,
+recurring formats, and corrections to the normal approach are strong evidence of durability even
+without an explicit request to save them. Apply the guidance to the current PRD and update this skill
+or its related template/reference in the same task. Ask only when persistence is genuinely ambiguous
+and would materially change future PRDs.
+
 ## Product boundary
 
 Follow the operating-layer vs product-layer rule in [AGENTS.md](../../AGENTS.md). The PRD is for the

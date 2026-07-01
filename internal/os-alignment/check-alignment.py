@@ -18,6 +18,7 @@ VARIANTS = {
         "practices": "workspace-best-practices",
         "docs": "workspace-hub-docs",
         "apply": "apply-workspace-struct.md",
+        "chief": "agents/workspace-chief.md",
     },
     "pm-os-setup": {
         "root": ROOT / "skills/product-management/pm-os-setup",
@@ -25,6 +26,7 @@ VARIANTS = {
         "practices": "product-practices",
         "docs": "product-docs",
         "apply": "apply-pmos-struct.md",
+        "chief": "agents/pm-chief.md",
     },
 }
 
@@ -117,6 +119,7 @@ def validate_variant(name: str, config: dict[str, object]) -> None:
     personalization = read(asset_root / "_workspace_setup_docs/personalization/AGENTS.md")
     apply_struct = read(asset_root / f"_workspace_setup_docs/skills/{config['apply']}")
     manage = read(asset_root / "_workspace_setup_docs/skills/manage-workspace-skills.md")
+    chief = read(asset_root / str(config["chief"]))
     start_here = read(asset_root / "START_HERE.md")
 
     require_terms(
@@ -129,6 +132,9 @@ def validate_variant(name: str, config: dict[str, object]) -> None:
             "root-folder renaming",
             "structural reconciliation",
             "default library minimal",
+            "durable operating preference",
+            "not trigger phrases",
+            "same task",
             "Never overwrite raw input",
         ],
     )
@@ -140,6 +146,9 @@ def validate_variant(name: str, config: dict[str, object]) -> None:
             "Automatic structural reconciliation",
             "user-created",
             "Keep skills and routes synchronized",
+            "Recognize durable preferences",
+            "meaning and scope",
+            "same task",
             "Never overwrite raw input",
         ],
     )
@@ -170,7 +179,25 @@ def validate_variant(name: str, config: dict[str, object]) -> None:
     require_terms(
         f"{name}/manage-workspace-skills.md",
         manage,
-        ["skills/", "templates/", "references/", "Less is more"],
+        [
+            "skills/",
+            "templates/",
+            "references/",
+            "Less is more",
+            "Determine durability semantically",
+            "same task",
+            "brittle keyword lists",
+        ],
+    )
+    require_terms(
+        f"{name}/{config['chief']}",
+        chief,
+        [
+            "durable operating preference",
+            "trigger phrases",
+            "every material intent",
+            "same task",
+        ],
     )
     require_terms(
         f"{name}/START_HERE.md",
@@ -189,6 +216,17 @@ pm_asset = VARIANTS["pm-os-setup"]["root"] / VARIANTS["pm-os-setup"]["asset"]
 assert isinstance(pm_asset, Path)
 if (pm_asset / "product-skills").exists():
     fail("PM OS must keep skills under product-practices/skills/, not a top-level product-skills/.")
+
+require_terms(
+    "pm-os-setup/prd-writer.md",
+    read(pm_asset / "agents/sub-agents/prd-writer.md"),
+    ["meaning and scope", "durable PRD practice", "same task", "to-prd"],
+)
+require_terms(
+    "pm-os-setup/to-prd.md",
+    read(pm_asset / "product-practices/skills/to-prd.md"),
+    ["Learn durable PRD practice", "without an explicit request", "same task"],
+)
 
 optional_pm_defaults = [
     "product-docs/design",

@@ -22,8 +22,9 @@ the smallest useful combination for the product stage, PM scope, and immediate r
 4. Use a table, CSV, JSON, or sheet for repeated fields, owners, status, evidence, confidence, dates,
    and dependencies rather than turning every field into a folder.
 5. Begin with summarize notes, brainstorm, synthesize outcomes, document product context, and write
-   PRDs. Add or adapt a skill only for an explicit reusable preference or recurring workflow. Add a
-   specialist only when a distinct route stays useful.
+   PRDs. Determine semantically whether new guidance is durable, then add or adapt a skill for a
+   reusable preference or recurring workflow. Add a specialist only when a distinct route stays
+   useful.
 6. Update product-docs and root indexes, `product-practices/skills/INDEX.md`,
    `agents/sub-agents/INDEX.md`, and `agents/pm-chief.md` whenever areas or routes change.
 

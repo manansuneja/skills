@@ -15,6 +15,9 @@ This project is a Workspace OS workspace.
 - Treat `{{DOCS_ROOT}}/` as the user's primary working surface. Respect the focused areas kept during
   personalization; do not recreate removed starter folders without a current need.
 - Apply @_workspace_setup_docs/skills/apply-workspace-struct.md after meaningful changes.
+- Determine from meaning and scope whether guidance is task-local or a durable operating preference;
+  do not rely on trigger phrases. When one request contains both immediate work and a reusable
+  convention, complete both the artifact and the best-practice update.
 - Preserve raw input, create clean artifacts separately, and update the nearest indexes.
 - Route repeatable preferences to @agents/sub-agents/skill-librarian.md and keep
   `workspace-best-practices/skills/`, templates, specialists, routes, and links synchronized.

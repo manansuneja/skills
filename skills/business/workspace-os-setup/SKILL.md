@@ -157,7 +157,11 @@ Every Workspace OS content folder also gets an `INDEX.md`.
 - Put synthesis, recommendations, prioritization, and next steps in `outcomes/`, not only chat.
 - Keep reusable instructions, exact formats, and examples together under `workspace-best-practices/`
   as `skills/`, `templates/`, and `references/`.
-- Keep the default library minimal. Add a skill for an explicit reusable preference or recurring
+- Determine whether guidance is task-local or a durable operating preference from its meaning and
+  scope, not trigger phrases. When a request contains both work to produce and a reusable
+  convention, complete the work and update the relevant existing skill/template/reference in the
+  same task.
+- Keep the default library minimal. Add or update a skill for a durable preference or recurring
   workflow; add a sub-agent only when a distinct recurring role is useful. Synchronize them whenever
   content folders or requirements change.
 - Never overwrite raw input. Preserve it under an artifact-local `raw/` folder and write clean

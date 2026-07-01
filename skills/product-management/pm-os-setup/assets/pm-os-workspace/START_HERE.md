@@ -57,6 +57,11 @@ You do not need to configure these files manually. Add an example or describe wh
 ask the agent to update the appropriate product practice. It should synchronize the matching skill,
 specialist, Chief PM route, and indexes.
 
+The workspace should also recognize durable guidance from context. When you describe an
+organization-wide method, canonical format, recurring workflow, or correction meant to improve
+future work, the agent should complete the immediate task and capture that practice without making
+you separately say “reuse this later.” Truly task-specific instructions should remain local.
+
 ## First-time personalization
 
 If `_workspace_setup_docs/personalization/` exists, tell your agent:

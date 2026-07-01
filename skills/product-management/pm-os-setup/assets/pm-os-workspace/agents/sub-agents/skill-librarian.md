@@ -24,8 +24,10 @@ update, merge, prune, or improve a skill under `product-practices/skills/`.
    ```
 
    Do not install it silently. Ask before running external install commands.
-5. Create, update, merge, or remove only the relevant skill files. Keep them short, specific, and
-   usable.
+5. Evaluate routed guidance semantically. A durable practice can be conveyed through organizational
+   scope, a canonical example, a broadly applicable method, a recurring workflow, or a correction to
+   normal behavior; it does not require explicit “save this” wording. Prefer updating the existing
+   owning skill/template/reference over creating a parallel one. Keep changes short and specific.
 6. Keep the skill system synchronized:
    - Update [../../product-practices/skills/START_HERE.md](../../product-practices/skills/START_HERE.md) if the base skill list or user
      instructions changed.

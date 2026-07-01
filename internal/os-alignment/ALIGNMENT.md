@@ -21,6 +21,9 @@ Both skills must preserve these behaviors:
 7. Keep the human surface obvious, label agent-facing machinery, maintain current `INDEX.md` files,
    and never overwrite raw input.
 8. Keep tool wiring minimal and generate optional adapters only when the user asks.
+9. Determine whether guidance is task-local or a durable operating preference from meaning and
+   scope rather than magic phrases. A single request may require both immediate work and a
+   skill/template/reference update; complete both in the same task when durability is clear.
 
 ## Intentional differences
 

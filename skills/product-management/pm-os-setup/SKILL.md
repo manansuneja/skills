@@ -129,7 +129,11 @@ Every PM OS content folder also gets an `INDEX.md`.
   `product-docs/outcomes/`, not only chat.
 - Keep reusable instructions, formats, and examples together under `product-practices/` as
   `skills/`, `templates/`, and `references/`.
-- Keep the default library minimal. Add a skill for an explicit reusable preference or recurring
+- Determine whether guidance is task-local or a durable operating preference from its meaning and
+  scope, not trigger phrases. When a request contains both work to produce and a reusable
+  convention, complete the work and update the relevant existing skill/template/reference in the
+  same task.
+- Keep the default library minimal. Add or update a skill for a durable preference or recurring
   workflow; add a specialist only when a distinct recurring role is useful. Synchronize them with
   content areas and Chief PM routing.
 - Never overwrite raw input. Preserve it under an artifact-local `raw/` folder and create clean

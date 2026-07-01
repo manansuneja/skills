@@ -89,8 +89,16 @@ a brand voice guide that comes up while setting up content/marketing folders.
   source is clear. Ask before overwriting an established direction.
 - **Keep skills and routes synchronized.** Changes to a skill, specialist, or content area must update
   linked files, indexes, and Workspace Chief routing in the same change.
-- **Let the workspace evolve.** Turn explicit reusable preferences and recurring workflows into the
-  smallest useful skill/template and optional specialist. Keep one-off work one-off.
+- **Recognize durable preferences.** On every request, determine from meaning and scope whether
+  guidance applies only to the current artifact or should govern future work. Strong evidence
+  includes organizational standards, broadly stated methods, canonical examples, recurring
+  workflows, and corrections intended to change the normal approach. Do not require special wording.
+- **Handle mixed intent.** When a request asks for immediate work and also establishes a durable
+  preference, complete the artifact and update the relevant existing skill/template/reference in
+  the same task. Ask one concise question only when persistence is genuinely ambiguous and would
+  materially affect future outputs.
+- **Let the workspace evolve.** Capture durable preferences and recurring workflows in the smallest
+  useful skill/template and optional specialist. Keep truly one-off work one-off.
 - **Keep audience labels.** Agent-only files and folder indexes must say so near the top.
 
 ## Structure rules

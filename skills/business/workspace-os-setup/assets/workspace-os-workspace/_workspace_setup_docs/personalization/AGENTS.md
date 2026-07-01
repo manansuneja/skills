@@ -96,9 +96,9 @@ If a removed content area has generated skills, specialists, routes, templates, 
 serve only that area, include those in the same reconciliation. Do not leave orphaned routes.
 
 Begin with the common skill core: summarize notes, brainstorm, synthesize outcomes, and document
-context. Remove even a common skill/sub-agent when it clearly does not fit the scope. Add a
-category-specific skill only for an explicit reusable preference or recurring workflow; add a
-specialist only when a distinct recurring route is valuable.
+context. Remove even a common skill/sub-agent when it clearly does not fit the scope. Determine
+semantically whether guidance is durable, then add a category-specific skill for a reusable
+preference or recurring workflow; add a specialist only when a distinct recurring route is valuable.
 
 ## Step 3 — Apply the context and structure
 

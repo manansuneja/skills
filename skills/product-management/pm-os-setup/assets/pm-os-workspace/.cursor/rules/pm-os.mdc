@@ -12,6 +12,9 @@ Before product work:
   added product folders/files automatically.
 - Follow @agents/pm-chief.md as the default Chief PM coordinator.
 - Ground relevant work in @product-docs/product-vision.md.
+- Determine from meaning and scope whether guidance is task-local or a durable operating preference;
+  do not rely on trigger phrases. When one request contains both immediate work and a reusable
+  convention, complete both the product artifact and the product-practice update.
 - Apply @_workspace_setup_docs/skills/apply-pmos-struct.md after meaningful workspace changes.
 
 Keep the workspace focused:

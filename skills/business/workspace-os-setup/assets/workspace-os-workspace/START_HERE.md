@@ -72,9 +72,12 @@ is.
 
 ## How the workspace learns
 
-Describe preferences in plain language: “make updates shorter,” “use this as my writing example,” or
-“always include sources.” The workspace should add only the smallest useful skill or folder, then
-grow naturally as repeated work and new intentions appear.
+Describe work and preferences naturally. The agent should infer from meaning and scope whether
+guidance is specific to the current task or establishes a durable way of working. Organizational
+standards, canonical examples, recurring workflows, and corrections meant to improve future work
+should be captured while the immediate task is completed—without requiring a separate “remember
+this” instruction. Truly task-specific guidance should stay local. The workspace should add only the
+smallest useful skill or folder, then grow naturally as repeated work and new intentions appear.
 
 To update a globally installed copy of the setup skill when new changes are published:
 
