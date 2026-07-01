@@ -1,6 +1,6 @@
-﻿# {{PROJECT_NAME}} - Product Vision
+﻿# {{PROJECT_NAME}} — Product Vision
 
-> The single source of truth for what we're building and why. Keep it short and current. Every agent
+> **Your product content:** The source of truth for what is being built and why. Keep it short and current. Every agent
 > grounds its work here. When this changes, the strategy changes - so update it deliberately.
 
 This file describes the user's actual product or project. Follow the operating-layer vs product-layer
@@ -28,5 +28,4 @@ The outcome - ideally something observable, not just "ship the feature."
 ---
 *Replace the prompts above with your real vision. If you'd rather be interviewed through it, ask your
 agent to "Customize my workspace."*
-
 

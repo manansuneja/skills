@@ -6,6 +6,7 @@ on:
       - ".claude-plugin/**"
       - "skills/**"
       - "scripts/validate-catalog.ps1"
+      - "internal/os-alignment/**"
       - "skills.sh.json"
       - "README.md"
       - "AGENTS.md"
@@ -15,6 +16,7 @@ on:
       - ".claude-plugin/**"
       - "skills/**"
       - "scripts/validate-catalog.ps1"
+      - "internal/os-alignment/**"
       - "skills.sh.json"
       - "README.md"
       - "AGENTS.md"
@@ -28,6 +30,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Validate Workspace OS and PM OS alignment
+        run: python3 internal/os-alignment/check-alignment.py
       - name: Validate catalog metadata and listings
         shell: pwsh
         run: ./scripts/validate-catalog.ps1

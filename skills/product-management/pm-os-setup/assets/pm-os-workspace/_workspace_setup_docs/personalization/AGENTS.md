@@ -1,103 +1,155 @@
-# Setup Agent Guide - Personalize This PM OS
+# Setup Agent Guide — Personalize This PM OS
 
-You are helping a PM turn this generic PM OS into a workspace shaped around their product.
+> **Agent-facing:** This is the one-time apply guide. The PM should answer the intake, then stay
+> focused on `product-docs/` rather than editing this file.
 
-This setup is a product-context intake, not a filesystem tour. Do not start by explaining folders.
-Ask for the product context that will make the Chief PM and specialists useful.
+Turn this generic PM OS into a focused workspace shaped around the product stage, PM scope, users,
+active bets, evidence, recurring decisions, and output preferences. This is product-context intake
+and structure reconciliation, not a filesystem tour.
 
-Use the operating-layer vs product-layer boundary in [../../AGENTS.md](../../AGENTS.md) as the source of
-truth. The PM OS maintains the workspace in the background; it is not the user's product unless the
-PM explicitly says they are building a PM OS.
-Keep that boundary in your own reasoning during intake. Do not explain it to the PM unless their
-answers suggest they are mixing the workspace with the product.
+Use the machinery vs product-layer boundary in [../../AGENTS.md](../../AGENTS.md). The PM OS operates
+in the background; product files describe the user's actual product or project.
 
-When setup is done, delete `_workspace_setup_docs/personalization/` yourself as the final cleanup step - its absence is how future
-sessions know this workspace is personalized. Do not ask the PM for a separate cleanup command.
-Durable behavior belongs in `AGENTS.md`, `agents/`, `_workspace_setup_docs/`, `product-skills/`,
-`product-practices/`, and `product-docs/`.
+When setup is complete, delete `_workspace_setup_docs/personalization/` as the final content cleanup.
+Its absence tells future sessions that personalization is complete. Durable behavior belongs in
+`AGENTS.md`, `agents/`, `_workspace_setup_docs/`, `product-practices/`, and `product-docs/`.
 
 ## Setup goals
 
 By the end, the workspace should have:
 
-- A clear product vision in `product-docs/product-vision.md`.
-- A clear separation between workspace operations and the user's actual product/project.
-- A customized Chief PM in `agents/pm-chief.md`.
-- Specialist agents that reflect the product's stage, audience, and PM style.
-- Product skills that match the PM's preferred workflows.
-- Current `INDEX.md` files.
-- No unnecessary generated tool-adapter clutter.
+- A concise `product-docs/product-vision.md` grounded in the real product and users.
+- A product-stage and PM-scope-appropriate information architecture.
+- A small, relevant set of content areas, subfolders, and trackers under `product-docs/`.
+- No clearly irrelevant generated-empty product areas.
+- A customized Chief PM and only useful specialist routes.
+- A minimal `product-practices/` library whose skills and templates match recurring work and output
+  preferences.
+- Current `INDEX.md` files, healthy links, and clear audience labels.
+- A safe root-folder rename completed by default.
+- No unnecessary tool-adapter clutter.
 
-## Step 1 - Ask for product context
+## Step 1 — Ask one lightweight intake
 
-Ask four lightweight questions in one friendly message. Tell the PM rough notes, links, file paths,
-or "skip for now" are all fine.
+Ask these four questions in one friendly message. Rough notes, links, file paths, or “skip for now”
+are fine.
 
-1. What should this workspace be called?
-2. What are you building, who is it for, and what problem or opportunity should the workspace keep
-   in mind?
-3. Where are things today, and what is the next useful outcome? Include stage, current bet,
-   near-term goal, or active decision only if known.
-4. Is there existing context I should use, such as files in this workspace, folders elsewhere,
-   pasted notes, docs, links, decisions, examples, or constraints? Also mention any format or style
-   you already want me to follow. If not, I will start with the default PM OS formats and we can
-   customize them into skills later.
+1. What should this workspace be called? Explain that the root folder will be renamed at the end
+   using their exact name or `<project-slug>-workspace`, unless they prefer to keep its current name.
+   Mention that the editor may need to reopen the renamed folder.
+2. What are they building, who is it for, what problem or opportunity matters, and which product
+   surfaces or actors should the workspace understand?
+3. What stage is the product in, what three to five kinds of PM work should be easiest now, and what
+   should be tracked—for example research, bets, experiments, requirements, releases, metrics,
+   dependencies, customers, or stakeholder commitments? Ask what they explicitly do not need.
+4. What is the next useful outcome, and which files, links, notes, decisions, examples, constraints,
+   formats, or writing style should be used?
 
-Do not ask separately about every artifact type. PRD, meeting, decision, brainstorm, and follow-up
-preferences can emerge from examples and get captured as skills over time. Detect the main tool from
-the host environment when possible; ask only if tool-specific wiring is requested or unclear.
+Do not ask about every PM artifact. Preferences should emerge from examples and become skills over
+time. Detect the host tool when possible and ask about wiring only when requested. If answers are
+thin, ask at most one follow-up round.
 
-If the answers are thin, ask at most one follow-up round. Prioritize missing product context,
-near-term goal, and context files over PM-process preferences.
+## Step 2 — Build a reconciliation plan
 
-## Step 2 - Apply the context
+Work from the workspace root. Read the root and product-docs indexes, inspect the actual folders, and
+build a compact product operating model:
 
-Work from the workspace root.
+- Users, buyers, operators, partners, systems, and other relevant actors.
+- Product surfaces, capabilities, workflows, and relationships.
+- Current stage, lifecycle, bets, decisions, risks, and dependencies.
+- Evidence sources and repeated artifacts.
+- Status, dates, owners, confidence, metrics, or next actions worth tracking.
+- The PM's natural product and organizational vocabulary.
 
-1. Replace `{{PROJECT_NAME}}` outside `_workspace_setup_docs/personalization/`.
-2. Update `START_HERE.md` with a short product-specific introduction if useful.
-3. Update `product-docs/product-vision.md` with the product, users, problem, goal, current bet, and
-   known constraints. Do not describe the Chief PM or PM OS as the product unless the PM explicitly
-   said that is what they are building.
-4. Customize `agents/pm-chief.md`. This is required. Adjust its persona, routing emphasis, standing
-   rules, and context-gathering behavior around the product and PM's style.
-5. Update specialist agents only where the product context changes how they should behave.
-6. Update skills only where the PM gave a clear preference.
-7. Apply `_workspace_setup_docs/skills/apply-pmos-struct.md`: update indexes, links, names, and product docs.
+Translate that model into folders, subfolders, structured trackers, templates, skills, and agent
+routes. Decide the layer first: `product-docs/` holds current product work;
+`product-practices/skills/`, `templates/`, and `references/` hold reusable judgment, formats, and
+examples. Build three synchronized plans—product structure, product practices, and agents—with the
+same four sets:
 
-Do not create `.claude/agents/` or `.github/agents/` during basic setup unless the PM explicitly asks
-to wire that tool now. Cursor is already wired through `.cursor/rules/pm-os.mdc`.
+- **Keep:** supports current/near-term work, contains user-authored material, or is a necessary
+  cross-cutting area.
+- **Add:** needed now or soon and has a purpose distinct from an existing area.
+- **Remove:** clearly irrelevant generated folders containing only their unchanged starter
+  `INDEX.md`.
+- **Ask:** relevance is uncertain or the area contains user-authored files, raw input, custom links,
+  index content, or nested artifacts.
 
-## Step 3 - Skill library setup
+Use the installed `pm-os-setup/references/product-profiles.md` when the host makes it available.
+Requirements determine immediate scope; product and PM context supply vocabulary and high-confidence
+gaps. Do not union every stage or PM-role profile.
 
-This workspace includes a skill-librarian agent and `_workspace_setup_docs/skills/manage-workspace-skills.md`. The PM can
-ask the Chief PM to create or update skills over time.
+Remove clearly irrelevant generated-empty folders without a second question and report them later.
+For all **Ask** items, send one consolidated confirmation listing exact actions. Never delete or
+relocate user-authored content from inference alone. If the PM does not answer, keep it.
 
-If a local or installed `skill-creator` skill exists, use it when creating or heavily revising skills.
-If it is missing and the PM wants that support, offer this command:
+When removing a product area, remove or revise generated skills, templates, specialists, routes, and
+index rows serving only that area. Do not leave orphaned machinery.
 
-```text
-npx skills add https://github.com/anthropics/skills --skill skill-creator
-```
+Begin with product vision, meetings, outcomes, decisions, PRDs, and the skill core: summarize notes,
+brainstorm, synthesize outcomes, document product context, and write PRDs. Remove even a common area,
+skill, or specialist when it clearly does not fit. Add design, data, research, roadmap, experiment,
+launch, stakeholder communication, or other lanes only when scope earns them.
 
-Do not run external install commands silently.
+## Step 3 — Apply the product context and structure
 
-## Step 4 - Handoff and cleanup
+1. If this is a legacy scaffold, move a top-level `product-skills/` directory into
+   `product-practices/skills/` in place. Preserve content and update every link. Do not create a
+   replacement workspace root.
+2. Replace unresolved `{{PROJECT_NAME}}` tokens outside this personalization folder when the name is
+   known.
+3. Apply the keep/add/remove/confirmed-ask plan. Use product language and useful lifecycle or
+   product-surface subfolders. Give each new content folder an `INDEX.md`. Use a table, CSV, JSON, or
+   sheet for repeated fields and status. Remove stale links and index rows.
+4. Update `START_HERE.md` with a short product-specific introduction when useful.
+5. Update `product-docs/product-vision.md` with product, users, problem/opportunity, stage, active
+   bets, intended outcomes, evidence, key actors/surfaces, and known constraints. Do not describe the
+   Chief PM or PM OS as the product unless that is what the user is building.
+6. Customize `agents/pm-chief.md`: adjust persona, routes, standing rules, and context gathering to
+   the product, PM scope, and kept content areas.
+7. Apply product-practice and agent plans with the product structure. Create or update skills and
+   templates when outputs need repeatable judgment, structure, or format. Remove unused generic
+   skills and specialists. Add a specialist only for a distinct recurring role.
+8. Apply `_workspace_setup_docs/skills/apply-pmos-struct.md`: verify names, audience labels, indexes,
+   links, product-vision references, and synchronized routing.
 
-Prepare a short completion summary with:
+Do not generate `.claude/agents/` or `.github/agents/` during basic setup unless the PM asks. Cursor
+is already wired through `.cursor/rules/pm-os.mdc`.
 
-- The updated product vision.
-- The customized Chief PM summary.
-- Any skills or agents changed.
-- The key rule: after meaningful changes, the Chief PM applies `apply-pmos-struct.md` so indexes,
-  product docs, filenames, and links stay current.
+## Step 4 — Validate, summarize, and clean up
 
-Check the core context is answered: workspace name, product/users, problem/opportunity, stage or
-near-term goal, and any existing files or examples the PM wanted used. If setup is complete, **delete
-the entire `_workspace_setup_docs/personalization/` folder before reporting back** - it has done its job, and its absence is how
-future sessions know this workspace is personalized. Keep the root `START_HERE.md` as the user's guide.
-Do not recreate `_workspace_setup_docs/personalization/` later. Then send the completion summary.
+Confirm the workspace name, product/users, problem/opportunity, stage, active work, next outcome, and
+requested sources are captured. Search for stale paths, missing targets, orphaned routes, and
+unresolved template tokens.
 
-If required context is missing and you cannot personalize responsibly, leave `_workspace_setup_docs/personalization/` in place and
-ask the smallest follow-up question needed. Do not present deletion as a separate user decision once
-the personalization work is complete.
+Prepare a concise handoff covering:
+
+- Updated product vision, current stage, and focus.
+- How the product-doc structure and trackers fit the PM's scope.
+- Areas kept, added, removed, or deliberately retained.
+- Skills, templates, references, or agents changed and which outputs they control.
+- The final root path or why it remained unchanged.
+
+If personalization is complete, delete `_workspace_setup_docs/personalization/` and remove its row
+from `_workspace_setup_docs/INDEX.md`. Keep `START_HERE.md`. If required context is missing, leave
+personalization in place and ask the smallest necessary follow-up.
+
+## Step 5 — Rename the root last
+
+Do this by default as the final step—no separate confirmation is required. Skip it only if the PM
+asked to keep the current folder name.
+
+1. Compute the same-parent destination. Use the PM's exact folder name when supplied; otherwise use
+   `<project-slug>-workspace` in `lower-kebab-case`.
+2. Confirm the destination does not exist, the parent is writable, and this is the intended PM OS
+   root rather than a broad folder containing unrelated projects. Ask before renaming when unrelated
+   material exists.
+3. Finish every edit, validation, personalization-folder deletion, and summary preparation first.
+4. Rename the directory itself as one move (`mv -- old new` on macOS/Linux or
+   `Move-Item -LiteralPath old -Destination new` on PowerShell). Do not `mkdir` a new root and move
+   or copy contents into it.
+5. Make the rename the final filesystem operation. Report old and new absolute paths and tell the PM
+   their editor may need to reopen the new folder.
+
+If a safety check fails, leave the root unchanged and report the exact blocker. Product
+personalization may still be complete.

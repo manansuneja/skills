@@ -1,25 +1,21 @@
-﻿# sub-agents/ - Index
+# agents/sub-agents/ — Index
 
-Specialists the [Chief PM](../pm-chief.md) delegates to (the PM talks to the Chief, not to these
-directly). Each is a **persona** - a character with a point of view - that applies a
-[skill](../../product-skills/INDEX.md). The skill is the reusable *how*; the agent is the *who*. Same markdown
-underneath; the personality is the part a bare skill doesn't give you.
+> **Agent-facing:** Optional specialist personas the Chief PM uses when a distinct recurring role is
+> valuable. The PM does not need to select or configure them.
 
-| File | Does | Uses skill |
+| Specialist | Purpose | Product skill |
 |---|---|---|
-| [meeting-summarizer.md](meeting-summarizer.md) | Turns raw meeting notes into a clean, filed summary | [summarize-notes](../../product-skills/summarize-notes.md) |
-| [outcome-synthesizer.md](outcome-synthesizer.md) | Turns context into durable insights, recommendations, prioritization, and MVP choices | [synthesize-outcomes](../../product-skills/synthesize-outcomes.md) |
-| [brainstorm-partner.md](brainstorm-partner.md) | Thinks through problems and explores options with the PM | [brainstorm](../../product-skills/brainstorm.md) |
-| [prd-writer.md](prd-writer.md) | Turns a discussion or notes into a structured PRD | [to-prd](../../product-skills/to-prd.md) |
-| [design-partner.md](design-partner.md) | Captures UX flows, design considerations, accessibility notes, and trade-offs | [design-considerations](../../product-skills/design-considerations.md) |
-| [data-insights-analyst.md](data-insights-analyst.md) | Turns metrics, experiments, and quantitative evidence into product insight | [data-insights](../../product-skills/data-insights.md) |
-| [roadmap-planner.md](roadmap-planner.md) | Turns context into roadmaps, release plans, and sequencing recommendations | [roadmap-planning](../../product-skills/roadmap-planning.md) |
-| [stakeholder-communicator.md](stakeholder-communicator.md) | Drafts stakeholder updates, exec briefs, launch notes, and client summaries | [stakeholder-comms](../../product-skills/stakeholder-comms.md) |
-| [documentation-steward.md](documentation-steward.md) | Keeps product docs, product vision, and indexes current | [document-product-context](../../product-skills/document-product-context.md) |
-| [skill-librarian.md](skill-librarian.md) | Creates and updates workspace skills as the PM's process evolves | [manage-workspace-skills](../../_workspace_setup_docs/skills/manage-workspace-skills.md) |
+| [meeting-summarizer.md](meeting-summarizer.md) | Turn raw meeting notes into filed memory | [summarize notes](../../product-practices/skills/summarize-notes.md) |
+| [outcome-synthesizer.md](outcome-synthesizer.md) | Produce recommendations, prioritization, and MVP choices | [synthesize outcomes](../../product-practices/skills/synthesize-outcomes.md) |
+| [brainstorm-partner.md](brainstorm-partner.md) | Explore product options and trade-offs | [brainstorm](../../product-practices/skills/brainstorm.md) |
+| [prd-writer.md](prd-writer.md) | Turn context into buildable requirements | [write PRDs](../../product-practices/skills/to-prd.md) |
+| [documentation-steward.md](documentation-steward.md) | Keep vision, decisions, product docs, and indexes current | [document product context](../../product-practices/skills/document-product-context.md) |
+| [skill-librarian.md](skill-librarian.md) | Evolve product practices and their routes | [manage product practices](../../_workspace_setup_docs/skills/manage-workspace-skills.md) |
 
-All sub-agents also apply [apply-pmos-struct](../../_workspace_setup_docs/skills/apply-pmos-struct.md) when they create files.
+All specialists apply
+[apply-pmos-struct.md](../../_workspace_setup_docs/skills/apply-pmos-struct.md) when they change the
+workspace.
 
-**Adding one?** Copy the shape of these files, add a row here, and register it in the
-routing table inside [../pm-chief.md](../pm-chief.md). Removing one? Remove or reroute the matching
-skill in [../../product-skills/INDEX.md](../../product-skills/INDEX.md) in the same change.
+Add a specialist only when repeated work benefits from a distinct role. Update this index,
+[Chief PM routing](../pm-chief.md), the matching skill, and affected product indexes together. Remove
+or merge all linked machinery when the role is no longer useful.

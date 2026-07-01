@@ -1,5 +1,7 @@
 ﻿# Skill: summarize-notes
 
+> **For you and your agents:** Reusable summarization workflow managed through the Chief PM.
+
 Turn raw, messy notes into a summary a busy person can act on in 30 seconds - and that an agent can
 reuse months later.
 
@@ -7,9 +9,9 @@ reuse months later.
 
 Before using the default structure, check:
 
-- [product-practices/templates/meeting-summary.md](../product-practices/templates/meeting-summary.md) for the current meeting summary
+- [product-practices/templates/meeting-summary.md](../templates/meeting-summary.md) for the current meeting summary
   template.
-- [product-practices/references/](../product-practices/references/INDEX.md) for PM-provided meeting minute examples, style samples, or
+- [product-practices/references/](../references/INDEX.md) for PM-provided meeting minute examples, style samples, or
   notes formats.
 
 If the PM adds a better meeting template or reference example, follow that and keep this skill's
@@ -33,5 +35,5 @@ If the notes are loose, first file them under
 `product-docs/meetings/<MMM-DD-YYYY>-<short-title>/raw/raw-notes.md` and remove the loose inbox copy
 after the archive exists. Then write `summary.md` in the meeting folder. Never edit raw notes. Treat
 `summary.md` as the main context surface; open `raw/` only when you need to verify source details.
-Then apply [apply-pmos-struct](../_workspace_setup_docs/skills/apply-pmos-struct.md) and update
-[the meetings index](../product-docs/meetings/INDEX.md).
+Then apply [apply-pmos-struct](../../_workspace_setup_docs/skills/apply-pmos-struct.md) and update
+[the meetings index](../../product-docs/meetings/INDEX.md).

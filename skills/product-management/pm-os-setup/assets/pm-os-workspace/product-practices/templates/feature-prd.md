@@ -1,5 +1,7 @@
 # <Feature name> - PRD
 
+> **Shared template:** The PM may edit or replace this; agents apply it when relevant.
+
 **Status:** draft | in review | approved
 **Author:** ...
 **Date:** <MMM-DD-YYYY>
@@ -27,4 +29,3 @@ How we will know it worked.
 
 ## Open Questions
 - ...
-

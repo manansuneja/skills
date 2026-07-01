@@ -39,3 +39,20 @@ runs it for every pull request and push that changes catalog files.
 
 The public catalog should currently expose `workflow-create`, `pm-os-setup`, and
 `workspace-os-setup`.
+
+## OS Family Alignment
+
+`workspace-os-setup` and `pm-os-setup` are separate, standalone public skills, but they share a
+behavioral contract. Before changing either one, read
+[`internal/os-alignment/ALIGNMENT.md`](internal/os-alignment/ALIGNMENT.md). Apply shared behavior
+changes to both skills in the same change unless the contract records an intentional domain
+difference.
+
+Run the alignment gate before publishing:
+
+```bash
+python3 internal/os-alignment/check-alignment.py
+```
+
+Do not introduce runtime links or dependencies between the two skill folders. Each skill must remain
+independently installable from GitHub.

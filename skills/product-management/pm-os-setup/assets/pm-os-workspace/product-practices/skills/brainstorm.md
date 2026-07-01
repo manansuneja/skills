@@ -1,5 +1,7 @@
 ﻿# Skill: brainstorm
 
+> **For you and your agents:** Reusable product-thinking workflow managed through the Chief PM.
+
 Be a sharp thinking partner, not a yes-machine. Good brainstorming diverges before it converges, and
 ends with the PM seeing the trade-offs clearly enough to choose.
 
@@ -25,8 +27,7 @@ ends with the PM seeing the trade-offs clearly enough to choose.
 ## Filing
 
 Most brainstorms are throwaway - don't file every tangent. When something is worth keeping, give it
-coordinates per [apply-pmos-struct](../_workspace_setup_docs/skills/apply-pmos-struct.md): an outcome in `outcomes/`, a decision in
+coordinates per [apply-pmos-struct](../../_workspace_setup_docs/skills/apply-pmos-struct.md): an outcome in `outcomes/`, a decision in
 `decisions/`, or a hand-off to the prd-writer. Recommendations, prioritization, MVP cuts, and
 "what should we do next?" answers belong in `product-docs/outcomes/`, not only in chat.
-
 

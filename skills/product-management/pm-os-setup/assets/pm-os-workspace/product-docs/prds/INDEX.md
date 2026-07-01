@@ -1,4 +1,6 @@
-﻿# prds/ - Index
+﻿# prds/ — Index
+
+> **Your product content:** Buildable product scope and requirements.
 
 Feature specs live here as a hierarchy, not a pile of dated files. Model the work the way a PM thinks
 about it: broader area/MVP -> feature -> story. Use the labels that fit the product; the folder
@@ -29,9 +31,9 @@ Do not date-prefix PRD filenames or folders; use the date column below for chron
 |---|---|---|
 | _none yet_ | Ask the Chief: "turn the X discussion into a PRD" | - |
 
-The [prd-writer](../../agents/sub-agents/prd-writer.md) uses [to-prd](../../product-skills/to-prd.md) to
+The [prd-writer](../../agents/sub-agents/prd-writer.md) uses
+[to-prd](../../product-practices/skills/to-prd.md) to
 create these and adds a row here.
 
 If you find an older flat or date-prefixed PRD, move it into the hierarchy and update this index in
 the same change.
-

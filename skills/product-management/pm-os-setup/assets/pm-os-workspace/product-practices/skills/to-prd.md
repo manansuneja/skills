@@ -1,16 +1,18 @@
 ﻿# Skill: to-prd
 
+> **For you and your agents:** Reusable PRD workflow managed through the Chief PM.
+
 Turn a discussion, notes, or a feature idea into a PRD that's clear enough to build from.
 
 ## Templates and references
 
 Before using the default structures, check:
 
-- [product-practices/templates/prd-overview.md](../product-practices/templates/prd-overview.md) for area, MVP, initiative, or feature-set
+- [product-practices/templates/prd-overview.md](../templates/prd-overview.md) for area, MVP, initiative, or feature-set
   overviews.
-- [product-practices/templates/feature-prd.md](../product-practices/templates/feature-prd.md) for feature or sub-feature PRDs.
-- [product-practices/templates/stories.md](../product-practices/templates/stories.md) for stories and acceptance criteria.
-- [product-practices/references/](../product-practices/references/INDEX.md) for PM-provided PRD, feature, epic, story, or product spec
+- [product-practices/templates/feature-prd.md](../templates/feature-prd.md) for feature or sub-feature PRDs.
+- [product-practices/templates/stories.md](../templates/stories.md) for stories and acceptance criteria.
+- [product-practices/references/](../references/INDEX.md) for PM-provided PRD, feature, epic, story, or product spec
   examples.
 
 If the PM adds a better template or reference example, follow that and keep this skill's filing and
@@ -18,7 +20,7 @@ product-boundary guidance.
 
 ## Product boundary
 
-Follow the operating-layer vs product-layer rule in [AGENTS.md](../AGENTS.md). The PRD is for the
+Follow the operating-layer vs product-layer rule in [AGENTS.md](../../AGENTS.md). The PRD is for the
 user's actual product or project, not for this PM OS workspace. If the product includes AI agents,
 robots, copilots, or automation, describe those as product-specific actors from the product context.
 
@@ -48,5 +50,5 @@ product-docs/prds/<area-or-mvp-slug>/
 
 Use `product-docs/prds/<feature-slug>/prd.md` only for a genuinely standalone feature where no
 parent area, MVP, or initiative is useful. Do not date-prefix PRD filenames or folders; put dates in
-the PRD body and index. Apply [apply-pmos-struct](../_workspace_setup_docs/skills/apply-pmos-struct.md) and update
-[the PRDs index](../product-docs/prds/INDEX.md) plus any nested `INDEX.md` files.
+the PRD body and index. Apply [apply-pmos-struct](../../_workspace_setup_docs/skills/apply-pmos-struct.md) and update
+[the PRDs index](../../product-docs/prds/INDEX.md) plus any nested `INDEX.md` files.

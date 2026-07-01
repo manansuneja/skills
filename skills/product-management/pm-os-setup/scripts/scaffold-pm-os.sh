@@ -149,7 +149,7 @@ assert_no_existing_pm_os() {
     return
   fi
 
-  for marker in AGENTS.md INDEX.md agents _workspace_setup_docs product-skills product-docs; do
+  for marker in AGENTS.md INDEX.md agents _workspace_setup_docs product-practices product-skills product-docs; do
     if [ -e "$workspace_root/$marker" ]; then
       echo "The target already looks like a PM OS workspace: $workspace_root" >&2
       exit 1

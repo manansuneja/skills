@@ -1,18 +1,18 @@
-﻿# product-docs/ - Index
+# product-docs/ — Index
 
-The actual product work. Capture lives here; agents read it to build on context instead of starting over.
+> **Your primary product workspace:** The actual product context and work live here. Add or change
+> areas by telling the Chief PM what you need; it maintains structure and indexes.
 
-| Item | What it is | Open when |
-|---|---|---|
-| [product-vision.md](product-vision.md) | The single source of truth: what we're building and why | You need the north star or to ground a decision |
-| [meetings/](meetings/INDEX.md) | One folder per meeting - summaries plus raw source archives | Looking up what was said / decided |
-| [outcomes/](outcomes/INDEX.md) | Insights, recommendations, prioritization, MVP cuts, and next-step plans | Looking up what we concluded from context |
-| [prds/](prds/INDEX.md) | PRD hierarchy: area/MVP -> feature -> stories | Defining or breaking down buildable scope |
-| [decisions/](decisions/INDEX.md) | Decisions and their rationale | Asking "why did we do it this way?" |
-| [design/](design/INDEX.md) | UX flows, design considerations, accessibility notes, and trade-offs | Thinking through product experience |
-| [data-insights/](data-insights/INDEX.md) | Metric reads, funnels, experiments, and quantitative evidence | Asking what the data says |
-| [roadmaps/](roadmaps/INDEX.md) | Now/next/later plans, releases, sequencing, and dependencies | Planning what happens when |
-| [stakeholder-comms/](stakeholder-comms/INDEX.md) | Updates, briefs, launch notes, client summaries, and alignment messages | Communicating product work |
+| Item | Purpose |
+|---|---|
+| [product-vision.md](product-vision.md) | Source of truth for product, users, problem, stage, goals, bets, and constraints |
+| [meetings/](meetings/INDEX.md) | One folder per meeting with summary and raw source archive |
+| [outcomes/](outcomes/INDEX.md) | Insights, recommendations, prioritization, MVP cuts, and next steps |
+| [decisions/](decisions/INDEX.md) | Decisions and rationale |
+| [prds/](prds/INDEX.md) | Area, initiative, feature, and story requirements |
 
-New type of artifact (research, prototypes, comms)? Make a folder here, give it an `INDEX.md`, and
-add it to the root [INDEX.md](../INDEX.md). See [apply-pmos-struct](../_workspace_setup_docs/skills/apply-pmos-struct.md).
+Personalization or later usage may add research, design, experiments, data, roadmaps, launch,
+stakeholder communication, or product-specific areas. Every new folder gets an `INDEX.md`, updates
+this map and the root map, and triggers a review of related skills, templates, and specialist routes.
+
+See [apply-pmos-struct.md](../_workspace_setup_docs/skills/apply-pmos-struct.md).

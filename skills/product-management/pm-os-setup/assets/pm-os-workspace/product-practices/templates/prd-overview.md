@@ -1,5 +1,7 @@
 # <Area / MVP name> - PRD Overview
 
+> **Shared template:** The PM may edit or replace this; agents apply it when relevant.
+
 **Status:** draft | in review | approved
 **Author:** ...
 **Date:** <MMM-DD-YYYY>
@@ -19,4 +21,3 @@ What should happen first, next, later, and why.
 
 ## Risks & Open Questions
 - ...
-

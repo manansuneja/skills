@@ -1,4 +1,6 @@
-# _workspace_setup_docs/skills/ - Index
+# _workspace_setup_docs/skills/ — Index
+
+> **Agent-facing:** Protected structural playbooks. The PM normally does not edit these files.
 
 These are protected workspace-level playbooks. They keep the PM OS organized and should change only
 when the workspace structure or skill-maintenance process changes.

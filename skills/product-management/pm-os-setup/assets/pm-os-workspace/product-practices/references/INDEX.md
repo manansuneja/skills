@@ -1,4 +1,7 @@
-# references/ - Index
+# references/ — Index
+
+> **For you and your agents:** Reusable examples, source material, product principles, voice, and
+> style guidance. Tell the Chief PM what each reference should influence.
 
 References are examples and style/context samples the PM wants skills to learn from. Put files here
 when they show how the PM writes, thinks, or structures work, but are not themselves a reusable
@@ -16,4 +19,3 @@ Use lower-kebab-case filenames. Update this index when adding, renaming, or remo
 | Reference | Use it for | File |
 |---|---|---|
 | _none yet_ | Paste examples here and tell the Chief PM what they should influence | - |
-

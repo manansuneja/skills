@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM OS Setup"
+  short_description: "Create a focused, evolving Product Management workspace"
+  default_prompt: "Use $pm-os-setup to create and personalize a focused PM OS for my product work."

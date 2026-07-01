@@ -1,4 +1,6 @@
-# outcomes/ - Index
+# outcomes/ — Index
+
+> **Your product content:** Durable synthesis, recommendations, and next steps.
 
 Outcome artifacts live here: insights, recommendations, prioritization memos, MVP cuts, trade-off
 analyses, and next-step plans. These are the durable answers created from product context.

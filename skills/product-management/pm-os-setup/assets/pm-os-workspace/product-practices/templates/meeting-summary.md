@@ -1,5 +1,7 @@
 # <Meeting title> - <MMM-DD-YYYY>
 
+> **Shared template:** The PM may edit or replace this; agents apply it when relevant.
+
 **Attendees:** ...
 **Purpose:** one line - why this meeting happened.
 
@@ -17,4 +19,3 @@
 
 ## Notes & Context
 The discussion worth keeping - points, quotes, and details that might matter later.
-

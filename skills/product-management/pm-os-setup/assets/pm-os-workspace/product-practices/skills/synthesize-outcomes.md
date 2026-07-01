@@ -1,5 +1,7 @@
 # Skill: synthesize-outcomes
 
+> **For you and your agents:** Reusable outcome-synthesis workflow managed through the Chief PM.
+
 Turn product context into a durable recommendation artifact. Use this for insight synthesis, top
 priorities, MVP scope, trade-off analysis, opportunity ranking, roadmap cuts, and "what should we do
 next?" questions.
@@ -8,8 +10,8 @@ next?" questions.
 
 Before using the default structure, check:
 
-- [product-practices/templates/outcome.md](../product-practices/templates/outcome.md) for the current outcome template.
-- [product-practices/references/](../product-practices/references/INDEX.md) for PM-provided examples of prioritization notes,
+- [product-practices/templates/outcome.md](../templates/outcome.md) for the current outcome template.
+- [product-practices/references/](../references/INDEX.md) for PM-provided examples of prioritization notes,
   recommendation docs, or strategic readouts.
 
 If the PM adds a better outcome template or reference example, follow that and keep this skill's
@@ -30,6 +32,6 @@ judgment rules.
 ## Filing
 
 Write to `product-docs/outcomes/<MMM-DD-YYYY>-<topic>.md`, update
-[the outcomes index](../product-docs/outcomes/INDEX.md), and apply
-[apply-pmos-struct](../_workspace_setup_docs/skills/apply-pmos-struct.md). In chat, report only the file path, the top
+[the outcomes index](../../product-docs/outcomes/INDEX.md), and apply
+[apply-pmos-struct](../../_workspace_setup_docs/skills/apply-pmos-struct.md). In chat, report only the file path, the top
 recommendation, and any follow-up artifact path.

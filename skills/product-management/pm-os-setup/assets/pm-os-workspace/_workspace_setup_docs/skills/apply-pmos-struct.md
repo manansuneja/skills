@@ -1,100 +1,124 @@
-﻿# Skill: apply-pmos-struct
+# Skill: Apply PM OS Structure
 
-The structural glue of the PM OS. The Chief PM applies this after any task that creates, moves,
-renames, meaningfully edits, or documents anything. It keeps the workspace findable by both the PM
-and future agents. This is the skill that makes the memory compound instead of pile up.
+> **Agent-facing:** Protected PM OS playbook. The PM normally does not need to edit this file.
+
+Apply this after any task that creates, moves, renames, removes, or meaningfully edits workspace
+content. It keeps product memory focused, connected, and findable.
 
 ## Naming
 
-- **`lower-kebab-case` for descriptive names.** No spaces, no capitals, no `&` or other punctuation
-  outside the date prefix. Use hyphens. (`raw-notes.md`, `q3-onboarding-prd.md` - not
-  `Raw Notes.md` or `Q3 PRD.md`.) Agents and Markdown links read these reliably; spaces and capitals
-  cause broken links and ambiguity.
-- **Date-prefix time-ordered things** with `MMM-DD-YYYY`: meetings, outcomes, decisions.
-  Example: `Jan-15-2026-pricing-sync`. Use a three-letter English month abbreviation with title
-  case, a two-digit day, and a four-digit year.
-- **Use topic-first folders for PRDs.** PRD work should mirror how a PM thinks about scope:
-  broader area/MVP -> feature -> story. Use stable folders like `landing-page/header/`, not
-  date-prefixed files like `Jan-15-2026-header.md`. Put dates in the PRD body and index instead.
-- **Markdown (`.md`) for all text.** It's the standard agents read best.
+- Use `lower-kebab-case` for descriptive files and folders.
+- Prefix genuinely time-ordered artifacts with `MMM-DD-YYYY`, such as
+  `Jan-15-2026-pricing-decision.md`.
+- Use stable topic-first folders for ongoing areas. For PRDs, mirror product scope with area,
+  initiative, feature, and story levels when useful.
+- Use Markdown for narrative text and structured formats for repeated data.
 
-## Folders
+## Focused folder lifecycle
 
-- **A thing that has more than one file deserves a folder.** A meeting has a summary plus archived
-  raw notes -> it gets its own folder. A standalone decision can be a single file.
-- **Create the subfolder when you create the artifact** - don't dump files at the top level.
-- **Mirror the existing shape.** Look at how similar artifacts are already organized and match it.
+- A top-level product area must support active or near-term work and have a purpose grounded in the
+  product stage, PM scope, or explicit requirements.
+- Use product-surface, customer, or lifecycle subfolders for real structure; use trackers for repeated
+  fields, owners, status, evidence, metrics, confidence, dates, and dependencies.
+- Reuse an existing area when its purpose overlaps. Do not scaffold every possible PM lane.
+- When personalization or cleanup shows an area is irrelevant:
+  - remove it directly only when it is generated-empty—nothing beyond an unchanged starter
+    `INDEX.md`;
+  - ask once before deleting or relocating user-authored files, raw input, custom indexes, links, or
+    nested artifacts;
+  - keep it when relevance is uncertain and the PM does not answer.
+- Removing an area also removes or revises stale index rows, links, specialist routes, skills, and
+  templates serving only that area.
+- Adding or materially changing an area triggers a review of its skills, templates, references,
+  trackers, and optional specialist. Keep every layer synchronized and minimal.
+- Do not recreate an optional starter area merely because an older scaffold contained it.
 
-### Conventions in this workspace
+## Automatic structural reconciliation
 
-| Artifact | Lives at |
+Run this lightweight pass whenever `AGENTS.md` is read at the start of a session:
+
+1. List the actual tree under `product-docs/` and `product-practices/`, plus immediate root entries.
+   Compare paths with nearest indexes. Inspect names and index presence first; read contents only
+   when necessary to infer purpose.
+2. Ignore `raw/`, hidden/tool folders, workspace machinery, dependency/build outputs, and archives
+   unless the task involves them.
+3. For a user-created folder or subfolder missing an index:
+   - preserve contents and location;
+   - infer a concise purpose from its name and nearby material;
+   - create `INDEX.md` with the appropriate audience label;
+   - link it from its parent and the product-docs/root map when applicable.
+4. For an unindexed user-created file, add it to the nearest index and connect it to an existing
+   product area, tracker, template, skill, or route when the relationship is clear.
+5. If a root-level user folder clearly belongs under `product-docs/`, integrate it into maps
+   immediately. Move or rename it only when placement is unambiguous and references remain safe;
+   otherwise leave it in place, index it, and ask one concise question.
+6. Do not ask permission merely to create indexes, update maps, or connect clear routing. Never
+   delete, overwrite, or silently rename user-created content.
+
+Report reconciled additions briefly. This is background maintenance, not work the PM must manage.
+
+## Artifact placement
+
+- A thing with multiple files earns its own folder—for example, a meeting with a summary and `raw/`
+  archive or a feature with a PRD and stories.
+- Mirror the shape of similar artifacts already in the workspace.
+- These are starter patterns, not mandatory areas. Optional product lanes should exist only when
+  personalization or later usage earns them.
+
+| Artifact | Typical location |
 |---|---|
-| Meeting | `product-docs/meetings/<MMM-DD-YYYY>-<title>/` -> `summary.md` + `raw/raw-notes.md` |
+| Product vision | `product-docs/product-vision.md` |
+| Meeting | `product-docs/meetings/<MMM-DD-YYYY>-<title>/summary.md` + `raw/raw-notes.md` |
 | Outcome | `product-docs/outcomes/<MMM-DD-YYYY>-<topic>.md` |
-| PRD area / MVP | `product-docs/prds/<area-or-mvp-slug>/overview.md` + `INDEX.md` |
-| Feature PRD | `product-docs/prds/<area-or-mvp-slug>/<feature-slug>/prd.md` + optional `stories.md` |
-| Standalone feature PRD | `product-docs/prds/<feature-slug>/prd.md` only when no parent area is useful |
 | Decision | `product-docs/decisions/<MMM-DD-YYYY>-<decision>.md` |
-| Design note | `product-docs/design/<MMM-DD-YYYY>-<topic>.md` |
-| Data insight | `product-docs/data-insights/<MMM-DD-YYYY>-<topic>.md` |
-| Roadmap | `product-docs/roadmaps/<MMM-DD-YYYY>-<topic>.md` |
-| Stakeholder communication | `product-docs/stakeholder-comms/<MMM-DD-YYYY>-<topic>.md` |
-| Vision | `product-docs/product-vision.md` (single source of truth) |
+| PRD | `product-docs/prds/<area-or-initiative>/<feature>/prd.md` with stories as needed |
+| Profile-driven artifact | The customized area and format defined by its product skill/template |
 
-If a new *type* of artifact appears (research, prototypes, support docs...), create a new top-level folder
-under `product-docs/`, give it an `INDEX.md`, and add it to the root [INDEX.md](../../INDEX.md).
+If a new artifact type repeats, create a focused area with `INDEX.md` and update product-docs and
+root maps.
 
-## INDEX.md - the rule that makes everything work
+## INDEX.md rules
 
-- **Every PM OS content folder has an `INDEX.md`.** Tool config folders like `.cursor/` and archival
-  `raw/` subfolders do not need one.
-- **Every new artifact or meaningful content change updates the nearest `INDEX.md`.** No silent files
-  and no stale links.
-- **New top-level area -> also update the root `INDEX.md`.**
-- **Skill changes update their maps.** Adding, updating, merging, or removing a skill must update
-  `product-skills/INDEX.md`, `product-skills/START_HERE.md` when the guide changes, the owning sub-agent, and the
-  Chief PM route if routing changed.
-- **Template/reference changes update their maps.** Adding, updating, renaming, or removing files in
-  `product-practices/templates/` or `product-practices/references/` must update that folder's `INDEX.md`.
-- A stale index is worse than none - it sends agents to the wrong place. Update it in the same step
-  you create or change the file, not "later."
+- Every PM OS content folder has an `INDEX.md`; tool config and `raw/` archives do not need one.
+- Every meaningful change updates the nearest index in the same change.
+- A top-level add, rename, or removal also updates product-docs and root indexes.
+- Skill changes update `product-practices/skills/INDEX.md`, the owning specialist, and Chief PM route.
+- Template/reference changes update the relevant `product-practices/*/INDEX.md`.
+- Search for stale links after moves, renames, or removals.
 
-## Product docs
+## Audience labels
 
-- If product direction, audience, positioning, goal, or strategy changes and the source is clear,
-  update `product-docs/product-vision.md`. Ask first only when the change conflicts with an
-  established direction or needs judgment the source material does not answer.
-- If another product doc should change and the needed update is clear, route through the
-  documentation-steward or make the update. Ask only when you are unsure what should be captured.
-- Keep documentation connected: every durable artifact should be findable from an `INDEX.md`.
-- Check the boundary in [AGENTS.md](../../AGENTS.md): product docs describe the user's product, while
-  Chief PM, sub-agents, skills, and indexes are workspace machinery. If a product artifact mentions
-  workspace machinery as if it is the product, fix it or ask the PM if that was intentional.
+Keep the intended surface obvious near the top:
 
-## Capture vs. data
+- `product-docs/`: **Your primary product workspace** or **Your product content**.
+- `product-practices/`: **For you and your agents**—the shared customization center.
+- `agents/`, `_workspace_setup_docs/`, `AGENTS.md`, `CLAUDE.md`, and tool rules: **Agent-facing**.
 
-- **Capture** (notes, summaries, discussion) -> Markdown prose.
-- **Data** (comparisons, scoring, structured lists, anything you'd filter or sort) -> a Markdown
-  table, or a `.json` / sheet. Give the note coordinates instead of leaving it as a floating sentence.
+Do not make the PM learn or manually maintain agent-facing machinery.
+
+## Product boundary
+
+- Update `product-docs/product-vision.md` when durable product purpose, audience, stage, goals, bets,
+  evidence, or constraints change and the source is clear.
+- Ask before overwriting established direction or making a judgment the source does not support.
+- Product docs describe the user's product. Chief PM, specialists, skills, and indexes are machinery;
+  do not present them as product actors unless explicitly intended.
 
 ## Never overwrite raw input
 
-Raw notes, transcripts, and pasted material stay exactly as captured. Summaries and artifacts are
-always **new** files. Store the raw layer under an artifact-local `raw/` folder so it remains
-available as source evidence without becoming the main context surface.
+Preserve notes, transcripts, pasted material, screenshots, and source files exactly under an
+artifact-local `raw/` folder. Create summaries and synthesized artifacts separately. A loose source
+is an inbox item: archive it, create the clean artifact, update the index, and remove the duplicate
+inbox copy only after the archive exists.
 
-Loose raw notes are inbox items, not final organization. If a notes file lands directly under
-`product-docs/meetings/`, create the dated meeting folder, move the raw source into `raw/`
-(`raw/raw-notes.md` for text notes), write `summary.md`, and update `product-docs/meetings/INDEX.md`.
-After the raw archive exists, remove the loose inbox file. If a meeting folder still has an old
-top-level `raw_notes.md`, move it to `raw/raw-notes.md` and remove the top-level file.
+## Checklist
 
-## Checklist before you finish any task that changed the workspace
-
-1. Right folder? (Created a subfolder if it earned one.)
-2. Descriptive slug in `lower-kebab-case`, date-prefixed as `MMM-DD-YYYY` only if time-ordered,
-   `.md` for text?
-3. Raw input left untouched?
-4. Nearest `INDEX.md` updated? (And root index, if a new area.)
-5. Operating-layer concepts kept out of product artifacts unless explicitly intended?
-6. Product docs updated or explicitly left unchanged?
+1. Does every kept or new area support active or near-term PM work?
+2. Is the artifact in the right folder with a clear name?
+3. Is raw input preserved?
+4. Are nearest, product-docs, and root indexes current?
+5. Are links, routes, skills, and specialists free of orphans?
+6. Is the audience label clear?
+7. Is product vision current without mixing PM OS machinery into product content?
+8. Are all user-created folders, subfolders, and files accounted for?
+9. Do product practices and specialists match the current content structure?

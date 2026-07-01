@@ -53,7 +53,7 @@ Ask naturally whenever you want more structure:
 - “Track the stages that matter for this kind of project.”
 
 You can also create folders, subfolders, and files manually inside the workspace. The next agent
-session performs a lightweight structure check, creates missing indexes, and connects clear additions
+session automatically performs a lightweight structure check, creates missing indexes, and connects clear additions
 to the workspace map and routing. You do not need to maintain the indexes yourself.
 
 ## First-time customization

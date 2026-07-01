@@ -1,4 +1,6 @@
-﻿# meetings/ - Index
+﻿# meetings/ — Index
+
+> **Your product content:** Meeting memory for the PM and agents.
 
 One folder per meeting, named `<MMM-DD-YYYY>-<short-title>`. Each holds `summary.md` as the main
 context surface and a `raw/` archive for untouched source notes.

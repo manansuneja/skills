@@ -1,4 +1,7 @@
-# templates/ - Index
+# templates/ — Index
+
+> **For you and your agents:** Exact reusable product artifact formats. Add or change them by
+> describing the desired output to the Chief PM.
 
 Templates are reusable blank structures that skills should follow when creating artifacts. They can
 be Markdown, JSON, or another structured format if that is what the PM wants.
@@ -14,8 +17,3 @@ If a template changes, update this index and any skill that should prefer it.
 | Feature PRD | Feature or sub-feature PRD | [feature-prd.md](feature-prd.md) |
 | Stories | Stories, acceptance criteria, and priority | [stories.md](stories.md) |
 | Decision | Decision record and rationale | [decision.md](decision.md) |
-| Design note | UX/design considerations and trade-offs | [design-note.md](design-note.md) |
-| Data insight | Metric, experiment, or evidence readout | [data-insight.md](data-insight.md) |
-| Roadmap | Roadmap, release plan, or sequencing note | [roadmap.md](roadmap.md) |
-| Stakeholder communication | Exec update, client summary, launch note, or brief | [stakeholder-communication.md](stakeholder-communication.md) |
-

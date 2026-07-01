@@ -1,4 +1,7 @@
-# personalization/ - Index
+# personalization/ — Index
+
+> **Agent-facing setup with one human guide:** The PM reads `README.md`; the agent follows
+> `AGENTS.md`.
 
 This folder is the one-time personalization helper for the generic PM OS scaffold. Its presence means
 the workspace has not been fully tailored yet.
