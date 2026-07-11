@@ -3,8 +3,9 @@
 
 A family is installed flat under the skills root and bound by a shared naming
 prefix. The coordinator skill is named ``<prefix>-workflow`` and holds the
-single ``linkages.md`` registry plus ``README.md``. Children are flat siblings
-named ``<prefix>-<phase>``.
+single ``linkages.md`` registry plus ``README.md``. Generated/adopted children
+are flat siblings named ``<prefix>-<phase>``. Connected third-party skills are
+validated as unchanged external dependencies and may keep any valid skill name.
 
 Usage:
     validate_workflow_family.py <coordinator-skill-dir> --skills-root <skills-root>
@@ -13,6 +14,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import re
 import sys
 from pathlib import Path
@@ -192,6 +194,27 @@ def validate_skill_metadata(skill_dir: Path, expected_name: str | None, label: s
     return errors
 
 
+def validate_external_skill(skill_dir: Path, expected_name: str, label: str) -> list[str]:
+    """Validate only the open-format contract; never impose family-owned conventions."""
+    errors = validate_frontmatter_yaml(skill_dir / "SKILL.md", label)
+    if errors:
+        return errors
+    frontmatter = read_frontmatter(skill_dir / "SKILL.md")
+    name = frontmatter.get("name")
+    description = frontmatter.get("description", "")
+    if name != expected_name:
+        errors.append(f"Frontmatter mismatch for {label}: expected {expected_name!r}, got {name!r}")
+    if name and not VALID_NAME_RE.match(name):
+        errors.append(f"Invalid external skill name in {label}: {name!r}")
+    if skill_dir.name != name:
+        errors.append(f"Folder/name mismatch for {label}: folder {skill_dir.name!r}, name {name!r}")
+    if not description:
+        errors.append(f"Missing description in {label}: {skill_dir / 'SKILL.md'}")
+    elif len(description) > 1024:
+        errors.append(f"Description too long in {label}: {len(description)} characters")
+    return errors
+
+
 def read_generator_signature(skill_md: Path) -> str | None:
     """Return the Workflow Creator signature value, reading the *nested*
     ``metadata.generator`` field (the documented, canonical location).
@@ -288,7 +311,7 @@ def parse_linkage_rows(linkages_md: Path) -> list[dict[str, str]]:
         if not line.startswith("|") or "---" in line:
             continue
         cells = [clean_cell(cell) for cell in line.strip("|").split("|")]
-        if len(cells) != 7 or cells[0].lower() == "order":
+        if len(cells) not in (7, 8) or cells[0].lower() == "order":
             continue
         rows.append(
             {
@@ -299,9 +322,30 @@ def parse_linkage_rows(linkages_md: Path) -> list[dict[str, str]]:
                 "previous": cells[4],
                 "next": cells[5],
                 "status": cells[6],
+                "kind": cells[7].lower() if len(cells) == 8 else "family",
             }
         )
     return rows
+
+
+def parse_external_dependency_rows(linkages_md: Path) -> dict[str, dict[str, str]]:
+    records: dict[str, dict[str, str]] = {}
+    for raw_line in linkages_md.read_text(encoding="utf-8-sig").splitlines():
+        line = raw_line.strip()
+        if not line.startswith("|") or "---" in line:
+            continue
+        cells = [clean_cell(cell) for cell in line.strip("|").split("|")]
+        if len(cells) != 6 or cells[0].lower() == "skill":
+            continue
+        skill = cells[0].lstrip("/")
+        records[skill] = {
+            "source": cells[1],
+            "install": cells[2],
+            "path": cells[3],
+            "hash": cells[4].lower(),
+            "verified": cells[5],
+        }
+    return records
 
 
 def validate(coordinator_dir: Path, skills_root: Path | None) -> tuple[list[str], list[str]]:
@@ -343,6 +387,7 @@ def validate(coordinator_dir: Path, skills_root: Path | None) -> tuple[list[str]
         errors.append("Coordinator SKILL.md must reference runStatus.md")
 
     rows = parse_linkage_rows(linkages_md)
+    external_records = parse_external_dependency_rows(linkages_md)
     child_rows = [r for r in rows if r["expected_name"] != coordinator_name]
     if not child_rows:
         errors.append(f"No child rows found in linkage table: {linkages_md}")
@@ -351,6 +396,9 @@ def validate(coordinator_dir: Path, skills_root: Path | None) -> tuple[list[str]
 
     for row in child_rows:
         ledger_names.add(row["expected_name"])
+        if row["kind"] not in {"family", "generated", "adopted", "external"}:
+            errors.append(f"Unknown linkage kind for /{row['skill']}: {row['kind']!r}")
+            continue
         child_path = resolve_skill_path(row["path"], coordinator_dir, skills_root)
         skill_md = child_path / "SKILL.md"
         if not child_path.exists():
@@ -358,6 +406,28 @@ def validate(coordinator_dir: Path, skills_root: Path | None) -> tuple[list[str]
             continue
         if not skill_md.exists():
             errors.append(f"Missing child SKILL.md for /{row['skill']}: {skill_md}")
+            continue
+
+        if row["kind"] == "external":
+            errors.extend(validate_external_skill(child_path, row["expected_name"], f"/{row['skill']}"))
+            record = external_records.get(row["expected_name"])
+            if not record:
+                errors.append(
+                    f"Missing ## External Dependencies record for /{row['skill']}"
+                )
+                continue
+            if not record["source"] or not record["install"]:
+                errors.append(f"External dependency lacks source/install command: /{row['skill']}")
+            expected_hash = record["hash"]
+            if not re.fullmatch(r"[0-9a-f]{64}", expected_hash):
+                errors.append(f"Invalid SKILL.md SHA-256 for /{row['skill']}: {expected_hash!r}")
+            else:
+                actual_hash = hashlib.sha256(skill_md.read_bytes()).hexdigest()
+                if actual_hash != expected_hash:
+                    errors.append(
+                        f"External dependency drift for /{row['skill']}: "
+                        f"expected {expected_hash}, got {actual_hash}"
+                    )
             continue
 
         actual_name = read_frontmatter_name(skill_md)

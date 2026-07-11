@@ -1,11 +1,13 @@
 ---
 name: workflow-create
-description: Turns a repeatable process into a reusable agent workflow with one coordinator command and focused step-skills. It can create a workflow from a plain-language goal, connect skills the user already owns, or update and remove workflows it created. Use when the user invokes /workflow-create or asks to make, compose, change, repair, validate, or delete a reusable skill workflow.
+description: Turns a repeatable process into a reusable agent workflow. It can create new step-skills, connect skills published by other creators without modifying them, adopt and compose skills the user owns, or update and remove workflows it created. Use when the user invokes /workflow-create, says "/workflow-create connect these skills", provides skill names or GitHub URLs to wire together, or asks to create, connect, compose, change, repair, validate, or delete a skill workflow.
 ---
 
 # Workflow Create
 
-Create, compose, update, and delete reusable skill workflow families — from one broad goal, or by wiring skills the user already owns into a workflow. Treat `/workflow-create` as the user-facing invocation for this skill.
+Create, connect, compose, update, and delete reusable skill workflows. Build from a broad goal,
+connect skills published by other creators without changing them, or adopt skills the user owns.
+Treat `/workflow-create` as the user-facing invocation for this skill.
 
 The output is a maintained operating procedure: a parent coordinator skill, bounded child skills, a single linkage ledger, a short README, runStatus tracking, validation checks, and enough handoff structure for future runs to work without relying on chat memory.
 
@@ -13,32 +15,23 @@ This skill creates and maintains the workflow family. It stays focused on the wo
 
 ## Quick Start
 
-Use this skill when the user wants to turn a repeatable process into a reusable family of skills, to wire skills they already own into a workflow, or to change or remove one that already exists. The user need not say the word "workflow" or "build me a workflow" — invoking this skill on a bare goal (for example, `/workflow-create "launch niche content sites"`) is itself the instruction to build that goal as a reusable workflow.
+Use this skill to turn a repeatable process into a reusable family, connect independently published
+skills into one workflow, adopt skills the user owns, or change an existing family. The user need
+not say “build me a workflow”: invoking the skill on a bare goal is enough.
 
 ```text
 /workflow-create "Build me a reusable workflow for launching niche content sites."
-```
-
-```text
 /workflow-create plan-only "Design a workflow for researching jobs, tailoring resumes, preparing interviews, and tracking follow-ups."
-```
-
-```text
 /workflow-create compose "wire my-voice-it, voice-distance-check, and polish-my-voice-it into one publishing workflow."
-```
-
-```text
+/workflow-create connect these skills - owner/research-skills --skill research, https://github.com/other/writing-skill - into one content workflow
 /workflow-create update "Add a publish step to the acme-website workflow."
-```
-
-```text
 /workflow-create delete "Remove the content-site workflow."
 ```
 
-Expected result for `create` (and `compose`, which reuses existing skills as members instead of authoring every child):
+Expected result for `create`, `connect`, and `compose`:
 
 - One parent coordinator skill named `<prefix>-workflow`.
-- Usually two to five child skills, or a single skill when the goal does not justify a family. For `compose`, the members are the user's existing skills (adopted into the family and re-prefixed) plus any newly authored gap-filler skills.
+- Usually two to five steps. `connect` keeps third-party skills unchanged and records them as external dependencies. `compose` adopts user-owned skills into the family and may rename them after confirmation.
 - A coordinator `linkages.md` that registers every family member, the run order, and a version stamp.
 - A short coordinator `README.md`.
 - A `runStatus.md` pattern written into the active project during each run.
@@ -66,12 +59,13 @@ Every generated skill should be:
 
 ## Lifecycle
 
-This skill supports four verbs. Infer the verb from the request; default to `create`.
+This skill supports five verbs. Infer the verb from the request; default to `create`.
 
 - `create` (default): build a new workflow family. Modifiers:
   - `plan-only`: produce architecture, naming, and contracts without writing skill files.
   - `shell` / `scaffold-only`: write the coordinator and child skill shells, `linkages.md`, and `README.md` with minimal references.
-- `compose`: wire skills the user already owns into a workflow family — adopt the named existing skills as members (re-prefixed into the family) and generate the coordinator, `linkages.md`, and `README.md` around them instead of writing every child from scratch. See Compose Lifecycle. `create` also auto-detects this: when the request names existing skills to chain together, treat it as `compose` even without the explicit verb.
+- `connect`: wire independently published or shared skills into one workflow without renaming or editing them. Accept installed skill names, local paths, GitHub URLs, and `owner/repo --skill name` references. Generate the coordinator and dependency ledger around them. See Connect Lifecycle.
+- `compose`: adopt skills the user owns into a workflow family. These become family members and are re-prefixed only after explicit confirmation. See Compose Lifecycle.
 - `update`: modify an existing family. Add a child, edit a child, remove a child, repair drift (paths, frontmatter names, orphans), re-sync `linkages.md` and `README.md`, and bump the version stamp. This absorbs the older `extend-existing` and `repair-linkages` flows. See Update Lifecycle.
 - `delete`: remove an existing family safely, with confirmation and orphan protection. See Delete Lifecycle.
 
@@ -114,7 +108,7 @@ These rules apply to `workflow-create` itself and to every coordinator and child
 
 ## Phase 0: Preflight — Skill Authoring Standards
 
-`workflow-create` stays light. [`references/skill-standards.md`](references/skill-standards.md) inlines the **stable skill-format basics** (folder layout, frontmatter, progressive disclosure, the harness-fatal YAML rules) for offline self-sufficiency, and **points to Anthropic's `skill-creator`** for the deeper, evolving craft and the scaffolding/validation tooling. Run this preflight for `create`, `shell`, and `update`; skip for `plan-only` and `delete`.
+`workflow-create` stays light. [`references/skill-standards.md`](references/skill-standards.md) inlines the **stable skill-format basics** (folder layout, frontmatter, progressive disclosure, the harness-fatal YAML rules) for offline self-sufficiency, and **points to Anthropic's `skill-creator`** for the deeper, evolving craft and the scaffolding/validation tooling. Run this preflight for `create`, `connect`, `compose`, `shell`, and `update`; skip for `plan-only` and `delete`.
 
 Resolve the standards via [`references/skill-standards.md`](references/skill-standards.md):
 
@@ -140,6 +134,7 @@ Capture:
 - Example inputs and outputs when available.
 - Target user or audience.
 - Constraints, assets, URLs, and references.
+- For `connect`: each dependency's skill name, source repository or URL, install scope, expected path, and installed `SKILL.md` hash.
 - Desired automation level and validation expectation.
 - Success criteria for the workflow and for each child skill.
 - Distribution target: personal install, team install, public package, or repository template.
@@ -189,20 +184,9 @@ Generated families are plain Markdown folders with front matter, not locked to a
 
 ### Cross-Harness Access (opt-in)
 
-After writing the family to the host harness's native home, offer to make the same skills discoverable by *other* agents on the machine via a symlink. Only ask once, in plain language, and only act on a yes. This step applies only to the folders just written in the current `create`, `shell`, or `update` run — never touch unrelated skill folders in `.claude/skills` or `.agents/skills`. Skip entirely for project-local installs.
-
-Pick the offer based on the detected host harness:
-
-- **Host is Claude Code** (family written to `.claude/skills`): ask whether they also want these skills available to non–Claude Code agents. Something like: *"Want me to also link these into `~/.agents/skills` so other agents (Codex, Cursor, etc.) can find them? It's a one-time symlink — no copies, edits stay in sync."* On yes, for each new member create `ln -s ${USER_ROOT}/.claude/skills/<member> ${USER_ROOT}/.agents/skills/<member>`.
-- **Host is another agent** (family written to `.agents/skills`): ask whether they also want these in Claude Code. Something like: *"Want me to also link these into `~/.claude/skills` so Claude Code picks them up too? One-time symlink, stays in sync."* On yes, for each new member create `ln -s ${USER_ROOT}/.agents/skills/<member> ${USER_ROOT}/.claude/skills/<member>`.
-
-Wiring rules for either direction:
-1. **Check the target root exists.** If the target skills dir is absent, mention it and offer to create it; don't fail the install over it.
-2. **Per-member status.** For each new member, see whether the target already has an entry: "already symlinked" (skip), "real directory" (warn that edits won't sync, offer to replace with a symlink only on confirmation), or "missing" (create the symlink).
-3. **Symlinks unavailable.** If `ln -s` fails (e.g. Windows without privileges), tell the user and offer to copy the folders instead, noting copies won't auto-sync on later updates.
-4. **Report what you did**, with the resolved paths.
-
-For public or distributable workflows, write paths with placeholders such as `${USER_ROOT}`, `${SKILLS_ROOT}`, and `${PARENT_SKILL_DIR}`. Avoid absolute paths that include the creator's machine-specific username.
+For global installs, read [`references/cross-harness-access.md`](references/cross-harness-access.md)
+after creating or updating the family. Offer one optional symlink into the other common skills root;
+act only on a clear yes, touch only this run's family folders, and skip for project-local installs.
 
 ## Phase 2: Family Gate
 
@@ -334,7 +318,7 @@ Generated skills must follow core requirements:
 
 ### Signature And Watermark
 
-Every skill this tool generates — coordinator and children, on `create`, `shell`, `compose`, and `update` — must carry a Workflow Creator signature so the family is identifiable later by a human or a product harness scanning a skills directory. This is the durable marker that a skill came from Workflow Creator. A `compose` skill that is adopted (re-prefixed into the family) is signed like any generated member, with `adopted: true` added to its `metadata` to record that it began life as a skill the user already owned.
+Every skill this tool generates or adopts — coordinator and children, on `create`, `shell`, `compose`, and `update` — must carry a Workflow Creator signature. External dependencies connected from other creators are never signed, renamed, or edited; their original package remains intact.
 
 Write the signature in two places in each generated `SKILL.md`:
 
@@ -373,6 +357,7 @@ The generated parent skill must:
 
 - State clearly that it is the workflow coordinator and user-facing entrypoint, not the creator of the family.
 - Read `linkages.md` before running, and verify child paths, frontmatter names, and orchestration notes against it.
+- For external dependencies, verify the original name, path, recorded source, and `SKILL.md` hash. If a dependency is missing or has drifted, block that step and show the recorded install/update command instead of silently replacing it.
 - Take the default run order from `linkages.md`, but honor run-scope sequence overrides in the brief: reordering steps, skipping steps, running only a subset, or stopping early (see Run-Scope Sequence Overrides below). Run-scope overrides apply to that run only and never edit `linkages.md`.
 - Create or update one `runStatus.md` per run in the active project, never inside the installed skill family.
 - Prefer the target project or repo root when the request names one. If the target workspace is not obvious, ask where to store the run folder. If the user skips, use the current working directory fallback and tell the user the chosen path.
@@ -427,6 +412,7 @@ Run static validation before finishing:
 - Coordinator `README.md` exists and names the command, modes, child sequence, and runStatus location.
 - Every child includes standalone-mode instructions and does not require a previous sibling run.
 - Every generated skill (coordinator and children) carries the `metadata.generator: workflow-create` signature and matching footer.
+- Every external dependency is marked `external` in the Chain, remains unmodified, resolves to a valid `SKILL.md`, and has a source plus install command in `## External Dependencies`.
 - The coordinator describes how it accepts run-scope sequence overrides and records the effective order in `runStatus.md`.
 - Linkage paths use placeholders for distributable workflows instead of creator-specific absolute paths.
 
@@ -452,6 +438,7 @@ When the workflow is public, team-facing, or package-like:
 - Keep human-facing docs at the repository root, not inside child skill folders.
 - Include install instructions that explain the selected skills root.
 - Include portability instructions: the family is plain Markdown, and the coordinator `README.md` lists the member folders to copy.
+- For connected workflows, list external dependencies separately with their source and install command; do not imply they are authored or redistributed by the workflow creator.
 - Explain the outcome the workflow enables, not only the files it creates.
 - Package only after validation passes when packaging is requested.
 
@@ -468,19 +455,16 @@ Use when the user wants to change an existing family (add, edit, or remove a chi
 
 Confirm with the user before any change that alters the default run order or removes a child, since those can change behavior. Permanent ordering changes belong here; one-off ordering changes for a single run are handled by the coordinator at run time (see Run-Scope Sequence Overrides) and must not be written into `linkages.md`.
 
-## Compose Lifecycle
+## Connect And Compose Lifecycles
 
-Use when the user wants to wire skills they already own into a workflow, rather than have every step authored from scratch. Triggered by the explicit `compose` verb, or auto-detected from `create` when the request names existing skills to chain (for example, "wire `a`, `b`, and `c` into a workflow").
+Read [`references/connect-and-compose.md`](references/connect-and-compose.md) whenever the request
+names existing skills.
 
-This reuses the normal flow (Phase 1 intake, Phase 4 contracts, Phase 5–7 generation, wiring, validation) with these differences:
-
-1. **Resolve the named skills.** Locate each referenced skill on disk by name across the skills root(s). If a named skill cannot be found, list what was and wasn't resolved and ask the user to confirm names or paths before continuing. Do not invent a skill that does not exist.
-2. **Confirm the rename up front (required).** Composed skills are adopted into the family and re-prefixed to `<prefix>-<name>` so the family is uniform, groupable, and passes validation. This changes how the user invokes them. Before touching anything, state plainly which skills will be renamed and to what (for example, `my-voice-it → nichesite-voice`), and that the old invocation names will no longer work. Proceed only on confirmation. If the user declines, do not force the rename — explain that a family member must carry the prefix, then either pick a different skill, author that step as a fresh child instead, or stop. (A skill the user wants to keep callable under its original name across many contexts is better left standalone and simply referenced from the README, not adopted.)
-3. **Adopt each confirmed skill.** Rename the skill folder and its frontmatter `name` to `<prefix>-<name>`, move any references/scripts/assets it owns with it, add the Workflow Creator signature (frontmatter `metadata` + footer) with `role: child` and `adopted: true`, add an Orchestration Linkage block, and bring its description up to family standards (state what it does, include "use when" triggers, and direct full-workflow requests to `/<prefix>-workflow`). Register it in `linkages.md` as a normal member. Do not delete or overwrite the skill's actual capability — only rename, relocate, and annotate.
-4. **Fill the gaps.** Author any missing phases as normal new child skills (full generation, full signature) so the chain is complete.
-5. **Wire and validate.** Build the coordinator, `linkages.md`, and `README.md` over the combined set, then run Phase 7 validation. Adopted members look identical to generated ones to the validator, so the standard checks apply unchanged.
-
-Safety: renaming or moving a skill the user already relies on is the one irreversible step here — always confirm it explicitly (step 2), and never delete or overwrite an existing skill's capability during composition.
+- Use `connect` for skills published or owned by other people. Preserve them unchanged and register
+  them as external dependencies with source, install command, path, and hash.
+- Use `compose` only for skills the user owns and wants adopted into the family. Confirm every rename
+  before modifying those skills.
+- When ownership is unclear, default to non-destructive `connect`.
 
 ## Delete Lifecycle
 

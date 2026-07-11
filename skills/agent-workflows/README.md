@@ -4,7 +4,7 @@ Turn repeatable work into agent workflows you can run with one command.
 
 ## Skills
 
-- [Workflow Creator](workflow-create) turns a process you repeat into a reusable workflow. It can also connect skills you already own and update or remove workflows it created.
+- [Workflow Creator](workflow-create) turns a repeated process into one command. It can create new steps, connect skills published by other people without modifying them, or adopt skills you own.
 
 Install:
 

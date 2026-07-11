@@ -6,7 +6,7 @@
 
 Describe the process in plain language. Workflow Creator writes one coordinator skill and the
 focused step-skills it needs, connects them, and gives you a single command for future runs. It can
-also connect skills you already own.
+also connect skills published by other creators without renaming or editing them.
 
 This is for PMs, designers, writers, operators, founders, and developers who can explain how they
 work but do not want to rebuild the same prompt and handoffs every time.
@@ -64,6 +64,25 @@ It asks a few short questions, proposes the workflow, and creates the skills.
 Include who the workflow is for, what a good result looks like, and the steps you already do by
 hand. If you know the sequence, say it directly: `steps: research → scaffold → draft → publish`.
 
+### Connect skills other people publish
+
+You do not have to create every step yourself. Give Workflow Creator installed skill names, local
+skill folders, GitHub URLs, or `owner/repo --skill name` references:
+
+```text
+/workflow-create connect these skills -
+- owner/research-skills --skill research
+- https://github.com/another-creator/writing-skills/tree/main/skills/draft
+- polish-copy
+
+Build one workflow that researches a topic, drafts the article, and polishes the final copy.
+```
+
+Workflow Creator installs missing dependencies when the source is unambiguous, reads what each skill
+actually does, and builds the coordinator around them. Connected skills keep their original names,
+files, authorship, and update path. The workflow records their source and detects if they later
+change or disappear.
+
 **What it builds, by example.** Take a familiar one — cooking a dish. Say the workflow is making your go-to pasta. The name `pasta` becomes the slug prefix on every skill it creates:
 
 ```text
@@ -97,7 +116,9 @@ Each step above is a complete skill on its own — `pasta-prep` can chop and mea
 
 A chef doesn't re-teach knife skills. They run the steps in the right order, carry what just happened into the next step (the garlic's already chopped — don't start over), and keep the whole dish in mind so nothing drifts. That's exactly what `<prefix>-workflow` does for your skills: it sequences them, passes the context forward (in `runStatus.md`), and holds the goal so your agent never loses the plot.
 
-In short, this is a **meta-skill** — a skill that wires up a workflow for you. It takes skills you already have, or brand-new ones it writes for you (using Anthropic's `skill-creator`), and sets up a **coordinator skill** that links them together — along with a built-in structure for sharing context and status between steps as they run.
+In short, this is a **meta-skill** — a skill that wires up a workflow for you. It can connect skills
+published by other people, adopt skills you own, or write missing steps. It then creates a
+**coordinator skill** that passes context and status between them.
 
 A few things it can do:
 
@@ -105,12 +126,17 @@ A few things it can do:
 | Command                          | What it does                                                                                             |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | `/workflow-create "..."`         | **Create** a new workflow (the default).                                                                 |
-| `/workflow-create compose "..."` | **Wire skills you already have** into one workflow. Name them and it builds the coordinator around them. |
+| `/workflow-create connect "..."` | **Connect third-party or shared skills** without renaming or editing them. |
+| `/workflow-create compose "..."` | **Adopt skills you own** into one family; confirms before renaming them. |
 | `/workflow-create update "..."`  | **Change** an existing one — add, remove, or reorder a step; fix something.                              |
 | `/workflow-create delete "..."`  | **Remove** a workflow safely.                                                                            |
 
 
-> **Got skills already?** Point it at them — *"wire `my-voice-it`, `voice-distance-check`, and `polish-my-voice-it` into one workflow"* — and it builds the coordinator over your existing skills instead of writing them from scratch. It renames them into the family (e.g. `my-voice-it → writing-voice`) so they group cleanly, and it'll always confirm that rename first, since it changes how you call them.
+> **Connecting someone else’s skills?** Use `connect`. Their packages stay untouched and keep their
+> original invocation names.
+
+> **Adopting skills you own?** Use `compose`. Workflow Creator can rename them into one family, but
+> it shows every rename and waits for confirmation first.
 
 Want to see the plan before anything is written? Add `plan-only`:
 
@@ -128,7 +154,7 @@ Five families built and validated to show the range — from a one-skill job to 
 | Workflow                                  | One line                                                                     | What it shows                                                                  |
 | ----------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | **Clarify my thoughts** (`clarify`)       | Raw notes → one clear, well-shaped piece, in your voice.                     | A clean medium **sequential** family: distill → shape → polish.                |
-| **Engineering delivery** (`ship`)         | A feature from idea to shipped, wired from Matt Pocock's engineering skills. | **Compose** — adopting skills you already own; conditional + optional steps.   |
+| **Engineering delivery** (`ship`)         | A feature from idea to shipped, wired from independently published skills.   | **Connect** — unchanged external skills; conditional + optional steps.        |
 | **Business idea → plan** (`bizplan`)      | Validate an idea, model it, write the plan, render it as a site.             | A complex **multi-tool** family (web research + site build).                   |
 | **Creative data viz** (`dataviz`)         | Data or an idea → a visual that tells a story, not a boring chart.           | **Context-aware**: clean chart vs. creative SVG, with a child-owned reference. |
 | **Meeting → actions** (`meeting-actions`) | Notes → an owner-assigned action list.                                       | The **family gate firing**: one skill, because a family would be overkill.     |
@@ -136,7 +162,7 @@ Five families built and validated to show the range — from a one-skill job to 
 
 > **The `clarify` example, expanded.** You paste a messy paragraph; `/clarify-workflow` runs `clarify-distill` (find the one point) → `clarify-shape` (give it a small story) → `clarify-polish` (simple, spacious, still yours). You can also call any step alone — just `/clarify-polish` on a draft you already structured.
 
-> **Compose, expanded.** Point it at skills you already have — *"wire `to-prd`, `to-issues`, `tdd`, `diagnose`, and `improve-codebase-architecture` into one engineering workflow"* — and it builds `/ship-workflow` over them, renaming each into the family (e.g. `to-prd → ship-prd`) and confirming that rename first, since it changes how you call them.
+> **Connect, expanded.** Point it at published skills — *"connect `to-prd`, `to-issues`, `tdd`, `diagnose`, and `improve-codebase-architecture` into one engineering workflow"* — and it builds `/ship-workflow` over them. The original skills keep their names and files; the coordinator records where they came from and checks for drift.
 
 > **Heads up:** it may ask for a short **project name**. That becomes the slug prefix on every skill it makes (e.g. `bizplan-research`, `bizplan-site`), so your workflow's skills stay grouped and easy to tell apart from the rest.
 
@@ -146,6 +172,8 @@ Five families built and validated to show the range — from a one-skill job to 
 
 - **One command** to run the whole workflow (the coordinator).
 - **A few focused step-skills** you can also run on their own.
+- **A dependency record** for connected external skills: original source, install command, path,
+  and integrity hash.
 - **A run log** (`runStatus.md`) saved into your project each time you run it, so you can always see what happened.
 - A short README and a registry of all the parts.
 
@@ -174,7 +202,8 @@ Five families built and validated to show the range — from a one-skill job to 
 
 ## What This Skill Does And How To Use It
 
-Workflow Creator turns a repeatable process into a reusable agent workflow: one coordinator skill, focused child skills, a linkage ledger, and run tracking.
+Workflow Creator turns a repeatable process into one command. It can write new step-skills, connect
+skills published by other creators without modifying them, or adopt skills you own.
 
 Install it with:
 
@@ -186,6 +215,9 @@ Run it by describing the workflow you want:
 
 ```text
 /workflow-create "Build me a reusable workflow for launching niche content sites."
+/workflow-create connect these skills - owner/repo --skill research, owner/other-repo --skill draft
 ```
 
-Use `plan-only` when you want the architecture before files are written, `compose` when you want to wire existing skills together, `update` to change an existing workflow, and `delete` to remove one safely.
+Use `plan-only` when you want the architecture before files are written, `connect` for skills
+published by other creators, `compose` for skills you own and want adopted, `update` to change an
+existing workflow, and `delete` to remove one safely.

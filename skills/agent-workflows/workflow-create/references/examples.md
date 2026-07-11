@@ -22,7 +22,7 @@ decides specifics. `dataviz` (library + destination routing) and `meeting-action
 
 - [At a glance](#at-a-glance)
 - [clarify — clarify my thoughts (medium)](#clarify--clarify-my-thoughts-medium)
-- [ship — engineering delivery, composed (complex)](#ship--engineering-delivery-composed-complex)
+- [ship — engineering delivery, connected (complex)](#ship--engineering-delivery-connected-complex)
 - [bizplan — business idea → plan → site (complex)](#bizplan--business-idea--plan--site-complex)
 - [dataviz — creative data visualization (medium)](#dataviz--creative-data-visualization-medium)
 - [meeting-actions — notes → actions (simple, gate fires)](#meeting-actions--notes--actions-simple-gate-fires)
@@ -33,7 +33,7 @@ decides specifics. `dataviz` (library + destination routing) and `meeting-action
 | Workflow | Prefix | Coordinator | Lifecycle | Pattern | Tier | Children |
 | --- | --- | --- | --- | --- | --- | --- |
 | Clarify my thoughts | `clarify` | `clarify-workflow` | create | sequential | medium | 3 |
-| Engineering delivery | `ship` | `ship-workflow` | **compose** | sequential + conditional | complex | 5 (adopted) |
+| Engineering delivery | `ship` | `ship-workflow` | **connect** | sequential + conditional | complex | 5 (external) |
 | Business idea → plan | `bizplan` | `bizplan-workflow` | create | sequential + multi-tool | complex | 4 |
 | Creative data viz | `dataviz` | `dataviz-workflow` | create | context-aware + iterative | medium | 3 |
 | Meeting → actions | `meeting-actions` | `meeting-actions-workflow` | create | single step | simple | 1 (gate fired) |
@@ -48,13 +48,13 @@ decides specifics. `dataviz` (library + destination routing) and `meeting-action
 - **Tier:** medium · **Pattern:** sequential (iterative polish loop).
 - **Why this shape:** the three phases are judged on different bars — meaning, then structure, then surface. Reversing them produces clean prose that says nothing, so they must be separate and ordered. Each is useful standalone (just distill; just polish a draft). The decomposition exists to stop the #1 single-prompt failure: polishing something that never had a point.
 
-## ship — engineering delivery, composed (complex)
+## ship — engineering delivery, connected (complex)
 
-- **Purpose:** take a feature from idea to shipped, wiring **skills the user already owns** (Matt Pocock's engineering skills) into one flow.
+- **Purpose:** take a feature from idea to shipped by connecting independently published engineering skills into one flow.
 - **Coordinator:** `/ship-workflow`
-- **Children (all adopted):** `ship-prd` (← `to-prd`) → `ship-issues` (← `to-issues`) → `ship-tdd` (← `tdd`), with `ship-diagnose` (← `diagnose`, **default-skip**, invoked only on a hard failure) and `ship-deepen` (← `improve-codebase-architecture`, **optional**).
+- **External steps:** `to-prd` → `to-issues` → `tdd`, with `diagnose` (**default-skip**, invoked only on a hard failure) and `improve-codebase-architecture` (**optional**). Every skill keeps its original name and source.
 - **Tier:** complex · **Pattern:** sequential + conditional.
-- **Why this shape:** this is the `compose` lifecycle — the members are genuinely distinct disciplines (spec, slicing, test-first build, diagnosis, architecture) that already existed as standalone skills, so composing beats re-authoring. Adoption renamed each into the `ship-` prefix and added the family signature with `adopted: true` + `source`, **preserving each skill's capability**. It's the example that exercises the linkage `Status` column (active / default-skip / optional) and conditional branching back to the build step.
+- **Why this shape:** this is the `connect` lifecycle — the steps are distinct disciplines published as standalone skills, so the coordinator depends on them without rewriting or renaming them. `linkages.md` records each source, install command, path, and hash. The example exercises external dependencies, active/default-skip/optional statuses, and conditional branching back to the build step.
 - **Note:** composition can also author fresh gap-filler children alongside adopted ones; this family adopted every member to keep the focus on the adoption mechanics.
 
 ## bizplan — business idea → plan → site (complex)
@@ -87,7 +87,7 @@ When a user's goal is vague or they ask "what can this do?", offer the closest e
 starting template rather than abstract questions:
 
 - Writing / thinking → `clarify`.
-- "I already have skills, wire them together" → `ship` (compose).
+- "Connect these published skills into one workflow" → `ship` (connect).
 - A big multi-stage deliverable with research + a built artifact → `bizplan`.
 - Charts, graphics, "show this visually" → `dataviz`.
 - A small single-purpose task → `meeting-actions`, and explain the family gate so the user

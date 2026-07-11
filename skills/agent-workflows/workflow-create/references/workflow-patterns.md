@@ -7,6 +7,7 @@ Families are installed flat under the skills root and bound by a shared naming p
 - Prefix: `<workflow-slug>` or `<project-slug>-<workflow-slug>`.
 - Coordinator: `<prefix>-workflow` (exactly one per family; the only `-workflow` skill).
 - Children: `<prefix>-<phase-action>`.
+- External dependencies: independently published skills keep their original names and folders; the coordinator records and calls them but does not adopt them into the prefix.
 - Project run folder: `<prefix>-workflow-run/runStatus.md`.
 
 ## Parent SKILL.md Pattern
@@ -38,7 +39,7 @@ State the pattern: sequential, multi-tool, iterative, context-aware, or domain-i
 
 ## Global Dependency Registry
 
-Read `linkages.md` before running. Verify paths, frontmatter names, child orchestration notes, and the version stamp. Use its load-when notes to load only the references needed for the current run or child step.
+Read `linkages.md` before running. Verify paths, frontmatter names, child orchestration notes, external dependency sources/hashes, and the version stamp. Use its load-when notes to load only the references needed for the current run or child step. Never edit or silently reinstall a connected external dependency.
 
 ## Run Setup
 
@@ -180,11 +181,19 @@ Path variables:
 
 This Chain is the default run order. The coordinator may reorder, skip, or subset it for a single run via run-scope overrides; those are recorded in `runStatus.md`, never here. Status is `active` for a normal step, or `default-skip` / `optional` for a step that the default run skips unless asked. Changing the default order or a default-skip flag is a permanent change and goes through `/workflow-create update`.
 
-| Order | Skill | Path | Frontmatter name | Previous | Next | Status |
-| --- | --- | --- | --- | --- | --- | --- |
-| - | `/<prefix>-workflow` | `${SKILLS_ROOT}/<prefix>-workflow` | `<prefix>-workflow` | none | coordinator | active |
-| 1 | `/<prefix>-<phase-one>` | `${SKILLS_ROOT}/<prefix>-<phase-one>` | `<prefix>-<phase-one>` | none | `/<prefix>-<phase-two>` | active |
-| 2 | `/<prefix>-<phase-two>` | `${SKILLS_ROOT}/<prefix>-<phase-two>` | `<prefix>-<phase-two>` | `/<prefix>-<phase-one>` | complete | active |
+| Order | Skill | Path | Frontmatter name | Previous | Next | Status | Kind |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| - | `/<prefix>-workflow` | `${SKILLS_ROOT}/<prefix>-workflow` | `<prefix>-workflow` | none | coordinator | active | coordinator |
+| 1 | `/<prefix>-<phase-one>` | `${SKILLS_ROOT}/<prefix>-<phase-one>` | `<prefix>-<phase-one>` | none | `/external-skill` | active | generated |
+| 2 | `/external-skill` | `${SKILLS_ROOT}/external-skill` | `external-skill` | `/<prefix>-<phase-one>` | complete | active | external |
+
+## External Dependencies
+
+Include this section only for connected workflows. Hash is the SHA-256 of the installed `SKILL.md`.
+
+| Skill | Source | Install command | Expected path | SKILL.md SHA-256 | Last verified |
+| --- | --- | --- | --- | --- | --- |
+| `/external-skill` | `https://github.com/owner/repo` | `npx skills@latest add owner/repo --skill external-skill -g` | `${SKILLS_ROOT}/external-skill` | `<sha256>` | `<yyyy-mm-dd>` |
 
 ## References And Load-When
 
@@ -223,6 +232,7 @@ Call `/<prefix>-workflow` once to run the full skill chain.
 ```text
 /<prefix>-workflow "<brief>"
 /<prefix>-workflow shell "<brief or workflow idea>"
+/workflow-create connect these skills - owner/repo --skill external-skill - into a <purpose> workflow
 ```
 
 ## Modes
@@ -252,6 +262,11 @@ This family is plain Markdown installed flat under the skills root. To copy it i
 - `<prefix>-<phase-one>/`
 - `<prefix>-<phase-two>/`
 
+## External Dependencies
+
+List connected skills separately with their original source and install command. They are required
+at runtime but are not copied, renamed, or authored by this workflow.
+
 Targets include `.cursor/rules/`, Claude Code, Gemini CLI, Codex, Aider, Windsurf, OpenCode, or any harness that reads Markdown skills.
 ````
 
@@ -278,8 +293,8 @@ Started: <ISO timestamp>
 
 Registry: <path-to-linkages.md>
 
-| Skill | Expected path | Actual path | Status | Frontmatter name | Last checked | Notes |
-| --- | --- | --- | --- | --- | --- | --- |
+| Skill | Kind | Source | Expected path | Actual path | Status | Frontmatter name | Expected hash | Actual hash | Last checked | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
 ## Sequence
 
@@ -318,6 +333,7 @@ Use this for every generated parent and child skill:
 - Folder name and frontmatter `name` match exactly.
 - Name is lowercase kebab-case with no spaces, underscores, capitals, `claude`, or `anthropic`.
 - Every family skill name starts with `<prefix>-`.
+- Connected external dependencies are exempt from the prefix and Workflow Creator signature rules; they must be marked `external`, remain unchanged, and have source/install/hash records.
 - Exactly one family skill is named `<prefix>-workflow`; it is the coordinator.
 - `SKILL.md` is named exactly `SKILL.md`.
 - Description says what the skill does and when, includes realistic trigger phrases, is specific enough to avoid unrelated triggers, is under 1024 characters, and has no angle brackets.
@@ -354,6 +370,10 @@ ${SKILLS_ROOT}/
 
 Skills install flat and are grouped by the shared prefix. Only the coordinator folder holds `linkages.md` and `README.md`. Runtime tracking is a `runStatus.md` created by the coordinator in the active project during each run.
 
+Connected external dependencies remain separate sibling skill folders under their original names.
+They are not part of the movable family package; reinstall them from the sources recorded in
+`linkages.md`.
+
 ## Distribution Checklist
 
 For public or team workflows:
@@ -362,5 +382,6 @@ For public or team workflows:
 - Keep agent instructions inside skill folders.
 - Include install-scope guidance: write to the detected host harness's native skills home (Claude Code → `.claude/skills`, else `.agents/skills`), at global (default) or project-local scope; create the chosen root for create/shell installs when absent and report the path.
 - Include portability guidance: the family is plain Markdown; the coordinator `README.md` lists the member folders to copy into other harnesses.
+- For connected workflows, list each external dependency's original source and install command; never present third-party skills as bundled family members.
 - After install, offer the opt-in cross-harness symlink (Claude Code host → link into `.agents/skills`; other host → link into `.claude/skills`) so other agents can find the skills; only act on a yes. See "Cross-Harness Access" in SKILL.md.
 - Package only after validation passes.

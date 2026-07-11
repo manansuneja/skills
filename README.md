@@ -48,7 +48,7 @@ npx skills@latest add manansuneja/skills --skill '*' -g -a claude-code
 
 ### Agent Workflows
 
-- [Workflow Creator](skills/agent-workflows/workflow-create) turns a process you repeat into a reusable agent workflow you can run with one command.
+- [Workflow Creator](skills/agent-workflows/workflow-create) turns a repeated process into one command by creating new steps or connecting skills published by other people.
 
 Install:
 
