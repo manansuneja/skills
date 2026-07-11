@@ -2,9 +2,26 @@
 
 [![skills.sh](https://skills.sh/b/manansuneja/skills)](https://skills.sh/manansuneja/skills)
 
-Workspace OS Setup creates a focused Markdown workspace for a studio, business, team, knowledge base,
-personal practice, or client project. It includes a Workspace Chief, a minimal common specialist
-core, an evolving best-practices library, durable memory, and automatic indexes.
+**Build a workspace that gives your agent lasting context about your business or project.**
+
+Workspace OS Setup stores your clients, projects, meetings, decisions, and reusable ways of working
+as plain files. A Workspace Chief agent keeps them organized and uses them when new work arrives, so
+you get answers based on your business instead of generic advice.
+
+It is for studio owners, consultants, small teams, and people running a practice or client project.
+There is no database or code to maintain. It works with Claude Code, Cursor, Codex, and other
+file-capable agents.
+
+## What It Helps You Do
+
+- Give your agent durable memory of your business: clients, projects, decisions, and how you like
+  things done.
+- Capture work as it happens — notes, briefs, outcomes — into folders that stay indexed
+  automatically.
+- Teach it your formats once (proposals, briefs, client updates) and reuse them forever.
+- Shape the workspace by talking: "add a vendors tracker", "this workspace is only for discovery."
+- Start minimal and grow only when the work earns it — no forty-folder template graveyard on
+  day one.
 
 ## Install
 
@@ -54,7 +71,11 @@ The user should spend most of their time in `workspace-hub-docs/` or `project-do
 `workspace-best-practices/` when they want to shape outputs. They describe intention and examples;
 the agent handles configuration and synchronization.
 
-## Customization Is Subtractive
+## It Starts Small On Purpose
+
+Most workspace templates fail the same way: forty empty folders you feel guilty about by week two.
+This one goes the other direction — customization keeps what supports real work and removes the
+rest.
 
 After scaffolding, say:
 
@@ -97,17 +118,36 @@ is required.
 npx skills@latest update workspace-os-setup -g
 ```
 
-## Manual Installation
+## No Terminal — Claude Desktop Or Web
 
-Download the repository, then install or upload only:
+Download the `manansuneja/skills` repository as a ZIP from GitHub, unzip it, and find:
 
 ```text
 skills/business/workspace-os-setup
 ```
 
+In Claude, go to **Customize > Skills**, choose **+ Create skill**, upload that folder, and turn
+the skill on. Then ask: `Use workspace-os-setup to set up a workspace for my studio.`
+
+## Pairs With
+
+- [PM OS Setup](../../product-management/pm-os-setup) — the same operating-system move, purpose-built
+  for product managers and product context.
+- [Workflow Creator](../../agent-workflows/workflow-create) — once your workspace holds how you
+  work, turn the recurring jobs (client brief → proposal, notes → summary) into one-command
+  workflows.
+
 ## What This Skill Does And How To Use It
 
-Workspace OS Setup scaffolds and personalizes a focused Markdown workspace with durable memory,
-agent coordination, reusable workflows, shared templates/references, and indexed content. Invoke
-`$workspace-os-setup`, answer the short setup intake, then say `Customize my workspace` to reconcile
-the structure; the root folder is renamed to match as part of that step.
+Workspace OS Setup builds and personalizes a workspace of plain files and folders with lasting
+context, a Workspace Chief agent, reusable workflows, shared templates and references, and
+automatic indexes.
+
+Install it with:
+
+```bash
+npx skills@latest add manansuneja/skills --skill workspace-os-setup -g
+```
+
+Run `/workspace-os-setup`, answer the short setup intake, then say `Customize my workspace` to
+tailor the structure; the root folder is renamed to match as part of that step.

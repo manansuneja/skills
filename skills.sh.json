@@ -4,17 +4,17 @@
   "groupings": [
     {
       "title": "Agent Workflows",
-      "description": "Skills for turning repeatable work into reusable agent workflows.",
+      "description": "Turn repeatable work into agent workflows you can run with one command.",
       "skills": ["workflow-create"]
     },
     {
       "title": "Product Management",
-      "description": "Skills for PM operating systems, product memory, and product-builder workflows.",
+      "description": "Give your agent lasting product context instead of starting every chat from zero.",
       "skills": ["pm-os-setup"]
     },
     {
       "title": "Business",
-      "description": "Skills for focused workspaces, studios, small businesses, knowledge systems, and client projects.",
+      "description": "Give your agent lasting context about a business, team, studio, or client project.",
       "skills": ["workspace-os-setup"]
     }
   ]

@@ -3,7 +3,7 @@
   "name": "workspace-os-setup",
   "displayName": "Workspace OS Setup",
   "version": "1.1.3",
-  "description": "Create a focused Workspace OS with a Workspace Chief, reusable skills, durable memory, subtractive personalization, and automatic indexes.",
+  "description": "Build a plain-file workspace that gives your agent lasting context about your business or project.",
   "author": {
     "name": "Manan Suneja",
     "url": "https://github.com/manansuneja"

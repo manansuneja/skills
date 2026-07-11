@@ -1,13 +1,11 @@
 # Business
 
-Skills for focused workspaces, client-project memory, studios, small businesses, knowledge systems,
-operations, and reusable owner workflows.
+Give your agent lasting context about a studio, business, team, or client project.
 
 ## Skills
 
-- [Workspace OS Setup](workspace-os-setup) scaffolds a focused Markdown operating system for a
-  studio, business, team, knowledge base, personal practice, or client project, with agent
-  coordination, reusable workflows, indexed memory, and subtractive personalization.
+- [Workspace OS Setup](workspace-os-setup) builds a plain-file workspace for your clients, projects,
+  decisions, and reusable ways of working, organized by a Workspace Chief agent.
 
 Install:
 

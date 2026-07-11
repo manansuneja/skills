@@ -1,10 +1,10 @@
 # Product Management
 
-Skills for PM operating systems, product memory, and product-builder workflows.
+Give your agent lasting product context instead of starting every chat from zero.
 
 ## Skills
 
-- [PM OS Setup](pm-os-setup) scaffolds and personalizes a focused Product Management operating system with a Chief PM, minimal evolving product practices and specialists, indexed product memory, subtractive personalization, automatic integration of user-added structure, and safe root-folder renaming.
+- [PM OS Setup](pm-os-setup) builds a PM workspace that stores your product context as organized, searchable files and keeps it useful through a Chief PM agent.
 
 Install:
 

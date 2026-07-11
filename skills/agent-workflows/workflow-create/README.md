@@ -2,27 +2,14 @@
 
 [![skills.sh](https://skills.sh/b/manansuneja/skills)](https://skills.sh/manansuneja/skills)
 
-**Turn something you do over and over into a reusable skill your coding agent can run for you — built once, run any time.**
+**Turn a process you repeat into a reusable workflow your agent can run with one command.**
 
-`/workflow-create` is a skill that *creates skills*. You describe a workflow in plain language; it designs and writes a small set of skills for you (one main "coordinator" plus a few focused steps), wires them together, and gives you a single command to run the whole thing later.
+Describe the process in plain language. Workflow Creator writes one coordinator skill and the
+focused step-skills it needs, connects them, and gives you a single command for future runs. It can
+also connect skills you already own.
 
-> Workflow Creator **builds the machine**. The machine **runs whenever you call it.**
-
----
-
-## New to skills?
-
-Skills are just folders of Markdown instructions that teach a coding agent (like Claude Code) how to do a specific job. The agent loads them automatically when they're relevant — you don't have to wire anything up.
-
-If you're getting started, these references will help:
-
-- **Agent Skills — what they are:** [https://docs.claude.com/en/docs/agents-and-tools/agent-skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills)
-- **Claude Code:** [https://docs.claude.com/en/docs/claude-code](https://docs.claude.com/en/docs/claude-code)
-- **`skill-creator` (the authoring standards this tool follows — installed if present, else fetched):** [https://github.com/anthropics/skills/tree/main/skills/skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator)
-
-Once your agent can use skills, you're ready.
-
----
+This is for PMs, designers, writers, operators, founders, and developers who can explain how they
+work but do not want to rebuild the same prompt and handoffs every time.
 
 ## Install
 
@@ -72,9 +59,10 @@ Just talk to your agent and describe what you want:
 /workflow-create "Build me a reusable workflow for launching niche content sites."
 ```
 
-It asks a couple of quick questions (a name, the purpose, maybe an example), proposes a design, and then creates the skills. That's it.
+It asks a few short questions, proposes the workflow, and creates the skills.
 
-**The more specific your goal, the better the skills.** A broad one-liner like "launch niche content sites" gives the agent little to work with, so it'll ask you to sharpen it — who it's for, what good output looks like, the steps you already do by hand. The more of that you bring up front, the sharper the workflow. And if you already know the breakdown, just say so in the prompt (*"steps: research → scaffold → draft → publish"*) and it'll build exactly that.
+Include who the workflow is for, what a good result looks like, and the steps you already do by
+hand. If you know the sequence, say it directly: `steps: research → scaffold → draft → publish`.
 
 **What it builds, by example.** Take a familiar one — cooking a dish. Say the workflow is making your go-to pasta. The name `pasta` becomes the slug prefix on every skill it creates:
 
@@ -171,6 +159,14 @@ Five families built and validated to show the range — from a one-skill job to 
 - **Always identifiable.** Every skill it creates is signed, so you (or a tool) can always tell it came from Workflow Creator.
 
 ---
+
+## Pairs with
+
+- [PM OS Setup](../../product-management/pm-os-setup) — once your product work lives in a PM
+  workspace, use Workflow Creator to turn its recurring rituals (meeting notes → action list, raw
+  notes → PRD) into one-command workflows.
+- [Workspace OS Setup](../../business/workspace-os-setup) — the same move for a studio, business,
+  or client-project workspace: capture the process once, run it forever.
 
 ## Learn more
 

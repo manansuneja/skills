@@ -3,7 +3,7 @@
   "name": "workflow-create",
   "displayName": "Workflow Creator",
   "version": "1.0.0",
-  "description": "Turn a repeatable process into a reusable family of skills: a coordinator command plus focused step-skills, wired together with run tracking and validation. Creates, composes, updates, and deletes workflow families.",
+  "description": "Turn a process you repeat into a reusable agent workflow you can run with one command.",
   "author": {
     "name": "Manan Suneja",
     "url": "https://github.com/manansuneja"

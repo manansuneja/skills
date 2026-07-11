@@ -1,6 +1,6 @@
 ---
 name: pm-os-setup
-description: "Scaffold and personalize a focused Product Management operating system with durable Markdown memory, a Chief PM, a minimal evolving specialist and skill core, product-practices containing skills/templates/references, indexed product documentation, automatic integration of user-added structure, and safe root-folder renaming. Use when a PM wants a PM OS, product-management workspace, product or project memory system, or invokes pm-os-setup. Tailors the workspace to product stage, PM scope, users, evidence, delivery lifecycle, and recurring outputs. Not for application code or unrelated scaffolding."
+description: "Builds and personalizes a PM workspace that gives an agent lasting product context. It organizes vision, users, meetings, decisions, outcomes, and PRDs as indexed files; adds a Chief PM and reusable product practices; and grows with the product. Use when a PM asks for a PM OS, product workspace, product memory system, or invokes pm-os-setup. Not for application code or unrelated scaffolding."
 ---
 
 # PM OS Setup

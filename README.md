@@ -1,10 +1,13 @@
 # Skills for Builders
 
-Skills for PMs, designers, small business owners, and product-minded builders using agents to shape, decide, create, operate, and ship.
+Practical agent skills for PMs, designers, operators, small business owners, and product builders.
 
-This repo is a public catalog of agent skills. It is not just for developers: the skills here are
-built for product work, business operations, design, planning, writing, decision-making, and
-vibe-coding.
+I’m Manan Suneja. I build skills for two kinds of work: processes you should not have to repeat by
+hand, and context your agent should not forget between chats. Some skills turn a recurring process
+into one command. Others build a workspace that gives your agent durable memory.
+
+You do not need to code to use them. Everything is free, MIT licensed, and built to be adapted to
+your own workflow.
 
 ## Install
 
@@ -45,7 +48,7 @@ npx skills@latest add manansuneja/skills --skill '*' -g -a claude-code
 
 ### Agent Workflows
 
-- [Workflow Creator](skills/agent-workflows/workflow-create) turns a repeatable process into a reusable skill family: one coordinator plus focused child skills, linked with run tracking and validation.
+- [Workflow Creator](skills/agent-workflows/workflow-create) turns a process you repeat into a reusable agent workflow you can run with one command.
 
 Install:
 
@@ -57,7 +60,7 @@ npx skills@latest add manansuneja/skills --skill workflow-create -g
 
 ### Product Management
 
-- [PM OS Setup](skills/product-management/pm-os-setup) scaffolds and personalizes a focused Product Management operating system with a Chief PM, minimal evolving product practices and specialists, indexed product memory, subtractive personalization, automatic integration of user-added structure, and safe root-folder renaming.
+- [PM OS Setup](skills/product-management/pm-os-setup) builds a PM workspace that gives your agent lasting context about your product, users, decisions, meetings, and PRDs.
 
 Install:
 
@@ -69,9 +72,8 @@ npx skills@latest add manansuneja/skills --skill pm-os-setup -g
 
 ### Business
 
-- [Workspace OS Setup](skills/business/workspace-os-setup) scaffolds a focused Markdown operating
-system for a studio, business, team, knowledge base, personal practice, or client project, with
-agent coordination, reusable workflows, indexed memory, and subtractive personalization.
+- [Workspace OS Setup](skills/business/workspace-os-setup) builds a plain-file workspace that gives
+your agent lasting context about your studio, business, team, or client project.
 
 Install:
 

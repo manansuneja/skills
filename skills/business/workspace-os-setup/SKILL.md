@@ -1,6 +1,6 @@
 ---
 name: workspace-os-setup
-description: "Scaffold and personalize a category-aware Workspace OS for a business, studio, team, knowledge base, personal practice, or client project. Creates Markdown memory, a Workspace Chief, a minimal specialist core, workspace-best-practices containing skills/templates/references, automatic INDEX.md maps, and either workspace-hub-docs or project-docs. Use for workspace setup, business operating systems, interior-design studios, client/project workspaces, operations, brainstorming, knowledge capture, research, content workflows, or requests to run workspace-os-setup. Supports evolving requirement-specific structure, automatic integration of user-added folders, synchronized skills and sub-agents, and safe root-folder renaming. Not for application code or unrelated scaffolds."
+description: "Builds and personalizes a plain-file workspace that gives an agent lasting context about a business, studio, team, practice, or client project. It adds a Workspace Chief, organized documents, indexes, and reusable ways of working, then adapts the structure to the user's needs. Use for a Workspace OS, business or studio workspace, project memory, knowledge base, or requests to run workspace-os-setup. Not for application code or unrelated scaffolding."
 ---
 
 # Workspace OS Setup

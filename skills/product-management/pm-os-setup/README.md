@@ -2,28 +2,30 @@
 
 [![skills.sh](https://skills.sh/b/manansuneja/skills)](https://skills.sh/manansuneja/skills)
 
-PM OS Setup creates a focused Product Management workspace with a Chief PM, durable product memory,
-reusable product practices, and automatic structure maintenance.
+**Build a PM workspace that gives your agent lasting context about your product.**
 
-It begins with a small core—product vision, meetings, outcomes, decisions, and PRDs—then tailors the
-workspace to the product stage, PM scope, users, evidence, recurring outputs, and immediate goals.
-Research, design, experiments, data, roadmaps, launches, stakeholder communications, and specialists
-appear when the work earns them rather than arriving as permanent clutter.
+PM OS Setup stores your vision, users, meetings, decisions, outcomes, and PRDs as organized files.
+A Chief PM agent uses that context to find past work, route new work, and keep recurring outputs
+consistent. You stop pasting the same background into every chat.
+
+It is built for PMs and requires no code or database. The workspace starts small, then adds research,
+experiments, roadmaps, or specialists only when your work needs them.
 
 ## What It Helps PMs Do
 
-- Build durable product context instead of accumulating disconnected chats and notes.
-- Work through one Chief PM that finds context and routes recurring work.
-- Turn meetings, decisions, recommendations, prioritization, MVP cuts, and PRDs into indexed files.
-- Teach the workspace preferred workflows, formats, examples, voice, and product principles.
-- Add folders, trackers, skills, templates, and specialists by describing the intention.
-- Integrate manually added files and folders automatically on the next agent session.
-- Reconcile and remove irrelevant generated-empty areas during personalization.
-- Safely rename the workspace root after setup without creating a replacement folder and moving
-  files into it.
+- Start every session with an agent that already knows the product: vision, users, open bets, and
+  the last decision made.
+- Turn meetings, decisions, prioritization calls, MVP cuts, and PRDs into indexed files instead of
+  chat scrollback you will never find again.
+- Work through one Chief PM that finds context and routes recurring work to the right practice.
+- Teach it your formats, voice, and product principles once — every future PRD, readout, or
+  stakeholder update follows them.
+- Grow the workspace by describing intent: "add a customer-research area and track interview
+  status."
+- Drop in files and folders yourself; the next session integrates them — no tidying homework.
 
-The generated workspace is mostly Markdown and works with Claude Code, Cursor, Codex, GitHub
-Copilot, and other file-capable agents. Tool-specific wiring stays minimal.
+The generated workspace is plain text files (Markdown, under the hood) and works with Claude Code,
+Cursor, Codex, GitHub Copilot, and other file-capable agents. Tool-specific wiring stays minimal.
 
 ## Quickstart
 
@@ -137,11 +139,18 @@ Manually added folders and files are preserved and integrated automatically.
 
 The PM supplies intentions and examples; the agent manages configuration and connections.
 
+## Pairs With
+
+- [Workflow Creator](../../agent-workflows/workflow-create) — once your product work lives in the
+  OS, turn the recurring rituals (meeting notes → action list, raw notes → PRD) into one-command
+  workflows your agent runs end to end.
+- [Workspace OS Setup](../../business/workspace-os-setup) — the same operating-system move for a
+  studio, small business, or client project instead of a product.
+
 ## What This Skill Does And How To Use It
 
-PM OS Setup scaffolds and personalizes a focused Product Management operating system with a Chief PM,
-minimal evolving skills and specialists, indexed product memory, automatic structural reconciliation,
-and safe root-folder renaming.
+PM OS Setup builds and personalizes a PM workspace with a Chief PM agent, organized product
+context, reusable practices, and a structure that starts small and grows with the work.
 
 Install it with:
 

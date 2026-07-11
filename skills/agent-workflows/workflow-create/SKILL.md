@@ -1,6 +1,6 @@
 ---
 name: workflow-create
-description: Creates, composes, updates, and deletes reusable skill workflow families from broad goals or from skills the user already owns. Use when the user invokes /workflow-create (case-insensitive), or asks to design, scaffold, wire existing skills together, compose, extend, repair, validate, or remove a parent coordinator skill plus child skills, linkages, a README, runStatus tracking, and reusable workflow contracts.
+description: Turns a repeatable process into a reusable agent workflow with one coordinator command and focused step-skills. It can create a workflow from a plain-language goal, connect skills the user already owns, or update and remove workflows it created. Use when the user invokes /workflow-create or asks to make, compose, change, repair, validate, or delete a reusable skill workflow.
 ---
 
 # Workflow Create
