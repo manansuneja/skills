@@ -7,7 +7,7 @@ Families are installed flat under the skills root and bound by a shared naming p
 - Prefix: `<workflow-slug>` or `<project-slug>-<workflow-slug>`.
 - Coordinator: `<prefix>-workflow` (exactly one per family; the only `-workflow` skill).
 - Children: `<prefix>-<phase-action>`.
-- External dependencies: independently published skills keep their original names and folders; the coordinator records and calls them but does not adopt them into the prefix.
+- External dependencies: connected standalone skills keep their original names and folders; the coordinator records and calls them but does not adopt them into the prefix.
 - Project run folder: `<prefix>-workflow-run/runStatus.md`.
 
 ## Parent SKILL.md Pattern
@@ -382,6 +382,6 @@ For public or team workflows:
 - Keep agent instructions inside skill folders.
 - Include install-scope guidance: write to the detected host harness's native skills home (Claude Code → `.claude/skills`, else `.agents/skills`), at global (default) or project-local scope; create the chosen root for create/shell installs when absent and report the path.
 - Include portability guidance: the family is plain Markdown; the coordinator `README.md` lists the member folders to copy into other harnesses.
-- For connected workflows, list each external dependency's original source and install command; never present third-party skills as bundled family members.
+- For connected workflows, list each external dependency's original source and install command; keep it separate from the generated family members.
 - After install, offer the opt-in cross-harness symlink (Claude Code host → link into `.agents/skills`; other host → link into `.claude/skills`) so other agents can find the skills; only act on a yes. See "Cross-Harness Access" in SKILL.md.
 - Package only after validation passes.

@@ -2,11 +2,11 @@
 
 [![skills.sh](https://skills.sh/b/manansuneja/skills)](https://skills.sh/manansuneja/skills)
 
-**Turn a process you repeat into a reusable workflow your agent can run with one command.**
+**Connect multiple skills to form a reusable workflow.**
 
-Describe the process in plain language. Workflow Creator writes one coordinator skill and the
-focused step-skills it needs, connects them, and gives you a single command for future runs. It can
-also connect skills published by other creators without renaming or editing them.
+One coordinator executes the skills in sequence and passes the work from one step to the next. You
+can reuse the full workflow whenever you need it, while every individual skill remains usable on
+its own. Workflow Creator can connect existing skills, write missing steps, or do both.
 
 This is for PMs, designers, writers, operators, founders, and developers who can explain how they
 work but do not want to rebuild the same prompt and handoffs every time.
@@ -64,7 +64,7 @@ It asks a few short questions, proposes the workflow, and creates the skills.
 Include who the workflow is for, what a good result looks like, and the steps you already do by
 hand. If you know the sequence, say it directly: `steps: research → scaffold → draft → publish`.
 
-### Connect skills other people publish
+### Connect multiple skills into one workflow
 
 You do not have to create every step yourself. Give Workflow Creator installed skill names, local
 skill folders, GitHub URLs, or `owner/repo --skill name` references:
@@ -78,10 +78,9 @@ skill folders, GitHub URLs, or `owner/repo --skill name` references:
 Build one workflow that researches a topic, drafts the article, and polishes the final copy.
 ```
 
-Workflow Creator installs missing dependencies when the source is unambiguous, reads what each skill
-actually does, and builds the coordinator around them. Connected skills keep their original names,
-files, authorship, and update path. The workflow records their source and detects if they later
-change or disappear.
+Workflow Creator reads what each skill does, places the skills in sequence, and builds the
+coordinator around them. The coordinator passes each result to the next skill and tracks the full
+run. Every connected skill keeps its original name and can still be called independently.
 
 **What it builds, by example.** Take a familiar one — cooking a dish. Say the workflow is making your go-to pasta. The name `pasta` becomes the slug prefix on every skill it creates:
 
@@ -116,9 +115,8 @@ Each step above is a complete skill on its own — `pasta-prep` can chop and mea
 
 A chef doesn't re-teach knife skills. They run the steps in the right order, carry what just happened into the next step (the garlic's already chopped — don't start over), and keep the whole dish in mind so nothing drifts. That's exactly what `<prefix>-workflow` does for your skills: it sequences them, passes the context forward (in `runStatus.md`), and holds the goal so your agent never loses the plot.
 
-In short, this is a **meta-skill** — a skill that wires up a workflow for you. It can connect skills
-published by other people, adopt skills you own, or write missing steps. It then creates a
-**coordinator skill** that passes context and status between them.
+In short, this is a **meta-skill** that connects individual skills into a reusable sequence. It
+creates a **coordinator skill** that runs them in order and passes context and status between them.
 
 A few things it can do:
 
@@ -126,16 +124,16 @@ A few things it can do:
 | Command                          | What it does                                                                                             |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | `/workflow-create "..."`         | **Create** a new workflow (the default).                                                                 |
-| `/workflow-create connect "..."` | **Connect third-party or shared skills** without renaming or editing them. |
-| `/workflow-create compose "..."` | **Adopt skills you own** into one family; confirms before renaming them. |
+| `/workflow-create connect "..."` | **Chain standalone skills** into one reusable workflow while keeping each independently callable. |
+| `/workflow-create compose "..."` | **Adopt skills into one named family**; confirms before renaming them. |
 | `/workflow-create update "..."`  | **Change** an existing one — add, remove, or reorder a step; fix something.                              |
 | `/workflow-create delete "..."`  | **Remove** a workflow safely.                                                                            |
 
 
-> **Connecting someone else’s skills?** Use `connect`. Their packages stay untouched and keep their
-> original invocation names.
+> **Keeping every skill independent?** Use `connect`. The coordinator chains them, but their original
+> invocation names keep working.
 
-> **Adopting skills you own?** Use `compose`. Workflow Creator can rename them into one family, but
+> **Turning the skills into one named family?** Use `compose`. Workflow Creator can rename them, but
 > it shows every rename and waits for confirmation first.
 
 Want to see the plan before anything is written? Add `plan-only`:
@@ -154,7 +152,7 @@ Five families built and validated to show the range — from a one-skill job to 
 | Workflow                                  | One line                                                                     | What it shows                                                                  |
 | ----------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | **Clarify my thoughts** (`clarify`)       | Raw notes → one clear, well-shaped piece, in your voice.                     | A clean medium **sequential** family: distill → shape → polish.                |
-| **Engineering delivery** (`ship`)         | A feature from idea to shipped, wired from independently published skills.   | **Connect** — unchanged external skills; conditional + optional steps.        |
+| **Engineering delivery** (`ship`)         | A feature from idea to shipped through a sequence of standalone skills.      | **Connect** — reusable chain; every skill also works independently.           |
 | **Business idea → plan** (`bizplan`)      | Validate an idea, model it, write the plan, render it as a site.             | A complex **multi-tool** family (web research + site build).                   |
 | **Creative data viz** (`dataviz`)         | Data or an idea → a visual that tells a story, not a boring chart.           | **Context-aware**: clean chart vs. creative SVG, with a child-owned reference. |
 | **Meeting → actions** (`meeting-actions`) | Notes → an owner-assigned action list.                                       | The **family gate firing**: one skill, because a family would be overkill.     |
@@ -162,7 +160,7 @@ Five families built and validated to show the range — from a one-skill job to 
 
 > **The `clarify` example, expanded.** You paste a messy paragraph; `/clarify-workflow` runs `clarify-distill` (find the one point) → `clarify-shape` (give it a small story) → `clarify-polish` (simple, spacious, still yours). You can also call any step alone — just `/clarify-polish` on a draft you already structured.
 
-> **Connect, expanded.** Point it at published skills — *"connect `to-prd`, `to-issues`, `tdd`, `diagnose`, and `improve-codebase-architecture` into one engineering workflow"* — and it builds `/ship-workflow` over them. The original skills keep their names and files; the coordinator records where they came from and checks for drift.
+> **Connect, expanded.** Point it at standalone skills — *"connect `to-prd`, `to-issues`, `tdd`, `diagnose`, and `improve-codebase-architecture` into one engineering workflow"* — and it builds `/ship-workflow` over them. The coordinator runs them in sequence, and every skill can still be called by itself.
 
 > **Heads up:** it may ask for a short **project name**. That becomes the slug prefix on every skill it makes (e.g. `bizplan-research`, `bizplan-site`), so your workflow's skills stay grouped and easy to tell apart from the rest.
 
@@ -202,8 +200,8 @@ Five families built and validated to show the range — from a one-skill job to 
 
 ## What This Skill Does And How To Use It
 
-Workflow Creator turns a repeatable process into one command. It can write new step-skills, connect
-skills published by other creators without modifying them, or adopt skills you own.
+Workflow Creator connects multiple skills to form a reusable workflow. A coordinator executes them
+in sequence, while every individual skill can still be used on its own.
 
 Install it with:
 
@@ -218,6 +216,6 @@ Run it by describing the workflow you want:
 /workflow-create connect these skills - owner/repo --skill research, owner/other-repo --skill draft
 ```
 
-Use `plan-only` when you want the architecture before files are written, `connect` for skills
-published by other creators, `compose` for skills you own and want adopted, `update` to change an
-existing workflow, and `delete` to remove one safely.
+Use `plan-only` when you want the architecture before files are written, `connect` to chain
+standalone skills, `compose` to adopt them into one family, `update` to change an existing workflow,
+and `delete` to remove one safely.

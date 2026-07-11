@@ -50,7 +50,7 @@ decides specifics. `dataviz` (library + destination routing) and `meeting-action
 
 ## ship — engineering delivery, connected (complex)
 
-- **Purpose:** take a feature from idea to shipped by connecting independently published engineering skills into one flow.
+- **Purpose:** take a feature from idea to shipped by chaining standalone engineering skills into one reusable flow.
 - **Coordinator:** `/ship-workflow`
 - **External steps:** `to-prd` → `to-issues` → `tdd`, with `diagnose` (**default-skip**, invoked only on a hard failure) and `improve-codebase-architecture` (**optional**). Every skill keeps its original name and source.
 - **Tier:** complex · **Pattern:** sequential + conditional.

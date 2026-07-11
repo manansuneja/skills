@@ -4,7 +4,7 @@ Turn repeatable work into agent workflows you can run with one command.
 
 ## Skills
 
-- [Workflow Creator](workflow-create) turns a repeated process into one command. It can create new steps, connect skills published by other people without modifying them, or adopt skills you own.
+- [Workflow Creator](workflow-create) connects multiple skills into a reusable workflow. One coordinator runs them in sequence, while every skill also works on its own.
 
 Install:
 

@@ -1,13 +1,14 @@
 ---
 name: workflow-create
-description: Turns a repeatable process into a reusable agent workflow. It can create new step-skills, connect skills published by other creators without modifying them, adopt and compose skills the user owns, or update and remove workflows it created. Use when the user invokes /workflow-create, says "/workflow-create connect these skills", provides skill names or GitHub URLs to wire together, or asks to create, connect, compose, change, repair, validate, or delete a skill workflow.
+description: Connects multiple skills into a reusable workflow. It creates a coordinator that runs individual skills in sequence while keeping every skill usable on its own. It can also create missing steps, adopt skills into one family, or update and remove workflows it created. Use when the user invokes /workflow-create, says "/workflow-create connect these skills", provides skill names or GitHub URLs to chain together, or asks to create, connect, compose, change, repair, validate, or delete a skill workflow.
 ---
 
 # Workflow Create
 
-Create, connect, compose, update, and delete reusable skill workflows. Build from a broad goal,
-connect skills published by other creators without changing them, or adopt skills the user owns.
-Treat `/workflow-create` as the user-facing invocation for this skill.
+Connect multiple skills to form a reusable workflow. One coordinator executes them in sequence, and
+every individual skill remains usable on its own. The skill can also create missing steps, adopt
+skills into one family, and update or delete workflows. Treat `/workflow-create` as the user-facing
+invocation.
 
 The output is a maintained operating procedure: a parent coordinator skill, bounded child skills, a single linkage ledger, a short README, runStatus tracking, validation checks, and enough handoff structure for future runs to work without relying on chat memory.
 
@@ -15,9 +16,9 @@ This skill creates and maintains the workflow family. It stays focused on the wo
 
 ## Quick Start
 
-Use this skill to turn a repeatable process into a reusable family, connect independently published
-skills into one workflow, adopt skills the user owns, or change an existing family. The user need
-not say “build me a workflow”: invoking the skill on a bare goal is enough.
+Use this skill to chain individual skills into a reusable workflow, build a workflow from a broad
+goal, adopt skills into one family, or change an existing family. The user need not say “build me a
+workflow”: invoking the skill on a bare goal is enough.
 
 ```text
 /workflow-create "Build me a reusable workflow for launching niche content sites."
@@ -31,7 +32,7 @@ not say “build me a workflow”: invoking the skill on a bare goal is enough.
 Expected result for `create`, `connect`, and `compose`:
 
 - One parent coordinator skill named `<prefix>-workflow`.
-- Usually two to five steps. `connect` keeps third-party skills unchanged and records them as external dependencies. `compose` adopts user-owned skills into the family and may rename them after confirmation.
+- Usually two to five steps. `connect` keeps the individual skills unchanged and independently callable. `compose` adopts skills into the family and may rename them after confirmation.
 - A coordinator `linkages.md` that registers every family member, the run order, and a version stamp.
 - A short coordinator `README.md`.
 - A `runStatus.md` pattern written into the active project during each run.
@@ -64,8 +65,8 @@ This skill supports five verbs. Infer the verb from the request; default to `cre
 - `create` (default): build a new workflow family. Modifiers:
   - `plan-only`: produce architecture, naming, and contracts without writing skill files.
   - `shell` / `scaffold-only`: write the coordinator and child skill shells, `linkages.md`, and `README.md` with minimal references.
-- `connect`: wire independently published or shared skills into one workflow without renaming or editing them. Accept installed skill names, local paths, GitHub URLs, and `owner/repo --skill name` references. Generate the coordinator and dependency ledger around them. See Connect Lifecycle.
-- `compose`: adopt skills the user owns into a workflow family. These become family members and are re-prefixed only after explicit confirmation. See Compose Lifecycle.
+- `connect`: chain existing standalone skills into a reusable sequence without renaming or editing them. Accept installed skill names, local paths, GitHub URLs, and `owner/repo --skill name` references. Generate the coordinator and dependency ledger around them. See Connect Lifecycle.
+- `compose`: adopt skills into a workflow family. These become family members and are re-prefixed only after explicit confirmation. See Compose Lifecycle.
 - `update`: modify an existing family. Add a child, edit a child, remove a child, repair drift (paths, frontmatter names, orphans), re-sync `linkages.md` and `README.md`, and bump the version stamp. This absorbs the older `extend-existing` and `repair-linkages` flows. See Update Lifecycle.
 - `delete`: remove an existing family safely, with confirmation and orphan protection. See Delete Lifecycle.
 
@@ -318,7 +319,7 @@ Generated skills must follow core requirements:
 
 ### Signature And Watermark
 
-Every skill this tool generates or adopts — coordinator and children, on `create`, `shell`, `compose`, and `update` — must carry a Workflow Creator signature. External dependencies connected from other creators are never signed, renamed, or edited; their original package remains intact.
+Every skill this tool generates or adopts — coordinator and children, on `create`, `shell`, `compose`, and `update` — must carry a Workflow Creator signature. Connected standalone skills are never signed, renamed, or edited; their original package remains intact.
 
 Write the signature in two places in each generated `SKILL.md`:
 
@@ -460,11 +461,11 @@ Confirm with the user before any change that alters the default run order or rem
 Read [`references/connect-and-compose.md`](references/connect-and-compose.md) whenever the request
 names existing skills.
 
-- Use `connect` for skills published or owned by other people. Preserve them unchanged and register
-  them as external dependencies with source, install command, path, and hash.
-- Use `compose` only for skills the user owns and wants adopted into the family. Confirm every rename
-  before modifying those skills.
-- When ownership is unclear, default to non-destructive `connect`.
+- Use `connect` when each skill should keep its original name and remain independently callable.
+  Register each one as an external dependency with source, install command, path, and hash.
+- Use `compose` when the skills should be adopted and re-prefixed into one family. Confirm every
+  rename before modifying them.
+- When the intended treatment is unclear, default to non-destructive `connect`.
 
 ## Delete Lifecycle
 

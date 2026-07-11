@@ -4,7 +4,7 @@
 A family is installed flat under the skills root and bound by a shared naming
 prefix. The coordinator skill is named ``<prefix>-workflow`` and holds the
 single ``linkages.md`` registry plus ``README.md``. Generated/adopted children
-are flat siblings named ``<prefix>-<phase>``. Connected third-party skills are
+are flat siblings named ``<prefix>-<phase>``. Connected standalone skills are
 validated as unchanged external dependencies and may keep any valid skill name.
 
 Usage:

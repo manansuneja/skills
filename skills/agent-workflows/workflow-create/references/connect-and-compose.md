@@ -11,19 +11,19 @@ step from scratch.
 
 ## Choose Connect Or Compose
 
-Use `connect` for independently published, shared, or third-party skills. Preserve their names,
-folders, metadata, and files. The generated coordinator depends on them but does not claim ownership.
+Use `connect` when individual skills should keep their names, folders, metadata, and files. The
+generated coordinator chains them in sequence while each skill remains independently callable.
 
-Use `compose` only for skills the user owns and explicitly wants adopted into one family. Adoption
-may rename and annotate those skills after confirmation.
+Use `compose` when the skills should be adopted into one family. Adoption may rename and annotate
+them after confirmation.
 
-When ownership is unclear, default to `connect`. Never rename a skill merely because it appears in a
-workflow.
+When the intended treatment is unclear, default to `connect`. Never rename a skill merely because it
+appears in a workflow.
 
 ## Connect Lifecycle
 
 Trigger on the explicit `connect` verb, `/workflow-create connect these skills - ...`, or a request
-to wire skills from other creators, repositories, or URLs.
+to chain existing skills referenced by name, path, repository, or URL.
 
 1. **Parse each reference.** Accept an installed skill name, local skill folder, GitHub repository or
    skill-folder URL, or `owner/repo --skill name`. Preserve the source string verbatim in the brief.
@@ -59,7 +59,7 @@ remain separate dependencies and keep their original update paths.
 
 ## Compose Lifecycle
 
-Use when the user owns the named skills and wants them adopted into a uniform family.
+Use when the user wants the named skills adopted into a uniform, re-prefixed family.
 
 1. Locate each skill on disk. If a skill cannot be found, report what resolved and ask for the
    missing path or name.

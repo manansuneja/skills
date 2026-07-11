@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "workflow-create",
   "displayName": "Workflow Creator",
-  "version": "1.1.0",
-  "description": "Turn a repeated process into one command by creating new steps or connecting skills published by other people.",
+  "version": "1.1.1",
+  "description": "Connect multiple skills into a reusable workflow: one coordinator runs them in sequence, while every skill also works on its own.",
   "author": {
     "name": "Manan Suneja",
     "url": "https://github.com/manansuneja"
