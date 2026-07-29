@@ -2,13 +2,6 @@
 
 Practical agent skills for PMs, designers, operators, small business owners, and product builders.
 
-I’m Manan Suneja. I build skills for two kinds of work: processes you should not have to repeat by
-hand, and context your agent should not forget between chats. Some skills turn a recurring process
-into one command. Others build a workspace that gives your agent durable memory.
-
-You do not need to code to use them. Everything is free, MIT licensed, and built to be adapted to
-your own workflow.
-
 ## Install
 
 Install one skill globally so it is available in every project:
