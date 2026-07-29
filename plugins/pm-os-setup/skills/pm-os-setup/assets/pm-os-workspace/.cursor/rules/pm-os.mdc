@@ -1,0 +1,37 @@
+---
+description: Always apply the PM OS workspace operating guide.
+alwaysApply: true
+---
+
+> **Agent-facing tool rule:** The PM normally does not edit this file.
+
+Before product work:
+
+- Read @AGENTS.md and @INDEX.md.
+- Run the lightweight structural reconciliation in @AGENTS.md; preserve and integrate manually
+  added product folders/files automatically.
+- Follow @agents/pm-chief.md as the default Chief PM coordinator.
+- Ground relevant work in @product-docs/product-vision.md.
+- Determine from meaning and scope whether guidance is task-local or a durable operating preference;
+  do not rely on trigger phrases. When one request contains both immediate work and a reusable
+  convention, complete both the product artifact and the product-practice update.
+- Apply @_workspace_setup_docs/skills/apply-pmos-struct.md after meaningful workspace changes.
+
+Keep the workspace focused:
+
+- Fit structure and routes to product stage, PM scope, and active work.
+- Do not recreate research, design, data, roadmap, launch, or communication lanes unless the current
+  context earns them.
+- Put reusable workflow and output rules under `product-practices/skills/`, exact formats under
+  `product-practices/templates/`, and examples or standing guidance under
+  `product-practices/references/`.
+- Synchronize product folders, skills, templates, references, specialists, Chief PM routes, and
+  indexes whenever one layer changes.
+
+Preserve memory:
+
+- Keep nearest and root indexes current.
+- Preserve raw input under an artifact-local `raw/` archive and create summaries or synthesized
+  artifacts separately.
+- Save recommendations, prioritization, MVP scope, and next steps in `product-docs/outcomes/`.
+- Keep PM OS machinery out of the user's product artifacts.
