@@ -17,6 +17,21 @@ This repo is the public `manansuneja/skills` catalog.
 - Keep local plans, tests, announcements, screenshots, and unpublished skills outside the public commit.
 - Do not add `.out-of-scope` until public issue traffic creates repeat rejected requests worth documenting.
 
+## Plugin Release Rules
+
+- `skills/` is the only canonical runtime source. Never hand-edit or commit a copied skill under
+  `plugins/` or `dist/`.
+- `plugins/catalog.json` is the release source of truth for plugin versions, status, canonical source
+  paths, and source digests. A canonical skill change requires an intentional plugin version bump and
+  refreshed digest.
+- `plugins/<name>/` contains only store listing metadata, evaluation cases, release notes, and assets.
+- `dist/plugins/` is generated, ignored, disposable output. It contains the self-contained copies
+  required by plugin clients and release archives.
+- Keep v1 packages skills-only. Do not add apps, MCP servers, hooks, authentication, or telemetry
+  without a separately reviewed product and privacy change.
+- Only `pm-os-setup` is listed in the local marketplace during the pilot. Follow-on plugin metadata
+  does not imply public availability.
+
 ## Current Categories
 
 - `skills/agent-workflows/` for workflow and meta-skill tooling.
@@ -32,10 +47,18 @@ From the repo root, run:
 npx skills@latest add ./ --list
 powershell -ExecutionPolicy Bypass -File scripts/list-skills.ps1
 powershell -ExecutionPolicy Bypass -File scripts/validate-catalog.ps1
+python scripts/build_plugins.py
+python scripts/validate_plugins.py
+python scripts/test_plugins.py --plugin pm-os-setup
+python scripts/test_plugins.py --plugin workspace-os-setup
 ```
 
 `scripts/validate-catalog.ps1` is the required metadata gate and must pass before publishing. CI
 runs it for every pull request and push that changes catalog files.
+
+Plugin CI runs the build, manifest/package validation, reproducibility check, and PM OS scaffold smoke
+tests on Windows and Ubuntu. Use `python scripts/build_plugins.py --refresh-digests` only after a
+canonical change and version bump; commit the reviewed catalog digest, never `dist/`.
 
 The public catalog should currently expose `workflow-create`, `pm-os-setup`, and
 `workspace-os-setup`.

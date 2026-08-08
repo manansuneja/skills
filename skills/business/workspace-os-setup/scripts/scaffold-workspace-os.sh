@@ -248,8 +248,10 @@ copy_template_contents() {
   local use_case="$7"
   local docs_root
   local today
+  local iso_date
   docs_root="$(docs_root_for_kind "$kind")"
   today="$(LC_TIME=C date '+%b-%d-%Y')"
+  iso_date="$(date '+%Y-%m-%d')"
 
   # Check every mapped destination before writing anything so a collision cannot
   # leave behind a partially scaffolded workspace.
@@ -307,7 +309,7 @@ copy_template_contents() {
         if [ -n "${use_case//[[:space:]]/}" ]; then
           PRIMARY_USE_VALUE="$use_case" perl -0pi -e 's/\{\{PRIMARY_USE\}\}/$ENV{PRIMARY_USE_VALUE}/g' "$destination"
         fi
-        DOCS_ROOT_VALUE="$docs_root" WORKSPACE_KIND_VALUE="$kind" DATE_VALUE="$today" perl -0pi -e 's/\{\{DOCS_ROOT\}\}/$ENV{DOCS_ROOT_VALUE}/g; s/\{\{WORKSPACE_KIND\}\}/$ENV{WORKSPACE_KIND_VALUE}/g; s/\{\{DATE\}\}/$ENV{DATE_VALUE}/g' "$destination"
+        DOCS_ROOT_VALUE="$docs_root" WORKSPACE_KIND_VALUE="$kind" DATE_VALUE="$today" ISO_DATE_VALUE="$iso_date" perl -0pi -e 's/\{\{DOCS_ROOT\}\}/$ENV{DOCS_ROOT_VALUE}/g; s/\{\{WORKSPACE_KIND\}\}/$ENV{WORKSPACE_KIND_VALUE}/g; s/\{\{DATE\}\}/$ENV{DATE_VALUE}/g; s/\{\{ISO_DATE\}\}/$ENV{ISO_DATE_VALUE}/g' "$destination"
         ;;
     esac
   done < <(find "$template_root" -type f -print0)

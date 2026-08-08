@@ -42,11 +42,12 @@ Run this lightweight pass whenever `AGENTS.md` is read at the start of a session
    when necessary to infer purpose.
 2. Ignore `raw/`, hidden/tool folders, workspace machinery, dependency/build outputs, and archives
    unless the task involves them.
-3. For a user-created folder or subfolder missing an index:
+3. For a user-created folder or subfolder missing from the nearest index:
    - preserve contents and location;
    - infer a concise purpose from its name and nearby material;
-   - create `INDEX.md` with the appropriate audience label;
-   - link it from its parent and the product-docs/root map when applicable.
+   - link it from the nearest useful parent index;
+   - create a human-readable local `INDEX.md` only when it is a meaningful content domain,
+     substantial subdomain, or multi-file artifact that benefits from its own workboard/map.
 4. For an unindexed user-created file, add it to the nearest index and connect it to an existing
    product area, tracker, template, skill, or route when the relationship is clear.
 5. If a root-level user folder clearly belongs under `product-docs/`, integrate it into maps
@@ -77,11 +78,20 @@ Report reconciled additions briefly. This is background maintenance, not work th
 If a new artifact type repeats, create a focused area with `INDEX.md` and update product-docs and
 root maps.
 
+Narrative artifacts are Markdown-first. A plain request for a PRD, brief, plan, decision, or
+synthesis creates `.md`. Use an installed document, presentation, spreadsheet, design, research, or
+other specialized capability only when requested or clearly required. Store any heavier deliverable
+beside its Markdown source or supporting context and index both.
+
 ## INDEX.md rules
 
-- Every PM OS content folder has an `INDEX.md`; tool config and `raw/` archives do not need one.
-- Every meaningful change updates the nearest index in the same change.
-- A top-level add, rename, or removal also updates product-docs and root indexes.
+- Root `INDEX.md` is a human-first living workboard plus high-level navigation, not an exhaustive
+  machine inventory.
+- Meaningful content domains, substantial subdomains, and multi-file artifacts get a local
+  `INDEX.md`. Tiny leaf folders, tool config, and `raw/` archives do not need one.
+- Every meaningful change updates the nearest useful index in the same change.
+- A change to active work, waiting items, recent decisions/outcomes, or top-level navigation also
+  updates the root index.
 - Skill changes update `product-practices/skills/INDEX.md`, the owning specialist, and Chief PM route.
 - Template/reference changes update the relevant `product-practices/*/INDEX.md`.
 - Search for stale links after moves, renames, or removals.
@@ -116,9 +126,9 @@ inbox copy only after the archive exists.
 1. Does every kept or new area support active or near-term PM work?
 2. Is the artifact in the right folder with a clear name?
 3. Is raw input preserved?
-4. Are nearest, product-docs, and root indexes current?
+4. Are the nearest useful index and the human workboard current?
 5. Are links, routes, skills, and specialists free of orphans?
 6. Is the audience label clear?
 7. Is product vision current without mixing PM OS machinery into product content?
-8. Are all user-created folders, subfolders, and files accounted for?
+8. Are all user-created folders, subfolders, and files discoverable from the nearest useful index?
 9. Do product practices and specialists match the current content structure?

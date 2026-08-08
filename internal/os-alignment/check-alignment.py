@@ -102,6 +102,7 @@ def validate_variant(name: str, config: dict[str, object]) -> None:
         asset_root / "START_HERE.md",
         asset_root / "INDEX.md",
         asset_root / "_workspace_setup_docs/personalization/AGENTS.md",
+        asset_root / "_workspace_setup_docs/workspace-state.json",
         asset_root / f"_workspace_setup_docs/skills/{config['apply']}",
         asset_root / "_workspace_setup_docs/skills/manage-workspace-skills.md",
         practices / "INDEX.md",
@@ -136,6 +137,8 @@ def validate_variant(name: str, config: dict[str, object]) -> None:
             "not trigger phrases",
             "same task",
             "Never overwrite raw input",
+            "Markdown-first",
+            "workspace-state.json",
         ],
     )
     require_terms(
@@ -150,6 +153,8 @@ def validate_variant(name: str, config: dict[str, object]) -> None:
             "meaning and scope",
             "same task",
             "Never overwrite raw input",
+            "Capability routing",
+            "human-first shared surfaces",
         ],
     )
     require_terms(
@@ -174,6 +179,8 @@ def validate_variant(name: str, config: dict[str, object]) -> None:
             "Automatic structural reconciliation",
             "Audience labels",
             "Never overwrite raw input",
+            "living workboard",
+            "specialized capability",
         ],
     )
     require_terms(
@@ -197,6 +204,8 @@ def validate_variant(name: str, config: dict[str, object]) -> None:
             "trigger phrases",
             "every material intent",
             "same task",
+            "installed capability",
+            "Markdown-first",
         ],
     )
     require_terms(

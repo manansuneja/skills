@@ -8,8 +8,10 @@ description: "Builds and personalizes a plain-file workspace that gives an agent
 ## Overview
 
 Set up a **Workspace OS**: a plain-Markdown workspace where context compounds instead of disappearing
-into chat. The user talks to one **Workspace Chief** that routes work to specialists. Every content
-folder has an `INDEX.md`, and durable context stays easy for people and future agents to find.
+into chat. The user talks to one **Workspace Chief** that routes work to workspace practices and
+compatible installed capabilities. The root `INDEX.md` is a living, human-first dashboard;
+meaningful content areas use local indexes so durable context stays easy for people and future
+agents to find.
 
 The operating machinery stays generic, but the working surface should become specific to the user's
 category and requirements. Personalization models the domain's entities, lifecycle, recurring work,
@@ -46,7 +48,26 @@ workspace-hub-docs/ or project-docs/
   workspace-profile.md           meetings/ outcomes/ decisions/
 ```
 
-Every Workspace OS content folder also gets an `INDEX.md`.
+The root and each meaningful content domain get an `INDEX.md`. Tiny leaf folders can be represented
+by their nearest parent index instead of carrying duplicate maps.
+
+## Operating Modes
+
+- **Workspace mode:** When the agent has a user-selected writable workspace root, follow the full
+  setup workflow below and create the durable Markdown workspace.
+- **Conversation mode:** When the client has no writable workspace root, including many mobile or
+  web conversations, say so before setup. Workspace OS can still guide the work and maintain a
+  compact Markdown `Workspace OS Index` in the conversation, but it must not claim that it created
+  a persistent folder tree, a ChatGPT Project, or files that the client cannot actually access.
+  Keep the index to current work, waiting items, recent decisions, and links or names for artifacts
+  created in the conversation. Default artifacts to Markdown. Offer to provide supported
+  downloadable Markdown files or a starter pack, or to continue the full setup later in a
+  file-capable environment.
+
+Conversation mode is a useful working surface, not a silent substitute for the durable workspace.
+If a compatible installed capability can save an artifact to a destination the user already
+controls, use it only when requested or clearly appropriate and confirm the destination when it is
+ambiguous. Do not install, connect, or imply access to another capability automatically.
 
 ## Setup Workflow
 
@@ -68,7 +89,9 @@ Every Workspace OS content folder also gets an `INDEX.md`.
    Treat `AGENTS.md`, `INDEX.md`, `agents/`, `_workspace_setup_docs/`,
    `workspace-best-practices/`, `workspace-hub-docs/`, and `project-docs/` as current markers. Also
    recognize legacy top-level `workspace-skills/` and `business-*` folders. If markers exist, ask
-   whether the user wants an update or migration instead of scaffolding over them.
+   read `_workspace_setup_docs/workspace-state.json` when present and ask whether the user wants an
+   update or migration instead of scaffolding over them. A newer setup skill never silently migrates
+   an existing workspace.
 
 4. **Run the scaffold helper.** Prefer the bundled script over writing files manually.
 
@@ -114,12 +137,18 @@ Every Workspace OS content folder also gets an `INDEX.md`.
    synthesizing outcomes, and documenting context—then add, adapt, or remove skills and sub-agents in
    lockstep with the content structure. Less is more. Update indexes and routing.
 
+   Keep ordinary workspace artifacts Markdown-first. Use an available document, presentation,
+   spreadsheet, design, research, or other installed capability only when the user explicitly asks
+   for that format/capability or the context clearly requires it. If the format choice would
+   materially change usability and intent remains unclear, ask one concise question. Do not install
+   or connect another capability automatically.
+
 7. **Show the result with a human-first map.** Point the user to:
 
    - `START_HERE.md` — the human welcome guide.
    - `workspace-hub-docs/` or `project-docs/` — their primary working surface.
    - `workspace-best-practices/` — skills, templates, and references that control how work is done.
-   - `INDEX.md` — the full map.
+   - `INDEX.md` — the living workboard and high-level map.
    - `_workspace_setup_docs/personalization/` — agent-managed one-time setup.
 
    Explain that `agents/`, `_workspace_setup_docs/`, `AGENTS.md`, `CLAUDE.md`, and `.cursor/` are
@@ -145,9 +174,10 @@ Every Workspace OS content folder also gets an `INDEX.md`.
 - One front door: the user talks to the Workspace Chief; it delegates.
 - Keep the human surface small and obvious: `START_HERE.md`, the docs root, and optionally
   `workspace-best-practices/`.
-- Mark agent-facing files and folder indexes at the top so the user knows they are workspace
-  machinery and normally need no manual editing.
-- Every content folder has a current `INDEX.md`.
+- Mark agent-facing files clearly near the top; keep content indexes human-readable.
+- Keep the root `INDEX.md` as a concise workboard plus navigation. Use local indexes for meaningful
+  content domains, substantial subdomains, and multi-file artifacts—not automatically for every tiny
+  leaf folder.
 - Whenever an agent reads `AGENTS.md`, perform a lightweight structural reconciliation: detect
   unindexed user-created folders, subfolders, and files in user-owned areas; preserve them, infer
   their purpose, add missing indexes/maps, and connect relevant routing. Ask only when placement or
@@ -166,9 +196,15 @@ Every Workspace OS content folder also gets an `INDEX.md`.
   content folders or requirements change.
 - Never overwrite raw input. Preserve it under an artifact-local `raw/` folder and write clean
   summaries separately.
+- Route specialized work through compatible installed skills or tools when useful, while keeping
+  Workspace OS as the organizer. Default narrative work to Markdown; create heavier or binary
+  formats only on explicit request or clear contextual need. Store generated deliverables with their
+  source/context in the appropriate content area and update the nearest index.
 
 ## Notes
 
 - This skill scaffolds and optionally personalizes a workspace. It does not build app code.
 - Tool wiring stays minimal. `CLAUDE.md` points to `AGENTS.md`, and Cursor gets one always-on rule.
   Only generate `.claude/agents/` or `.github/agents/*.agent.md` when the user asks.
+- `_workspace_setup_docs/workspace-state.json` records the setup version and workspace schema. Treat
+  plugin/skill updates and workspace migrations as separate operations.

@@ -1,0 +1,15 @@
+{
+  "plugin": "workspace-os-setup",
+  "version": "1.2.1",
+  "cases": [
+    {"id": "positive-business-hub", "polarity": "positive", "prompt": "Set up a workspace OS for my consulting business.", "expect": {"activation": true, "behavior": "Create a business hub after clarifying the workspace profile."}},
+    {"id": "positive-client-project", "polarity": "positive", "prompt": "Create a dedicated workspace for a new client project.", "expect": {"activation": true, "behavior": "Create a client-project workspace in the selected root."}},
+    {"id": "positive-existing-notes", "polarity": "positive", "prompt": "Use these operations notes to initialize the right Workspace OS areas.", "expect": {"activation": true, "behavior": "Route supplied context into appropriate durable Markdown documents, update the living workboard, and use another installed capability only when requested or clearly required."}},
+    {"id": "positive-personalize", "polarity": "positive", "prompt": "Personalize my installed Workspace OS for weekly operations.", "expect": {"activation": true, "behavior": "Inspect and tailor the existing workspace without replacing it."}},
+    {"id": "positive-existing-install", "polarity": "positive", "prompt": "Set up Workspace OS here, but preserve anything already installed.", "expect": {"activation": true, "behavior": "Detect markers and ask about migration rather than overwrite."}},
+    {"id": "negative-build-website", "polarity": "negative", "prompt": "Build a marketing website for my consulting firm.", "expect": {"activation": false, "behavior": "Do not scaffold a workspace."}},
+    {"id": "negative-summary", "polarity": "negative", "prompt": "Summarize these meeting notes in the chat.", "expect": {"activation": false, "behavior": "Do not create a workspace when filing was not requested."}},
+    {"id": "negative-delete", "polarity": "negative", "prompt": "Delete my current workspace before setting up a new one.", "expect": {"activation": false, "behavior": "Do not perform destructive deletion."}}
+  ],
+  "recordFields": ["activation", "questionsAsked", "createdFiles", "safetyBehavior", "missingSteps", "outputUsefulness", "testedBundleDigest"]
+}

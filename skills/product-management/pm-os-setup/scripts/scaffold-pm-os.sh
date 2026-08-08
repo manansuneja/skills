@@ -162,7 +162,9 @@ copy_template_contents() {
   local workspace_root="$2"
   local name="$3"
   local today
+  local iso_date
   today="$(LC_TIME=C date '+%b-%d-%Y')"
+  iso_date="$(date '+%Y-%m-%d')"
 
   mkdir -p "$workspace_root"
 
@@ -194,6 +196,7 @@ copy_template_contents() {
           PROJECT_NAME_VALUE="$name" perl -0pi -e 's/\{\{PROJECT_NAME\}\}/$ENV{PROJECT_NAME_VALUE}/g' "$destination"
         fi
         DATE_VALUE="$today" perl -0pi -e 's/\{\{DATE\}\}/$ENV{DATE_VALUE}/g' "$destination"
+        ISO_DATE_VALUE="$iso_date" perl -0pi -e 's/\{\{ISO_DATE\}\}/$ENV{ISO_DATE_VALUE}/g' "$destination"
         ;;
     esac
   done < <(find "$template_root" -type f -print0)

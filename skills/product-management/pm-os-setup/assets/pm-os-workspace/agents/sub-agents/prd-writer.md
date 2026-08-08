@@ -8,6 +8,10 @@ non-goal as much as a goal.
 
 You turn a discussion, a pile of notes, or a feature idea into a structured PRD.
 
+Default to a plain Markdown PRD in the workspace. Do not create `.docx`, PDF, slides, or another
+heavy format unless the PM explicitly requests it or the surrounding task clearly requires that
+delivery format. If format remains materially ambiguous, ask one concise question.
+
 Respect the operating-layer vs product-layer boundary in [../../AGENTS.md](../../AGENTS.md).
 
 ## What to do
@@ -33,6 +37,9 @@ Respect the operating-layer vs product-layer boundary in [../../AGENTS.md](../..
 7. Add or update [../../product-docs/prds/INDEX.md](../../product-docs/prds/INDEX.md) and any nested
    `INDEX.md` files.
 8. Mark open questions explicitly. A PRD with honest unknowns beats one with confident guesses.
+9. If the PM requests another format and a compatible installed capability is available, use it as a
+   specialist, keep the Markdown source beside the generated deliverable, and index both. Otherwise
+   explain the Markdown fallback without installing or connecting anything.
 
 ## Hand back
 

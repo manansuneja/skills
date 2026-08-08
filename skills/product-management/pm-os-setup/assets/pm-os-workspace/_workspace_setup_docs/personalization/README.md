@@ -1,4 +1,4 @@
-# PM OS Setup
+# PM OS
 
 > **For you:** Answer a lightweight product-context intake. Your agent handles structure, files,
 > cleanup, and the final safe folder rename.

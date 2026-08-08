@@ -4,7 +4,11 @@
 > `{{DOCS_ROOT}}/` and ask the Workspace Chief to change workspace machinery.
 
 Read this file, then [INDEX.md](INDEX.md). This is a Workspace OS with durable memory and a small,
-human-first working surface.
+human-first working surface. Treat `INDEX.md` as the owner's living dashboard as well as shared
+navigation; keep agent operating rules here instead of turning the index into machinery.
+
+Read `_workspace_setup_docs/workspace-state.json` when deciding whether an installed setup update
+requires a workspace migration. Never infer that a newer skill version authorizes structural edits.
 
 ## Personalization state
 
@@ -43,7 +47,9 @@ substantial work:
    folders, subfolders, or files that are missing from indexes. Skip `raw/`, hidden/tool folders,
    agent-facing machinery, dependency/build folders, and archives unless the task needs them.
 3. Treat manually added content as intentional. Preserve it, infer purpose from its name and nearby
-   material, create a missing `INDEX.md`, and add it to the parent/docs-root/root maps as applicable.
+   material, then update the nearest useful index. Create a local `INDEX.md` only when the folder is
+   a meaningful content domain, a substantial subdomain, or a multi-file artifact that benefits from
+   its own workboard/map. Represent tiny leaf folders in their parent index.
 4. Connect a new recurring area to the workspace profile, Workspace Chief routing, a skill, template,
    or tracker only when that connection is useful. Do not invent machinery for a one-off folder.
 5. Integrate clear cases without asking. Ask one concise question only when meaning or placement is
@@ -70,6 +76,21 @@ plan itself. The former belongs in `workspace-best-practices/`; the latter belon
 `{{DOCS_ROOT}}/`—even when it surfaces during a request that is mostly about hub-docs content, such as
 a brand voice guide that comes up while setting up content/marketing folders.
 
+## Capability routing and output formats
+
+- Treat Workspace OS as the organizer. When a compatible installed skill or tool can materially
+  improve a specialized task, use it without hard-coding a plugin brand or requiring it as a
+  dependency.
+- Inspect only capabilities the host exposes. Never claim, install, connect, or authenticate a
+  capability that is unavailable; fall back to the best local Markdown workflow.
+- Default briefs, decisions, plans, research syntheses, notes, and other narrative artifacts to
+  `.md`. Use a heavier or binary format only when explicitly requested or clearly required by the
+  context. Ask one concise format question only when the choice materially affects usability.
+- Store generated deliverables with their Markdown source or supporting context in the appropriate
+  content area. Preserve raw input and update the nearest useful index.
+- Ask before external writes such as creating records, publishing, sending, or changing a connected
+  system. Reading an already available source should still stay within the user's requested scope.
+
 ## Always do these
 
 - **Orient first.** Read the root index and only the relevant folder indexes/files.
@@ -78,7 +99,8 @@ a brand voice guide that comes up while setting up content/marketing folders.
   category, domain model, priorities, tracking needs, and constraints.
 - **Fit the domain.** Use the category's natural entities, lifecycle, terminology, recurring
   artifacts, and tracking needs. Keep the machinery generic, not the user's information architecture.
-- **Route deliberately.** Match the request to a specialist and its workspace skill when useful.
+- **Route deliberately.** Match the request to a workspace specialist/practice and any compatible
+  installed capability when useful.
 - **Act on capture.** Organize provided notes/files, preserve raw input under an artifact-local
   `raw/` folder, create the durable artifact separately, and update indexes.
 - **Save substantial work.** Put analysis, synthesis, decisions, plans, writing, and reusable context
@@ -99,7 +121,8 @@ a brand voice guide that comes up while setting up content/marketing folders.
   materially affect future outputs.
 - **Let the workspace evolve.** Capture durable preferences and recurring workflows in the smallest
   useful skill/template and optional specialist. Keep truly one-off work one-off.
-- **Keep audience labels.** Agent-only files and folder indexes must say so near the top.
+- **Keep audience labels.** Agent-only files must say so near the top. Content indexes are
+  human-first shared surfaces and should read like useful workboards, not agent manifests.
 
 ## Structure rules
 
@@ -107,8 +130,10 @@ Follow
 [_workspace_setup_docs/skills/apply-workspace-struct.md](_workspace_setup_docs/skills/apply-workspace-struct.md):
 
 - Use `lower-kebab-case`; use dates only for time-ordered artifacts.
-- Keep an `INDEX.md` in every Workspace OS content folder.
-- Update the nearest index after any meaningful change; update the root index for top-level changes.
+- Keep `INDEX.md` at the root and in meaningful content domains, substantial subdomains, and
+  multi-file artifacts. Tiny leaf folders can remain represented by the nearest parent index.
+- Update the nearest useful index after meaningful changes and the root index when active work,
+  important status, or top-level navigation changes.
 - Never overwrite raw input.
 - Remove stale links and orphaned routes when files or folders are removed.
 

@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "pm-os-setup",
-  "displayName": "PM OS Setup",
-  "version": "1.1.0",
+  "displayName": "PM OS",
+  "version": "1.2.4",
   "description": "Build a PM workspace that gives your agent lasting context about your product.",
   "author": {
     "name": "Manan Suneja",

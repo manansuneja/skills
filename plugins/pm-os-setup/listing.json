@@ -1,0 +1,28 @@
+{
+  "displayName": "PM OS",
+  "shortDescription": "Build a durable product-management workspace.",
+  "longDescription": "Create and personalize a Markdown-first product workspace with a living workboard for vision, customer context, meetings, decisions, outcomes, and PRDs. It can route specialized work through compatible installed capabilities when requested, while keeping outputs organized without overwriting existing work.",
+  "developerName": "Manan Suneja",
+  "category": "Productivity",
+  "capabilities": [
+    "Write"
+  ],
+  "websiteURL": "https://manansuneja.github.io/skills/",
+  "supportURL": "https://manansuneja.github.io/skills/support.html",
+  "privacyPolicyURL": "https://manansuneja.github.io/skills/privacy.html",
+  "termsOfServiceURL": "https://manansuneja.github.io/skills/terms.html",
+  "defaultPrompt": [
+    "Set up a PM OS for my product.",
+    "Create a PM workspace for product discovery.",
+    "Personalize my PM OS for weekly planning."
+  ],
+  "brandColor": "#6D28D9",
+  "composerIcon": "./assets/logo-v2-marketplace.jpg",
+  "logo": "./assets/logo-v2-marketplace.jpg",
+  "keywords": [
+    "product-management",
+    "product-operations",
+    "workspace",
+    "prd"
+  ]
+}

@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "workspace-os-setup",
   "displayName": "Workspace OS Setup",
-  "version": "1.1.3",
+  "version": "1.2.1",
   "description": "Build a plain-file workspace that gives your agent lasting context about your business or project.",
   "author": {
     "name": "Manan Suneja",

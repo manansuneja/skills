@@ -241,6 +241,7 @@ function Copy-TemplateContents {
             $content = $content.Replace("{{DOCS_ROOT}}", $docsRoot)
             $content = $content.Replace("{{WORKSPACE_KIND}}", $Kind)
             $content = $content.Replace("{{DATE}}", (Get-Date -Format "MMM-dd-yyyy"))
+            $content = $content.Replace("{{ISO_DATE}}", (Get-Date -Format "yyyy-MM-dd"))
             [System.IO.File]::WriteAllText($destination, $content, $utf8NoBom)
         }
     }

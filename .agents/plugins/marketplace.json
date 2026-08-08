@@ -1,14 +1,14 @@
 {
-  "name": "personal",
+  "name": "manan-skills",
   "interface": {
-    "displayName": "Personal"
+    "displayName": "Manan Skills"
   },
   "plugins": [
     {
       "name": "pm-os-setup",
       "source": {
         "source": "local",
-        "path": "./plugins/pm-os-setup"
+        "path": "./dist/plugins/openai/pm-os-setup"
       },
       "policy": {
         "installation": "AVAILABLE",

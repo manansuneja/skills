@@ -11,6 +11,7 @@ product-specific preferences.
 |---|---|---|
 | [skills/](skills/INDEX.md) | Protected workspace rules and skill-maintenance playbooks | A change affects structure, indexes, or the product-skill catalog |
 | [personalization/](personalization/INDEX.md) | One-time setup guide for tailoring the generic scaffold | The workspace has not been personalized yet |
+| [workspace-state.json](workspace-state.json) | Setup version and workspace schema metadata | Checking whether an update needs an explicit migration |
 
 Reusable PM behavior belongs in
 [../product-practices/skills/](../product-practices/skills/INDEX.md); formats and examples live beside

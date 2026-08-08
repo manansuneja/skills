@@ -3,14 +3,15 @@ name: pm-os-setup
 description: "Builds and personalizes a PM workspace that gives an agent lasting product context. It organizes vision, users, meetings, decisions, outcomes, and PRDs as indexed files; adds a Chief PM and reusable product practices; and grows with the product. Use when a PM asks for a PM OS, product workspace, product memory system, or invokes pm-os-setup. Not for application code or unrelated scaffolding."
 ---
 
-# PM OS Setup
+# PM OS
 
 ## Overview
 
 Set up a **Product Management operating system**: a plain-Markdown workspace where product context
 compounds instead of disappearing into chat. The PM talks to one **Chief PM** that routes work to
-specialists. Every content folder has an `INDEX.md`, and durable decisions, evidence, requirements,
-and outcomes remain easy for people and future agents to find.
+workspace practices and compatible installed capabilities. The root `INDEX.md` is a living,
+human-first dashboard; meaningful content areas use local indexes so durable decisions, evidence,
+requirements, and outcomes remain easy for people and future agents to find.
 
 Keep the operating machinery reusable, but fit the working surface to the product's stage, the PM's
 scope, current priorities, users, decision cadence, and recurring outputs. Personalization models
@@ -37,7 +38,25 @@ product-docs/
   product-vision.md              meetings/ outcomes/ decisions/ prds/
 ```
 
-Every PM OS content folder also gets an `INDEX.md`.
+The root and each meaningful content domain get an `INDEX.md`. Tiny leaf folders can be represented
+by their nearest parent index instead of carrying duplicate maps.
+
+## Operating Modes
+
+- **Workspace mode:** When the agent has a user-selected writable workspace root, follow the full
+  setup workflow below and create the durable Markdown workspace.
+- **Conversation mode:** When the client has no writable workspace root, including many mobile or
+  web conversations, say so before setup. PM OS can still guide product work and maintain a compact
+  Markdown `PM OS Index` in the conversation, but it must not claim that it created a persistent
+  folder tree, a ChatGPT Project, or files that the client cannot actually access. Keep the index to
+  current work, waiting items, recent decisions, and links or names for artifacts created in the
+  conversation. Default artifacts to Markdown. Offer to provide supported downloadable Markdown
+  files or a starter pack, or to continue the full setup later in a file-capable environment.
+
+Conversation mode is a useful working surface, not a silent substitute for the durable workspace.
+If a compatible installed capability can save an artifact to a destination the user already
+controls, use it only when requested or clearly appropriate and confirm the destination when it is
+ambiguous. Do not install, connect, or imply access to another capability automatically.
 
 ## Setup Workflow
 
@@ -55,7 +74,9 @@ Every PM OS content folder also gets an `INDEX.md`.
 3. **Guard against clobbering.** Never overwrite an existing workspace or unrelated project files.
    Treat `AGENTS.md`, `INDEX.md`, `agents/`, `_workspace_setup_docs/`, `product-practices/`, and
    `product-docs/` as current markers. Also recognize legacy top-level `product-skills/`. If markers
-   exist, ask whether the user wants an update or migration instead of scaffolding over them.
+   exist, read `_workspace_setup_docs/workspace-state.json` when present and ask whether the user
+   wants an update or migration instead of scaffolding over them. A newer setup skill never silently
+   migrates an existing workspace.
 
 4. **Run the scaffold helper.** Prefer the bundled script over writing files manually.
 
@@ -89,12 +110,18 @@ Every PM OS content folder also gets an `INDEX.md`.
    outcomes, documenting product context, and writing PRDs. Add, adapt, or remove the rest in
    lockstep with actual scope. Less is more. Update indexes and Chief PM routing.
 
+   Keep ordinary PM artifacts Markdown-first. A request such as “create a PRD” produces `.md` by
+   default. Use an available document, presentation, spreadsheet, design, research, or other
+   installed capability only when the user explicitly asks for that format/capability or the context
+   clearly requires it. If the format choice would materially change usability and intent remains
+   unclear, ask one concise question. Do not install or connect another capability automatically.
+
 7. **Show the result with a human-first map.** Point the user to:
 
    - `START_HERE.md` — the human welcome guide.
    - `product-docs/` — the primary product working surface.
    - `product-practices/` — skills, templates, and references controlling how work is done.
-   - `INDEX.md` — the complete map.
+   - `INDEX.md` — the living workboard and high-level map.
    - `_workspace_setup_docs/personalization/` — agent-managed one-time setup.
 
    Explain that `agents/`, `_workspace_setup_docs/`, `AGENTS.md`, `CLAUDE.md`, and `.cursor/` are
@@ -119,8 +146,10 @@ Every PM OS content folder also gets an `INDEX.md`.
 - One front door: the user talks to the Chief PM; it delegates.
 - Keep the human surface small: `START_HERE.md`, `product-docs/`, and optionally
   `product-practices/`.
-- Mark agent-facing files and indexes clearly near the top.
-- Keep a current `INDEX.md` in every PM OS content folder.
+- Mark agent-facing files clearly near the top; keep content indexes human-readable.
+- Keep the root `INDEX.md` as a concise workboard plus navigation. Use local indexes for meaningful
+  content domains, substantial subdomains, and multi-file artifacts—not automatically for every tiny
+  leaf folder.
 - Whenever an agent reads `AGENTS.md`, perform lightweight structural reconciliation: preserve and
   integrate unindexed user-created folders, subfolders, and files; add missing maps and clear
   routing; ask only when meaning or placement is genuinely ambiguous.
@@ -138,6 +167,10 @@ Every PM OS content folder also gets an `INDEX.md`.
   content areas and Chief PM routing.
 - Never overwrite raw input. Preserve it under an artifact-local `raw/` folder and create clean
   summaries and artifacts separately.
+- Route specialized work through compatible installed skills or tools when useful, while keeping PM
+  OS as the organizer. Default narrative work to Markdown; create heavier or binary formats only on
+  explicit request or clear contextual need. Store generated deliverables with their source/context
+  in the appropriate product area and update the nearest index.
 
 ## Notes
 
@@ -146,3 +179,5 @@ Every PM OS content folder also gets an `INDEX.md`.
 - The Chief PM is the default workspace persona. In most tools, the PM simply talks in the workspace.
 - Tool wiring stays minimal. `CLAUDE.md` points to `AGENTS.md`, and Cursor gets one always-on rule.
   Generate `.claude/agents/` or `.github/agents/*.agent.md` only when the PM asks.
+- `_workspace_setup_docs/workspace-state.json` records the setup version and workspace schema. Treat
+  plugin/skill updates and workspace migrations as separate operations.

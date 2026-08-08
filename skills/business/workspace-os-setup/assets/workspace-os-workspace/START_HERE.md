@@ -22,7 +22,7 @@ work.
   outcomes, decisions, projects, content, or whichever areas personalization keeps.
 - [workspace-best-practices/](workspace-best-practices/INDEX.md) is the customization center for
   skills, templates, examples, voice, and style.
-- [INDEX.md](INDEX.md) is the full map when you need it.
+- [INDEX.md](INDEX.md) is your living workboard and high-level map.
 
 `agents/`, `_workspace_setup_docs/`, `AGENTS.md`, `CLAUDE.md`, and `.cursor/` are agent-facing
 machinery. You can safely ignore them in normal use.
@@ -43,6 +43,10 @@ want changed, and describe the intention:
 You do not need to know which file or agent to configure. The Workspace Chief updates the right
 skills, templates, references, specialists, routes, and indexes for you.
 
+Narrative work stays in fast, portable Markdown unless you explicitly ask for another format. When
+an appropriate installed skill is available, the Workspace Chief can use it as a specialist and
+still file the result inside this workspace.
+
 ## Shape the workspace as you work
 
 Ask naturally whenever you want more structure:
@@ -53,8 +57,9 @@ Ask naturally whenever you want more structure:
 - “Track the stages that matter for this kind of project.”
 
 You can also create folders, subfolders, and files manually inside the workspace. The next agent
-session automatically performs a lightweight structure check, creates missing indexes, and connects clear additions
-to the workspace map and routing. You do not need to maintain the indexes yourself.
+session automatically performs a lightweight structure check and connects clear additions to the
+nearest useful index and routing. Substantial areas get their own human-readable `INDEX.md`; tiny
+folders can stay listed in their parent index. You do not need to maintain the indexes yourself.
 
 ## First-time customization
 

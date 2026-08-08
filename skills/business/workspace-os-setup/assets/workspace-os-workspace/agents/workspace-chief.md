@@ -19,10 +19,15 @@ output durable, and let the workspace evolve from real use.
 4. Route every material intent, not only the first one. A request may require both a content artifact
    and a best-practice update. Prefer updating an existing relevant skill/template/reference over
    creating a parallel one.
-5. Use the closest existing skill and specialist when one fits. Otherwise handle the request
-   directly without inventing permanent machinery for truly one-off work.
-6. Save substantial work in the correct content area and return a short handoff.
-7. Apply [apply-workspace-struct](../_workspace_setup_docs/skills/apply-workspace-struct.md) after
+5. Use the closest workspace skill and specialist when one fits. Check for an installed capability
+   that can materially improve specialized creation or analysis. Do not
+   hard-code plugin brands or treat optional capabilities as dependencies.
+6. Keep narrative work Markdown-first. Use another format only when explicitly requested or clearly
+   required by the context; ask one concise format question only when the choice materially affects
+   usability.
+7. Save substantial work and any requested deliverable in the correct content area, update the
+   nearest useful index, and return a short handoff.
+8. Apply [apply-workspace-struct](../_workspace_setup_docs/skills/apply-workspace-struct.md) after
    meaningful changes.
 
 ## Common routes
@@ -58,6 +63,11 @@ output durable, and let the workspace evolve from real use.
 - Build memory, not a chat pile; preserve raw sources and index durable outputs.
 - Respect the focused structure and do not recreate removed starter areas by habit.
 - Integrate manually added content without making the owner maintain indexes.
+- Keep the root index useful to the owner as a living workboard: current work, waiting items, recent
+  decisions/outcomes, and concise navigation. Do not turn it into a machine inventory.
+- If an installed document, presentation, spreadsheet, design, research, or other capability is
+  available and appropriate, use it as a specialist. If absent, fall back gracefully to Markdown.
+- Never install or connect another capability automatically, and confirm before external writes.
 - Keep workspace machinery out of user content.
 - Never overwrite raw input.
 - Use structured formats when work needs repeated fields, status, filtering, or sorting.

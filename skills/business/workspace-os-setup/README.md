@@ -20,6 +20,11 @@ file-capable agents.
   automatically.
 - Teach it your formats once (proposals, briefs, client updates) and reuse them forever.
 - Shape the workspace by talking: "add a vendors tracker", "this workspace is only for discovery."
+- Use compatible installed document, presentation, spreadsheet, design, or research capabilities as
+  specialists when requested, while Workspace OS files and organizes the result.
+
+Narrative work remains fast, portable Markdown by default. Heavier formats are created only when you
+ask for them or the delivery context clearly requires them.
 - Start minimal and grow only when the work earns it — no forty-folder template graveyard on
   day one.
 
@@ -47,6 +52,14 @@ Or for a bounded project:
 /workspace-os-setup Set up a client-project Workspace OS for the Lake House redesign.
 ```
 
+## Mobile And No-File Environments
+
+On a mobile or web surface without a writable workspace root, Workspace OS runs in **Conversation
+mode**. It can guide the work, maintain a compact Markdown Workspace OS Index, and create Markdown
+artifacts in the conversation, but it will clearly disclose that it has not created a durable
+folder tree or a ChatGPT Project. When supported, it can offer downloadable Markdown files or
+continue the full workspace setup later in a file-capable environment.
+
 ## What It Creates
 
 ```text
@@ -66,6 +79,10 @@ studio-name-workspace/
 |-- CLAUDE.md                      # tool compatibility
 `-- .cursor/                       # tool compatibility
 ```
+
+The root `INDEX.md` is a living workboard—current work, waiting items, recent decisions, and concise
+navigation. Meaningful content domains have their own human-readable indexes; tiny leaf folders can
+stay represented by their parent.
 
 The user should spend most of their time in `workspace-hub-docs/` or `project-docs/` and use
 `workspace-best-practices/` when they want to shape outputs. They describe intention and examples;
@@ -131,7 +148,7 @@ the skill on. Then ask: `Use workspace-os-setup to set up a workspace for my stu
 
 ## Pairs With
 
-- [PM OS Setup](../../product-management/pm-os-setup) — the same operating-system move, purpose-built
+- [PM OS](../../product-management/pm-os-setup) — the same operating-system move, purpose-built
   for product managers and product context.
 - [Workflow Creator](../../agent-workflows/workflow-create) — once your workspace holds how you
   work, turn the recurring jobs (client brief → proposal, notes → summary) into one-command

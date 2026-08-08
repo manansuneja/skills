@@ -1,0 +1,26 @@
+{
+  "displayName": "Workflow Creator",
+  "shortDescription": "Connect agent skills into a reusable workflow.",
+  "longDescription": "Design, validate, adopt, and maintain coordinated skill families for repeatable agent workflows while preserving existing skills and explicit safety boundaries.",
+  "developerName": "Manan Suneja",
+  "category": "Productivity",
+  "capabilities": [
+    "Write"
+  ],
+  "websiteURL": "https://manansuneja.github.io/skills/",
+  "supportURL": "https://manansuneja.github.io/skills/support.html",
+  "privacyPolicyURL": "https://manansuneja.github.io/skills/privacy.html",
+  "termsOfServiceURL": "https://manansuneja.github.io/skills/terms.html",
+  "defaultPrompt": [
+    "Turn these skills into a reusable workflow.",
+    "Adopt this skill family as a named workflow.",
+    "Review and safely update this workflow family."
+  ],
+  "brandColor": "#B45309",
+  "keywords": [
+    "agent-workflows",
+    "skills",
+    "orchestration",
+    "automation"
+  ]
+}

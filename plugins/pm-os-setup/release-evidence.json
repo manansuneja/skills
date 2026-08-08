@@ -1,0 +1,44 @@
+{
+  "plugin": "pm-os-setup",
+  "version": "1.2.4",
+  "payloadDigest": "49615bc67adb3d1100321d3b4be4e7ac8a3b657e5b62e85430380243fcef4b65",
+  "submissionArchive": {
+    "path": "dist/plugins/releases/pm-os-setup-1.2.4-skill-bundle.zip",
+    "sha256": "17b41a147cc74f94cc222682f9840dc14bfc10cf63fdfa8e7b3c2078178dec02"
+  },
+  "automatedChecks": {
+    "windowsLocal": {
+      "status": "passed",
+      "date": "2026-08-07",
+      "checks": [
+        "portable-schema",
+        "openai-manifest",
+        "package-boundaries",
+        "payload-parity",
+        "size-limit",
+        "reproducible-build",
+        "current-folder-scaffold",
+        "create-folder-scaffold",
+        "no-overwrite",
+        "markdown-first-routing",
+        "living-index-contract",
+        "workspace-schema-state",
+        "conversation-mode-disclosure"
+      ]
+    },
+    "windowsCI": {"status": "pending"},
+    "ubuntuCI": {"status": "pending"}
+  },
+  "manualAcceptance": {
+    "chatgptDesktopNewWorkConversation": "pending",
+    "vsCodeSkillDiscoveryAfterReload": "pending",
+    "eightCaseSubmissionEval": "pending",
+    "identityVerification": "pending",
+    "appsManagementWriteAccess": "pending",
+    "publicPolicyUrls": "pending-deployment",
+    "chatgptMobileConversationMode": "pending-public-build",
+    "storeSubmission": "not-submitted"
+  },
+  "releaseNotes": "Adds an explicit Conversation mode for mobile and other no-file surfaces, with honest persistence limits, a compact Markdown workboard, and an export or desktop-continuation path. The plugin remains skills-only with no external app or MCP dependency.",
+  "availability": "All countries supported by the ChatGPT and Codex plugin directory, subject to OpenAI review."
+}

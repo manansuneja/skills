@@ -1,0 +1,26 @@
+{
+  "displayName": "Workspace OS Setup",
+  "shortDescription": "Organize a durable business or project workspace.",
+  "longDescription": "Create and personalize a Markdown-first workspace with a living workboard for a business hub, client project, decisions, meetings, outcomes, and reusable working practices. It can route specialized work through compatible installed capabilities when requested.",
+  "developerName": "Manan Suneja",
+  "category": "Productivity",
+  "capabilities": [
+    "Write"
+  ],
+  "websiteURL": "https://manansuneja.github.io/skills/",
+  "supportURL": "https://manansuneja.github.io/skills/support.html",
+  "privacyPolicyURL": "https://manansuneja.github.io/skills/privacy.html",
+  "termsOfServiceURL": "https://manansuneja.github.io/skills/terms.html",
+  "defaultPrompt": [
+    "Set up a workspace OS for my business.",
+    "Create a workspace for this client project.",
+    "Personalize this workspace for weekly operations."
+  ],
+  "brandColor": "#0F766E",
+  "keywords": [
+    "workspace",
+    "business-operations",
+    "project-management",
+    "client-project"
+  ]
+}

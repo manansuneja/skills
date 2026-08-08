@@ -1,47 +1,47 @@
-# {{PROJECT_NAME}} — PM OS Index
+# {{PROJECT_NAME}} — PM OS
 
-> **Shared map:** Read this first, then open only the relevant folder indexes and files. The PM does
-> not need to maintain it manually.
+> **Your living product workboard:** Start here to see what matters now and where the durable work
+> lives. Tell the Chief PM what changed; the agent keeps this page current with you.
 
-## Human starting points
+## Now
 
-- [START_HERE.md](START_HERE.md) — plain-language welcome guide.
-- [product-docs/](product-docs/INDEX.md) — primary product working surface.
-- [product-practices/](product-practices/INDEX.md) — reusable skills, formats, and examples.
+- _No active items yet. Add the first priority or ask the Chief PM to organize your current work._
 
-## One front door
+## Active product work
 
-Talk naturally to the **Chief PM**: [agents/pm-chief.md](agents/pm-chief.md). It coordinates relevant
-specialists and skills. Agents also read [AGENTS.md](AGENTS.md); [CLAUDE.md](CLAUDE.md) is a small
-compatibility pointer.
+- [Product vision](product-docs/product-vision.md) — product, users, problem, stage, goals, bets, and constraints.
+- [PRDs](product-docs/prds/INDEX.md) — active areas, initiatives, features, and stories.
+- [Outcomes](product-docs/outcomes/INDEX.md) — recommendations, prioritization, MVP cuts, and next steps.
 
-If [_workspace_setup_docs/personalization/](_workspace_setup_docs/personalization/INDEX.md) still
-exists, tell the agent: “Customize my workspace.”
+## Waiting on
 
-## Workspace map
+- _Nothing recorded yet._
 
-| Area | Audience | Purpose |
-|---|---|---|
-| [product-docs/](product-docs/INDEX.md) | PM + agents | Actual product vision, meetings, outcomes, decisions, and PRDs |
-| [product-practices/](product-practices/INDEX.md) | PM + agents | Skills, templates, and references shaping recurring output |
-| [agents/](agents/INDEX.md) | Agents | Chief PM and optional specialist roles |
-| [_workspace_setup_docs/](_workspace_setup_docs/INDEX.md) | Agents | Protected setup, personalization, and structure playbooks |
-| [.cursor/rules/](.cursor/rules/pm-os.mdc) | Tool | Cursor bridge to `AGENTS.md` |
+## Recent decisions and outcomes
 
-## Quick links
-
-- [Product vision](product-docs/product-vision.md)
-- [Meetings](product-docs/meetings/INDEX.md)
-- [Outcomes](product-docs/outcomes/INDEX.md)
 - [Decisions](product-docs/decisions/INDEX.md)
-- [PRDs](product-docs/prds/INDEX.md)
-- [Product skills](product-practices/skills/START_HERE.md)
-- [Templates](product-practices/templates/INDEX.md)
-- [References](product-practices/references/INDEX.md)
+- [Outcomes](product-docs/outcomes/INDEX.md)
 
-## Keep the map honest
+## Browse the workspace
 
-Every artifact needs coordinates: the right folder, a clear `lower-kebab-case` name, and an entry in
-the nearest `INDEX.md`. Top-level changes also update this map. Product-direction changes update
-[product-docs/product-vision.md](product-docs/product-vision.md). See
-[apply-pmos-struct.md](_workspace_setup_docs/skills/apply-pmos-struct.md) for the full rules.
+- [Product workspace](product-docs/INDEX.md) — actual product context and work.
+- [Meetings](product-docs/meetings/INDEX.md) — summaries and preserved source notes.
+- [Product practices](product-practices/INDEX.md) — reusable skills, templates, and references.
+- [START_HERE.md](START_HERE.md) — short orientation for a new PM or collaborator.
+
+## Ask the Chief PM
+
+Talk naturally to the [Chief PM](agents/pm-chief.md). It coordinates workspace practices and any
+compatible installed capabilities. Narrative work stays Markdown-first unless you request another
+format. If [_workspace_setup_docs/personalization/](_workspace_setup_docs/personalization/INDEX.md)
+still exists, say: “Customize my workspace.”
+
+## Workspace machinery
+
+You normally do not need to edit these files: [AGENTS.md](AGENTS.md), [agents/](agents/INDEX.md),
+[_workspace_setup_docs/](_workspace_setup_docs/INDEX.md), [CLAUDE.md](CLAUDE.md), and
+[the Cursor rule](.cursor/rules/pm-os.mdc).
+
+Agents: keep **Now**, **Waiting on**, and **Recent decisions and outcomes** concise and useful to the
+PM. Update the nearest domain index for detailed navigation. Do not turn this page into an exhaustive
+file inventory.

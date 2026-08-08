@@ -1,0 +1,7 @@
+{
+  "system": "workspace-os",
+  "setupVersion": "1.2.1",
+  "workspaceSchemaVersion": 1,
+  "createdAt": "{{ISO_DATE}}",
+  "lastMigratedAt": null
+}

@@ -1,0 +1,76 @@
+name: Validate plugins
+
+on:
+  push:
+    paths:
+      - "skills/**"
+      - "plugins/**"
+      - "scripts/build_plugins.py"
+      - "scripts/validate_plugins.py"
+      - "scripts/test_plugins.py"
+      - "scripts/requirements-plugins.txt"
+      - "scripts/schemas/**"
+      - ".agents/plugins/marketplace.json"
+      - ".github/workflows/validate-plugins.yml"
+  pull_request:
+    paths:
+      - "skills/**"
+      - "plugins/**"
+      - "scripts/build_plugins.py"
+      - "scripts/validate_plugins.py"
+      - "scripts/test_plugins.py"
+      - "scripts/requirements-plugins.txt"
+      - "scripts/schemas/**"
+      - ".agents/plugins/marketplace.json"
+      - ".github/workflows/validate-plugins.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/requirements-plugins.txt
+
+      - name: Install validator dependencies
+        run: python -m pip install -r scripts/requirements-plugins.txt
+
+      - name: Build deterministic packages
+        run: python scripts/build_plugins.py
+
+      - name: Validate manifests and packages
+        run: python scripts/validate_plugins.py
+        env:
+          PLUGIN_BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before }}
+
+      - name: Run PM OS scaffold smoke tests
+        run: python scripts/test_plugins.py --plugin pm-os-setup
+
+      - name: Run Workspace OS scaffold smoke tests
+        run: python scripts/test_plugins.py --plugin workspace-os-setup
+
+      - name: Upload tested release evidence
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: plugin-release-candidates
+          path: |
+            dist/plugins/releases/
+            dist/plugins/build-manifest.json
+          if-no-files-found: error

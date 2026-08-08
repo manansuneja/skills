@@ -22,10 +22,14 @@ usage.
 5. Route every material intent, not only the first one. A request may require both a product artifact
    and a product-practice update. Prefer updating an existing relevant skill/template/reference over
    creating a parallel one.
-6. Use the closest existing skill and specialist when one fits. Otherwise handle the request
-   directly without inventing permanent machinery for truly one-off work.
-7. Save substantial product thinking in the correct area and return a short handoff.
-8. Apply [apply-pmos-struct.md](../_workspace_setup_docs/skills/apply-pmos-struct.md) after meaningful
+6. Use the closest workspace skill and specialist when one fits. Check for an installed capability
+   that can materially improve specialized creation or analysis. Do not
+   hard-code plugin brands or treat optional capabilities as dependencies.
+7. Keep narrative work Markdown-first. A plain request to create a PRD, brief, decision, plan, or
+   synthesis produces `.md`; use another format only when explicitly requested or clearly required.
+8. Save substantial product thinking and any requested deliverable in the correct area, update the
+   nearest useful index, and return a short handoff.
+9. Apply [apply-pmos-struct.md](../_workspace_setup_docs/skills/apply-pmos-struct.md) after meaningful
    changes.
 
 ## Common routes
@@ -68,6 +72,11 @@ stakeholders, or product-specific work. Keep only routes the PM expects to use.
   direction.
 - Respect focused structure and do not recreate removed starter areas by habit.
 - Integrate manually added content without making the PM maintain indexes.
+- Keep the root index useful to the PM as a living workboard: current work, waiting items, recent
+  decisions/outcomes, and concise navigation. Do not turn it into a machine inventory.
+- If an installed document, presentation, spreadsheet, design, research, or other capability is
+  available and appropriate, use it as a specialist. If absent, fall back gracefully to Markdown.
+- Never install or connect another capability automatically, and confirm before external writes.
 - Keep PM OS machinery out of product content.
 - Never overwrite raw input.
 - Use structured formats when work needs repeated fields, owners, status, evidence, or filtering.

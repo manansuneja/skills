@@ -4,6 +4,11 @@
 
 Turn a discussion, notes, or a feature idea into a PRD that's clear enough to build from.
 
+Create Markdown by default. A request such as “create a PRD” means a `.md` artifact in PM OS—not a
+Word document, PDF, or presentation. Use another format only when the PM explicitly requests it or
+the delivery context clearly requires it. If that choice would materially affect usability and
+intent is still unclear, ask one concise question.
+
 ## Templates and references
 
 Before using the default structures, check:
@@ -61,3 +66,7 @@ Use `product-docs/prds/<feature-slug>/prd.md` only for a genuinely standalone fe
 parent area, MVP, or initiative is useful. Do not date-prefix PRD filenames or folders; put dates in
 the PRD body and index. Apply [apply-pmos-struct](../../_workspace_setup_docs/skills/apply-pmos-struct.md) and update
 [the PRDs index](../../product-docs/prds/INDEX.md) plus any nested `INDEX.md` files.
+
+When the PM explicitly requests a `.docx`, PDF, presentation, or another deliverable and a compatible
+installed capability exists, generate it from the Markdown source and store both together. Never
+install or connect a capability automatically.

@@ -1,10 +1,10 @@
-# PM OS Setup
+# PM OS
 
 [![skills.sh](https://skills.sh/b/manansuneja/skills)](https://skills.sh/manansuneja/skills)
 
 **Build a PM workspace that gives your agent lasting context about your product.**
 
-PM OS Setup stores your vision, users, meetings, decisions, outcomes, and PRDs as organized files.
+PM OS stores your vision, users, meetings, decisions, outcomes, and PRDs as organized files.
 A Chief PM agent uses that context to find past work, route new work, and keep recurring outputs
 consistent. You stop pasting the same background into every chat.
 
@@ -23,9 +23,13 @@ experiments, roadmaps, or specialists only when your work needs them.
 - Grow the workspace by describing intent: "add a customer-research area and track interview
   status."
 - Drop in files and folders yourself; the next session integrates them — no tidying homework.
+- Use compatible installed document, presentation, spreadsheet, design, or research capabilities as
+  specialists when requested, while PM OS files and organizes the result.
 
 The generated workspace is plain text files (Markdown, under the hood) and works with Claude Code,
 Cursor, Codex, GitHub Copilot, and other file-capable agents. Tool-specific wiring stays minimal.
+PRDs, briefs, decisions, and plans remain Markdown by default; heavier formats are created only when
+you ask for them or the delivery context clearly requires them.
 
 ## Quickstart
 
@@ -49,6 +53,14 @@ Use pm-os-setup to set up a PM OS for Acme.
 
 The agent scaffolds the intentionally selected current folder by default, creates a separate folder
 when the current location is broad or unsafe, and offers to personalize the result.
+
+## Mobile And No-File Environments
+
+On a mobile or web surface without a writable workspace root, PM OS runs in **Conversation mode**.
+It can guide product work, maintain a compact Markdown PM OS Index, and create Markdown artifacts in
+the conversation, but it will clearly disclose that it has not created a durable folder tree or a
+ChatGPT Project. When supported, it can offer downloadable Markdown files or continue the full
+workspace setup later in a file-capable desktop or coding environment.
 
 ## Updating The Skill
 
@@ -91,9 +103,10 @@ acme-workspace/
     └── personalization/
 ```
 
-Every content folder has an `INDEX.md`. `START_HERE.md`, `product-docs/`, and
-`product-practices/` are the human-facing surfaces; agents and protected setup machinery are clearly
-labeled.
+The root `INDEX.md` is a living product workboard—current work, waiting items, recent decisions, and
+navigation. Meaningful content domains have their own human-readable indexes; tiny leaf folders can
+stay represented by their parent. `START_HERE.md`, `product-docs/`, and `product-practices/` are the
+human-facing surfaces; agents and protected setup machinery are clearly labeled.
 
 ## Product-Aware Personalization
 
@@ -149,7 +162,7 @@ The PM supplies intentions and examples; the agent manages configuration and con
 
 ## What This Skill Does And How To Use It
 
-PM OS Setup builds and personalizes a PM workspace with a Chief PM agent, organized product
+PM OS builds and personalizes a PM workspace with a Chief PM agent, organized product
 context, reusable practices, and a structure that starts small and grows with the work.
 
 Install it with:

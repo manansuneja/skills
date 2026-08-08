@@ -1,0 +1,7 @@
+{
+  "system": "pm-os",
+  "setupVersion": "1.2.4",
+  "workspaceSchemaVersion": 1,
+  "createdAt": "{{ISO_DATE}}",
+  "lastMigratedAt": null
+}

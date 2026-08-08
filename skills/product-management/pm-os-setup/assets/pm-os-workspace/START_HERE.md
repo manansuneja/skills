@@ -18,7 +18,9 @@ Try requests such as:
 - “Create a reusable format for experiment readouts.”
 
 The agent should act as the Chief PM, use only relevant context, create or update durable product
-artifacts, and give you a short handoff with paths and top takeaways.
+artifacts, and give you a short handoff with paths and top takeaways. Product writing stays in fast,
+portable Markdown unless you explicitly ask for another format. When an appropriate installed skill
+is available, the Chief PM can use it as a specialist and still file the result inside PM OS.
 
 ## Your product workspace
 
@@ -40,8 +42,9 @@ Ask the agent directly whenever you want to add a folder, subfolder, tracker, wo
 skill, or specialist. Describe the intention; the agent handles files, indexes, and routing.
 
 You can also add a folder or file manually. The next agent session should detect it automatically,
-preserve it, create any missing `INDEX.md`, connect it to the workspace map, and ask only when its
-purpose or placement is unclear.
+preserve it, connect it to the nearest useful index, and ask only when its purpose or placement is
+unclear. Substantial areas get their own human-readable `INDEX.md`; tiny folders can stay listed in
+their parent index.
 
 ## Customize how product work is done
 

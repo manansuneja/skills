@@ -188,7 +188,7 @@ Five families built and validated to show the range — from a one-skill job to 
 
 ## Pairs with
 
-- [PM OS Setup](../../product-management/pm-os-setup) — once your product work lives in a PM
+- [PM OS](../../product-management/pm-os-setup) — once your product work lives in a PM
   workspace, use Workflow Creator to turn its recurring rituals (meeting notes → action list, raw
   notes → PRD) into one-command workflows.
 - [Workspace OS Setup](../../business/workspace-os-setup) — the same move for a studio, business,

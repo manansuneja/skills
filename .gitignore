@@ -10,6 +10,8 @@ dist/
 node_modules/
 .cache/
 .turbo/
+__pycache__/
+*.pyc
 
 # OS and editor noise
 .DS_Store

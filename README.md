@@ -2,6 +2,27 @@
 
 Practical agent skills for PMs, designers, operators, small business owners, and product builders.
 
+## ChatGPT and Codex plugin pilot
+
+[PM OS](https://manansuneja.github.io/skills/) is being tested as the first one-click plugin
+release. The public directory listing is not live yet; the existing GitHub, `npx`, Claude, and manual
+installation paths below remain supported.
+
+For local ChatGPT/Codex testing, clone this repository, generate the package, then register the repo
+marketplace:
+
+```bash
+python -m pip install -r scripts/requirements-plugins.txt
+python scripts/build_plugins.py
+python scripts/validate_plugins.py
+codex plugin marketplace add .
+```
+
+The portable Agent Plugins 1.0 package is generated at
+`dist/plugins/portable/pm-os-setup`; the ChatGPT/Codex test package is generated at
+`dist/plugins/openai/pm-os-setup`. Both contain the same digest-locked skill payload. Generated
+packages are disposable and are never committed.
+
 ## Install
 
 Install one skill globally so it is available in every project:
@@ -53,7 +74,7 @@ npx skills@latest add manansuneja/skills --skill workflow-create -g
 
 ### Product Management
 
-- [PM OS Setup](skills/product-management/pm-os-setup) builds a PM workspace that gives your agent lasting context about your product, users, decisions, meetings, and PRDs.
+- [PM OS](skills/product-management/pm-os-setup) builds a PM workspace that gives your agent lasting context about your product, users, decisions, meetings, and PRDs.
 
 Install:
 

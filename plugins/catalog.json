@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "publisher": {
+    "name": "Manan Suneja",
+    "url": "https://github.com/manansuneja"
+  },
+  "repository": "https://github.com/manansuneja/skills",
+  "homepage": "https://manansuneja.github.io/skills/",
+  "license": "MIT",
+  "maxPackageBytes": 1048576,
+  "plugins": [
+    {
+      "name": "pm-os-setup",
+      "version": "1.2.4",
+      "status": "pilot",
+      "category": "Productivity",
+      "source": "skills/product-management/pm-os-setup",
+      "listing": "plugins/pm-os-setup/listing.json",
+      "evals": "plugins/pm-os-setup/evals.json",
+      "releaseEvidence": "plugins/pm-os-setup/release-evidence.json",
+      "sourceDigest": "49615bc67adb3d1100321d3b4be4e7ac8a3b657e5b62e85430380243fcef4b65"
+    },
+    {
+      "name": "workspace-os-setup",
+      "version": "1.2.1",
+      "status": "planned",
+      "category": "Productivity",
+      "source": "skills/business/workspace-os-setup",
+      "listing": "plugins/workspace-os-setup/listing.json",
+      "evals": "plugins/workspace-os-setup/evals.json",
+      "sourceDigest": "313c66f01d2eb0eada665a1bcfbebccf1bcb73457faac516e406814db0ad6fb5"
+    },
+    {
+      "name": "workflow-create",
+      "version": "1.1.1",
+      "status": "security-review",
+      "category": "Productivity",
+      "source": "skills/agent-workflows/workflow-create",
+      "listing": "plugins/workflow-create/listing.json",
+      "evals": "plugins/workflow-create/evals.json",
+      "sourceDigest": "15fcf31d067d0430335bc9952e185b973616bce75129658a8da67e66e1860275"
+    }
+  ]
+}

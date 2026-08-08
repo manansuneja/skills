@@ -15,15 +15,24 @@ Both skills must preserve these behaviors:
 4. Rename the workspace root safely as the final filesystem operation; never create a replacement
    root and move files into it.
 5. Run lightweight structural reconciliation whenever `AGENTS.md` is read: preserve manually added
-   content, create missing indexes, update maps, and connect useful routing.
+   content, update the nearest useful indexes, add a local index only for a meaningful domain or
+   substantial multi-file area, and connect useful routing.
 6. Keep a small default library and evolve content areas, skills, templates, references,
    specialists, and Chief routing together.
-7. Keep the human surface obvious, label agent-facing machinery, maintain current `INDEX.md` files,
-   and never overwrite raw input.
-8. Keep tool wiring minimal and generate optional adapters only when the user asks.
+7. Keep the root `INDEX.md` as a human-first living workboard plus navigation, label agent-facing
+   machinery, maintain current domain indexes, and never overwrite raw input.
+8. Keep tool wiring minimal. Route specialized work through compatible installed capabilities when
+   useful, default narrative work to Markdown, and use heavier formats only on explicit request or
+   clear contextual need.
 9. Determine whether guidance is task-local or a durable operating preference from meaning and
    scope rather than magic phrases. A single request may require both immediate work and a
    skill/template/reference update; complete both in the same task when durability is clear.
+10. Record setup version and workspace schema under `_workspace_setup_docs/workspace-state.json`;
+    treat installed skill/plugin updates and workspace migrations as separate operations.
+11. Detect whether a user-selected writable workspace root exists. Without one, disclose the
+    limitation, use an explicitly named conversation mode with a compact Markdown workboard, never
+    claim durable files or projects were created, and offer export or continuation in a file-capable
+    environment.
 
 ## Intentional differences
 

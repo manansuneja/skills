@@ -160,6 +160,7 @@ function Copy-TemplateContents {
                 $content = $content.Replace("{{PROJECT_NAME}}", $Name)
             }
             $content = $content.Replace("{{DATE}}", (Get-Date -Format "MMM-dd-yyyy"))
+            $content = $content.Replace("{{ISO_DATE}}", (Get-Date -Format "yyyy-MM-dd"))
             Set-Content -LiteralPath $destination -Value $content -NoNewline
         }
     }

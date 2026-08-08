@@ -4,7 +4,11 @@
 > `product-docs/` and ask the Chief PM to change workspace machinery.
 
 Read this file, then [INDEX.md](INDEX.md). This is a PM operating system with durable product memory
-and a small, human-first working surface.
+and a small, human-first working surface. Treat `INDEX.md` as the PM's living dashboard as well as
+shared navigation; keep agent operating rules here instead of turning the index into machinery.
+
+Read `_workspace_setup_docs/workspace-state.json` when deciding whether an installed setup update
+requires a workspace migration. Never infer that a newer skill version authorizes structural edits.
 
 ## Personalization state
 
@@ -43,7 +47,9 @@ substantial work:
    subfolders, or files missing from indexes. Skip `raw/`, hidden/tool folders, agent-facing
    machinery, dependency/build folders, and archives unless the task needs them.
 3. Treat manually added content as intentional. Preserve it, infer purpose from its name and nearby
-   material, create a missing `INDEX.md`, and update the parent, product-docs, or root map as needed.
+   material, then update the nearest useful index. Create a local `INDEX.md` only when the folder is
+   a meaningful content domain, a substantial subdomain, or a multi-file artifact that benefits from
+   its own workboard/map. Represent tiny leaf folders in their parent index.
 4. Connect a recurring area to product vision, Chief PM routing, a skill, template, tracker, or
    specialist only when useful. Do not invent machinery for one-off content.
 5. Integrate clear cases without asking. Ask one concise question only when meaning or placement is
@@ -65,6 +71,21 @@ Do not describe the Chief PM, agents, or PM OS as the user's product unless that
 they are building. Decide whether new material is current product work or a reusable way of doing
 future product work, then place it in `product-docs/` or `product-practices/` accordingly.
 
+## Capability routing and output formats
+
+- Treat PM OS as the organizer. When a compatible installed skill or tool can materially improve a
+  specialized task, use it without hard-coding a plugin brand or requiring it as a dependency.
+- Inspect only capabilities the host exposes. Never claim, install, connect, or authenticate a
+  capability that is unavailable; fall back to the best local Markdown workflow.
+- Default PRDs, briefs, decisions, research syntheses, plans, and other narrative artifacts to `.md`.
+  “Create a PRD” means Markdown unless the PM asks for Word, PDF, slides, or another format.
+- Use a heavier or binary format only when explicitly requested or clearly required by the context.
+  Ask one concise format question only when the choice would materially affect usability.
+- Store generated deliverables with their Markdown source or supporting context in the appropriate
+  product area. Preserve raw input and update the nearest useful index.
+- Ask before external writes such as creating issues, publishing, sending, or changing a connected
+  system. Reading an already available source should still stay within the user's requested scope.
+
 ## Always do these
 
 - **Orient first.** Read the root index and only relevant folder indexes/files.
@@ -72,7 +93,8 @@ future product work, then place it in `product-docs/` or `product-practices/` ac
   product, users, problem, goals, stage, active bets, and constraints.
 - **Fit the product context.** Use the product stage, PM scope, users, surfaces, evidence, recurring
   decisions, outputs, and natural vocabulary. Do not force every PM lane into every workspace.
-- **Route deliberately.** Match the request to a specialist and product skill when useful.
+- **Route deliberately.** Match the request to a workspace specialist/practice and any compatible
+  installed capability when useful.
 - **Act on capture.** Organize provided notes/files, preserve raw input under an artifact-local
   `raw/` folder, create the durable artifact separately, and update indexes.
 - **Save substantial work.** Put analysis, recommendations, decisions, PRDs, and plans in the right
@@ -92,7 +114,8 @@ future product work, then place it in `product-docs/` or `product-practices/` ac
   materially affect future outputs.
 - **Let the workspace evolve.** Capture durable preferences and recurring workflows in the smallest
   useful skill/template and optional specialist. Keep truly one-off work one-off.
-- **Keep audience labels.** Agent-only files and folder indexes must say so near the top.
+- **Keep audience labels.** Agent-only files must say so near the top. Content indexes are
+  human-first shared surfaces and should read like useful workboards, not agent manifests.
 
 ## Structure rules
 
@@ -100,8 +123,10 @@ Follow
 [_workspace_setup_docs/skills/apply-pmos-struct.md](_workspace_setup_docs/skills/apply-pmos-struct.md):
 
 - Use `lower-kebab-case`; use dates only for time-ordered artifacts.
-- Keep an `INDEX.md` in every PM OS content folder.
-- Update the nearest index after meaningful changes and the root index after top-level changes.
+- Keep `INDEX.md` at the root and in meaningful content domains, substantial subdomains, and
+  multi-file artifacts. Tiny leaf folders can remain represented by the nearest parent index.
+- Update the nearest useful index after meaningful changes and the root index when active work,
+  important status, or top-level navigation changes.
 - Never overwrite raw input.
 - Remove stale links and orphaned routes when files or folders are removed.
 
