@@ -115,7 +115,9 @@ pre {
   padding: 14px 16px;
   border-radius: 12px;
   background: var(--violet-soft);
+  font-size: 0.82rem;
 }
+.card li pre { margin: 10px 0 0; }
 pre code { padding: 0; background: none; }
 
 footer {

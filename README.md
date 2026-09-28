@@ -5,18 +5,24 @@ Practical agent skills for PMs, designers, operators, small business owners, and
 ## No terminal? Download PM OS
 
 **[Download the PM OS plugin (.zip)](https://manansuneja.github.io/skills/downloads/pm-os-plugin.zip)**
-and upload it to your AI. One file works in both Claude and ChatGPT, and it takes about a minute. See
-the [step-by-step guide](https://manansuneja.github.io/skills/).
+and add it to your AI. One file works in Claude, ChatGPT, Cursor, and VS Code, and it takes about a
+minute. See the [step-by-step guide](https://manansuneja.github.io/skills/).
 
 - **Claude** (desktop app or claude.ai): `Customize > Plugins > + Add > Upload plugin`, then pick
   `pm-os-plugin.zip`.
 - **ChatGPT** (desktop app): `Customize > Plugins > Add > Upload plugin archive`, then pick
   `pm-os-plugin.zip`.
+- **Cursor:** unzip it, move the `pm-os-plugin` folder into `~/.cursor/plugins/local/`, then run
+  `Developer: Reload Window`. Or run
+  `npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a cursor`.
+- **VS Code** (GitHub Copilot): unzip it, then add `"chat.plugins.enabled": true` and
+  `"chat.pluginLocations": { "/path/to/pm-os-plugin": true }` to your user `settings.json` and
+  reload. Or run `npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a github-copilot`.
 - Then say: **"Set up a PM OS for my product."** For the full workspace, use the Claude desktop app,
   start a Cowork task, and pick an empty folder.
 
-Keep the file zipped. If your browser unzips it automatically, right-click the folder, choose
-`Compress`, and upload the new `.zip`.
+For Claude and ChatGPT, keep the file zipped. If your browser unzips it automatically, right-click the
+folder, choose `Compress`, and upload the new `.zip`.
 
 ## ChatGPT and Codex plugin pilot
 

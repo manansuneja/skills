@@ -233,6 +233,24 @@ def claude_manifest(catalog: dict, entry: dict, listing: dict) -> dict:
     }
 
 
+def cursor_manifest(catalog: dict, entry: dict, listing: dict) -> dict:
+    manifest = {
+        "name": entry["name"],
+        "displayName": listing["displayName"],
+        "version": entry["version"],
+        "description": listing["longDescription"],
+        "author": {"name": catalog["publisher"]["name"]},
+        "homepage": catalog["homepage"],
+        "repository": f"{catalog['repository']}/tree/main/{entry['source']}",
+        "license": catalog["license"],
+        "keywords": listing["keywords"],
+        "skills": "./skills/",
+    }
+    if "logo" in listing:
+        manifest["logo"] = listing["logo"].removeprefix("./")
+    return manifest
+
+
 def write_common_package_files(root: Path, entry: dict, listing: dict, files: list[TrackedFile], license_bytes: bytes) -> None:
     write_tracked_files(files, root / "skills" / entry["name"])
     (root / "LICENSE").write_bytes(license_bytes)
@@ -333,11 +351,13 @@ def build(catalog_path: Path, output_root: Path, names: list[str] | None, refres
         write_json(openai_root / ".codex-plugin" / "plugin.json", openai_manifest(catalog, entry, listing))
         copy_overlay_assets((REPO_ROOT / entry["listing"]).parent, openai_root, listing)
 
-        # One upload for both apps: ChatGPT/Codex reads .codex-plugin/plugin.json before
-        # .claude-plugin/plugin.json, and Claude reads only .claude-plugin/plugin.json.
+        # One archive for every client. ChatGPT/Codex reads .codex-plugin/plugin.json before
+        # .claude-plugin/ and .cursor-plugin/; Claude and VS Code read .claude-plugin/plugin.json;
+        # Cursor reads .cursor-plugin/plugin.json. No root plugin.json, so none of them re-rank.
         universal_root = output_root / "universal" / name
         shutil.copytree(openai_root, universal_root)
         write_json(universal_root / ".claude-plugin" / "plugin.json", claude_manifest(catalog, entry, listing))
+        write_json(universal_root / ".cursor-plugin" / "plugin.json", cursor_manifest(catalog, entry, listing))
 
         portable_payload_digest = disk_tree_digest(portable_root / "skills" / name)
         openai_payload_digest = disk_tree_digest(openai_root / "skills" / name)

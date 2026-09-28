@@ -71,15 +71,28 @@ npx skills@latest update pm-os-setup -g
 ## No Terminal: Download And Upload
 
 1. [Download the PM OS plugin (.zip)](https://manansuneja.github.io/skills/downloads/pm-os-plugin.zip).
-   Keep it zipped. The same file works in Claude and ChatGPT.
+   The same file works in Claude, ChatGPT, Cursor, and VS Code.
 2. Upload it:
    - **Claude** (desktop app or claude.ai): `Customize > Plugins > + Add > Upload plugin`.
    - **ChatGPT** (desktop app): `Customize > Plugins > Add > Upload plugin archive`.
+   - **Cursor:** unzip it, move the `pm-os-plugin` folder into `~/.cursor/plugins/local/`, and run
+     `Developer: Reload Window`.
+   - **VS Code** (GitHub Copilot): unzip it, add `"chat.plugins.enabled": true` and
+     `"chat.pluginLocations": { "/path/to/pm-os-plugin": true }` to your user `settings.json`, and
+     reload.
 3. Say: `Set up a PM OS for my product.`
 
 For the full folder workspace, use the Claude desktop app, start a Cowork task, and pick an empty
-folder. The [step-by-step guide](https://manansuneja.github.io/skills/) covers troubleshooting and a
-skill-only download.
+folder. In Cursor or VS Code, open an empty folder first. The
+[step-by-step guide](https://manansuneja.github.io/skills/) covers troubleshooting and a skill-only
+download.
+
+Terminal users can install the skill into Cursor or VS Code directly:
+
+```bash
+npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a cursor
+npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a github-copilot
+```
 
 ## What It Creates
 

@@ -29,7 +29,7 @@
 
     <div class="download">
       <a class="button" href="downloads/pm-os-plugin.zip" download>Download the PM OS plugin (.zip)</a>
-      <p>No terminal needed. Keep the file zipped: that is the file you upload. One file works in both Claude and ChatGPT.</p>
+      <p>No terminal needed. One file works in Claude, ChatGPT, Cursor, and VS Code. For Claude and ChatGPT, keep it zipped: that is the file you upload.</p>
     </div>
 
     <h2>Set it up in about a minute</h2>
@@ -55,8 +55,38 @@
       </div>
     </div>
 
+    <h2>In your code editor</h2>
+    <p>Engineers and PMs who live in an editor can add the same plugin to Cursor or VS Code. Unzip <code>pm-os-plugin.zip</code> first; you get a <code>pm-os-plugin</code> folder.</p>
+
+    <div class="grid">
+      <div class="card">
+        <strong>Cursor</strong>
+        <ol>
+          <li>Move the <code>pm-os-plugin</code> folder into <code>~/.cursor/plugins/local/</code>. On a Mac, in Finder press <b>⇧⌘G</b> and paste <code>~/.cursor/plugins/local</code>. On Windows, open <code>%USERPROFILE%\.cursor\plugins\local</code>.</li>
+          <li>In Cursor, open the Command Palette (<b>⇧⌘P</b> or <b>Ctrl+Shift+P</b>) and run <b>Developer: Reload Window</b>.</li>
+          <li>Open <b>Customize</b> and check that <b>PM OS</b> is listed.</li>
+          <li>Open an empty folder and ask the agent <b>“Set up a PM OS for my product.”</b></li>
+        </ol>
+        <p class="note">On Teams and Enterprise, an admin may need to turn on <b>Allow Local Plugin Imports</b>. Terminal instead: <code>npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a cursor</code></p>
+      </div>
+      <div class="card">
+        <strong>VS Code</strong> <span class="where">GitHub Copilot</span>
+        <ol>
+          <li>Move the <code>pm-os-plugin</code> folder somewhere it can stay, such as <code>Documents</code>.</li>
+          <li>Open the Command Palette (<b>⇧⌘P</b> or <b>Ctrl+Shift+P</b>), run <b>Preferences: Open User Settings (JSON)</b>, and add these lines with your folder's path:
+<pre><code>"chat.plugins.enabled": true,
+"chat.pluginLocations": {
+  "/Users/you/Documents/pm-os-plugin": true
+}</code></pre></li>
+          <li>Run <b>Developer: Reload Window</b>, then <b>Chat: Open Customizations</b> and check the <b>Plugins</b> tab for <b>PM OS</b>.</li>
+          <li>Open an empty folder and ask Copilot in agent mode <b>“Set up a PM OS for my product.”</b></li>
+        </ol>
+        <p class="note">On Windows, write the path with forward slashes, like <code>C:/Users/you/Documents/pm-os-plugin</code>. Terminal instead: <code>npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a github-copilot</code></p>
+      </div>
+    </div>
+
     <h2>Get the full workspace</h2>
-    <p>PM OS works best when your AI can save files to a folder on your computer. In the <b>Claude desktop app</b>, start a <b>Cowork</b> task and pick an empty folder (for example <code>Documents/my-product</code>), then ask it to set up PM OS. It builds your product folders, a living workboard, and a Chief PM agent that keeps everything filed.</p>
+    <p>PM OS works best when your AI can save files to a folder on your computer. In Cursor and VS Code, that is simply the folder you open. In the <b>Claude desktop app</b>, start a <b>Cowork</b> task and pick an empty folder (for example <code>Documents/my-product</code>), then ask it to set up PM OS. It builds your product folders, a living workboard, and a Chief PM agent that keeps everything filed.</p>
     <p>In a regular web chat with no folder, PM OS still helps: it keeps a running index in the conversation and tells you clearly that nothing was saved to disk.</p>
 
     <h2>Then just talk to it</h2>
@@ -68,7 +98,8 @@
 
     <h2>Troubleshooting</h2>
     <ul class="faq">
-      <li><b>You ended up with a folder, not a .zip.</b> Some browsers (Safari) unzip downloads automatically. Right-click the <code>pm-os-plugin</code> folder and choose <b>Compress</b>, then upload the new <code>.zip</code>.</li>
+      <li><b>You ended up with a folder, not a .zip.</b> Some browsers (Safari) unzip downloads automatically. For Claude or ChatGPT, right-click the <code>pm-os-plugin</code> folder and choose <b>Compress</b>, then upload the new <code>.zip</code>. For Cursor or VS Code, the folder is exactly what you need.</li>
+      <li><b>PM OS doesn't show up in Cursor or VS Code.</b> Check that the folder you moved contains a <code>skills</code> folder directly inside it (not another <code>pm-os-plugin</code> folder), then reload the window.</li>
       <li><b>Claude can't run the setup.</b> Open <b>Settings → Capabilities</b> and turn on <b>Code execution and file creation</b>. On Team or Enterprise plans, an owner may need to allow plugin uploads.</li>
       <li><b>No upload option in ChatGPT on the web.</b> There, plugin uploads are limited to workspace admins (<b>Admin → Plugins</b>). Use the ChatGPT desktop app instead.</li>
       <li><b>The plugin doesn't start.</b> Say “Use pm-os-setup to set up a PM OS for my product.”</li>
@@ -76,7 +107,7 @@
     </ul>
 
     <h2>Prefer the terminal?</h2>
-    <p>Install for Claude Code, Codex, Cursor, and other coding agents with one command:</p>
+    <p>Install the skill for Claude Code, Codex, Cursor, VS Code, and other coding agents with one command. Add <code>-a cursor</code> or <code>-a github-copilot</code> to target Cursor or VS Code:</p>
     <pre><code>npx skills@latest add manansuneja/skills --skill pm-os-setup -g</code></pre>
     <p>Source, release notes, and every other install path live on <a href="https://github.com/manansuneja/skills/tree/main/skills/product-management/pm-os-setup">GitHub</a>.</p>
 
