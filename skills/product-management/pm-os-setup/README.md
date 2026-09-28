@@ -71,7 +71,9 @@ npx skills@latest update pm-os-setup -g
 ## No Terminal: Download And Upload
 
 1. [Download the PM OS plugin (.zip)](https://manansuneja.github.io/skills/downloads/pm-os-plugin.zip).
-   The same file works in Claude, ChatGPT, Cursor, and VS Code.
+   The same file works in Claude, ChatGPT, Cursor, and VS Code. On a Mac, Safari unzips downloads
+   automatically; turn off `Safari > Settings > General > Open "safe" files after downloading` first,
+   or use another browser, so you upload the original `.zip`.
 2. Upload it:
    - **Claude** (desktop app or claude.ai): `Customize > Plugins > + Add > Upload plugin`.
    - **ChatGPT** (desktop app): `Customize > Plugins > Add > Upload plugin archive`.

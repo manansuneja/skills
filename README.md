@@ -21,8 +21,10 @@ minute. See the [step-by-step guide](https://manansuneja.github.io/skills/).
 - Then say: **"Set up a PM OS for my product."** For the full workspace, use the Claude desktop app,
   start a Cowork task, and pick an empty folder.
 
-For Claude and ChatGPT, keep the file zipped. If your browser unzips it automatically, right-click the
-folder, choose `Compress`, and upload the new `.zip`.
+For Claude and ChatGPT, upload the `.zip` file itself. **Safari unzips downloads automatically**:
+turn off `Safari > Settings > General > Open "safe" files after downloading` before downloading, or
+use another browser. Don't re-zip the folder with `Compress`; macOS adds a hidden `__MACOSX` folder
+that both apps reject.
 
 ## ChatGPT and Codex plugin pilot
 

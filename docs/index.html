@@ -29,7 +29,8 @@
 
     <div class="download">
       <a class="button" href="downloads/pm-os-plugin.zip" download>Download the PM OS plugin (.zip)</a>
-      <p>No terminal needed. One file works in Claude, ChatGPT, Cursor, and VS Code. For Claude and ChatGPT, keep it zipped: that is the file you upload.</p>
+      <p>No terminal needed. One file works in Claude, ChatGPT, Cursor, and VS Code. For Claude and ChatGPT, upload the <code>.zip</code> file itself.</p>
+      <p class="safari"><b>On a Mac with Safari?</b> Safari unzips downloads into a folder, and the folder won't upload. Before you click, open <b>Safari → Settings → General</b> and turn off <b>Open “safe” files after downloading</b>, or download with Chrome, Edge, or Firefox. Don't re-zip the folder with <b>Compress</b>: macOS adds hidden files that Claude and ChatGPT reject.</p>
     </div>
 
     <h2>Set it up in about a minute</h2>
@@ -98,10 +99,10 @@
 
     <h2>Troubleshooting</h2>
     <ul class="faq">
-      <li><b>You ended up with a folder, not a .zip.</b> Some browsers (Safari) unzip downloads automatically. For Claude or ChatGPT, right-click the <code>pm-os-plugin</code> folder and choose <b>Compress</b>, then upload the new <code>.zip</code>. For Cursor or VS Code, the folder is exactly what you need.</li>
+      <li><b>You ended up with a folder, not a .zip.</b> Safari unzipped it. For Cursor or VS Code, the folder is exactly what you need. For Claude or ChatGPT, delete the folder, turn off <b>Safari → Settings → General → Open “safe” files after downloading</b> (or use another browser), and download again. Re-zipping with <b>Compress</b> doesn't work: macOS adds a hidden <code>__MACOSX</code> folder that both apps reject.</li>
       <li><b>PM OS doesn't show up in Cursor or VS Code.</b> Check that the folder you moved contains a <code>skills</code> folder directly inside it (not another <code>pm-os-plugin</code> folder), then reload the window.</li>
       <li><b>Claude can't run the setup.</b> Open <b>Settings → Capabilities</b> and turn on <b>Code execution and file creation</b>. On Team or Enterprise plans, an owner may need to allow plugin uploads.</li>
-      <li><b>“Couldn't add plugin” or “missing .claude-plugin/plugin.json”.</b> The file you uploaded isn't the plugin. Download it again from the button above (<code>pm-os-plugin.zip</code>) and upload that file, not a skill-only zip or a folder you zipped from inside it.</li>
+      <li><b>“Couldn't add plugin” or “missing .claude-plugin/plugin.json”.</b> The file you uploaded isn't the original plugin zip. Usually it's a folder that was re-zipped with <b>Compress</b>, or the skill-only zip. Download <code>pm-os-plugin.zip</code> again (see the Safari note above) and upload that file as is.</li>
       <li><b>No upload option in ChatGPT on the web.</b> There, plugin uploads are limited to workspace admins (<b>Admin → Plugins</b>). Use the ChatGPT desktop app instead.</li>
       <li><b>The plugin doesn't start.</b> Say “Use pm-os-setup to set up a PM OS for my product.”</li>
       <li><b>Prefer to add it as a skill?</b> Download <a href="downloads/pm-os-skill.zip">pm-os-skill.zip</a> (skill only, not a plugin) and upload it under <b>Customize → Skills</b> in Claude, or <b>Plugins → Skills → Create → Upload from your computer</b> in ChatGPT.</li>
