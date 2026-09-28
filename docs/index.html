@@ -101,9 +101,10 @@
       <li><b>You ended up with a folder, not a .zip.</b> Some browsers (Safari) unzip downloads automatically. For Claude or ChatGPT, right-click the <code>pm-os-plugin</code> folder and choose <b>Compress</b>, then upload the new <code>.zip</code>. For Cursor or VS Code, the folder is exactly what you need.</li>
       <li><b>PM OS doesn't show up in Cursor or VS Code.</b> Check that the folder you moved contains a <code>skills</code> folder directly inside it (not another <code>pm-os-plugin</code> folder), then reload the window.</li>
       <li><b>Claude can't run the setup.</b> Open <b>Settings → Capabilities</b> and turn on <b>Code execution and file creation</b>. On Team or Enterprise plans, an owner may need to allow plugin uploads.</li>
+      <li><b>“Couldn't add plugin” or “missing .claude-plugin/plugin.json”.</b> The file you uploaded isn't the plugin. Download it again from the button above (<code>pm-os-plugin.zip</code>) and upload that file, not a skill-only zip or a folder you zipped from inside it.</li>
       <li><b>No upload option in ChatGPT on the web.</b> There, plugin uploads are limited to workspace admins (<b>Admin → Plugins</b>). Use the ChatGPT desktop app instead.</li>
       <li><b>The plugin doesn't start.</b> Say “Use pm-os-setup to set up a PM OS for my product.”</li>
-      <li><b>Prefer to add it as a skill?</b> Download <a href="downloads/pm-os-setup.zip">pm-os-setup.zip</a> and upload it under <b>Customize → Skills</b> in Claude, or <b>Plugins → Skills → Create → Upload from your computer</b> in ChatGPT.</li>
+      <li><b>Prefer to add it as a skill?</b> Download <a href="downloads/pm-os-skill.zip">pm-os-skill.zip</a> (skill only, not a plugin) and upload it under <b>Customize → Skills</b> in Claude, or <b>Plugins → Skills → Create → Upload from your computer</b> in ChatGPT.</li>
     </ul>
 
     <h2>Prefer the terminal?</h2>
