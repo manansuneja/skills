@@ -68,14 +68,19 @@ workspace setup later in a file-capable desktop or coding environment.
 npx skills@latest update pm-os-setup -g
 ```
 
-## Other Ways To Install
+## No Terminal: Download And Upload
 
-To upload it manually in a desktop or web agent:
+1. [Download PM OS (.zip)](https://manansuneja.github.io/skills/downloads/pm-os-setup.zip). Keep it
+   zipped.
+2. Upload it:
+   - **Claude:** turn on `Settings > Capabilities > Code execution and file creation`, then
+     `Customize > Skills > + > Create skill > Upload a skill`.
+   - **ChatGPT** (Business, Enterprise, and Edu): `Plugins > Skills tab > Create > Upload from your
+     computer`.
+3. Say: `Set up a PM OS for my product.`
 
-1. Download the `manansuneja/skills` repository ZIP.
-2. Find `skills/product-management/pm-os-setup`.
-3. Upload that standalone folder through the agent's skill interface.
-4. Enable the skill and ask it to set up a PM OS.
+For the full folder workspace, use the Claude desktop app, start a Cowork task, and pick an empty
+folder. The [step-by-step guide](https://manansuneja.github.io/skills/) covers troubleshooting.
 
 ## What It Creates
 

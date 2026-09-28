@@ -2,6 +2,23 @@
 
 Practical agent skills for PMs, designers, operators, small business owners, and product builders.
 
+## No terminal? Download PM OS
+
+**[Download PM OS (.zip)](https://manansuneja.github.io/skills/downloads/pm-os-setup.zip)** and
+upload it to your AI. It takes about a minute. See the
+[step-by-step guide](https://manansuneja.github.io/skills/).
+
+- **Claude:** turn on `Settings > Capabilities > Code execution and file creation`, then go to
+  `Customize > Skills`, click `+`, choose `Create skill > Upload a skill`, and pick
+  `pm-os-setup.zip`.
+- **ChatGPT** (Business, Enterprise, and Edu): open `Plugins`, select the `Skills` tab, then choose
+  `Create > Upload from your computer` and pick `pm-os-setup.zip`.
+- Then say: **"Set up a PM OS for my product."** For the full workspace, use the Claude desktop app,
+  start a Cowork task, and pick an empty folder.
+
+Keep the file zipped. If your browser unzips it automatically, right-click the folder, choose
+`Compress`, and upload the new `.zip`.
+
 ## ChatGPT and Codex plugin pilot
 
 [PM OS](https://manansuneja.github.io/skills/) is being tested as the first one-click plugin
@@ -99,7 +116,9 @@ npx skills@latest add manansuneja/skills --skill workspace-os-setup -g
 
 ## No Terminal
 
-For Claude desktop or web, download this repo as a ZIP from GitHub. Upload only the specific nested skill folder you want:
+PM OS has a ready-to-upload ZIP: see [No terminal? Download PM OS](#no-terminal-download-pm-os).
+
+For the other skills in Claude desktop or web, download this repo as a ZIP from GitHub. Upload only the specific nested skill folder you want:
 
 - `skills/agent-workflows/workflow-create`
 - `skills/product-management/pm-os-setup`

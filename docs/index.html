@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Agent plugins and skills by Manan Suneja.">
-  <title>Manan's Agent Skills</title>
+  <meta name="description" content="Download PM OS and add it to Claude or ChatGPT in about a minute. No terminal needed.">
+  <title>PM OS · Manan's Agent Skills</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,26 +21,69 @@
     <section class="hero">
       <img src="assets/pm-os-setup.jpg" alt="PM OS product mark">
       <div>
-        <div class="eyebrow">Product management plugin</div>
+        <div class="eyebrow">Free plugin for product managers</div>
         <h1>PM OS</h1>
-        <p>Give your agent a durable product workspace—not another disappearing chat.</p>
+        <p>Give your AI a workspace that remembers your product, your decisions, and how you like to work. It keeps itself organized.</p>
       </div>
     </section>
 
-    <div class="card">
-      <strong>Skills-only by design</strong>
-      <p>PM OS creates and personalizes a plain-Markdown home for vision, customer context, meetings, decisions, outcomes, and PRDs. It has no account connection, hosted service, telemetry, or first-party server.</p>
+    <div class="download">
+      <a class="button" href="downloads/pm-os-setup.zip" download>Download PM OS (.zip)</a>
+      <p>No terminal needed. Keep the file zipped: that is the file you upload.</p>
     </div>
 
-    <h2>Release status</h2>
-    <p>PM OS is a public-release candidate. Its tested OpenAI package and portable Agent Plugins 1.0 package are generated from the same canonical skill source and locked to the same digest.</p>
+    <h2>Set it up in about a minute</h2>
 
-    <h2>Current installation</h2>
-    <p>Public-directory review is pending. Until approval, install the skill through the existing <a href="https://github.com/manansuneja/skills#quick-install">GitHub and npx paths</a>, or use the repository marketplace for local Claude Code, ChatGPT, or Codex testing.</p>
+    <div class="grid">
+      <div class="card">
+        <strong>Claude</strong>
+        <ol>
+          <li>Open <b>Settings → Capabilities</b> and turn on <b>Code execution and file creation</b>.</li>
+          <li>Go to <b>Customize → Skills</b>, click <b>+</b>, then <b>Create skill → Upload a skill</b>.</li>
+          <li>Choose <code>pm-os-setup.zip</code> and make sure the skill is switched on.</li>
+          <li>Start a chat and say <b>“Set up a PM OS for my product.”</b></li>
+        </ol>
+      </div>
+      <div class="card">
+        <strong>ChatGPT</strong>
+        <ol>
+          <li>In the sidebar, open <b>Plugins</b> and select the <b>Skills</b> tab.</li>
+          <li>Click <b>Create → Upload from your computer</b>.</li>
+          <li>Choose <code>pm-os-setup.zip</code> and wait for the quick safety scan.</li>
+          <li>Start a chat and say <b>“Set up a PM OS for my product.”</b></li>
+        </ol>
+        <p class="note">Skill uploads are available on ChatGPT Business, Enterprise, and Edu workspaces.</p>
+      </div>
+    </div>
 
-    <h2>Publisher</h2>
-    <p>Published by Manan Suneja under the MIT license. See the public repository for source, releases, and issue tracking.</p>
+    <h2>Get the full workspace</h2>
+    <p>PM OS works best when your AI can save files to a folder on your computer. In the <b>Claude desktop app</b>, start a <b>Cowork</b> task and pick an empty folder (for example <code>Documents/my-product</code>), then ask it to set up PM OS. It builds your product folders, a living workboard, and a Chief PM agent that keeps everything filed.</p>
+    <p>In a regular web chat with no folder, PM OS still helps: it keeps a running index in the conversation and tells you clearly that nothing was saved to disk.</p>
+
+    <h2>Then just talk to it</h2>
+    <div class="card prompts">
+      <p><b>“Here are my notes from today’s customer call.”</b> It files a summary, keeps your raw notes, and logs the decision.</p>
+      <p><b>“What should we build first?”</b> It answers from what it already knows, with reasons.</p>
+      <p><b>“Customize my workspace.”</b> It asks a few questions and tailors folders, templates, and specialists to your product.</p>
+    </div>
+
+    <h2>Troubleshooting</h2>
+    <ul class="faq">
+      <li><b>You ended up with a folder, not a .zip.</b> Some browsers (Safari) unzip downloads automatically. Right-click the <code>pm-os-setup</code> folder and choose <b>Compress</b>, then upload the new <code>.zip</code>.</li>
+      <li><b>You don't see Skills in Claude.</b> Turn on <b>Code execution and file creation</b> first. On Team or Enterprise plans, an owner may need to enable Skills.</li>
+      <li><b>The skill doesn't start.</b> Say “Use pm-os-setup to set up a PM OS for my product.”</li>
+    </ul>
+
+    <h2>Prefer the terminal?</h2>
+    <p>Install for Claude Code, Codex, Cursor, and other coding agents with one command:</p>
+    <pre><code>npx skills@latest add manansuneja/skills --skill pm-os-setup -g</code></pre>
+    <p>Source, release notes, and every other install path live on <a href="https://github.com/manansuneja/skills/tree/main/skills/product-management/pm-os-setup">GitHub</a>.</p>
+
+    <div class="card">
+      <strong>Plain files by design</strong>
+      <p>PM OS creates a plain-Markdown home for your vision, customer context, meetings, decisions, outcomes, and PRDs. It has no account connection, hosted service, telemetry, or server of its own. Free and open source under the MIT license.</p>
+    </div>
   </main>
-  <footer>© 2026 Manan Suneja · Last updated August 7, 2026</footer>
+  <footer>© 2026 Manan Suneja · Last updated September 28, 2026</footer>
 </body>
 </html>

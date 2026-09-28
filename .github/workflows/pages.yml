@@ -5,7 +5,10 @@ on:
     branches: [main]
     paths:
       - "docs/**"
-      - "plugins/pm-os-setup/assets/logo-v2-marketplace.jpg"
+      - "plugins/catalog.json"
+      - "plugins/pm-os-setup/**"
+      - "skills/product-management/pm-os-setup/**"
+      - "scripts/build_plugins.py"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -27,12 +30,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build the PM OS download
+        run: python scripts/build_plugins.py --plugin pm-os-setup
+
       - name: Assemble site artifact
         shell: bash
         run: |
-          mkdir -p _site/assets
+          mkdir -p _site/assets _site/downloads
           cp -R docs/. _site/
           cp plugins/pm-os-setup/assets/logo-v2-marketplace.jpg _site/assets/pm-os-setup.jpg
+          version=$(python -c "import json; print(next(p['version'] for p in json.load(open('plugins/catalog.json'))['plugins'] if p['name'] == 'pm-os-setup'))")
+          cp "dist/plugins/releases/pm-os-setup-${version}-skill-bundle.zip" _site/downloads/pm-os-setup.zip
 
       - uses: actions/configure-pages@v5
 

@@ -80,6 +80,43 @@ code {
   color: #4c1d95;
 }
 
+.download { margin: 8px 0 12px; }
+.download p { margin-top: 10px; font-size: 0.92rem; }
+
+.button {
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 999px;
+  background: var(--violet);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.button:hover { background: #5b21b6; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+.grid .card { margin-block: 0; }
+.card ol { margin: 12px 0 0; padding-left: 1.2em; }
+.card li { margin-bottom: 8px; }
+.card b, .faq b, main > p b { color: var(--ink); }
+.note { font-size: 0.86rem; margin-bottom: 0; }
+.prompts p { margin: 0 0 12px; }
+.prompts p:last-child { margin-bottom: 0; }
+.faq { color: var(--muted); padding-left: 1.2em; }
+.faq li { margin-bottom: 10px; }
+
+pre {
+  overflow-x: auto;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--violet-soft);
+}
+pre code { padding: 0; background: none; }
+
 footer {
   border-top: 1px solid var(--line);
   padding-block: 24px 44px;
