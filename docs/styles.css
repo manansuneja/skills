@@ -104,6 +104,7 @@ code {
 .card li { margin-bottom: 8px; }
 .card b, .faq b, main > p b { color: var(--ink); }
 .note { font-size: 0.86rem; margin-bottom: 0; }
+.where { color: var(--muted); font-size: 0.86rem; margin-left: 6px; }
 .prompts p { margin: 0 0 12px; }
 .prompts p:last-child { margin-bottom: 0; }
 .faq { color: var(--muted); padding-left: 1.2em; }

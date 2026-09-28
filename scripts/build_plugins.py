@@ -220,6 +220,19 @@ def openai_manifest(catalog: dict, entry: dict, listing: dict) -> dict:
     }
 
 
+def claude_manifest(catalog: dict, entry: dict, listing: dict) -> dict:
+    return {
+        "name": entry["name"],
+        "version": entry["version"],
+        "description": listing["longDescription"],
+        "author": catalog["publisher"],
+        "homepage": catalog["homepage"],
+        "repository": f"{catalog['repository']}/tree/main/{entry['source']}",
+        "license": catalog["license"],
+        "keywords": listing["keywords"],
+    }
+
+
 def write_common_package_files(root: Path, entry: dict, listing: dict, files: list[TrackedFile], license_bytes: bytes) -> None:
     write_tracked_files(files, root / "skills" / entry["name"])
     (root / "LICENSE").write_bytes(license_bytes)
@@ -320,6 +333,12 @@ def build(catalog_path: Path, output_root: Path, names: list[str] | None, refres
         write_json(openai_root / ".codex-plugin" / "plugin.json", openai_manifest(catalog, entry, listing))
         copy_overlay_assets((REPO_ROOT / entry["listing"]).parent, openai_root, listing)
 
+        # One upload for both apps: ChatGPT/Codex reads .codex-plugin/plugin.json before
+        # .claude-plugin/plugin.json, and Claude reads only .claude-plugin/plugin.json.
+        universal_root = output_root / "universal" / name
+        shutil.copytree(openai_root, universal_root)
+        write_json(universal_root / ".claude-plugin" / "plugin.json", claude_manifest(catalog, entry, listing))
+
         portable_payload_digest = disk_tree_digest(portable_root / "skills" / name)
         openai_payload_digest = disk_tree_digest(openai_root / "skills" / name)
         if portable_payload_digest != openai_payload_digest or portable_payload_digest != source_digest:
@@ -331,6 +350,7 @@ def build(catalog_path: Path, output_root: Path, names: list[str] | None, refres
             archive_specs = {
                 "portable": (portable_root, release_root / f"{name}-{version}-portable.zip", ""),
                 "openai": (openai_root, release_root / f"{name}-{version}-openai.zip", ""),
+                "plugin": (universal_root, release_root / f"{name}-{version}-plugin.zip", ""),
                 "skillBundle": (
                     openai_root / "skills" / name,
                     release_root / f"{name}-{version}-skill-bundle.zip",

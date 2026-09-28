@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Download PM OS and add it to Claude or ChatGPT in about a minute. No terminal needed.">
+  <meta name="description" content="Download the PM OS plugin and add it to Claude or ChatGPT in about a minute. No terminal needed.">
   <title>PM OS · Manan's Agent Skills</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -28,31 +28,30 @@
     </section>
 
     <div class="download">
-      <a class="button" href="downloads/pm-os-setup.zip" download>Download PM OS (.zip)</a>
-      <p>No terminal needed. Keep the file zipped: that is the file you upload.</p>
+      <a class="button" href="downloads/pm-os-plugin.zip" download>Download the PM OS plugin (.zip)</a>
+      <p>No terminal needed. Keep the file zipped: that is the file you upload. One file works in both Claude and ChatGPT.</p>
     </div>
 
     <h2>Set it up in about a minute</h2>
 
     <div class="grid">
       <div class="card">
-        <strong>Claude</strong>
+        <strong>Claude</strong> <span class="where">desktop app or claude.ai</span>
         <ol>
-          <li>Open <b>Settings → Capabilities</b> and turn on <b>Code execution and file creation</b>.</li>
-          <li>Go to <b>Customize → Skills</b>, click <b>+</b>, then <b>Create skill → Upload a skill</b>.</li>
-          <li>Choose <code>pm-os-setup.zip</code> and make sure the skill is switched on.</li>
+          <li>Open <b>Customize → Plugins</b>.</li>
+          <li>Click <b>+ Add</b>, then <b>Upload plugin</b>.</li>
+          <li>Choose <code>pm-os-plugin.zip</code>.</li>
           <li>Start a chat and say <b>“Set up a PM OS for my product.”</b></li>
         </ol>
       </div>
       <div class="card">
-        <strong>ChatGPT</strong>
+        <strong>ChatGPT</strong> <span class="where">desktop app</span>
         <ol>
-          <li>In the sidebar, open <b>Plugins</b> and select the <b>Skills</b> tab.</li>
-          <li>Click <b>Create → Upload from your computer</b>.</li>
-          <li>Choose <code>pm-os-setup.zip</code> and wait for the quick safety scan.</li>
+          <li>Open <b>Customize → Plugins</b>.</li>
+          <li>Click <b>Add</b>, then <b>Upload plugin archive</b>.</li>
+          <li>Choose <code>pm-os-plugin.zip</code>.</li>
           <li>Start a chat and say <b>“Set up a PM OS for my product.”</b></li>
         </ol>
-        <p class="note">Skill uploads are available on ChatGPT Business, Enterprise, and Edu workspaces.</p>
       </div>
     </div>
 
@@ -69,9 +68,11 @@
 
     <h2>Troubleshooting</h2>
     <ul class="faq">
-      <li><b>You ended up with a folder, not a .zip.</b> Some browsers (Safari) unzip downloads automatically. Right-click the <code>pm-os-setup</code> folder and choose <b>Compress</b>, then upload the new <code>.zip</code>.</li>
-      <li><b>You don't see Skills in Claude.</b> Turn on <b>Code execution and file creation</b> first. On Team or Enterprise plans, an owner may need to enable Skills.</li>
-      <li><b>The skill doesn't start.</b> Say “Use pm-os-setup to set up a PM OS for my product.”</li>
+      <li><b>You ended up with a folder, not a .zip.</b> Some browsers (Safari) unzip downloads automatically. Right-click the <code>pm-os-plugin</code> folder and choose <b>Compress</b>, then upload the new <code>.zip</code>.</li>
+      <li><b>Claude can't run the setup.</b> Open <b>Settings → Capabilities</b> and turn on <b>Code execution and file creation</b>. On Team or Enterprise plans, an owner may need to allow plugin uploads.</li>
+      <li><b>No upload option in ChatGPT on the web.</b> There, plugin uploads are limited to workspace admins (<b>Admin → Plugins</b>). Use the ChatGPT desktop app instead.</li>
+      <li><b>The plugin doesn't start.</b> Say “Use pm-os-setup to set up a PM OS for my product.”</li>
+      <li><b>Prefer to add it as a skill?</b> Download <a href="downloads/pm-os-setup.zip">pm-os-setup.zip</a> and upload it under <b>Customize → Skills</b> in Claude, or <b>Plugins → Skills → Create → Upload from your computer</b> in ChatGPT.</li>
     </ul>
 
     <h2>Prefer the terminal?</h2>

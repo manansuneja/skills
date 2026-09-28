@@ -70,17 +70,16 @@ npx skills@latest update pm-os-setup -g
 
 ## No Terminal: Download And Upload
 
-1. [Download PM OS (.zip)](https://manansuneja.github.io/skills/downloads/pm-os-setup.zip). Keep it
-   zipped.
+1. [Download the PM OS plugin (.zip)](https://manansuneja.github.io/skills/downloads/pm-os-plugin.zip).
+   Keep it zipped. The same file works in Claude and ChatGPT.
 2. Upload it:
-   - **Claude:** turn on `Settings > Capabilities > Code execution and file creation`, then
-     `Customize > Skills > + > Create skill > Upload a skill`.
-   - **ChatGPT** (Business, Enterprise, and Edu): `Plugins > Skills tab > Create > Upload from your
-     computer`.
+   - **Claude** (desktop app or claude.ai): `Customize > Plugins > + Add > Upload plugin`.
+   - **ChatGPT** (desktop app): `Customize > Plugins > Add > Upload plugin archive`.
 3. Say: `Set up a PM OS for my product.`
 
 For the full folder workspace, use the Claude desktop app, start a Cowork task, and pick an empty
-folder. The [step-by-step guide](https://manansuneja.github.io/skills/) covers troubleshooting.
+folder. The [step-by-step guide](https://manansuneja.github.io/skills/) covers troubleshooting and a
+skill-only download.
 
 ## What It Creates
 

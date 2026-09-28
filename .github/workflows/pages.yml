@@ -44,6 +44,7 @@ jobs:
           cp -R docs/. _site/
           cp plugins/pm-os-setup/assets/logo-v2-marketplace.jpg _site/assets/pm-os-setup.jpg
           version=$(python -c "import json; print(next(p['version'] for p in json.load(open('plugins/catalog.json'))['plugins'] if p['name'] == 'pm-os-setup'))")
+          cp "dist/plugins/releases/pm-os-setup-${version}-plugin.zip" _site/downloads/pm-os-plugin.zip
           cp "dist/plugins/releases/pm-os-setup-${version}-skill-bundle.zip" _site/downloads/pm-os-setup.zip
 
       - uses: actions/configure-pages@v5

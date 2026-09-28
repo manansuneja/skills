@@ -4,15 +4,14 @@ Practical agent skills for PMs, designers, operators, small business owners, and
 
 ## No terminal? Download PM OS
 
-**[Download PM OS (.zip)](https://manansuneja.github.io/skills/downloads/pm-os-setup.zip)** and
-upload it to your AI. It takes about a minute. See the
-[step-by-step guide](https://manansuneja.github.io/skills/).
+**[Download the PM OS plugin (.zip)](https://manansuneja.github.io/skills/downloads/pm-os-plugin.zip)**
+and upload it to your AI. One file works in both Claude and ChatGPT, and it takes about a minute. See
+the [step-by-step guide](https://manansuneja.github.io/skills/).
 
-- **Claude:** turn on `Settings > Capabilities > Code execution and file creation`, then go to
-  `Customize > Skills`, click `+`, choose `Create skill > Upload a skill`, and pick
-  `pm-os-setup.zip`.
-- **ChatGPT** (Business, Enterprise, and Edu): open `Plugins`, select the `Skills` tab, then choose
-  `Create > Upload from your computer` and pick `pm-os-setup.zip`.
+- **Claude** (desktop app or claude.ai): `Customize > Plugins > + Add > Upload plugin`, then pick
+  `pm-os-plugin.zip`.
+- **ChatGPT** (desktop app): `Customize > Plugins > Add > Upload plugin archive`, then pick
+  `pm-os-plugin.zip`.
 - Then say: **"Set up a PM OS for my product."** For the full workspace, use the Claude desktop app,
   start a Cowork task, and pick an empty folder.
 
