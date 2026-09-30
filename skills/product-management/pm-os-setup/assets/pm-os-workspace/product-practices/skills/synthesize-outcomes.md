@@ -31,7 +31,8 @@ judgment rules.
 
 ## Filing
 
-Write to `product-docs/outcomes/<MMM-DD-YYYY>-<topic>.md`, update
+Write to `product-docs/outcomes/<MMM-DD-YYYY>-<topic>.md` (or the project's `outcomes/` folder when it
+is about a single project), update
 [the outcomes index](../../product-docs/outcomes/INDEX.md), and apply
 [apply-pmos-struct](../../_workspace_setup_docs/skills/apply-pmos-struct.md). In chat, report only the file path, the top
 recommendation, and any follow-up artifact path.

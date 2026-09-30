@@ -16,8 +16,8 @@ and all relevant indexes. It should tell you what changed and offer one realisti
 
 ## Minimal core
 
-The starter library contains summarizing notes, brainstorming, synthesizing outcomes, writing PRDs,
-and documenting product context. Personalization may remove an irrelevant core item or add focused
+The starter library contains summarizing notes, brainstorming, synthesizing outcomes, running
+projects, writing PRDs, writing build briefs, and documenting product context. Personalization may remove an irrelevant core item or add focused
 skills for the product stage and PM scope. Less is more; repeated usage should earn new machinery.
 
 ## Templates and references

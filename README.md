@@ -98,7 +98,7 @@ npx skills@latest add manansuneja/skills --skill workflow-create -g
 
 ### Product Management
 
-- [PM OS](skills/product-management/pm-os-setup) builds a PM workspace that gives your agent lasting context about your product, users, decisions, meetings, and PRDs.
+- [PM OS](skills/product-management/pm-os-setup) builds a PM workspace that gives your agent lasting context about your product, users, projects, decisions, meetings, PRDs, and build briefs.
 
 Install:
 

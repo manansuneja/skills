@@ -23,7 +23,15 @@ REQUIRED_PM_PATHS = (
     "START_HERE.md",
     "agents/pm-chief.md",
     "product-docs/product-vision.md",
+    "product-docs/projects/INDEX.md",
     "product-practices/skills/INDEX.md",
+    "product-practices/skills/run-projects.md",
+    "product-practices/skills/to-build-brief.md",
+    "product-practices/templates/project-brief.md",
+    "product-practices/templates/project-status.md",
+    "product-practices/templates/build-brief.md",
+    "agents/sub-agents/program-manager.md",
+    "agents/sub-agents/builder.md",
     "_workspace_setup_docs/personalization/README.md",
     "_workspace_setup_docs/workspace-state.json",
 )
@@ -95,12 +103,14 @@ def assert_required_workspace(root: Path) -> None:
         require((root / relative).exists(), f"Scaffold is missing required path: {root / relative}")
     state = json.loads((root / "_workspace_setup_docs/workspace-state.json").read_text(encoding="utf-8"))
     require(state.get("system") == "pm-os", "PM OS state has the wrong system identifier")
-    require(state.get("setupVersion") == "1.2.4", "PM OS state has the wrong setup version")
-    require(state.get("workspaceSchemaVersion") == 1, "PM OS state has the wrong workspace schema")
+    require(state.get("setupVersion") == "1.3.0", "PM OS state has the wrong setup version")
+    require(state.get("workspaceSchemaVersion") == 2, "PM OS state has the wrong workspace schema")
+    require(not (root / "product-docs/prds").exists(), "PM OS scaffold still ships the flat prds/ folder")
     index_text = (root / "INDEX.md").read_text(encoding="utf-8")
     require("## Now" in index_text and "## Waiting on" in index_text, "PM OS root index is not a living workboard")
     agents_text = (root / "AGENTS.md").read_text(encoding="utf-8")
     require("Markdown" in agents_text and "installed capability" in agents_text, "PM OS capability routing contract is missing")
+    require("pm-builder" in agents_text and "File by scope" in agents_text, "PM OS profile or filing-by-scope contract is missing")
 
 
 def assert_no_unresolved_tokens(root: Path) -> None:

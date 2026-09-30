@@ -41,7 +41,9 @@ are fine.
    surfaces or actors should the workspace understand?
 3. What stage is the product in, what three to five kinds of PM work should be easiest now, and what
    should be tracked—for example research, bets, experiments, requirements, releases, metrics,
-   dependencies, customers, or stakeholder commitments? Ask what they explicitly do not need.
+   dependencies, customers, or stakeholder commitments? Ask what they explicitly do not need. Also ask
+   how they work: do they hand specs to an engineering team, or also build prototypes and features
+   with coding agents? Which initiatives are active now?
 4. What is the next useful outcome, and which files, links, notes, decisions, examples, constraints,
    formats, or writing style should be used?
 
@@ -86,32 +88,39 @@ relocate user-authored content from inference alone. If the PM does not answer, 
 When removing a product area, remove or revise generated skills, templates, specialists, routes, and
 index rows serving only that area. Do not leave orphaned machinery.
 
-Begin with product vision, meetings, outcomes, decisions, PRDs, and the skill core: summarize notes,
-brainstorm, synthesize outcomes, document product context, and write PRDs. Remove even a common area,
-skill, or specialist when it clearly does not fit. Add design, data, research, roadmap, experiment,
+Begin with product vision, projects, meetings, outcomes, decisions, and the skill core: summarize
+notes, brainstorm, synthesize outcomes, document product context, run projects, write PRDs, and write
+build briefs. Remove even a common area, skill, or specialist when it clearly does not fit. Add design, data, research, roadmap, experiment,
 launch, stakeholder communication, or other lanes only when scope earns them.
 
 ## Step 3 — Apply the product context and structure
 
 1. If this is a legacy scaffold, move a top-level `product-skills/` directory into
    `product-practices/skills/` in place. Preserve content and update every link. Do not create a
-   replacement workspace root.
+   replacement workspace root. If a schema-1 `product-docs/prds/` folder exists, leave it in place and
+   ask once before moving its contents into projects.
 2. Replace unresolved `{{PROJECT_NAME}}` tokens outside this personalization folder when the name is
    known.
-3. Apply the keep/add/remove/confirmed-ask plan. Use product language and useful lifecycle or
+3. Set the **PM profile** line in `AGENTS.md` to `pm` or `pm-builder` from the intake answer. When the
+   PM only hands work to engineers, keep the Builder lean; do not add prototype or repository
+   machinery. When they build with coding agents, link the repository in each relevant project's
+   `brief.md` if known.
+4. Start a project for each active initiative the PM named, using `run-projects`. Do not invent
+   projects, and do not create empty project folders for work that has not started.
+5. Apply the keep/add/remove/confirmed-ask plan. Use product language and useful lifecycle or
    product-surface subfolders. Give each new content folder an `INDEX.md`. Use a table, CSV, JSON, or
    sheet for repeated fields and status. Remove stale links and index rows.
-4. Update `START_HERE.md` with a short product-specific introduction when useful.
-5. Update `product-docs/product-vision.md` with product, users, problem/opportunity, stage, active
+6. Update `START_HERE.md` with a short product-specific introduction when useful.
+7. Update `product-docs/product-vision.md` with product, users, problem/opportunity, stage, active
    bets, intended outcomes, evidence, key actors/surfaces, and known constraints. Do not describe the
    Chief PM or PM OS as the product unless that is what the user is building.
-6. Customize `agents/pm-chief.md`: adjust persona, routes, standing rules, and context gathering to
+8. Customize `agents/pm-chief.md`: adjust persona, routes, standing rules, and context gathering to
    the product, PM scope, and kept content areas.
-7. Apply product-practice and agent plans with the product structure. Create or update skills and
+9. Apply product-practice and agent plans with the product structure. Create or update skills and
    templates when outputs need repeatable judgment, structure, or format. Remove unused generic
    skills and specialists. Add a specialist only for a distinct recurring role.
-8. Apply `_workspace_setup_docs/skills/apply-pmos-struct.md`: verify names, audience labels, indexes,
-   links, product-vision references, and synchronized routing.
+10. Apply `_workspace_setup_docs/skills/apply-pmos-struct.md`: verify names, audience labels,
+    indexes, links, product-vision references, and synchronized routing.
 
 Do not generate `.claude/agents/` or `.github/agents/` during basic setup unless the PM asks. Cursor
 is already wired through `.cursor/rules/pm-os.mdc`.

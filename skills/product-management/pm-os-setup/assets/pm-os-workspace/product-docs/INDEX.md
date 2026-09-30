@@ -16,10 +16,14 @@
 | Item | Purpose |
 |---|---|
 | [product-vision.md](product-vision.md) | Source of truth for product, users, problem, stage, goals, bets, and constraints |
-| [meetings/](meetings/INDEX.md) | One folder per meeting with summary and raw source archive |
-| [outcomes/](outcomes/INDEX.md) | Insights, recommendations, prioritization, MVP cuts, and next steps |
-| [decisions/](decisions/INDEX.md) | Decisions and rationale |
-| [prds/](prds/INDEX.md) | Area, initiative, feature, and story requirements |
+| [projects/](projects/INDEX.md) | One folder per initiative: brief, status, requirements, build brief, and project-scoped work |
+| [meetings/](meetings/INDEX.md) | Product-wide meetings; project meetings live inside their project |
+| [outcomes/](outcomes/INDEX.md) | Product-wide insights, recommendations, prioritization, and next steps |
+| [decisions/](decisions/INDEX.md) | The decisions log: every decision and its rationale, whatever its scope |
+
+**Filing by scope:** active work lives in a project; knowledge that outlives any one project stays
+here in the global folders. Something that belongs to one project is filed inside it. Every decision
+also gets a row in the global decisions log.
 
 Personalization or later usage may add research, design, experiments, data, roadmaps, launch,
 stakeholder communication, or product-specific areas. Link every new folder from the nearest useful

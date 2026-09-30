@@ -15,14 +15,14 @@ the smallest useful combination for the product stage, PM scope, and immediate r
 
 1. Start from explicit responsibilities and the next useful outcome. Product-stage knowledge supplies
    vocabulary and likely gaps; it does not authorize a union of every PM artifact.
-2. Keep `product-vision.md`. Begin with meetings, outcomes, decisions, and PRDs, then retain or add
-   other areas only when they support current or near-term work.
+2. Keep `product-vision.md`. Begin with projects, meetings, outcomes, and decisions, then retain or
+   add other areas only when they support current or near-term work.
 3. Prefer roughly three to seven active top-level product areas. Use product-surface, customer,
    lifecycle, or initiative subfolders when they match how the PM actually thinks.
 4. Use a table, CSV, JSON, or sheet for repeated fields, owners, status, evidence, confidence, dates,
    and dependencies rather than turning every field into a folder.
-5. Begin with summarize notes, brainstorm, synthesize outcomes, document product context, and write
-   PRDs. Determine semantically whether new guidance is durable, then add or adapt a skill for a
+5. Begin with summarize notes, brainstorm, synthesize outcomes, document product context, run
+   projects, write PRDs, and write build briefs. Determine semantically whether new guidance is durable, then add or adapt a skill for a
    reusable preference or recurring workflow. Add a specialist only when a distinct route stays
    useful.
 6. Update product-docs and root indexes, `product-practices/skills/INDEX.md`,
@@ -61,6 +61,26 @@ specialists, and Chief PM routes in the same pass.
 Ask whether something is the current product work or a reusable way of doing future product work.
 Place it accordingly.
 
+## PM Profile: PM or PM-Builder
+
+Ask how the PM works and record `pm` or `pm-builder` in `AGENTS.md`.
+
+- **`pm`:** defines the product and hands build work to an engineering team. Keep the Builder lean:
+  it writes build briefs and ticket-ready summaries. Do not add prototype or repository machinery.
+- **`pm-builder`:** also builds prototypes and features with coding agents. The Builder additionally
+  writes coding-agent task prompts, scopes first slices, verifies results against acceptance
+  criteria, and keeps ship notes. Link the code repository from each project's `brief.md`.
+
+Application code never lives in the workspace in either profile.
+
+## Hybrid Structure: Projects and Global Knowledge
+
+Active work lives in `product-docs/projects/<project>/`: brief, status, requirements, build brief,
+and the meetings, decisions, and outcomes that belong to one initiative. Knowledge that outlives a
+project stays global: product vision, product-wide meetings and outcomes, and the decisions log.
+Start a project for each initiative the PM names as active, not for speculative work. Use a table in
+`status.md` for risks and milestones rather than folders.
+
 ## Reconcile During Personalization
 
 Build keep/add/remove/ask sets from the intake and actual filesystem:
@@ -87,7 +107,8 @@ research or experiment skills only when those workflows will repeat.
 
 ### Delivery and Feature Development
 
-Candidate areas: `prds/`, `design/`, `technical-notes/`, `delivery/`, and `releases/`.
+Candidate areas inside or beside projects: `design/`, `technical-notes/`, `delivery/`, and
+`releases/`.
 Emphasize requirements, scope, UX/technical trade-offs, dependencies, acceptance, and release
 readiness. Keep design or delivery specialists only when the PM repeatedly uses those routes.
 
@@ -117,8 +138,8 @@ measurable time or quality improvements.
 
 ### Portfolio, Roadmap, or Product Leadership
 
-Candidate areas: `strategy/`, `roadmaps/`, `initiatives/`, `dependencies/`, `operating-reviews/`, and
-`stakeholder-comms/`. Emphasize choices, resource allocation, confidence, sequencing, narrative, and
+Candidate areas: `strategy/`, `roadmaps/`, `dependencies/`, `operating-reviews/`, and
+`stakeholder-comms/`. Initiatives are already projects. Emphasize choices, resource allocation, confidence, sequencing, narrative, and
 decision cadence.
 
 ### General PM Workspace

@@ -10,7 +10,7 @@
 ## Active product work
 
 - [Product vision](product-docs/product-vision.md) — product, users, problem, stage, goals, bets, and constraints.
-- [PRDs](product-docs/prds/INDEX.md) — active areas, initiatives, features, and stories.
+- [Projects](product-docs/projects/INDEX.md) — the portfolio: each initiative with its stage, health, and next milestone.
 - [Outcomes](product-docs/outcomes/INDEX.md) — recommendations, prioritization, MVP cuts, and next steps.
 
 ## Waiting on
@@ -25,7 +25,7 @@
 ## Browse the workspace
 
 - [Product workspace](product-docs/INDEX.md) — actual product context and work.
-- [Meetings](product-docs/meetings/INDEX.md) — summaries and preserved source notes.
+- [Meetings](product-docs/meetings/INDEX.md) — product-wide summaries and preserved source notes.
 - [Product practices](product-practices/INDEX.md) — reusable skills, templates, and references.
 - [START_HERE.md](START_HERE.md) — short orientation for a new PM or collaborator.
 

@@ -22,7 +22,9 @@ a proper meeting folder, a loose file, pasted text, or notes sitting directly un
 1. Read the raw notes and infer the meeting date, title, and attendees when possible. If the user says
    "yesterday" or another relative date, resolve it to an absolute `MMM-DD-YYYY` date from today's
    date. If date or title is still missing, use today's date and a short descriptive title.
-2. Create `product-docs/meetings/<MMM-DD-YYYY>-<short-title>/`.
+2. Decide the scope. Create `product-docs/meetings/<MMM-DD-YYYY>-<short-title>/` for a product-wide or
+   cross-project meeting. When the meeting is clearly about one project, create the same folder under
+   `product-docs/projects/<project-slug>/meetings/` instead, and update that project's `INDEX.md`.
 3. Preserve raw input exactly under `raw/` in that folder, usually as `raw/raw-notes.md`. If the raw
    input was a loose text/Markdown file, move it into the `raw/` folder and rename it to
    `raw-notes.md`. If the raw input is a non-text attachment, move the original attachment into

@@ -27,8 +27,10 @@ usage.
    hard-code plugin brands or treat optional capabilities as dependencies.
 7. Keep narrative work Markdown-first. A plain request to create a PRD, brief, decision, plan, or
    synthesis produces `.md`; use another format only when explicitly requested or clearly required.
-8. Save substantial product thinking and any requested deliverable in the correct area, update the
-   nearest useful index, and return a short handoff.
+8. File by scope: work that belongs to one project goes inside `product-docs/projects/<project>/`;
+   product-wide work stays in the global folders; every decision also gets a row in the global
+   decisions log. Save substantial product thinking and any requested deliverable in the correct
+   area, update the nearest useful index, and return a short handoff.
 9. Apply [apply-pmos-struct.md](../_workspace_setup_docs/skills/apply-pmos-struct.md) after meaningful
    changes.
 
@@ -39,10 +41,26 @@ usage.
 | Summarize notes or a meeting | [meeting-summarizer](sub-agents/meeting-summarizer.md) | [summarize-notes](../product-practices/skills/summarize-notes.md) |
 | Brainstorm or compare product directions | [brainstorm-partner](sub-agents/brainstorm-partner.md) | [brainstorm](../product-practices/skills/brainstorm.md) |
 | Synthesize recommendations, priorities, MVP scope, or next steps | [outcome-synthesizer](sub-agents/outcome-synthesizer.md) | [synthesize-outcomes](../product-practices/skills/synthesize-outcomes.md) |
+| Start, update, pause, or wrap a project; report status or risks | [program-manager](sub-agents/program-manager.md) | [run-projects](../product-practices/skills/run-projects.md) |
 | Turn context into a PRD, feature, or stories | [prd-writer](sub-agents/prd-writer.md) | [to-prd](../product-practices/skills/to-prd.md) |
+| Prepare a build handoff, brief a coding agent, or verify built work | [builder](sub-agents/builder.md) | [to-build-brief](../product-practices/skills/to-build-brief.md) |
 | Capture durable context, decisions, or update vision | [documentation-steward](sub-agents/documentation-steward.md) | [document-product-context](../product-practices/skills/document-product-context.md) |
 | Change a reusable workflow, format, example, or specialist | [skill-librarian](sub-agents/skill-librarian.md) | [manage-workspace-skills](../_workspace_setup_docs/skills/manage-workspace-skills.md) |
 | Organize or integrate folders/files | Handle directly | [apply-pmos-struct](../_workspace_setup_docs/skills/apply-pmos-struct.md) |
+
+## Think and Build
+
+Read the project's stage in its `status.md` and lead with the matching mode. Stage is a fact, not a
+gate, and the PM never has to name a mode.
+
+- **Think** (discover, define): brainstorm, synthesize outcomes, and write the PRD. Push toward a
+  decision and testable scope.
+- **Build** (build, launch, learn): build brief, handoff, verification, status, and what was learned.
+  Check the **PM profile** in [AGENTS.md](../AGENTS.md): `pm` hands a brief to engineering;
+  `pm-builder` also briefs coding agents and verifies what comes back.
+
+When a PRD reaches agreed scope, offer the build brief. When work ships, capture what was learned as
+an outcome.
 
 Personalization may add routes for research, design, experiments, data, roadmaps, launch,
 stakeholders, or product-specific work. Keep only routes the PM expects to use.
@@ -67,6 +85,8 @@ stakeholders, or product-specific work. Keep only routes the PM expects to use.
 ## Standing rules
 
 - Build product memory, not a chat pile. Preserve raw sources and index durable outputs.
+- Keep project stage and health current in `status.md` and the portfolio table together.
+- Keep application code out of the workspace; link the repository from the project's `brief.md`.
 - Put synthesis, recommendations, prioritization, and MVP choices in `product-docs/outcomes/`.
 - Keep product vision and decisions current when the source is clear; ask before changing established
   direction.

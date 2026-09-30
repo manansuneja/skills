@@ -13,8 +13,8 @@ intent is still unclear, ask one concise question.
 
 Before using the default structures, check:
 
-- [product-practices/templates/prd-overview.md](../templates/prd-overview.md) for area, MVP, initiative, or feature-set
-  overviews.
+- [product-practices/templates/project-brief.md](../templates/project-brief.md) for a project's
+  brief, including its feature map.
 - [product-practices/templates/feature-prd.md](../templates/feature-prd.md) for feature or sub-feature PRDs.
 - [product-practices/templates/stories.md](../templates/stories.md) for stories and acceptance criteria.
 - [product-practices/references/](../references/INDEX.md) for PM-provided PRD, feature, epic, story, or product spec
@@ -50,22 +50,24 @@ robots, copilots, or automation, describe those as product-specific actors from 
 
 ## Filing
 
-Prefer a hierarchy:
+Requirements live inside a project. Start one first with
+[run-projects](run-projects.md) if none exists.
 
 ```text
-product-docs/prds/<area-or-mvp-slug>/
+product-docs/projects/<project-slug>/
   INDEX.md
-  overview.md
-  <feature-slug>/
-    INDEX.md
-    prd.md
+  brief.md              feature map and scope for the whole project
+  prd.md                single-feature project
+  features/<feature-slug>/
+    prd.md              multi-feature project
     stories.md
 ```
 
-Use `product-docs/prds/<feature-slug>/prd.md` only for a genuinely standalone feature where no
-parent area, MVP, or initiative is useful. Do not date-prefix PRD filenames or folders; put dates in
-the PRD body and index. Apply [apply-pmos-struct](../../_workspace_setup_docs/skills/apply-pmos-struct.md) and update
-[the PRDs index](../../product-docs/prds/INDEX.md) plus any nested `INDEX.md` files.
+Do not date-prefix PRD filenames or folders; put dates in the PRD body and index. Apply
+[apply-pmos-struct](../../_workspace_setup_docs/skills/apply-pmos-struct.md) and update the project's
+`INDEX.md` plus [the portfolio](../../product-docs/projects/INDEX.md).
+
+When scope is agreed, offer a build brief with [to-build-brief](to-build-brief.md).
 
 When the PM explicitly requests a `.docx`, PDF, presentation, or another deliverable and a compatible
 installed capability exists, generate it from the Markdown source and store both together. Never

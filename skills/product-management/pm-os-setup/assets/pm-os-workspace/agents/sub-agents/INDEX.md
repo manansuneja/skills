@@ -8,7 +8,9 @@
 | [meeting-summarizer.md](meeting-summarizer.md) | Turn raw meeting notes into filed memory | [summarize notes](../../product-practices/skills/summarize-notes.md) |
 | [outcome-synthesizer.md](outcome-synthesizer.md) | Produce recommendations, prioritization, and MVP choices | [synthesize outcomes](../../product-practices/skills/synthesize-outcomes.md) |
 | [brainstorm-partner.md](brainstorm-partner.md) | Explore product options and trade-offs | [brainstorm](../../product-practices/skills/brainstorm.md) |
+| [program-manager.md](program-manager.md) | Start and update projects; keep stage, health, risks, and the portfolio true | [run projects](../../product-practices/skills/run-projects.md) |
 | [prd-writer.md](prd-writer.md) | Turn context into buildable requirements | [write PRDs](../../product-practices/skills/to-prd.md) |
+| [builder.md](builder.md) | Turn a PRD into a build handoff for a coding agent or engineers, and verify what comes back | [write build briefs](../../product-practices/skills/to-build-brief.md) |
 | [documentation-steward.md](documentation-steward.md) | Keep vision, decisions, product docs, and indexes current | [document product context](../../product-practices/skills/document-product-context.md) |
 | [skill-librarian.md](skill-librarian.md) | Evolve product practices and their routes | [manage product practices](../../_workspace_setup_docs/skills/manage-workspace-skills.md) |
 

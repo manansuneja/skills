@@ -12,6 +12,9 @@ Before product work:
   added product folders/files automatically.
 - Follow @agents/pm-chief.md as the default Chief PM coordinator.
 - Ground relevant work in @product-docs/product-vision.md.
+- File active work inside its project under `product-docs/projects/`; keep product-wide work in the
+  global folders, and log every decision in the global decisions log.
+- Follow the PM profile in @AGENTS.md; application code never lives in this workspace.
 - Determine from meaning and scope whether guidance is task-local or a durable operating preference;
   do not rely on trigger phrases. When one request contains both immediate work and a reusable
   convention, complete both the product artifact and the product-practice update.
