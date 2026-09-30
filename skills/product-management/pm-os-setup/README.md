@@ -4,9 +4,9 @@
 
 **Build a PM workspace that gives your agent lasting context about your product.**
 
-PM OS stores your vision, users, meetings, decisions, outcomes, and PRDs as organized files.
-A Chief PM agent uses that context to find past work, route new work, and keep recurring outputs
-consistent. You stop pasting the same background into every chat.
+PM OS stores your vision, projects, meetings, decisions, outcomes, PRDs, and build briefs as organized
+files. A Chief PM agent uses that context to find past work, route new work, and keep recurring
+outputs consistent. You stop pasting the same background into every chat.
 
 It is built for PMs and requires no code or database. The workspace starts small, then adds research,
 experiments, roadmaps, or specialists only when your work needs them.
@@ -17,6 +17,10 @@ experiments, roadmaps, or specialists only when your work needs them.
   the last decision made.
 - Turn meetings, decisions, prioritization calls, MVP cuts, and PRDs into indexed files instead of
   chat scrollback you will never find again.
+- Run each initiative as a project with its own stage, health, risks, and running log, and see the
+  whole portfolio at a glance.
+- Go from PRD to build: get a build brief a coding agent or an engineering team can work from, then
+  check what comes back against the acceptance criteria. Built for PMs and PM-builders.
 - Work through one Chief PM that finds context and routes recurring work to the right practice.
 - Teach it your formats, voice, and product principles once — every future PRD, readout, or
   stakeholder update follows them.
@@ -106,10 +110,11 @@ acme-workspace/
 ├── CLAUDE.md
 ├── product-docs/
 │   ├── product-vision.md
+│   ├── projects/
+│   │   └── <project>/        brief, status, PRD, build brief, and project-scoped work
 │   ├── meetings/
 │   ├── outcomes/
-│   ├── decisions/
-│   └── prds/
+│   └── decisions/
 ├── product-practices/
 │   ├── skills/
 │   ├── templates/
@@ -122,8 +127,9 @@ acme-workspace/
     └── personalization/
 ```
 
-The root `INDEX.md` is a living product workboard—current work, waiting items, recent decisions, and
-navigation. Meaningful content domains have their own human-readable indexes; tiny leaf folders can
+Active work lives in `projects/`, one folder per initiative; product-wide knowledge stays in the
+shared folders, and every decision is logged in one place. The root `INDEX.md` is a living product
+workboard—current work, waiting items, recent decisions, and navigation. Meaningful content domains have their own human-readable indexes; tiny leaf folders can
 stay represented by their parent. `START_HERE.md`, `product-docs/`, and `product-practices/` are the
 human-facing surfaces; agents and protected setup machinery are clearly labeled.
 
@@ -135,8 +141,9 @@ Say:
 Customize my workspace.
 ```
 
-The agent asks a lightweight intake, models users, product surfaces, stage, bets, evidence, recurring
-artifacts, decisions, tracking needs, and PM responsibilities, then builds synchronized plans for:
+The agent asks a lightweight intake, including whether you hand specs to engineers or also build
+with coding agents, models users, product surfaces, stage, bets, evidence, recurring artifacts,
+decisions, tracking needs, and PM responsibilities, then builds synchronized plans for:
 
 - product folders and trackers;
 - product skills, templates, and references;

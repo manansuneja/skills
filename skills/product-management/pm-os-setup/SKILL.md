@@ -1,6 +1,6 @@
 ---
 name: pm-os-setup
-description: "Builds and personalizes a PM workspace that gives an agent lasting product context. It organizes vision, users, meetings, decisions, outcomes, and PRDs as indexed files; adds a Chief PM and reusable product practices; and grows with the product. Use when a PM asks for a PM OS, product workspace, product memory system, or invokes pm-os-setup. Not for application code or unrelated scaffolding."
+description: "Builds and personalizes a PM workspace that gives an agent lasting product context. It organizes vision, projects, meetings, decisions, outcomes, PRDs, and build briefs as indexed files; adds a Chief PM, specialists for project status and build handoff, and reusable product practices; serves PMs and PM-builders who work with coding agents; and grows with the product. Use when a PM asks for a PM OS, product workspace, product memory system, or invokes pm-os-setup. Not for application code or unrelated scaffolding."
 ---
 
 # PM OS
@@ -12,6 +12,13 @@ compounds instead of disappearing into chat. The PM talks to one **Chief PM** th
 workspace practices and compatible installed capabilities. The root `INDEX.md` is a living,
 human-first dashboard; meaningful content areas use local indexes so durable decisions, evidence,
 requirements, and outcomes remain easy for people and future agents to find.
+
+The workspace is **hybrid**: active work lives in one folder per initiative under
+`product-docs/projects/`, each with a brief, a status log, requirements, and a build brief, while
+product-wide knowledge (vision, shared meetings, outcomes, and the decisions log) stays in global
+folders. It serves two kinds of PM: one who hands specs to an engineering team, and a **PM-builder**
+who also builds prototypes and features with coding agents. The PM profile in `AGENTS.md` records
+which; application code always stays in the PM's own repository.
 
 Keep the operating machinery reusable, but fit the working surface to the product's stage, the PM's
 scope, current priorities, users, decision cadence, and recurring outputs. Personalization models
@@ -35,7 +42,8 @@ product-practices/
   templates/                     meeting-summary.md outcome.md decision.md PRD templates ...
   references/
 product-docs/
-  product-vision.md              meetings/ outcomes/ decisions/ prds/
+  product-vision.md              meetings/ outcomes/ decisions/
+  projects/                      INDEX.md (portfolio) and <project>/ brief, status, prd, build-brief
 ```
 
 The root and each meaningful content domain get an `INDEX.md`. Tiny leaf folders can be represented
@@ -76,7 +84,8 @@ ambiguous. Do not install, connect, or imply access to another capability automa
    `product-docs/` as current markers. Also recognize legacy top-level `product-skills/`. If markers
    exist, read `_workspace_setup_docs/workspace-state.json` when present and ask whether the user
    wants an update or migration instead of scaffolding over them. A newer setup skill never silently
-   migrates an existing workspace.
+   migrates an existing workspace. Schema-1 workspaces keep a flat `product-docs/prds/` and continue
+   to work; adopting `projects/` is an explicit, separate migration the PM asks for.
 
 4. **Run the scaffold helper.** Prefer the bundled script over writing files manually.
 
@@ -105,10 +114,10 @@ ambiguous. Do not install, connect, or imply access to another capability automa
 6. **Apply product-context tailoring.** Follow `references/product-profiles.md`. Model the users,
    product surfaces, lifecycle/stage, active bets, evidence, decisions, recurring artifacts,
    stakeholders, and things worth tracking. Turn that model into a focused mix of folders,
-   subfolders, trackers, templates, skills, and specialists. Begin with product vision, meetings,
-   outcomes, decisions, PRDs, and the small PM skill core—summarizing, brainstorming, synthesizing
-   outcomes, documenting product context, and writing PRDs. Add, adapt, or remove the rest in
-   lockstep with actual scope. Less is more. Update indexes and Chief PM routing.
+   subfolders, trackers, templates, skills, and specialists. Begin with product vision, projects,
+   meetings, outcomes, decisions, and the small PM skill core—summarizing, brainstorming,
+   synthesizing outcomes, documenting product context, running projects, writing PRDs, and writing
+   build briefs. Add, adapt, or remove the rest in lockstep with actual scope. Less is more. Update indexes and Chief PM routing.
 
    Keep ordinary PM artifacts Markdown-first. A request such as “create a PRD” produces `.md` by
    default. Use an available document, presentation, spreadsheet, design, research, or other
@@ -119,7 +128,7 @@ ambiguous. Do not install, connect, or imply access to another capability automa
 7. **Show the result with a human-first map.** Point the user to:
 
    - `START_HERE.md` — the human welcome guide.
-   - `product-docs/` — the primary product working surface.
+   - `product-docs/` — the primary product working surface, with `projects/` for active work.
    - `product-practices/` — skills, templates, and references controlling how work is done.
    - `INDEX.md` — the living workboard and high-level map.
    - `_workspace_setup_docs/personalization/` — agent-managed one-time setup.
@@ -155,7 +164,15 @@ ambiguous. Do not install, connect, or imply access to another capability automa
   routing; ask only when meaning or placement is genuinely ambiguous.
 - Fit the product stage and PM scope. Do not scaffold every possible PM lane.
 - Put synthesis, recommendations, prioritization, MVP cuts, and next steps in
-  `product-docs/outcomes/`, not only chat.
+  `product-docs/outcomes/` (or the project's `outcomes/` folder when they concern one project), not
+  only chat.
+- File by scope. Work that belongs to one initiative lives inside its project; product-wide work
+  stays in the global folders; every decision also gets a row in the global decisions log.
+- Record each project's stage and health in its `status.md` and mirror them in the portfolio table.
+  Stage is a fact, not a gate. The Chief leads with Think (discover, define) or Build (build, launch,
+  learn) from that stage.
+- Ask how the PM works during personalization and set the PM profile in `AGENTS.md` to `pm` or
+  `pm-builder`. Application code never lives in the workspace; link the repository from `brief.md`.
 - Keep reusable instructions, formats, and examples together under `product-practices/` as
   `skills/`, `templates/`, and `references/`.
 - Determine whether guidance is task-local or a durable operating preference from its meaning and
@@ -175,7 +192,8 @@ ambiguous. Do not install, connect, or imply access to another capability automa
 ## Notes
 
 - This skill scaffolds and optionally personalizes a PM workspace. It does not build application
-  code.
+  code. The Builder specialist prepares briefs and prompts and checks results for coding agents;
+  the code itself lives in the PM's repository.
 - The Chief PM is the default workspace persona. In most tools, the PM simply talks in the workspace.
 - Tool wiring stays minimal. `CLAUDE.md` points to `AGENTS.md`, and Cursor gets one always-on rule.
   Generate `.claude/agents/` or `.github/agents/*.agent.md` only when the PM asks.

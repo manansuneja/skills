@@ -43,8 +43,11 @@ Both skills must preserve these behaviors:
 | Reusable practices | `workspace-best-practices/{skills,templates,references}` | `product-practices/{skills,templates,references}` |
 | Profile | `workspace-profile.md` | `product-vision.md` |
 | Tailoring model | Category, entities, lifecycle, recurring work | Product stage, PM scope, users, evidence, delivery lifecycle |
-| Minimal content core | Profile, meetings, outcomes, decisions | Vision, meetings, outcomes, decisions, PRDs |
-| Minimal skill core | Summarize, brainstorm, outcomes, context | Summarize, brainstorm, outcomes, product context, PRDs |
+| Minimal content core | Profile, meetings, outcomes, decisions | Vision, projects, meetings, outcomes, decisions |
+| Minimal skill core | Summarize, brainstorm, outcomes, context | Summarize, brainstorm, outcomes, product context, run projects, PRDs, build briefs |
+| Layout | Flat domain folders | Hybrid: active work in `product-docs/projects/<project>/`, product-wide knowledge in global folders; every decision also logged globally |
+| Audience profile | None | PM profile (`pm` or `pm-builder`) in `AGENTS.md`; the Builder specialist adapts. Application code never lives in the workspace |
+| Workspace schema | 1 | 2 (projects replace the flat `prds/` folder; schema-1 workspaces are not silently migrated) |
 
 Design, data, research, roadmaps, experiments, stakeholder communications, launch planning, and other
 PM lanes are profile-driven additions rather than unconditional PM OS defaults.

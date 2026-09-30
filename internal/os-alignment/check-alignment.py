@@ -237,6 +237,38 @@ require_terms(
     ["Learn durable PRD practice", "without an explicit request", "same task"],
 )
 
+for relative in [
+    "product-docs/projects/INDEX.md",
+    "product-practices/skills/run-projects.md",
+    "product-practices/skills/to-build-brief.md",
+    "product-practices/templates/project-brief.md",
+    "product-practices/templates/project-status.md",
+    "product-practices/templates/build-brief.md",
+    "agents/sub-agents/program-manager.md",
+    "agents/sub-agents/builder.md",
+]:
+    if not (pm_asset / relative).is_file():
+        fail(f"PM OS is missing hybrid project/build path: {relative}")
+
+if (pm_asset / "product-docs/prds").exists():
+    fail("PM OS files PRDs inside product-docs/projects/, not a flat product-docs/prds/.")
+
+require_terms(
+    "pm-os-setup/AGENTS.md",
+    read(pm_asset / "AGENTS.md"),
+    ["PM profile", "pm-builder", "File by scope", "Application code never lives in this workspace"],
+)
+require_terms(
+    "pm-os-setup/builder.md",
+    read(pm_asset / "agents/sub-agents/builder.md"),
+    ["Profile `pm`", "Profile `pm-builder`", "acceptance criteria", "Ask before external writes"],
+)
+require_terms(
+    "pm-os-setup/run-projects.md",
+    read(pm_asset / "product-practices/skills/run-projects.md"),
+    ["Filing by scope", "Learn durable project practice", "same task"],
+)
+
 optional_pm_defaults = [
     "product-docs/design",
     "product-docs/data-insights",

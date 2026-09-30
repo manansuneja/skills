@@ -24,18 +24,16 @@ Respect the operating-layer vs product-layer boundary in [../../AGENTS.md](../..
    to the existing `to-prd` skill or related template in the same task.
 3. Apply [to-prd](../../product-practices/skills/to-prd.md) for the structure. If the PM has defined their own PRD
    format, that template in `to-prd.md` is the source of truth - follow it.
-4. Choose the right hierarchy:
-   - Broad scope, MVP, initiative, journey, page, or feature set ->
-     `product-docs/prds/<area-or-mvp-slug>/overview.md`.
-   - Feature inside a broader scope ->
-     `product-docs/prds/<area-or-mvp-slug>/<feature-slug>/prd.md`.
-   - Standalone feature only when no parent area is useful ->
-     `product-docs/prds/<feature-slug>/prd.md`.
-5. If the PM asks for features and stories, create the parent folder plus one feature subfolder per
-   feature. Put feature-level PRD content in each `prd.md` and stories in `stories.md`.
-6. Do not date-prefix PRD filenames or folders; use stable topic, area, feature, or story slugs.
-7. Add or update [../../product-docs/prds/INDEX.md](../../product-docs/prds/INDEX.md) and any nested
-   `INDEX.md` files.
+4. Requirements live inside a project. If none exists for this work, ask the
+   [program-manager](program-manager.md) to start one first. Then choose the shape:
+   - Single-feature project -> `product-docs/projects/<project-slug>/prd.md`.
+   - Multi-feature project -> `product-docs/projects/<project-slug>/features/<feature-slug>/prd.md`,
+     with the feature map in the project's `brief.md`.
+5. If the PM asks for features and stories, create one feature subfolder per feature. Put
+   feature-level PRD content in each `prd.md` and stories in `stories.md`.
+6. Do not date-prefix PRD filenames or folders; use stable project and feature slugs.
+7. Update the project's `INDEX.md` and [the portfolio](../../product-docs/projects/INDEX.md) when the
+   project's status changes. When scope is agreed, offer a build brief from the [builder](builder.md).
 8. Mark open questions explicitly. A PRD with honest unknowns beats one with confident guesses.
 9. If the PM requests another format and a compatible installed capability is available, use it as a
    specialist, keep the Markdown source beside the generated deliverable, and index both. Otherwise
@@ -44,4 +42,5 @@ Respect the operating-layer vs product-layer boundary in [../../AGENTS.md](../..
 ## Hand back
 
 Tell the Chief where the PRD lives and list the open questions, so the PM can resolve them or send
-them back to the [brainstorm-partner](brainstorm-partner.md).
+them back to the [brainstorm-partner](brainstorm-partner.md). When scope is agreed, say so, so the
+Chief can offer a build brief.

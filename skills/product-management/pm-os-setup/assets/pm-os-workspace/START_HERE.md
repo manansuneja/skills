@@ -12,7 +12,10 @@ Try requests such as:
 
 - “I had a customer meeting. Here are the notes.”
 - “What should we prioritize for the MVP?”
+- “Start a project for the onboarding redesign.”
 - “Turn this into a PRD with features and stories.”
+- “Write a build brief my coding agent can follow.”
+- “Where do all my projects stand?”
 - “Capture this decision and its rationale.”
 - “Help me explore options for onboarding.”
 - “Create a reusable format for experiment readouts.”
@@ -27,10 +30,23 @@ is available, the Chief PM can use it as a specialist and still file the result 
 Core product work starts in [product-docs/](product-docs/INDEX.md):
 
 - `product-vision.md` — product, users, problem, stage, goals, bets, and constraints.
-- `meetings/` — summaries with preserved raw source archives.
-- `outcomes/` — recommendations, prioritization, MVP cuts, and next steps.
-- `decisions/` — decisions and why they were made.
-- `prds/` — product-area, initiative, feature, and story requirements.
+- `projects/` — one folder per initiative: brief, status, requirements, build brief, and the
+  meetings, decisions, and outcomes that belong to it.
+- `meetings/` — product-wide summaries with preserved raw source archives.
+- `outcomes/` — product-wide recommendations, prioritization, and next steps.
+- `decisions/` — every decision and why it was made, across all projects.
+
+Active work lives in a project; knowledge that outlives any one project stays in the shared folders.
+You do not need to decide where things go; the agent files them by scope.
+
+## Think and build
+
+Each project has a stage: discover, define, build, launch, or learn. Early on, the agent helps you
+think: evidence, options, decisions, and requirements. Later it helps you build: a build brief that a
+coding agent or an engineering team can work from, a check of what comes back against the acceptance
+criteria, and a record of what you learned. Your PM profile in `AGENTS.md` records whether you hand
+work to engineers or also build with coding agents. Application code stays in your code repository,
+not in this workspace.
 
 Your setup may add research, design, experiments, data, roadmaps, launches, stakeholder
 communications, or other areas when they fit your product stage and responsibilities. It should not

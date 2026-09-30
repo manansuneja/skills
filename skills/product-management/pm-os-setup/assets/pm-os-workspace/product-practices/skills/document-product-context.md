@@ -33,10 +33,11 @@ and [product-practices/references/](../references/INDEX.md) for PM-provided exam
 | Context | File or folder |
 |---|---|
 | Product purpose, audience, goal, positioning | `product-docs/product-vision.md` |
-| Meeting output | `product-docs/meetings/<MMM-DD-YYYY>-<short-title>/summary.md` |
-| Product insight, recommendation, prioritization, MVP cut | `product-docs/outcomes/<MMM-DD-YYYY>-<topic>.md` |
-| Committed decision | `product-docs/decisions/<MMM-DD-YYYY>-<decision-slug>.md` |
-| Feature/spec work | `product-docs/prds/<area-or-mvp-slug>/<feature-slug>/prd.md` or `product-docs/prds/<feature-slug>/prd.md` |
+| Initiative: brief, status, requirements, build brief | `product-docs/projects/<project-slug>/` |
+| Product-wide meeting output | `product-docs/meetings/<MMM-DD-YYYY>-<short-title>/summary.md` |
+| Product-wide insight, recommendation, prioritization | `product-docs/outcomes/<MMM-DD-YYYY>-<topic>.md` |
+| Committed decision | `product-docs/decisions/<MMM-DD-YYYY>-<decision-slug>.md`, or the project's `decisions/`, plus a row in the global decisions log |
+| Meeting, outcome, or decision about one project | Inside that project's `meetings/`, `outcomes/`, or `decisions/` folder |
 | Profile-driven artifact | The customized product area and structure defined by its skill/template |
 | New operating convention | `AGENTS.md`, a skill file, or an agent file |
 

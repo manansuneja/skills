@@ -10,8 +10,9 @@ content. It keeps product memory focused, connected, and findable.
 - Use `lower-kebab-case` for descriptive files and folders.
 - Prefix genuinely time-ordered artifacts with `MMM-DD-YYYY`, such as
   `Jan-15-2026-pricing-decision.md`.
-- Use stable topic-first folders for ongoing areas. For PRDs, mirror product scope with area,
-  initiative, feature, and story levels when useful.
+- Use stable topic-first folders for ongoing areas. Active work lives in
+  `product-docs/projects/<project-slug>/`; PRDs mirror product scope inside it with feature and
+  story levels when useful.
 - Use Markdown for narrative text and structured formats for repeated data.
 
 ## Focused folder lifecycle
@@ -37,7 +38,8 @@ content. It keeps product memory focused, connected, and findable.
 
 Run this lightweight pass whenever `AGENTS.md` is read at the start of a session:
 
-1. List the actual tree under `product-docs/` and `product-practices/`, plus immediate root entries.
+1. List the actual tree under `product-docs/` (including each project folder) and
+   `product-practices/`, plus immediate root entries.
    Compare paths with nearest indexes. Inspect names and index presence first; read contents only
    when necessary to infer purpose.
 2. Ignore `raw/`, hidden/tool folders, workspace machinery, dependency/build outputs, and archives
@@ -72,7 +74,10 @@ Report reconciled additions briefly. This is background maintenance, not work th
 | Meeting | `product-docs/meetings/<MMM-DD-YYYY>-<title>/summary.md` + `raw/raw-notes.md` |
 | Outcome | `product-docs/outcomes/<MMM-DD-YYYY>-<topic>.md` |
 | Decision | `product-docs/decisions/<MMM-DD-YYYY>-<decision>.md` |
-| PRD | `product-docs/prds/<area-or-initiative>/<feature>/prd.md` with stories as needed |
+| Project | `product-docs/projects/<project-slug>/` with `INDEX.md`, `brief.md`, `status.md` |
+| PRD | `product-docs/projects/<project-slug>/prd.md`, or `features/<feature-slug>/prd.md` with stories as needed |
+| Build brief | `product-docs/projects/<project-slug>/build-brief.md`, or beside the feature's PRD |
+| Project-scoped meeting, outcome, decision | `product-docs/projects/<project-slug>/{meetings,outcomes,decisions}/` |
 | Profile-driven artifact | The customized area and format defined by its product skill/template |
 
 If a new artifact type repeats, create a focused area with `INDEX.md` and update product-docs and
@@ -82,6 +87,17 @@ Narrative artifacts are Markdown-first. A plain request for a PRD, brief, plan, 
 synthesis creates `.md`. Use an installed document, presentation, spreadsheet, design, research, or
 other specialized capability only when requested or clearly required. Store any heavier deliverable
 beside its Markdown source or supporting context and index both.
+
+## Filing by scope
+
+- Work that belongs to one initiative goes inside its project; subfolders appear when first needed.
+- Knowledge that outlives a project or spans projects stays in the global `meetings/`, `outcomes/`,
+  and `decisions/` folders, plus `product-vision.md`.
+- Every decision, whatever its scope, also gets a row in the global decisions log with a Scope value.
+- A project's stage and health live in `status.md` and are mirrored in the portfolio table and, when
+  active work changes, the root workboard. Update them in the same change.
+- Finished or paused projects keep their folders: set the stage to `done` or `parked` and log why.
+- Application code never lives in the workspace; link the repository from the project's `brief.md`.
 
 ## INDEX.md rules
 
@@ -132,3 +148,4 @@ inbox copy only after the archive exists.
 7. Is product vision current without mixing PM OS machinery into product content?
 8. Are all user-created folders, subfolders, and files discoverable from the nearest useful index?
 9. Do product practices and specialists match the current content structure?
+10. Is each artifact filed by scope, with the project status, portfolio row, and decisions log in sync?

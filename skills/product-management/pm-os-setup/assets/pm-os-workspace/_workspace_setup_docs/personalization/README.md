@@ -25,6 +25,8 @@ and useful specialists fit your product stage and responsibilities without unnec
 - The current stage, bet, goal, or active decision if you know it.
 - Existing files, folders, pasted notes, docs, links, examples, decisions, or constraints to use.
 - The kinds of PM work and tracking that matter now—and anything you do not need.
+- How you work: handing specs to an engineering team, or also building with coding agents.
+- The initiatives you are working on now, so each can start as a project.
 - Any format or style you already want followed.
 
 After setup, start using the Chief PM. Ask it to add folders, trackers, skills, templates, or

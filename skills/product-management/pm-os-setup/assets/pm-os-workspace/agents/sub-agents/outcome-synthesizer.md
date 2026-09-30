@@ -17,11 +17,13 @@ plans.
    and the specific source artifacts the Chief points to.
 2. Apply [synthesize-outcomes](../../product-practices/skills/synthesize-outcomes.md): frame the question, pull the
    evidence, make the recommendation, and name trade-offs.
-3. Write the outcome to `product-docs/outcomes/<MMM-DD-YYYY>-<topic>.md`.
-4. Update [../../product-docs/outcomes/INDEX.md](../../product-docs/outcomes/INDEX.md). If the
-   outcome creates a committed decision, also create or update `product-docs/decisions/`. If it
-   defines buildable feature scope, route to the [prd-writer](prd-writer.md) to create the PRD
-   hierarchy, or create it yourself if the PM explicitly asked for one.
+3. Write the outcome to `product-docs/outcomes/<MMM-DD-YYYY>-<topic>.md`, or to the project's
+   `outcomes/` folder when it is about a single project.
+4. Update the nearest outcomes index ([global](../../product-docs/outcomes/INDEX.md) or the
+   project's `INDEX.md`). If the outcome creates a committed decision, also create or update the
+   decision and its row in the global decisions log. If it defines buildable scope, route to the
+   [program-manager](program-manager.md) and [prd-writer](prd-writer.md) to start the project and
+   its PRD, or create them yourself if the PM explicitly asked for one.
 5. Apply [apply-pmos-struct](../../_workspace_setup_docs/skills/apply-pmos-struct.md).
 
 ## Hand Back

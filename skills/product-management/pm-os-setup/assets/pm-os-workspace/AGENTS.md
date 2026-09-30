@@ -36,6 +36,27 @@ For normal work, act through the **Chief PM**: [agents/pm-chief.md](agents/pm-ch
 requests and applies specialists and product skills as needed. The PM normally just talks in the
 workspace.
 
+## PM profile
+
+**Profile:** `pm` _(default. Personalization asks how the PM works and updates this line.)_
+
+- `pm` — defines the product and hands build work to an engineering team. The
+  [Builder](agents/sub-agents/builder.md) stops at a build brief people can act on.
+- `pm-builder` — also builds prototypes or features with coding agents. The Builder additionally
+  writes coding-agent task prompts, scopes prototypes, checks results against acceptance criteria,
+  and keeps ship notes.
+
+Application code never lives in this workspace. Link the code repository from the project's
+`brief.md`; the workspace holds the product thinking and the briefs that drive the build.
+
+## Think and Build
+
+Work moves between two modes. The PM does not pick one; the Chief reads the project's stage in
+`status.md`.
+
+- **Think** (discover, define): evidence, options, decisions, and requirements.
+- **Build** (build, launch, learn): build briefs, handoff, verification, status, and what was learned.
+
 ## Automatic structural reconciliation
 
 Whenever this file is read at the start of a session, perform a lightweight structure check before
@@ -43,8 +64,8 @@ substantial work:
 
 1. Compare the actual folder/file tree with the nearest `INDEX.md` maps. Scan paths and index
    presence; do not load every file's contents.
-2. Check `product-docs/`, `product-practices/`, and immediate root entries for user-created folders,
-   subfolders, or files missing from indexes. Skip `raw/`, hidden/tool folders, agent-facing
+2. Check `product-docs/` (including each project folder), `product-practices/`, and immediate root
+   entries for user-created folders, subfolders, or files missing from indexes. Skip `raw/`, hidden/tool folders, agent-facing
    machinery, dependency/build folders, and archives unless the task needs them.
 3. Treat manually added content as intentional. Preserve it, infer purpose from its name and nearby
    material, then update the nearest useful index. Create a local `INDEX.md` only when the folder is
@@ -65,7 +86,8 @@ or announce that they created a folder.
 - **Reusable product practices:** `product-practices/skills/`, `product-practices/templates/`, and
   `product-practices/references/`.
 - **Product work:** `product-docs/`—the actual product vision, evidence, decisions, requirements, and
-  current artifacts.
+  current artifacts. Active work lives in `product-docs/projects/<project>/`; product-wide knowledge
+  stays in the global folders.
 
 Do not describe the Chief PM, agents, or PM OS as the user's product unless that is explicitly what
 they are building. Decide whether new material is current product work or a reusable way of doing
@@ -99,6 +121,10 @@ future product work, then place it in `product-docs/` or `product-practices/` ac
   `raw/` folder, create the durable artifact separately, and update indexes.
 - **Save substantial work.** Put analysis, recommendations, decisions, PRDs, and plans in the right
   product area; use chat for a short handoff with paths and takeaways.
+- **File by scope.** Work that belongs to one initiative goes inside its project; product-wide
+  work stays in the global folders. Every decision also gets a row in the global decisions log.
+- **Keep projects honest.** Stage and health live in each project's `status.md` and are mirrored in
+  the portfolio table. Update both in the same change.
 - **Keep structure focused.** Do not create a top-level area because it might be useful someday.
 - **Keep documentation alive.** Update product vision and related durable context when the source is
   clear. Ask before overwriting established direction.
@@ -135,6 +161,7 @@ Follow
 ```text
 START_HERE.md                    user welcome guide
 product-docs/                   primary PM + agent working surface
+  projects/                     one folder per initiative: brief, status, PRD, build brief
 product-practices/              shared customization center
   skills/                       output/workflow instructions
   templates/                    exact reusable formats

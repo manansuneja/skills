@@ -10,7 +10,9 @@ New here? Read [START_HERE.md](START_HERE.md).
 | [summarize-notes.md](summarize-notes.md) | Turn raw notes into a clean, filed summary | meeting-summarizer |
 | [synthesize-outcomes.md](synthesize-outcomes.md) | Produce durable recommendations, prioritization, and MVP choices | outcome-synthesizer |
 | [brainstorm.md](brainstorm.md) | Explore options, assumptions, and trade-offs | brainstorm-partner |
-| [to-prd.md](to-prd.md) | Turn context into product-area, feature, and story requirements | prd-writer |
+| [run-projects.md](run-projects.md) | Start and update projects; keep stage, health, risks, and the portfolio current | program-manager |
+| [to-prd.md](to-prd.md) | Turn context into a project's feature and story requirements | prd-writer |
+| [to-build-brief.md](to-build-brief.md) | Turn a PRD into a build handoff for a coding agent or engineers | builder |
 | [document-product-context.md](document-product-context.md) | Keep product vision, decisions, and durable context current | documentation-steward |
 
 Add research, design, data, roadmap, launch, communication, or other skills only when an explicit

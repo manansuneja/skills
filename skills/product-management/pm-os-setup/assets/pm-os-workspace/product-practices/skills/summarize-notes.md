@@ -33,7 +33,8 @@ workflow guidance.
 
 If the notes are loose, first file them under
 `product-docs/meetings/<MMM-DD-YYYY>-<short-title>/raw/raw-notes.md` and remove the loose inbox copy
-after the archive exists. Then write `summary.md` in the meeting folder. Never edit raw notes. Treat
+after the archive exists. When the meeting is clearly about one project, file it under that project's
+`meetings/` folder instead and update the project's `INDEX.md`. Then write `summary.md` in the meeting folder. Never edit raw notes. Treat
 `summary.md` as the main context surface; open `raw/` only when you need to verify source details.
 Then apply [apply-pmos-struct](../../_workspace_setup_docs/skills/apply-pmos-struct.md) and update
 [the meetings index](../../product-docs/meetings/INDEX.md).
