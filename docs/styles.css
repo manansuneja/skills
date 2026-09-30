@@ -90,6 +90,9 @@ code {
   color: var(--ink);
 }
 
+.tutorial { display: flex; justify-content: center; }
+.tutorial .twitter-tweet { margin-block: 0; }
+
 .button {
   display: inline-block;
   padding: 14px 26px;
