@@ -203,10 +203,10 @@ The PM supplies intentions and examples; the agent manages configuration and con
 
 ## Pairs With
 
-- [Workflow Creator](../../agent-workflows/workflow-create) — once your product work lives in the
+- [Workflow Creator](https://github.com/manansuneja/skills/tree/main/skills/agent-workflows/workflow-create) — once your product work lives in the
   OS, turn the recurring rituals (meeting notes → action list, raw notes → PRD) into one-command
   workflows your agent runs end to end.
-- [Workspace OS Setup](../../business/workspace-os-setup) — the same operating-system move for a
+- [Workspace OS Setup](https://github.com/manansuneja/skills/tree/main/skills/business/workspace-os-setup) — the same operating-system move for a
   studio, small business, or client project instead of a product.
 
 ## What This Skill Does And How To Use It
