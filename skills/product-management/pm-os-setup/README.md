@@ -66,6 +66,29 @@ the conversation, but it will clearly disclose that it has not created a durable
 ChatGPT Project. When supported, it can offer downloadable Markdown files or continue the full
 workspace setup later in a file-capable desktop or coding environment.
 
+## Install In Claude
+
+Add PM OS from the Claude directory, or from Manan's marketplace with `Customize > Plugins > Add >
+Add marketplace` and `manansuneja/skills`. In Claude Code:
+
+```text
+/plugin install pm-os-setup --marketplace manansuneja/skills
+```
+
+## What This Plugin Runs And Accesses
+
+- **Instructions and templates only.** PM OS is a skill: Markdown instructions plus template files.
+  It has no hooks, no MCP server, no hosted service, and no telemetry, and it sends no data anywhere.
+- **One local setup script.** On setup it runs `scripts/scaffold-pm-os.sh` (or
+  `scaffold-pm-os.ps1` on Windows), which copies the bundled workspace templates into the folder you
+  choose. The script makes no network calls and deletes nothing.
+- **Your workspace files only.** Afterwards the agent reads and writes Markdown files inside that
+  workspace folder. It asks before deleting or moving anything you wrote.
+- **Optional installs, only on request.** The workspace notes mention two commands you can choose to
+  run: `npx skills@latest update pm-os-setup -g` to update PM OS, and installing Anthropic's
+  `skill-creator` skill from `github.com/anthropics/skills` when you ask for help building a new
+  skill. The agent proposes these and waits for your go-ahead; nothing is installed on its own.
+
 ## Updating The Skill
 
 ```bash
