@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "manan-skills",
+  "description": "Plugins by Manan Suneja for product managers and product builders.",
+  "owner": {
+    "name": "Manan Suneja",
+    "url": "https://github.com/manansuneja"
+  },
+  "plugins": [
+    {
+      "name": "pm-os-setup",
+      "description": "PM OS: a self-organizing product workspace with a Chief PM agent, lasting context, reusable skills, and a map of everything.",
+      "source": "./skills/product-management/pm-os-setup",
+      "category": "productivity",
+      "homepage": "https://manansuneja.github.io/skills/"
+    }
+  ]
+}

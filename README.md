@@ -2,6 +2,26 @@
 
 Practical agent skills for PMs, designers, operators, small business owners, and product builders.
 
+## Easiest: ask your AI to install PM OS
+
+Paste this into Claude, ChatGPT, Cursor, or any coding agent:
+
+```text
+Install the PM OS plugin by Manan: https://manansuneja.github.io/skills/
+```
+
+Agents that can run commands install it directly (instructions for agents:
+[install.md](https://manansuneja.github.io/skills/install.md)). Chat apps can't add plugins
+themselves, so they walk you through the steps below. In Claude you can also skip the download:
+`Customize > Plugins > + Add > Add marketplace`, enter `manansuneja/skills`, and add PM OS.
+
+In Claude Code:
+
+```text
+/plugin marketplace add manansuneja/skills
+/plugin install pm-os-setup@manan-skills
+```
+
 ## No terminal? Download PM OS
 
 **[Download the PM OS plugin (.zip)](https://manansuneja.github.io/skills/downloads/pm-os-plugin.zip)**

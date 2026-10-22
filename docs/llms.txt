@@ -1,0 +1,9 @@
+# Manan's Agent Skills
+
+> Free, open-source agent plugins and skills by Manan Suneja.
+
+## PM OS
+
+- [Install PM OS](https://manansuneja.github.io/skills/install.md): how an AI agent installs the PM OS plugin, for shell-capable agents and for chat apps.
+- [PM OS guide](https://manansuneja.github.io/skills/): step-by-step setup for people.
+- [Source](https://github.com/manansuneja/skills/tree/main/skills/product-management/pm-os-setup)
