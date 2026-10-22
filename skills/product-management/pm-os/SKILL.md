@@ -1,6 +1,6 @@
 ---
-name: pm-os-setup
-description: "Builds and personalizes a PM workspace that gives an agent lasting product context. It organizes vision, projects, meetings, decisions, outcomes, PRDs, and build briefs as indexed files; adds a Chief PM, specialists for project status and build handoff, and reusable product practices; serves PMs and PM-builders who work with coding agents; and grows with the product. Use when a PM asks for a PM OS, product workspace, product memory system, or invokes pm-os-setup. Not for application code or unrelated scaffolding."
+name: pm-os
+description: "Builds and personalizes a PM workspace that gives an agent lasting product context. It organizes vision, projects, meetings, decisions, outcomes, PRDs, and build briefs as indexed files; adds a Chief PM, specialists for project status and build handoff, and reusable product practices; serves PMs and PM-builders who work with coding agents; and grows with the product. Use when a PM asks for a PM OS, product workspace, product memory system, or invokes pm-os. Not for application code or unrelated scaffolding."
 ---
 
 # PM OS

@@ -8,9 +8,9 @@
   },
   "plugins": [
     {
-      "name": "pm-os-setup",
+      "name": "pm-os",
       "description": "PM OS: a self-organizing product workspace with a Chief PM agent, lasting context, reusable skills, and a map of everything.",
-      "source": "./skills/product-management/pm-os-setup",
+      "source": "./skills/product-management/pm-os",
       "category": "productivity",
       "homepage": "https://manansuneja.github.io/skills/"
     }

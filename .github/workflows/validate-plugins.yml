@@ -60,7 +60,7 @@ jobs:
           PLUGIN_BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before }}
 
       - name: Run PM OS scaffold smoke tests
-        run: python scripts/test_plugins.py --plugin pm-os-setup
+        run: python scripts/test_plugins.py --plugin pm-os
 
       - name: Run Workspace OS scaffold smoke tests
         run: python scripts/test_plugins.py --plugin workspace-os-setup

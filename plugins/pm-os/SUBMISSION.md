@@ -36,10 +36,10 @@ Long description:
 ## Upload candidate
 
 - Version: `1.2.4`
-- Bundle: `dist/plugins/releases/pm-os-setup-1.2.4-skill-bundle.zip`
+- Bundle: `dist/plugins/releases/pm-os-1.2.4-skill-bundle.zip`
 - Bundle SHA-256: `17b41a147cc74f94cc222682f9840dc14bfc10cf63fdfa8e7b3c2078178dec02`
 - Skill payload digest: `49615bc67adb3d1100321d3b4be4e7ac8a3b657e5b62e85430380243fcef4b65`
-- Logo source: `plugins/pm-os-setup/assets/logo-v2-marketplace.jpg`
+- Logo source: `plugins/pm-os/assets/logo-v2-marketplace.jpg`
 
 Do not rebuild or edit the skill after completing the manual tests. If the
 bundle changes, bump the version and repeat the tests against the new digest.

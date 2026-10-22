@@ -20,7 +20,7 @@
   </header>
   <main>
     <section class="hero">
-      <img src="assets/pm-os-setup.jpg" alt="PM OS product mark">
+      <img src="assets/pm-os.jpg" alt="PM OS product mark">
       <div>
         <div class="eyebrow">Free plugin for product managers</div>
         <h1>PM OS</h1>
@@ -86,7 +86,7 @@
           <li>Open <b>Customize</b> and check that <b>PM OS</b> is listed.</li>
           <li>Open an empty folder and ask the agent <b>“Set up a PM OS for my product.”</b></li>
         </ol>
-        <p class="note">On Teams and Enterprise, an admin may need to turn on <b>Allow Local Plugin Imports</b>. Terminal instead: <code>npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a cursor</code></p>
+        <p class="note">On Teams and Enterprise, an admin may need to turn on <b>Allow Local Plugin Imports</b>. Terminal instead: <code>npx skills@latest add manansuneja/skills --skill pm-os -g -a cursor</code></p>
       </div>
       <div class="card">
         <strong>VS Code</strong> <span class="where">GitHub Copilot</span>
@@ -100,7 +100,7 @@
           <li>Run <b>Developer: Reload Window</b>, then <b>Chat: Open Customizations</b> and check the <b>Plugins</b> tab for <b>PM OS</b>.</li>
           <li>Open an empty folder and ask Copilot in agent mode <b>“Set up a PM OS for my product.”</b></li>
         </ol>
-        <p class="note">On Windows, write the path with forward slashes, like <code>C:/Users/you/Documents/pm-os-plugin</code>. Terminal instead: <code>npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a github-copilot</code></p>
+        <p class="note">On Windows, write the path with forward slashes, like <code>C:/Users/you/Documents/pm-os-plugin</code>. Terminal instead: <code>npx skills@latest add manansuneja/skills --skill pm-os -g -a github-copilot</code></p>
       </div>
     </div>
 
@@ -122,14 +122,14 @@
       <li><b>Claude can't run the setup.</b> Open <b>Settings → Capabilities</b> and turn on <b>Code execution and file creation</b>. On Team or Enterprise plans, an owner may need to allow plugin uploads.</li>
       <li><b>“Couldn't add plugin” or “missing .claude-plugin/plugin.json”.</b> The file you uploaded isn't the original plugin zip. Usually it's a folder that was re-zipped with <b>Compress</b>, or the skill-only zip. Download <code>pm-os-plugin.zip</code> again (see the Safari note above) and upload that file as is.</li>
       <li><b>No upload option in ChatGPT on the web.</b> There, plugin uploads are limited to workspace admins (<b>Admin → Plugins</b>). Use the ChatGPT desktop app instead.</li>
-      <li><b>The plugin doesn't start.</b> Say “Use pm-os-setup to set up a PM OS for my product.”</li>
+      <li><b>The plugin doesn't start.</b> Say “Use pm-os to set up a PM OS for my product.”</li>
       <li><b>Prefer to add it as a skill?</b> Download <a href="downloads/pm-os-skill.zip">pm-os-skill.zip</a> (skill only, not a plugin) and upload it under <b>Customize → Skills</b> in Claude, or <b>Plugins → Skills → Create → Upload from your computer</b> in ChatGPT.</li>
     </ul>
 
     <h2>Prefer the terminal?</h2>
     <p>Install the skill for Claude Code, Codex, Cursor, VS Code, and other coding agents with one command. Add <code>-a cursor</code> or <code>-a github-copilot</code> to target Cursor or VS Code:</p>
-    <pre><code>npx skills@latest add manansuneja/skills --skill pm-os-setup -g</code></pre>
-    <p>Source, release notes, and every other install path live on <a href="https://github.com/manansuneja/skills/tree/main/skills/product-management/pm-os-setup">GitHub</a>.</p>
+    <pre><code>npx skills@latest add manansuneja/skills --skill pm-os -g</code></pre>
+    <p>Source, release notes, and every other install path live on <a href="https://github.com/manansuneja/skills/tree/main/skills/product-management/pm-os">GitHub</a>.</p>
 
     <div class="card">
       <strong>Plain files by design</strong>

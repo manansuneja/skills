@@ -5,7 +5,7 @@ Suneja that sets up a self-organizing product workspace. Use the first option th
 can do, tell the user which one you used, then offer to run: "Set up a PM OS for my product."
 
 PM OS is plain Markdown instructions and templates. It has no server, account connection, or
-telemetry. Source: https://github.com/manansuneja/skills/tree/main/skills/product-management/pm-os-setup
+telemetry. Source: https://github.com/manansuneja/skills/tree/main/skills/product-management/pm-os
 
 ## 1. You can run shell commands
 
@@ -13,7 +13,7 @@ For Claude Code, Codex, Cursor, VS Code with GitHub Copilot, Gemini CLI, and oth
 Confirm with the user, then run:
 
 ```bash
-npx skills@latest add manansuneja/skills --skill pm-os-setup -g
+npx skills@latest add manansuneja/skills --skill pm-os -g
 ```
 
 To install for one agent only, add `-a claude-code`, `-a codex`, `-a cursor`, or
@@ -23,7 +23,7 @@ In Claude Code you can install it as a plugin instead:
 
 ```text
 /plugin marketplace add manansuneja/skills
-/plugin install pm-os-setup@manan-skills
+/plugin install pm-os@manan-skills
 ```
 
 ## 2. You are a chat assistant and cannot install plugins yourself

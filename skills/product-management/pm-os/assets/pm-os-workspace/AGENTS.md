@@ -174,10 +174,10 @@ AGENTS.md, CLAUDE.md, .cursor/   agent/tool-facing wiring
 
 ## Updating the installed setup skill
 
-If the PM asks how to update the globally installed `pm-os-setup` skill, provide:
+If the PM asks how to update the globally installed `pm-os` skill, provide:
 
 ```bash
-npx skills@latest update pm-os-setup -g
+npx skills@latest update pm-os -g
 ```
 
 Do not run it silently unless the PM explicitly asks.

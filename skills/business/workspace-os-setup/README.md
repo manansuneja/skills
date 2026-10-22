@@ -148,7 +148,7 @@ the skill on. Then ask: `Use workspace-os-setup to set up a workspace for my stu
 
 ## Pairs With
 
-- [PM OS](../../product-management/pm-os-setup) — the same operating-system move, purpose-built
+- [PM OS](../../product-management/pm-os) — the same operating-system move, purpose-built
   for product managers and product context.
 - [Workflow Creator](../../agent-workflows/workflow-create) — once your workspace holds how you
   work, turn the recurring jobs (client brief → proposal, notes → summary) into one-command

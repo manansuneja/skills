@@ -12,7 +12,7 @@
   "license": "MIT",
   "skills": [
     "./skills/agent-workflows/workflow-create",
-    "./skills/product-management/pm-os-setup",
+    "./skills/product-management/pm-os",
     "./skills/business/workspace-os-setup"
   ]
 }

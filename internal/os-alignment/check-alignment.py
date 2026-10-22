@@ -20,8 +20,8 @@ VARIANTS = {
         "apply": "apply-workspace-struct.md",
         "chief": "agents/workspace-chief.md",
     },
-    "pm-os-setup": {
-        "root": ROOT / "skills/product-management/pm-os-setup",
+    "pm-os": {
+        "root": ROOT / "skills/product-management/pm-os",
         "asset": "assets/pm-os-workspace",
         "practices": "product-practices",
         "docs": "product-docs",
@@ -221,18 +221,18 @@ def validate_variant(name: str, config: dict[str, object]) -> None:
 for variant_name, variant_config in VARIANTS.items():
     validate_variant(variant_name, variant_config)
 
-pm_asset = VARIANTS["pm-os-setup"]["root"] / VARIANTS["pm-os-setup"]["asset"]
+pm_asset = VARIANTS["pm-os"]["root"] / VARIANTS["pm-os"]["asset"]
 assert isinstance(pm_asset, Path)
 if (pm_asset / "product-skills").exists():
     fail("PM OS must keep skills under product-practices/skills/, not a top-level product-skills/.")
 
 require_terms(
-    "pm-os-setup/prd-writer.md",
+    "pm-os/prd-writer.md",
     read(pm_asset / "agents/sub-agents/prd-writer.md"),
     ["meaning and scope", "durable PRD practice", "same task", "to-prd"],
 )
 require_terms(
-    "pm-os-setup/to-prd.md",
+    "pm-os/to-prd.md",
     read(pm_asset / "product-practices/skills/to-prd.md"),
     ["Learn durable PRD practice", "without an explicit request", "same task"],
 )
@@ -254,17 +254,17 @@ if (pm_asset / "product-docs/prds").exists():
     fail("PM OS files PRDs inside product-docs/projects/, not a flat product-docs/prds/.")
 
 require_terms(
-    "pm-os-setup/AGENTS.md",
+    "pm-os/AGENTS.md",
     read(pm_asset / "AGENTS.md"),
     ["PM profile", "pm-builder", "File by scope", "Application code never lives in this workspace"],
 )
 require_terms(
-    "pm-os-setup/builder.md",
+    "pm-os/builder.md",
     read(pm_asset / "agents/sub-agents/builder.md"),
     ["Profile `pm`", "Profile `pm-builder`", "acceptance criteria", "Ask before external writes"],
 )
 require_terms(
-    "pm-os-setup/run-projects.md",
+    "pm-os/run-projects.md",
     read(pm_asset / "product-practices/skills/run-projects.md"),
     ["Filing by scope", "Learn durable project practice", "same task"],
 )
@@ -288,4 +288,4 @@ if ERRORS:
         print(f"ERROR: {error}", file=sys.stderr)
     sys.exit(1)
 
-print("Workspace OS family alignment passed for workspace-os-setup and pm-os-setup.")
+print("Workspace OS family alignment passed for workspace-os-setup and pm-os.")

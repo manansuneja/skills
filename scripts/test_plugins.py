@@ -103,7 +103,7 @@ def assert_required_workspace(root: Path) -> None:
         require((root / relative).exists(), f"Scaffold is missing required path: {root / relative}")
     state = json.loads((root / "_workspace_setup_docs/workspace-state.json").read_text(encoding="utf-8"))
     require(state.get("system") == "pm-os", "PM OS state has the wrong system identifier")
-    require(state.get("setupVersion") == "1.3.0", "PM OS state has the wrong setup version")
+    require(state.get("setupVersion") == "1.4.0", "PM OS state has the wrong setup version")
     require(state.get("workspaceSchemaVersion") == 2, "PM OS state has the wrong workspace schema")
     require(not (root / "product-docs/prds").exists(), "PM OS scaffold still ships the flat prds/ folder")
     index_text = (root / "INDEX.md").read_text(encoding="utf-8")
@@ -237,7 +237,7 @@ def test_workspace_scaffold(output_root: Path) -> int:
 
 
 def test_pm_scaffold(output_root: Path) -> int:
-    skill_root = output_root / "openai" / "pm-os-setup" / "skills" / "pm-os-setup"
+    skill_root = output_root / "openai" / "pm-os" / "skills" / "pm-os"
     script_base = skill_root / "scripts" / "scaffold-pm-os"
     require((script_base.with_suffix(".ps1") if os.name == "nt" else script_base.with_suffix(".sh")).is_file(), "Missing packaged PM OS scaffold script")
     checks = 0
@@ -314,7 +314,7 @@ def test_reproducible_build(catalog_path: Path, plugin: str) -> int:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--plugin", default="pm-os-setup", choices=["pm-os-setup", "workspace-os-setup"])
+    parser.add_argument("--plugin", default="pm-os", choices=["pm-os", "workspace-os-setup"])
     parser.add_argument("--catalog", type=Path, default=DEFAULT_CATALOG)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     return parser.parse_args()
@@ -324,7 +324,7 @@ def main() -> int:
     args = parse_args()
     try:
         checks = test_reproducible_build(args.catalog.resolve(), args.plugin)
-        if args.plugin == "pm-os-setup":
+        if args.plugin == "pm-os":
             checks += test_pm_scaffold(args.output.resolve())
         elif args.plugin == "workspace-os-setup":
             checks += test_workspace_scaffold(args.output.resolve())

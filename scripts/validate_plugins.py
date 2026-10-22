@@ -254,14 +254,14 @@ def validate_marketplace(validation: Validation, output_root: Path) -> None:
     validation.require(len(entries) == 1, "Pilot marketplace must list only PM OS")
     if entries:
         entry = entries[0]
-        validation.require(entry.get("name") == "pm-os-setup", "Pilot marketplace entry must be pm-os-setup")
-        expected = "./dist/plugins/openai/pm-os-setup"
+        validation.require(entry.get("name") == "pm-os", "Pilot marketplace entry must be pm-os")
+        expected = "./dist/plugins/openai/pm-os"
         validation.require(entry.get("source", {}).get("path") == expected, f"Marketplace source must be {expected}")
         validation.require(entry.get("policy", {}).get("installation") == "AVAILABLE", "Marketplace installation policy must be AVAILABLE")
         validation.require(entry.get("policy", {}).get("authentication") == "ON_INSTALL", "Marketplace authentication policy must be ON_INSTALL")
         validation.require("products" not in entry.get("policy", {}), "Marketplace must not use product gating")
         validation.require(entry.get("category") == "Productivity", "Marketplace category must be Productivity")
-        validation.require((output_root / "openai" / "pm-os-setup").is_dir(), "Marketplace package target has not been built")
+        validation.require((output_root / "openai" / "pm-os").is_dir(), "Marketplace package target has not been built")
 
 
 def validate_version_bumps(validation: Validation, catalog: dict, base_ref: str | None) -> None:
@@ -343,13 +343,13 @@ def validate_all(catalog_path: Path, output_root: Path, base_ref: str | None = N
         source_digest = digest_files(tracked_files(entry["source"]))
         validation.require(entry.get("sourceDigest") == source_digest, f"Catalog source digest is stale for {name}")
 
-        if name in {"pm-os-setup", "workspace-os-setup"}:
-            template_dir = "pm-os-workspace" if name == "pm-os-setup" else "workspace-os-workspace"
+        if name in {"pm-os", "workspace-os-setup"}:
+            template_dir = "pm-os-workspace" if name == "pm-os" else "workspace-os-workspace"
             state_path = source_root / "assets" / template_dir / "_workspace_setup_docs" / "workspace-state.json"
             validation.require(state_path.is_file(), f"Missing workspace state template for {name}")
             if state_path.is_file():
                 state = load_json(state_path)
-                expected_system = "pm-os" if name == "pm-os-setup" else "workspace-os"
+                expected_system = "pm-os" if name == "pm-os" else "workspace-os"
                 validation.require(state.get("system") == expected_system, f"Workspace state system mismatch for {name}")
                 validation.require(state.get("setupVersion") == entry["version"], f"Workspace state setup version mismatch for {name}")
                 validation.require(isinstance(state.get("workspaceSchemaVersion"), int), f"Workspace schema version must be an integer for {name}")

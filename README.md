@@ -19,7 +19,7 @@ In Claude Code:
 
 ```text
 /plugin marketplace add manansuneja/skills
-/plugin install pm-os-setup@manan-skills
+/plugin install pm-os@manan-skills
 ```
 
 ## No terminal? Download PM OS
@@ -34,10 +34,10 @@ minute. See the [step-by-step guide](https://manansuneja.github.io/skills/).
   `pm-os-plugin.zip`.
 - **Cursor:** unzip it, move the `pm-os-plugin` folder into `~/.cursor/plugins/local/`, then run
   `Developer: Reload Window`. Or run
-  `npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a cursor`.
+  `npx skills@latest add manansuneja/skills --skill pm-os -g -a cursor`.
 - **VS Code** (GitHub Copilot): unzip it, then add `"chat.plugins.enabled": true` and
   `"chat.pluginLocations": { "/path/to/pm-os-plugin": true }` to your user `settings.json` and
-  reload. Or run `npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a github-copilot`.
+  reload. Or run `npx skills@latest add manansuneja/skills --skill pm-os -g -a github-copilot`.
 - Then say: **"Set up a PM OS for my product."** For the full workspace, use the Claude desktop app,
   start a Cowork task, and pick an empty folder.
 
@@ -63,8 +63,8 @@ codex plugin marketplace add .
 ```
 
 The portable Agent Plugins 1.0 package is generated at
-`dist/plugins/portable/pm-os-setup`; the ChatGPT/Codex test package is generated at
-`dist/plugins/openai/pm-os-setup`. Both contain the same digest-locked skill payload. Generated
+`dist/plugins/portable/pm-os`; the ChatGPT/Codex test package is generated at
+`dist/plugins/openai/pm-os`. Both contain the same digest-locked skill payload. Generated
 packages are disposable and are never committed.
 
 ## Install
@@ -73,7 +73,7 @@ Install one skill globally so it is available in every project:
 
 ```bash
 npx skills@latest add manansuneja/skills --skill workflow-create -g
-npx skills@latest add manansuneja/skills --skill pm-os-setup -g
+npx skills@latest add manansuneja/skills --skill pm-os -g
 npx skills@latest add manansuneja/skills --skill workspace-os-setup -g
 ```
 
@@ -89,7 +89,7 @@ Using Claude Code too? Add `-a claude-code` to the install command so the skill 
 linked under Claude Code's `.claude/skills` location. For example:
 
 ```bash
-npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a claude-code
+npx skills@latest add manansuneja/skills --skill pm-os -g -a claude-code
 ```
 
 To install every published skill in this catalog into Claude Code:
@@ -118,12 +118,12 @@ npx skills@latest add manansuneja/skills --skill workflow-create -g
 
 ### Product Management
 
-- [PM OS](skills/product-management/pm-os-setup) builds a PM workspace that gives your agent lasting context about your product, users, projects, decisions, meetings, PRDs, and build briefs.
+- [PM OS](skills/product-management/pm-os) builds a PM workspace that gives your agent lasting context about your product, users, projects, decisions, meetings, PRDs, and build briefs.
 
 Install:
 
 ```bash
-npx skills@latest add manansuneja/skills --skill pm-os-setup -g
+npx skills@latest add manansuneja/skills --skill pm-os -g
 ```
 
 
@@ -148,7 +148,7 @@ PM OS has a ready-to-upload ZIP: see [No terminal? Download PM OS](#no-terminal-
 For the other skills in Claude desktop or web, download this repo as a ZIP from GitHub. Upload only the specific nested skill folder you want:
 
 - `skills/agent-workflows/workflow-create`
-- `skills/product-management/pm-os-setup`
+- `skills/product-management/pm-os`
 - `skills/business/workspace-os-setup`
 
 In Claude, go to `Customize > Skills`, choose `+ Create skill`, upload the folder, and turn the skill on.

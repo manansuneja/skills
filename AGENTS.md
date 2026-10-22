@@ -29,7 +29,7 @@ This repo is the public `manansuneja/skills` catalog.
   required by plugin clients and release archives.
 - Keep v1 packages skills-only. Do not add apps, MCP servers, hooks, authentication, or telemetry
   without a separately reviewed product and privacy change.
-- Only `pm-os-setup` is listed in the local marketplace during the pilot. Follow-on plugin metadata
+- Only `pm-os` is listed in the local marketplace during the pilot. Follow-on plugin metadata
   does not imply public availability.
 
 ## Current Categories
@@ -49,7 +49,7 @@ powershell -ExecutionPolicy Bypass -File scripts/list-skills.ps1
 powershell -ExecutionPolicy Bypass -File scripts/validate-catalog.ps1
 python scripts/build_plugins.py
 python scripts/validate_plugins.py
-python scripts/test_plugins.py --plugin pm-os-setup
+python scripts/test_plugins.py --plugin pm-os
 python scripts/test_plugins.py --plugin workspace-os-setup
 ```
 
@@ -60,12 +60,12 @@ Plugin CI runs the build, manifest/package validation, reproducibility check, an
 tests on Windows and Ubuntu. Use `python scripts/build_plugins.py --refresh-digests` only after a
 canonical change and version bump; commit the reviewed catalog digest, never `dist/`.
 
-The public catalog should currently expose `workflow-create`, `pm-os-setup`, and
+The public catalog should currently expose `workflow-create`, `pm-os`, and
 `workspace-os-setup`.
 
 ## OS Family Alignment
 
-`workspace-os-setup` and `pm-os-setup` are separate, standalone public skills, but they share a
+`workspace-os-setup` and `pm-os` are separate, standalone public skills, but they share a
 behavioral contract. Before changing either one, read
 [`internal/os-alignment/ALIGNMENT.md`](internal/os-alignment/ALIGNMENT.md). Apply shared behavior
 changes to both skills in the same change unless the contract records an intentional domain

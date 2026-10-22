@@ -1,6 +1,6 @@
 {
-  "plugin": "pm-os-setup",
-  "version": "1.3.0",
+  "plugin": "pm-os",
+  "version": "1.4.0",
   "cases": [
     {
       "id": "positive-empty-b2b-saas",

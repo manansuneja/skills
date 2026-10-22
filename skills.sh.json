@@ -10,7 +10,7 @@
     {
       "title": "Product Management",
       "description": "Give your agent lasting product context instead of starting every chat from zero.",
-      "skills": ["pm-os-setup"]
+      "skills": ["pm-os"]
     },
     {
       "title": "Business",

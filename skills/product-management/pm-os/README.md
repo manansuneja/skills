@@ -40,19 +40,19 @@ you ask for them or the delivery context clearly requires them.
 Install globally:
 
 ```bash
-npx skills@latest add manansuneja/skills --skill pm-os-setup -g
+npx skills@latest add manansuneja/skills --skill pm-os -g
 ```
 
 Then ask your agent:
 
 ```text
-/pm-os-setup Set up a PM OS for Acme.
+/pm-os Set up a PM OS for Acme.
 ```
 
 If slash commands are unavailable, say:
 
 ```text
-Use pm-os-setup to set up a PM OS for Acme.
+Use pm-os to set up a PM OS for Acme.
 ```
 
 The agent scaffolds the intentionally selected current folder by default, creates a separate folder
@@ -72,7 +72,7 @@ Add PM OS from the Claude directory, or from Manan's marketplace with `Customize
 Add marketplace` and `manansuneja/skills`. In Claude Code:
 
 ```text
-/plugin install pm-os-setup --marketplace manansuneja/skills
+/plugin install pm-os --marketplace manansuneja/skills
 ```
 
 ## What This Plugin Runs And Accesses
@@ -85,14 +85,14 @@ Add marketplace` and `manansuneja/skills`. In Claude Code:
 - **Your workspace files only.** Afterwards the agent reads and writes Markdown files inside that
   workspace folder. It asks before deleting or moving anything you wrote.
 - **Optional installs, only on request.** The workspace notes mention two commands you can choose to
-  run: `npx skills@latest update pm-os-setup -g` to update PM OS, and installing Anthropic's
+  run: `npx skills@latest update pm-os -g` to update PM OS, and installing Anthropic's
   `skill-creator` skill from `github.com/anthropics/skills` when you ask for help building a new
   skill. The agent proposes these and waits for your go-ahead; nothing is installed on its own.
 
 ## Updating The Skill
 
 ```bash
-npx skills@latest update pm-os-setup -g
+npx skills@latest update pm-os -g
 ```
 
 ## No Terminal: Download And Upload
@@ -119,8 +119,8 @@ download.
 Terminal users can install the skill into Cursor or VS Code directly:
 
 ```bash
-npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a cursor
-npx skills@latest add manansuneja/skills --skill pm-os-setup -g -a github-copilot
+npx skills@latest add manansuneja/skills --skill pm-os -g -a cursor
+npx skills@latest add manansuneja/skills --skill pm-os -g -a github-copilot
 ```
 
 ## What It Creates
@@ -217,13 +217,13 @@ context, reusable practices, and a structure that starts small and grows with th
 Install it with:
 
 ```bash
-npx skills@latest add manansuneja/skills --skill pm-os-setup -g
+npx skills@latest add manansuneja/skills --skill pm-os -g
 ```
 
 Run it with:
 
 ```text
-/pm-os-setup Set up a PM OS for Acme.
+/pm-os Set up a PM OS for Acme.
 ```
 
 After scaffolding, say `Customize my workspace` to tailor the product structure and reusable

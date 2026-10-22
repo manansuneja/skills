@@ -1,5 +1,5 @@
 {
-  "plugin": "pm-os-setup",
+  "plugin": "pm-os",
   "version": "1.2.4",
   "payloadDigest": "49615bc67adb3d1100321d3b4be4e7ac8a3b657e5b62e85430380243fcef4b65",
   "submissionArchive": {

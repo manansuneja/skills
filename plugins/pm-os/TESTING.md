@@ -10,18 +10,18 @@ it does not replace activation-quality testing in an agent client.
 python -m pip install -r scripts/requirements-plugins.txt
 python scripts/build_plugins.py
 python scripts/validate_plugins.py
-python scripts/test_plugins.py --plugin pm-os-setup
+python scripts/test_plugins.py --plugin pm-os
 ```
 
 The submission upload is
-`dist/plugins/releases/pm-os-setup-1.2.4-skill-bundle.zip`. Before upload, its
+`dist/plugins/releases/pm-os-1.2.4-skill-bundle.zip`. Before upload, its
 SHA-256 must equal `submissionArchive.sha256` in `release-evidence.json`.
 
 ## ChatGPT/Codex local acceptance
 
 1. Run `codex plugin marketplace add .` from the repository root.
 2. Confirm `manan-skills` appears in `codex plugin marketplace list`.
-3. Install `pm-os-setup@manan-skills` in the Plugins Directory.
+3. Install `pm-os@manan-skills` in the Plugins Directory.
 4. Start a new Work conversation with a disposable empty folder.
 5. Run every case in `evals.json`. Record activation, questions asked, created
    files, safety behavior, missing steps, output usefulness, and the tested
@@ -51,12 +51,12 @@ Enable plugins, then register the portable package in user `settings.json`:
 {
   "chat.plugins.enabled": true,
   "chat.pluginLocations": {
-    "/absolute/path/to/dist/plugins/portable/pm-os-setup": true
+    "/absolute/path/to/dist/plugins/portable/pm-os": true
   }
 }
 ```
 
-Reload VS Code, open `Chat: Configure Skills`, and confirm `pm-os-setup` appears
+Reload VS Code, open `Chat: Configure Skills`, and confirm `pm-os` appears
 from the portable package. Run one positive setup case in a disposable folder
 and one negative non-activation case.
 

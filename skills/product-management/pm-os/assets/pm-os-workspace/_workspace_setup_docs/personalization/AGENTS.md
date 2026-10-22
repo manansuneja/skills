@@ -77,7 +77,7 @@ same four sets:
 - **Ask:** relevance is uncertain or the area contains user-authored files, raw input, custom links,
   index content, or nested artifacts.
 
-Use the installed `pm-os-setup/references/product-profiles.md` when the host makes it available.
+Use the installed `pm-os/references/product-profiles.md` when the host makes it available.
 Requirements determine immediate scope; product and PM context supply vocabulary and high-confidence
 gaps. Do not union every stage or PM-role profile.
 

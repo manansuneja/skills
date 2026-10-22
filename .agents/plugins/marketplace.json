@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "pm-os-setup",
+      "name": "pm-os",
       "source": {
         "source": "local",
-        "path": "./dist/plugins/openai/pm-os-setup"
+        "path": "./dist/plugins/openai/pm-os"
       },
       "policy": {
         "installation": "AVAILABLE",

@@ -10,15 +10,15 @@
   "maxPackageBytes": 1048576,
   "plugins": [
     {
-      "name": "pm-os-setup",
-      "version": "1.3.0",
+      "name": "pm-os",
+      "version": "1.4.0",
       "status": "pilot",
       "category": "Productivity",
-      "source": "skills/product-management/pm-os-setup",
-      "listing": "plugins/pm-os-setup/listing.json",
-      "evals": "plugins/pm-os-setup/evals.json",
-      "releaseEvidence": "plugins/pm-os-setup/release-evidence.json",
-      "sourceDigest": "131f8ec0fac030658a37754acce24508d9df4f5aa295398633d6e415d2ce0711"
+      "source": "skills/product-management/pm-os",
+      "listing": "plugins/pm-os/listing.json",
+      "evals": "plugins/pm-os/evals.json",
+      "releaseEvidence": "plugins/pm-os/release-evidence.json",
+      "sourceDigest": "ebf6ec4aac07419df179fab9bfb466e8e782e436709d4849a36d1779dcc340ee"
     },
     {
       "name": "workspace-os-setup",

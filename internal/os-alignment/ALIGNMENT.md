@@ -1,6 +1,6 @@
 # Workspace OS Family Alignment
 
-This is an internal repository contract. `workspace-os-setup` and `pm-os-setup` remain separate,
+This is an internal repository contract. `workspace-os-setup` and `pm-os` remain separate,
 standalone public skills with no runtime dependency on each other.
 
 ## Shared behaviors
